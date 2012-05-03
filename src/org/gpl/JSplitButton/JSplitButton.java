@@ -242,12 +242,11 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     /**
      * 
      * @param g 
-     * EDIT: The border bug listed in known issues is fixed, thanks to Hervé Guillaume
      */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics gClone = g.create();
+  Graphics gClone = g.create();//EDIT: Hervé Guillaume
         Color oldColor = gClone.getColor();
         splitRectangle = new Rectangle(getWidth() - splitWidth, 0, splitWidth, getHeight());
         gClone.translate(splitRectangle.x, splitRectangle.y);

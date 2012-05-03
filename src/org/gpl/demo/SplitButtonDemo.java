@@ -8,6 +8,7 @@ package org.gpl.demo;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import org.gpl.JSplitButton.JSplitButton;
 
 /**
  *
@@ -16,10 +17,14 @@ import javax.swing.UIManager;
 public class SplitButtonDemo extends javax.swing.JFrame {
 
     private ButtonGroup bg;
+    private JSplitButton splitButton;
 
     /** Creates new form SplitButtonDemo */
     public SplitButtonDemo() {
         initComponents();
+        splitButton = new JSplitButton("Split Button Demo");
+       getContentPane().add(splitButton);
+        
         
     }
 
@@ -39,7 +44,6 @@ public class SplitButtonDemo extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jSplitButton1 = new org.gpl.JSplitButton.JSplitButton();
 
         jMenuItem1.setText("Always drop down");
         jPopupMenu1.add(jMenuItem1);
@@ -57,26 +61,7 @@ public class SplitButtonDemo extends javax.swing.JFrame {
         jPopupMenu2.add(jMenuItem5);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jSplitButton1.setPopupMenu(jPopupMenu2);
-        jSplitButton1.setText("jSplitButton1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSplitButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(294, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jSplitButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(243, Short.MAX_VALUE))
-        );
+        getContentPane().setLayout(new java.awt.FlowLayout());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -103,7 +88,7 @@ public class SplitButtonDemo extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         } catch (Exception e) {
             
         }
@@ -122,7 +107,6 @@ public class SplitButtonDemo extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
-    private org.gpl.JSplitButton.JSplitButton jSplitButton1;
     // End of variables declaration//GEN-END:variables
 
 }

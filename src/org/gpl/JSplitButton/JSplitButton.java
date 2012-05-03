@@ -21,6 +21,7 @@ import org.gpl.JSplitButton.action.SplitButtonActionListener;
  * The 'button part' of the splitbutton is being drawn without the border??? and this is only happening in CDE/Motif and Metal Look and Feels.
  * GTK+ and nimbus works perfect. No Idea why? if anybody could point out the mistake that'd be nice.My email naveedmurtuza[at]gmail.com<br /><br />
  * P.S. The fireXXX methods has been directly plagarized from JDK source code, and yes even the javadocs..;)<br /><br />
+ * The border bug in metal L&F is now fixed. Thanks to Hervé Guillaume.
  * @author Naveed Quadri
  */
 public class JSplitButton extends JButton implements MouseMotionListener, MouseListener, ActionListener,Serializable {
@@ -238,22 +239,28 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
         this.image = image;
     }
 
+    /**
+     * 
+     * @param g 
+     * EDIT: The border bug listed in known issues is fixed, thanks to Hervé Guillaume
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Color oldColor = g.getColor();
+        Graphics gClone = g.create();
+        Color oldColor = gClone.getColor();
         splitRectangle = new Rectangle(getWidth() - splitWidth, 0, splitWidth, getHeight());
-        g.translate(splitRectangle.x, splitRectangle.y);
+        gClone.translate(splitRectangle.x, splitRectangle.y);
         int mh = getHeight() / 2;
         int mw = splitWidth / 2;
-        g.drawImage(getImage(), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
+        gClone.drawImage(getImage(), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
         if (onSplit && !alwaysDropDown && popupMenu != null) {
-            g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.background"));
-            g.drawLine(1, separatorSpacing + 2, 1, getHeight() - separatorSpacing - 2);
-            g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.shadow"));
-            g.drawLine(2, separatorSpacing + 2, 2, getHeight() - separatorSpacing - 2);
+            gClone.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.background"));
+            gClone.drawLine(1, separatorSpacing + 2, 1, getHeight() - separatorSpacing - 2);
+            gClone.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.shadow"));
+            gClone.drawLine(2, separatorSpacing + 2, 2, getHeight() - separatorSpacing - 2);
         }
-        g.setColor(oldColor);
+        gClone.setColor(oldColor);
     }
 
     /**

@@ -246,20 +246,20 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-  Graphics gClone = g.create();//EDIT: Hervé Guillaume
-        Color oldColor = gClone.getColor();
+        Color oldColor = g.getColor();
         splitRectangle = new Rectangle(getWidth() - splitWidth, 0, splitWidth, getHeight());
-        gClone.translate(splitRectangle.x, splitRectangle.y);
+        g.translate(splitRectangle.x, splitRectangle.y);
         int mh = getHeight() / 2;
         int mw = splitWidth / 2;
-        gClone.drawImage(getImage(), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
+        g.drawImage(getImage(), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
         if (onSplit && !alwaysDropDown && popupMenu != null) {
-            gClone.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.background"));
-            gClone.drawLine(1, separatorSpacing + 2, 1, getHeight() - separatorSpacing - 2);
-            gClone.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.shadow"));
-            gClone.drawLine(2, separatorSpacing + 2, 2, getHeight() - separatorSpacing - 2);
+            g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.background"));
+            g.drawLine(1, separatorSpacing + 2, 1, getHeight() - separatorSpacing - 2);
+            g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.shadow"));
+            g.drawLine(2, separatorSpacing + 2, 2, getHeight() - separatorSpacing - 2);
         }
-        gClone.setColor(oldColor);
+        g.setColor(oldColor);
+        g.translate(-splitRectangle.x, -splitRectangle.y);
     }
 
     /**

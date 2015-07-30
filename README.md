@@ -10,4 +10,6 @@ The buttonClicked event is raised when the button is clicked, the left part, whi
 
 To handle these events you need to subscribe to SplitButtonActionListener.
 
+See also http://naveedmurtuza.blogspot.ch/2010/11/jsplitbutton.html
+
 Checkout Swing Components for more swing controls 

@@ -14,4 +14,32 @@ See also http://naveedmurtuza.blogspot.ch/2010/11/jsplitbutton.html
 
 Checkout Swing Components for more swing controls 
 
-Screenshots 
+##Screenshots 
+
+![alt tag](https://raw.github.com/akuhtz/jsplitbutton/master/wiki/images/JSplitButton-GTK.png)
+
+![alt tag](https://raw.github.com/akuhtz/jsplitbutton/master/wiki/images/JSplitButton-Nimbus.png)
+
+![alt tag](https://raw.github.com/akuhtz/jsplitbutton/master/wiki/images/JSplitButton-Metal.png)
+
+##Using the Control:
+
+```java
+//first instantiate the control
+JSplitButton splitButton = new JSplitButton();
+//register for listener
+splitButton.addSplitButtonActionListener(new SplitButtonActionListener() {
+
+            public void buttonClicked(ActionEvent e) {
+System.out.println("Button Clicked");
+            }
+
+            public void splitButtonClicked(ActionEvent e) {
+System.out.println("Split Part licked");
+            }
+        });
+//add popup menu
+splitButton.add(popupMenu);
+//add this control to panel
+panel.add(splitButton);
+```

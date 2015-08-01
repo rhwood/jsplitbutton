@@ -36,6 +36,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     private Color arrowColor = Color.BLACK;
     private Color disabledArrowColor = Color.GRAY;
     private Image image;
+    private Image disabledImage;
     protected SplitButtonActionListener splitButtonActionListener = null;
 
     /**
@@ -240,6 +241,53 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
+     * Gets the disabled image to be drawn in the split part. If no is set, a new image is created with the triangle.
+     * 
+     * @return image
+     */
+    public Image getDisabledImage() {
+        if (disabledImage != null) {
+            return disabledImage;
+        }
+        else {
+            Graphics2D g = null;
+            BufferedImage img = new BufferedImage(arrowSize, arrowSize, BufferedImage.TYPE_INT_RGB);
+            g = (Graphics2D) img.createGraphics();
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 0, img.getWidth(), img.getHeight());
+            g.setColor(disabledArrowColor);
+            // this creates a triangle facing right >
+            g.fillPolygon(new int[] { 0, 0, arrowSize / 2 }, new int[] { 0, arrowSize, arrowSize / 2 }, 3);
+            g.dispose();
+            // rotate it to face downwards
+            img = rotate(img, 90);
+            BufferedImage dimg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
+            g = (Graphics2D) dimg.createGraphics();
+            g.setComposite(AlphaComposite.Src);
+            g.drawImage(img, null, 0, 0);
+            g.dispose();
+            for (int i = 0; i < dimg.getHeight(); i++) {
+                for (int j = 0; j < dimg.getWidth(); j++) {
+                    if (dimg.getRGB(j, i) == Color.WHITE.getRGB()) {
+                        dimg.setRGB(j, i, 0x8F1C1C);
+                    }
+                }
+            }
+
+            disabledImage = Toolkit.getDefaultToolkit().createImage(dimg.getSource());
+            return disabledImage;
+        }
+    }
+
+    /**
+     * Sets the disabled image to draw instead of the triangle.
+     * @param image
+     */
+    public void setDisabledImage(Image image) {
+        this.disabledImage = image;
+    }
+
+    /**
      * 
      * @param g 
      */
@@ -251,7 +299,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
         g.translate(splitRectangle.x, splitRectangle.y);
         int mh = getHeight() / 2;
         int mw = splitWidth / 2;
-        g.drawImage(getImage(), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
+        g.drawImage((isEnabled() ? getImage() : getDisabledImage()), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
         if (onSplit && !alwaysDropDown && popupMenu != null) {
             g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.background"));
             g.drawLine(1, separatorSpacing + 2, 1, getHeight() - separatorSpacing - 2);

@@ -1,28 +1,31 @@
-# jsplitbutton
-Automatically exported from code.google.com/p/jsplitbutton
+# JSplitButton
+A split button control for Java Swing.
 
-A simple implementation of the split button control in Java. This control raises two events.
+[![Build Status](https://travis-ci.org/rhwood/jsplitbutton.svg?branch=master)](https://travis-ci.org/rhwood/jsplitbutton)
 
-    buttonClicked(e)
-    splitButtonClicked(e)
+A simple implementation of the split button control for Java Swing. This control raises two events:
 
-The buttonClicked event is raised when the button is clicked, the left part, which will not trigger the dropdown menu. Whereas the splitButtonClicked event is raised when the split part of the button is clicked and displays a popup menu.
+    buttonClicked(ActionEvent e)
+    splitButtonClicked(ActionEvent e)
 
-To handle these events you need to subscribe to SplitButtonActionListener.
+The buttonClicked event is raised when the main, or left, part of the button is clicked, which will not trigger the popup menu.
+The splitButtonClicked event is raised when the split, or right, part of the button is clicked and displays a popup menu.
+
+To handle these events you need to implement SplitButtonActionListener in your listener.
 
 See also http://naveedmurtuza.blogspot.ch/2010/11/jsplitbutton.html
 
 Checkout Swing Components for more swing controls
 
-##Screenshots
+## Screenshots
 
-![alt tag](https://raw.github.com/akuhtz/jsplitbutton/master/wiki/images/JSplitButton-GTK.png)
+![alt tag](https://raw.github.com/rhwood/jsplitbutton/master/wiki/images/JSplitButton-GTK.png)
 
-![alt tag](https://raw.github.com/akuhtz/jsplitbutton/master/wiki/images/JSplitButton-Nimbus.png)
+![alt tag](https://raw.github.com/rhwood/jsplitbutton/master/wiki/images/JSplitButton-Nimbus.png)
 
-![alt tag](https://raw.github.com/akuhtz/jsplitbutton/master/wiki/images/JSplitButton-Metal.png)
+![alt tag](https://raw.github.com/rhwood/jsplitbutton/master/wiki/images/JSplitButton-Metal.png)
 
-##Using the Control:
+## Using the Control
 
 ```java
 //first instantiate the control
@@ -43,3 +46,8 @@ splitButton.add(popupMenu);
 //add this control to panel
 panel.add(splitButton);
 ```
+
+## Prior History
+
+* [Original development](http://code.google.com/p/jsplitbutton) by Naveed Quadri in 2012
+* [Updated](https://github.com/akuhtz/jsplitbutton) by [Andreas Kuhtz](https://github.com/akuhtz) in 2015

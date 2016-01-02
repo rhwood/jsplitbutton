@@ -1,0 +1,10 @@
+# default Maven .gitignore from https://github.com/github/gitignore/blob/c63fc582604c6859782e930538f68625415f5d55/Maven.gitignore
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties

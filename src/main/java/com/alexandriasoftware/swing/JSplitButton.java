@@ -1,30 +1,58 @@
-package org.gpl.JSplitButton;
+/*
+ * Copyright (C) 2016 Randall Wood
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+package com.alexandriasoftware.swing;
 
+import com.alexandriasoftware.swing.action.SplitButtonActionListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import javax.swing.*;
-import org.gpl.JSplitButton.action.SplitButtonActionListener;
 
 /**
- * An implementation of a "split" button.The left side acts like a normal button, right side has a jPopupMenu attached. <br />
- * This class raises two events.<br />
+ * An implementation of a "split" button.The left side acts like a normal
+ * button, right side has a jPopupMenu attached.
+ *
+ * This class raises two events:
  * <ol>
  * <li>buttonClicked(e); //when the button is clicked</li>
- * <li>splitButtonClicked(e; //when the split part of the button is clicked) </li>
+ * <li>splitButtonClicked(e); //when the split part of the button is
+ * clicked</li>
  * </ol>
- * You need to subscribe to SplitButtonActionListener to handle these events.<br /><br />
- * 
- * Use as you wish, but an acknowlegement would be appreciated, ;) <br /><br />
- * <b>Known Issue:</b><br />
- * The 'button part' of the splitbutton is being drawn without the border??? and this is only happening in CDE/Motif and Metal Look and Feels.
- * GTK+ and nimbus works perfect. No Idea why? if anybody could point out the mistake that'd be nice.My email naveedmurtuza[at]gmail.com<br /><br />
- * P.S. The fireXXX methods has been directly plagarized from JDK source code, and yes even the javadocs..;)<br /><br />
+ * You need to subscribe to SplitButtonActionListener to handle these
+ * events.
+ *
+ * Use as you wish, but an acknowlegement would be appreciated, ;) <br><br>
+ * <b>Known Issue:</b><br>
+ * The 'button part' of the splitbutton is being drawn without the border??? and
+ * this is only happening in CDE/Motif and Metal Look and Feels. GTK+ and nimbus
+ * works perfect. No Idea why? if anybody could point out the mistake that'd be
+ * nice.My email naveedmurtuza[at]gmail.com<br><br>
+ * P.S. The fireXXX methods has been directly plagarized from JDK source code,
+ * and yes even the javadocs..;)<br><br>
  * The border bug in metal L&F is now fixed. Thanks to Hervé Guillaume.
- * @author Naveed Quadri
+ *
+ * @author Naveed Quadri 2012
+ * @author Randall Wood 2016
  */
-public class JSplitButton extends JButton implements MouseMotionListener, MouseListener, ActionListener,Serializable {
+public class JSplitButton extends JButton implements MouseMotionListener, MouseListener, ActionListener, Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int separatorSpacing = 4;
     private int splitWidth = 22;
@@ -37,13 +65,12 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     private Color disabledArrowColor = Color.GRAY;
     private Image image;
     private Image disabledImage;
-    protected SplitButtonActionListener splitButtonActionListener = null;
 
     /**
      * Creates a button with initial text and an icon.
      *
-     * @param text  the text of the button
-     * @param icon  the Icon image to display on the button
+     * @param text the text of the button
+     * @param icon the Icon image to display on the button
      */
     public JSplitButton(String text, Icon icon) {
         super(text, icon);
@@ -55,7 +82,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     /**
      * Creates a button with text.
      *
-     * @param text  the text of the button
+     * @param text the text of the button
      */
     public JSplitButton(String text) {
         this(text, null);
@@ -64,7 +91,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     /**
      * Creates a button with an icon.
      *
-     * @param icon  the Icon image to display on the button
+     * @param icon the Icon image to display on the button
      */
     public JSplitButton(Icon icon) {
         this(null, icon);
@@ -79,6 +106,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Returns the JPopupMenu if set, null otherwise.
+     *
      * @return JPopupMenu
      */
     public JPopupMenu getPopupMenu() {
@@ -86,7 +114,9 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * Sets the JPopupMenu to be displayed, when the split part of the button is clicked.
+     * Sets the JPopupMenu to be displayed, when the split part of the button is
+     * clicked.
+     *
      * @param popupMenu
      */
     public void setPopupMenu(JPopupMenu popupMenu) {
@@ -95,17 +125,22 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * Returns the separatorSpacing. Separator spacing is the space above and below the separator( the line drawn when you hover your mouse
-     * over the split part of the button).
-     * @return separatorSpacingimage = null; //to repaint the image with the new size
+     * Returns the separatorSpacing. Separator spacing is the space above and
+     * below the separator( the line drawn when you hover your mouse over the
+     * split part of the button).
+     *
+     * @return separatorSpacingimage = null; //to repaint the image with the new
+     * size
      */
     public int getSeparatorSpacing() {
         return separatorSpacing;
     }
 
     /**
-     * Sets the separatorSpacing.Separator spacing is the space above and below the separator( the line drawn when you hover your mouse
-     * over the split part of the button).
+     * Sets the separatorSpacing.Separator spacing is the space above and below
+     * the separator( the line drawn when you hover your mouse over the split
+     * part of the button).
+     *
      * @param separatorSpacing
      */
     public void setSeparatorSpacing(int separatorSpacing) {
@@ -114,6 +149,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Show the dropdown menu, if attached, even if the button part is clicked.
+     *
      * @return true if alwaysDropdown, false otherwise.
      */
     public boolean isAlwaysDropDown() {
@@ -122,7 +158,9 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Show the dropdown menu, if attached, even if the button part is clicked.
-     * @param alwaysDropDown true to show the attached dropdown even if the button part is clicked, false otherwise
+     *
+     * @param alwaysDropDown true to show the attached dropdown even if the
+     * button part is clicked, false otherwise
      */
     public void setAlwaysDropDown(boolean alwaysDropDown) {
         this.alwaysDropDown = alwaysDropDown;
@@ -130,6 +168,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Gets the color of the arrow.
+     *
      * @return arrowColor
      */
     public Color getArrowColor() {
@@ -138,6 +177,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Set the arrow color.
+     *
      * @param arrowColor
      */
     public void setArrowColor(Color arrowColor) {
@@ -146,7 +186,8 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     *  gets the disabled arrow color
+     * gets the disabled arrow color
+     *
      * @return disabledArrowColor color of the arrow if no popup attached.
      */
     public Color getDisabledArrowColor() {
@@ -155,6 +196,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * sets the disabled arrow color
+     *
      * @param disabledArrowColor color of the arrow if no popup attached.
      */
     public void setDisabledArrowColor(Color disabledArrowColor) {
@@ -163,7 +205,8 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * Splitwidth is the  width of the split part of the button.
+     * Splitwidth is the width of the split part of the button.
+     *
      * @return splitWidth
      */
     public int getSplitWidth() {
@@ -171,7 +214,8 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * Splitwidth is the  width of the split part of the button.
+     * Splitwidth is the width of the split part of the button.
+     *
      * @param splitWidth
      */
     public void setSplitWidth(int splitWidth) {
@@ -180,6 +224,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * gets the size of the arrow.
+     *
      * @return size of the arrow
      */
     public int getArrowSize() {
@@ -188,6 +233,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * sets the size of the arrow
+     *
      * @param arrowSize
      */
     public void setArrowSize(int arrowSize) {
@@ -196,16 +242,18 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * Gets the image to be drawn in the split part. If no is set, a new image is created with the triangle.
+     * Gets the image to be drawn in the split part. If no is set, a new image
+     * is created with the triangle.
+     *
      * @return image
      */
     public Image getImage() {
         if (image != null) {
             return image;
         } else {
-            Graphics2D g = null;
+            Graphics2D g;
             BufferedImage img = new BufferedImage(arrowSize, arrowSize, BufferedImage.TYPE_INT_RGB);
-            g = (Graphics2D) img.createGraphics();
+            g = img.createGraphics();
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, img.getWidth(), img.getHeight());
             g.setColor(popupMenu != null ? arrowColor : disabledArrowColor);
@@ -215,7 +263,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
             //rotate it to face downwards
             img = rotate(img, 90);
             BufferedImage dimg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
-            g = (Graphics2D) dimg.createGraphics();
+            g = dimg.createGraphics();
             g.setComposite(AlphaComposite.Src);
             g.drawImage(img, null, 0, 0);
             g.dispose();
@@ -234,6 +282,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Sets the image to draw instead of the triangle.
+     *
      * @param image
      */
     public void setImage(Image image) {
@@ -241,28 +290,28 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * Gets the disabled image to be drawn in the split part. If no is set, a new image is created with the triangle.
-     * 
+     * Gets the disabled image to be drawn in the split part. If no is set, a
+     * new image is created with the triangle.
+     *
      * @return image
      */
     public Image getDisabledImage() {
         if (disabledImage != null) {
             return disabledImage;
-        }
-        else {
-            Graphics2D g = null;
+        } else {
+            Graphics2D g;
             BufferedImage img = new BufferedImage(arrowSize, arrowSize, BufferedImage.TYPE_INT_RGB);
-            g = (Graphics2D) img.createGraphics();
+            g = img.createGraphics();
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, img.getWidth(), img.getHeight());
             g.setColor(disabledArrowColor);
             // this creates a triangle facing right >
-            g.fillPolygon(new int[] { 0, 0, arrowSize / 2 }, new int[] { 0, arrowSize, arrowSize / 2 }, 3);
+            g.fillPolygon(new int[]{0, 0, arrowSize / 2}, new int[]{0, arrowSize, arrowSize / 2}, 3);
             g.dispose();
             // rotate it to face downwards
             img = rotate(img, 90);
             BufferedImage dimg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
-            g = (Graphics2D) dimg.createGraphics();
+            g = dimg.createGraphics();
             g.setComposite(AlphaComposite.Src);
             g.drawImage(img, null, 0, 0);
             g.dispose();
@@ -281,6 +330,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Sets the disabled image to draw instead of the triangle.
+     *
      * @param image
      */
     public void setDisabledImage(Image image) {
@@ -288,8 +338,8 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * 
-     * @param g 
+     *
+     * @param g
      */
     @Override
     protected void paintComponent(Graphics g) {
@@ -312,6 +362,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Rotates the given image with the specified angle.
+     *
      * @param img image to rotate
      * @param angle angle of rotation
      * @return rotated image
@@ -319,7 +370,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     private BufferedImage rotate(BufferedImage img, int angle) {
         int w = img.getWidth();
         int h = img.getHeight();
-        BufferedImage dimg = dimg = new BufferedImage(w, h, img.getType());
+        BufferedImage dimg = new BufferedImage(w, h, img.getType());
         Graphics2D g = dimg.createGraphics();
         g.rotate(Math.toRadians(angle), w / 2, h / 2);
         g.drawImage(img, null, 0, 0);
@@ -328,6 +379,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 
     /**
      * Adds an <code>SplitButtonActionListener</code> to the button.
+     *
      * @param l the <code>ActionListener</code> to be added
      */
     public void addSplitButtonActionListener(SplitButtonActionListener l) {
@@ -335,10 +387,9 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * Removes an <code>SplitButtonActionListener</code> from the button.
-     * If the listener is the currently set <code>Action</code>
-     * for the button, then the <code>Action</code>
-     * is set to <code>null</code>.
+     * Removes an <code>SplitButtonActionListener</code> from the button. If the
+     * listener is the currently set <code>Action</code> for the button, then
+     * the <code>Action</code> is set to <code>null</code>.
      *
      * @param l the listener to be removed
      */
@@ -351,20 +402,16 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * 
+     *
      * @param e
      */
     public void mouseMoved(MouseEvent e) {
-        if (splitRectangle.contains(e.getPoint())) {
-            onSplit = true;
-        } else {
-            onSplit = false;
-        }
+        onSplit = splitRectangle.contains(e.getPoint());
         repaint(splitRectangle);
     }
 
     /**
-     * 
+     *
      * @param e
      */
     public void actionPerformed(ActionEvent e) {
@@ -382,7 +429,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * 
+     *
      * @param e
      */
     public void mouseExited(MouseEvent e) {
@@ -408,12 +455,11 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
 // </editor-fold>
 
     /**
-     * Notifies all listeners that have registered interest for
-     * notification on this event type.  The event instance
-     * is lazily created using the <code>event</code>
-     * parameter.
+     * Notifies all listeners that have registered interest for notification on
+     * this event type. The event instance is lazily created using the
+     * <code>event</code> parameter.
      *
-     * @param event  the <code>ActionEvent</code> object
+     * @param event the <code>ActionEvent</code> object
      * @see EventListenerList
      */
     private void fireButtonClicked(ActionEvent event) {
@@ -442,12 +488,11 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     }
 
     /**
-     * Notifies all listeners that have registered interest for
-     * notification on this event type.  The event instance
-     * is lazily created using the <code>event</code>
-     * parameter.
+     * Notifies all listeners that have registered interest for notification on
+     * this event type. The event instance is lazily created using the
+     * <code>event</code> parameter.
      *
-     * @param event  the <code>ActionEvent</code> object
+     * @param event the <code>ActionEvent</code> object
      * @see EventListenerList
      */
     private void fireSplitbuttonClicked(ActionEvent event) {

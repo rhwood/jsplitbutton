@@ -1,23 +1,35 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2016 Randall Wood
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
-package org.gpl.JSplitButton;
+package com.alexandriasoftware.swing;
 
 import java.awt.Toolkit;
 import java.beans.*;
 
 /**
- *
- * @author assassin
+ * @author Naveed Quadri 2012
+ * @author Randall Wood 2016
  */
 public class JSplitButtonBeanInfo extends SimpleBeanInfo {
 
     // Bean descriptor//GEN-FIRST:BeanDescriptor
     /*lazy BeanDescriptor*/
     private static BeanDescriptor getBdescriptor(){
-        BeanDescriptor beanDescriptor = new BeanDescriptor  ( org.gpl.JSplitButton.JSplitButton.class , null ); // NOI18N//GEN-HEADEREND:BeanDescriptor
+        BeanDescriptor beanDescriptor = new BeanDescriptor  ( com.alexandriasoftware.swing.JSplitButton.class , null ); // NOI18N//GEN-HEADEREND:BeanDescriptor
 
     // Here you can add code for customizing the BeanDescriptor.
 
@@ -60,262 +72,264 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int PROPERTY_defaultCapable = 32;
     private static final int PROPERTY_disabledArrowColor = 33;
     private static final int PROPERTY_disabledIcon = 34;
-    private static final int PROPERTY_disabledSelectedIcon = 35;
-    private static final int PROPERTY_displayable = 36;
-    private static final int PROPERTY_displayedMnemonicIndex = 37;
-    private static final int PROPERTY_doubleBuffered = 38;
-    private static final int PROPERTY_dropTarget = 39;
-    private static final int PROPERTY_enabled = 40;
-    private static final int PROPERTY_focusable = 41;
-    private static final int PROPERTY_focusCycleRoot = 42;
-    private static final int PROPERTY_focusCycleRootAncestor = 43;
-    private static final int PROPERTY_focusListeners = 44;
-    private static final int PROPERTY_focusOwner = 45;
-    private static final int PROPERTY_focusPainted = 46;
-    private static final int PROPERTY_focusTraversable = 47;
-    private static final int PROPERTY_focusTraversalKeys = 48;
-    private static final int PROPERTY_focusTraversalKeysEnabled = 49;
-    private static final int PROPERTY_focusTraversalPolicy = 50;
-    private static final int PROPERTY_focusTraversalPolicyProvider = 51;
-    private static final int PROPERTY_focusTraversalPolicySet = 52;
-    private static final int PROPERTY_font = 53;
-    private static final int PROPERTY_fontSet = 54;
-    private static final int PROPERTY_foreground = 55;
-    private static final int PROPERTY_foregroundSet = 56;
-    private static final int PROPERTY_graphics = 57;
-    private static final int PROPERTY_graphicsConfiguration = 58;
-    private static final int PROPERTY_height = 59;
-    private static final int PROPERTY_hideActionText = 60;
-    private static final int PROPERTY_hierarchyBoundsListeners = 61;
-    private static final int PROPERTY_hierarchyListeners = 62;
-    private static final int PROPERTY_horizontalAlignment = 63;
-    private static final int PROPERTY_horizontalTextPosition = 64;
-    private static final int PROPERTY_icon = 65;
-    private static final int PROPERTY_iconTextGap = 66;
-    private static final int PROPERTY_ignoreRepaint = 67;
-    private static final int PROPERTY_image = 68;
-    private static final int PROPERTY_inheritsPopupMenu = 69;
-    private static final int PROPERTY_inputContext = 70;
-    private static final int PROPERTY_inputMap = 71;
-    private static final int PROPERTY_inputMethodListeners = 72;
-    private static final int PROPERTY_inputMethodRequests = 73;
-    private static final int PROPERTY_inputVerifier = 74;
-    private static final int PROPERTY_insets = 75;
-    private static final int PROPERTY_itemListeners = 76;
-    private static final int PROPERTY_keyListeners = 77;
-    private static final int PROPERTY_label = 78;
-    private static final int PROPERTY_layout = 79;
-    private static final int PROPERTY_lightweight = 80;
-    private static final int PROPERTY_locale = 81;
-    private static final int PROPERTY_location = 82;
-    private static final int PROPERTY_locationOnScreen = 83;
-    private static final int PROPERTY_managingFocus = 84;
-    private static final int PROPERTY_margin = 85;
-    private static final int PROPERTY_maximumSize = 86;
-    private static final int PROPERTY_maximumSizeSet = 87;
-    private static final int PROPERTY_minimumSize = 88;
-    private static final int PROPERTY_minimumSizeSet = 89;
-    private static final int PROPERTY_mnemonic = 90;
-    private static final int PROPERTY_model = 91;
-    private static final int PROPERTY_mouseListeners = 92;
-    private static final int PROPERTY_mouseMotionListeners = 93;
-    private static final int PROPERTY_mousePosition = 94;
-    private static final int PROPERTY_mouseWheelListeners = 95;
-    private static final int PROPERTY_multiClickThreshhold = 96;
-    private static final int PROPERTY_name = 97;
-    private static final int PROPERTY_nextFocusableComponent = 98;
-    private static final int PROPERTY_opaque = 99;
-    private static final int PROPERTY_optimizedDrawingEnabled = 100;
-    private static final int PROPERTY_paintingForPrint = 101;
-    private static final int PROPERTY_paintingTile = 102;
-    private static final int PROPERTY_parent = 103;
-    private static final int PROPERTY_peer = 104;
-    private static final int PROPERTY_popupMenu = 105;
-    private static final int PROPERTY_preferredSize = 106;
-    private static final int PROPERTY_preferredSizeSet = 107;
-    private static final int PROPERTY_pressedIcon = 108;
-    private static final int PROPERTY_propertyChangeListeners = 109;
-    private static final int PROPERTY_registeredKeyStrokes = 110;
-    private static final int PROPERTY_requestFocusEnabled = 111;
-    private static final int PROPERTY_rolloverEnabled = 112;
-    private static final int PROPERTY_rolloverIcon = 113;
-    private static final int PROPERTY_rolloverSelectedIcon = 114;
-    private static final int PROPERTY_rootPane = 115;
-    private static final int PROPERTY_selected = 116;
-    private static final int PROPERTY_selectedIcon = 117;
-    private static final int PROPERTY_selectedObjects = 118;
-    private static final int PROPERTY_separatorSpacing = 119;
-    private static final int PROPERTY_showing = 120;
-    private static final int PROPERTY_size = 121;
-    private static final int PROPERTY_splitWidth = 122;
-    private static final int PROPERTY_text = 123;
-    private static final int PROPERTY_toolkit = 124;
-    private static final int PROPERTY_toolTipText = 125;
-    private static final int PROPERTY_topLevelAncestor = 126;
-    private static final int PROPERTY_transferHandler = 127;
-    private static final int PROPERTY_treeLock = 128;
-    private static final int PROPERTY_UI = 129;
-    private static final int PROPERTY_UIClassID = 130;
-    private static final int PROPERTY_valid = 131;
-    private static final int PROPERTY_validateRoot = 132;
-    private static final int PROPERTY_verifyInputWhenFocusTarget = 133;
-    private static final int PROPERTY_verticalAlignment = 134;
-    private static final int PROPERTY_verticalTextPosition = 135;
-    private static final int PROPERTY_vetoableChangeListeners = 136;
-    private static final int PROPERTY_visible = 137;
-    private static final int PROPERTY_visibleRect = 138;
-    private static final int PROPERTY_width = 139;
-    private static final int PROPERTY_x = 140;
-    private static final int PROPERTY_y = 141;
+    private static final int PROPERTY_disabledImage = 35;
+    private static final int PROPERTY_disabledSelectedIcon = 36;
+    private static final int PROPERTY_displayable = 37;
+    private static final int PROPERTY_displayedMnemonicIndex = 38;
+    private static final int PROPERTY_doubleBuffered = 39;
+    private static final int PROPERTY_dropTarget = 40;
+    private static final int PROPERTY_enabled = 41;
+    private static final int PROPERTY_focusable = 42;
+    private static final int PROPERTY_focusCycleRoot = 43;
+    private static final int PROPERTY_focusCycleRootAncestor = 44;
+    private static final int PROPERTY_focusListeners = 45;
+    private static final int PROPERTY_focusOwner = 46;
+    private static final int PROPERTY_focusPainted = 47;
+    private static final int PROPERTY_focusTraversable = 48;
+    private static final int PROPERTY_focusTraversalKeys = 49;
+    private static final int PROPERTY_focusTraversalKeysEnabled = 50;
+    private static final int PROPERTY_focusTraversalPolicy = 51;
+    private static final int PROPERTY_focusTraversalPolicyProvider = 52;
+    private static final int PROPERTY_focusTraversalPolicySet = 53;
+    private static final int PROPERTY_font = 54;
+    private static final int PROPERTY_fontSet = 55;
+    private static final int PROPERTY_foreground = 56;
+    private static final int PROPERTY_foregroundSet = 57;
+    private static final int PROPERTY_graphics = 58;
+    private static final int PROPERTY_graphicsConfiguration = 59;
+    private static final int PROPERTY_height = 60;
+    private static final int PROPERTY_hideActionText = 61;
+    private static final int PROPERTY_hierarchyBoundsListeners = 62;
+    private static final int PROPERTY_hierarchyListeners = 63;
+    private static final int PROPERTY_horizontalAlignment = 64;
+    private static final int PROPERTY_horizontalTextPosition = 65;
+    private static final int PROPERTY_icon = 66;
+    private static final int PROPERTY_iconTextGap = 67;
+    private static final int PROPERTY_ignoreRepaint = 68;
+    private static final int PROPERTY_image = 69;
+    private static final int PROPERTY_inheritsPopupMenu = 70;
+    private static final int PROPERTY_inputContext = 71;
+    private static final int PROPERTY_inputMap = 72;
+    private static final int PROPERTY_inputMethodListeners = 73;
+    private static final int PROPERTY_inputMethodRequests = 74;
+    private static final int PROPERTY_inputVerifier = 75;
+    private static final int PROPERTY_insets = 76;
+    private static final int PROPERTY_itemListeners = 77;
+    private static final int PROPERTY_keyListeners = 78;
+    private static final int PROPERTY_label = 79;
+    private static final int PROPERTY_layout = 80;
+    private static final int PROPERTY_lightweight = 81;
+    private static final int PROPERTY_locale = 82;
+    private static final int PROPERTY_location = 83;
+    private static final int PROPERTY_locationOnScreen = 84;
+    private static final int PROPERTY_managingFocus = 85;
+    private static final int PROPERTY_margin = 86;
+    private static final int PROPERTY_maximumSize = 87;
+    private static final int PROPERTY_maximumSizeSet = 88;
+    private static final int PROPERTY_minimumSize = 89;
+    private static final int PROPERTY_minimumSizeSet = 90;
+    private static final int PROPERTY_mnemonic = 91;
+    private static final int PROPERTY_model = 92;
+    private static final int PROPERTY_mouseListeners = 93;
+    private static final int PROPERTY_mouseMotionListeners = 94;
+    private static final int PROPERTY_mousePosition = 95;
+    private static final int PROPERTY_mouseWheelListeners = 96;
+    private static final int PROPERTY_multiClickThreshhold = 97;
+    private static final int PROPERTY_name = 98;
+    private static final int PROPERTY_nextFocusableComponent = 99;
+    private static final int PROPERTY_opaque = 100;
+    private static final int PROPERTY_optimizedDrawingEnabled = 101;
+    private static final int PROPERTY_paintingForPrint = 102;
+    private static final int PROPERTY_paintingTile = 103;
+    private static final int PROPERTY_parent = 104;
+    private static final int PROPERTY_peer = 105;
+    private static final int PROPERTY_popupMenu = 106;
+    private static final int PROPERTY_preferredSize = 107;
+    private static final int PROPERTY_preferredSizeSet = 108;
+    private static final int PROPERTY_pressedIcon = 109;
+    private static final int PROPERTY_propertyChangeListeners = 110;
+    private static final int PROPERTY_registeredKeyStrokes = 111;
+    private static final int PROPERTY_requestFocusEnabled = 112;
+    private static final int PROPERTY_rolloverEnabled = 113;
+    private static final int PROPERTY_rolloverIcon = 114;
+    private static final int PROPERTY_rolloverSelectedIcon = 115;
+    private static final int PROPERTY_rootPane = 116;
+    private static final int PROPERTY_selected = 117;
+    private static final int PROPERTY_selectedIcon = 118;
+    private static final int PROPERTY_selectedObjects = 119;
+    private static final int PROPERTY_separatorSpacing = 120;
+    private static final int PROPERTY_showing = 121;
+    private static final int PROPERTY_size = 122;
+    private static final int PROPERTY_splitWidth = 123;
+    private static final int PROPERTY_text = 124;
+    private static final int PROPERTY_toolkit = 125;
+    private static final int PROPERTY_toolTipText = 126;
+    private static final int PROPERTY_topLevelAncestor = 127;
+    private static final int PROPERTY_transferHandler = 128;
+    private static final int PROPERTY_treeLock = 129;
+    private static final int PROPERTY_UI = 130;
+    private static final int PROPERTY_UIClassID = 131;
+    private static final int PROPERTY_valid = 132;
+    private static final int PROPERTY_validateRoot = 133;
+    private static final int PROPERTY_verifyInputWhenFocusTarget = 134;
+    private static final int PROPERTY_verticalAlignment = 135;
+    private static final int PROPERTY_verticalTextPosition = 136;
+    private static final int PROPERTY_vetoableChangeListeners = 137;
+    private static final int PROPERTY_visible = 138;
+    private static final int PROPERTY_visibleRect = 139;
+    private static final int PROPERTY_width = 140;
+    private static final int PROPERTY_x = 141;
+    private static final int PROPERTY_y = 142;
 
     // Property array 
     /*lazy PropertyDescriptor*/
     private static PropertyDescriptor[] getPdescriptor(){
-        PropertyDescriptor[] properties = new PropertyDescriptor[142];
+        PropertyDescriptor[] properties = new PropertyDescriptor[143];
     
         try {
-            properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", org.gpl.JSplitButton.JSplitButton.class, "getAccessibleContext", null ); // NOI18N
-            properties[PROPERTY_action] = new PropertyDescriptor ( "action", org.gpl.JSplitButton.JSplitButton.class, "getAction", "setAction" ); // NOI18N
-            properties[PROPERTY_actionCommand] = new PropertyDescriptor ( "actionCommand", org.gpl.JSplitButton.JSplitButton.class, "getActionCommand", "setActionCommand" ); // NOI18N
-            properties[PROPERTY_actionListeners] = new PropertyDescriptor ( "actionListeners", org.gpl.JSplitButton.JSplitButton.class, "getActionListeners", null ); // NOI18N
-            properties[PROPERTY_actionMap] = new PropertyDescriptor ( "actionMap", org.gpl.JSplitButton.JSplitButton.class, "getActionMap", "setActionMap" ); // NOI18N
-            properties[PROPERTY_alignmentX] = new PropertyDescriptor ( "alignmentX", org.gpl.JSplitButton.JSplitButton.class, "getAlignmentX", "setAlignmentX" ); // NOI18N
-            properties[PROPERTY_alignmentY] = new PropertyDescriptor ( "alignmentY", org.gpl.JSplitButton.JSplitButton.class, "getAlignmentY", "setAlignmentY" ); // NOI18N
-            properties[PROPERTY_alwaysDropDown] = new PropertyDescriptor ( "alwaysDropDown", org.gpl.JSplitButton.JSplitButton.class, "isAlwaysDropDown", "setAlwaysDropDown" ); // NOI18N
-            properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", org.gpl.JSplitButton.JSplitButton.class, "getAncestorListeners", null ); // NOI18N
-            properties[PROPERTY_arrowColor] = new PropertyDescriptor ( "arrowColor", org.gpl.JSplitButton.JSplitButton.class, "getArrowColor", "setArrowColor" ); // NOI18N
-            properties[PROPERTY_arrowSize] = new PropertyDescriptor ( "arrowSize", org.gpl.JSplitButton.JSplitButton.class, "getArrowSize", "setArrowSize" ); // NOI18N
-            properties[PROPERTY_autoscrolls] = new PropertyDescriptor ( "autoscrolls", org.gpl.JSplitButton.JSplitButton.class, "getAutoscrolls", "setAutoscrolls" ); // NOI18N
-            properties[PROPERTY_background] = new PropertyDescriptor ( "background", org.gpl.JSplitButton.JSplitButton.class, "getBackground", "setBackground" ); // NOI18N
-            properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", org.gpl.JSplitButton.JSplitButton.class, "isBackgroundSet", null ); // NOI18N
-            properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", org.gpl.JSplitButton.JSplitButton.class, "getBaselineResizeBehavior", null ); // NOI18N
-            properties[PROPERTY_border] = new PropertyDescriptor ( "border", org.gpl.JSplitButton.JSplitButton.class, "getBorder", "setBorder" ); // NOI18N
-            properties[PROPERTY_borderPainted] = new PropertyDescriptor ( "borderPainted", org.gpl.JSplitButton.JSplitButton.class, "isBorderPainted", "setBorderPainted" ); // NOI18N
-            properties[PROPERTY_bounds] = new PropertyDescriptor ( "bounds", org.gpl.JSplitButton.JSplitButton.class, "getBounds", "setBounds" ); // NOI18N
-            properties[PROPERTY_changeListeners] = new PropertyDescriptor ( "changeListeners", org.gpl.JSplitButton.JSplitButton.class, "getChangeListeners", null ); // NOI18N
-            properties[PROPERTY_colorModel] = new PropertyDescriptor ( "colorModel", org.gpl.JSplitButton.JSplitButton.class, "getColorModel", null ); // NOI18N
-            properties[PROPERTY_component] = new IndexedPropertyDescriptor ( "component", org.gpl.JSplitButton.JSplitButton.class, null, null, "getComponent", null ); // NOI18N
-            properties[PROPERTY_componentCount] = new PropertyDescriptor ( "componentCount", org.gpl.JSplitButton.JSplitButton.class, "getComponentCount", null ); // NOI18N
-            properties[PROPERTY_componentListeners] = new PropertyDescriptor ( "componentListeners", org.gpl.JSplitButton.JSplitButton.class, "getComponentListeners", null ); // NOI18N
-            properties[PROPERTY_componentOrientation] = new PropertyDescriptor ( "componentOrientation", org.gpl.JSplitButton.JSplitButton.class, "getComponentOrientation", "setComponentOrientation" ); // NOI18N
-            properties[PROPERTY_componentPopupMenu] = new PropertyDescriptor ( "componentPopupMenu", org.gpl.JSplitButton.JSplitButton.class, "getComponentPopupMenu", "setComponentPopupMenu" ); // NOI18N
-            properties[PROPERTY_components] = new PropertyDescriptor ( "components", org.gpl.JSplitButton.JSplitButton.class, "getComponents", null ); // NOI18N
-            properties[PROPERTY_containerListeners] = new PropertyDescriptor ( "containerListeners", org.gpl.JSplitButton.JSplitButton.class, "getContainerListeners", null ); // NOI18N
-            properties[PROPERTY_contentAreaFilled] = new PropertyDescriptor ( "contentAreaFilled", org.gpl.JSplitButton.JSplitButton.class, "isContentAreaFilled", "setContentAreaFilled" ); // NOI18N
-            properties[PROPERTY_cursor] = new PropertyDescriptor ( "cursor", org.gpl.JSplitButton.JSplitButton.class, "getCursor", "setCursor" ); // NOI18N
-            properties[PROPERTY_cursorSet] = new PropertyDescriptor ( "cursorSet", org.gpl.JSplitButton.JSplitButton.class, "isCursorSet", null ); // NOI18N
-            properties[PROPERTY_debugGraphicsOptions] = new PropertyDescriptor ( "debugGraphicsOptions", org.gpl.JSplitButton.JSplitButton.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions" ); // NOI18N
-            properties[PROPERTY_defaultButton] = new PropertyDescriptor ( "defaultButton", org.gpl.JSplitButton.JSplitButton.class, "isDefaultButton", null ); // NOI18N
-            properties[PROPERTY_defaultCapable] = new PropertyDescriptor ( "defaultCapable", org.gpl.JSplitButton.JSplitButton.class, "isDefaultCapable", "setDefaultCapable" ); // NOI18N
-            properties[PROPERTY_disabledArrowColor] = new PropertyDescriptor ( "disabledArrowColor", org.gpl.JSplitButton.JSplitButton.class, "getDisabledArrowColor", "setDisabledArrowColor" ); // NOI18N
-            properties[PROPERTY_disabledIcon] = new PropertyDescriptor ( "disabledIcon", org.gpl.JSplitButton.JSplitButton.class, "getDisabledIcon", "setDisabledIcon" ); // NOI18N
-            properties[PROPERTY_disabledSelectedIcon] = new PropertyDescriptor ( "disabledSelectedIcon", org.gpl.JSplitButton.JSplitButton.class, "getDisabledSelectedIcon", "setDisabledSelectedIcon" ); // NOI18N
-            properties[PROPERTY_displayable] = new PropertyDescriptor ( "displayable", org.gpl.JSplitButton.JSplitButton.class, "isDisplayable", null ); // NOI18N
-            properties[PROPERTY_displayedMnemonicIndex] = new PropertyDescriptor ( "displayedMnemonicIndex", org.gpl.JSplitButton.JSplitButton.class, "getDisplayedMnemonicIndex", "setDisplayedMnemonicIndex" ); // NOI18N
-            properties[PROPERTY_doubleBuffered] = new PropertyDescriptor ( "doubleBuffered", org.gpl.JSplitButton.JSplitButton.class, "isDoubleBuffered", "setDoubleBuffered" ); // NOI18N
-            properties[PROPERTY_dropTarget] = new PropertyDescriptor ( "dropTarget", org.gpl.JSplitButton.JSplitButton.class, "getDropTarget", "setDropTarget" ); // NOI18N
-            properties[PROPERTY_enabled] = new PropertyDescriptor ( "enabled", org.gpl.JSplitButton.JSplitButton.class, "isEnabled", "setEnabled" ); // NOI18N
-            properties[PROPERTY_focusable] = new PropertyDescriptor ( "focusable", org.gpl.JSplitButton.JSplitButton.class, "isFocusable", "setFocusable" ); // NOI18N
-            properties[PROPERTY_focusCycleRoot] = new PropertyDescriptor ( "focusCycleRoot", org.gpl.JSplitButton.JSplitButton.class, "isFocusCycleRoot", "setFocusCycleRoot" ); // NOI18N
-            properties[PROPERTY_focusCycleRootAncestor] = new PropertyDescriptor ( "focusCycleRootAncestor", org.gpl.JSplitButton.JSplitButton.class, "getFocusCycleRootAncestor", null ); // NOI18N
-            properties[PROPERTY_focusListeners] = new PropertyDescriptor ( "focusListeners", org.gpl.JSplitButton.JSplitButton.class, "getFocusListeners", null ); // NOI18N
-            properties[PROPERTY_focusOwner] = new PropertyDescriptor ( "focusOwner", org.gpl.JSplitButton.JSplitButton.class, "isFocusOwner", null ); // NOI18N
-            properties[PROPERTY_focusPainted] = new PropertyDescriptor ( "focusPainted", org.gpl.JSplitButton.JSplitButton.class, "isFocusPainted", "setFocusPainted" ); // NOI18N
-            properties[PROPERTY_focusTraversable] = new PropertyDescriptor ( "focusTraversable", org.gpl.JSplitButton.JSplitButton.class, "isFocusTraversable", null ); // NOI18N
-            properties[PROPERTY_focusTraversalKeys] = new IndexedPropertyDescriptor ( "focusTraversalKeys", org.gpl.JSplitButton.JSplitButton.class, null, null, null, "setFocusTraversalKeys" ); // NOI18N
-            properties[PROPERTY_focusTraversalKeysEnabled] = new PropertyDescriptor ( "focusTraversalKeysEnabled", org.gpl.JSplitButton.JSplitButton.class, "getFocusTraversalKeysEnabled", "setFocusTraversalKeysEnabled" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicy] = new PropertyDescriptor ( "focusTraversalPolicy", org.gpl.JSplitButton.JSplitButton.class, "getFocusTraversalPolicy", "setFocusTraversalPolicy" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicyProvider] = new PropertyDescriptor ( "focusTraversalPolicyProvider", org.gpl.JSplitButton.JSplitButton.class, "isFocusTraversalPolicyProvider", "setFocusTraversalPolicyProvider" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicySet] = new PropertyDescriptor ( "focusTraversalPolicySet", org.gpl.JSplitButton.JSplitButton.class, "isFocusTraversalPolicySet", null ); // NOI18N
-            properties[PROPERTY_font] = new PropertyDescriptor ( "font", org.gpl.JSplitButton.JSplitButton.class, "getFont", "setFont" ); // NOI18N
-            properties[PROPERTY_fontSet] = new PropertyDescriptor ( "fontSet", org.gpl.JSplitButton.JSplitButton.class, "isFontSet", null ); // NOI18N
-            properties[PROPERTY_foreground] = new PropertyDescriptor ( "foreground", org.gpl.JSplitButton.JSplitButton.class, "getForeground", "setForeground" ); // NOI18N
-            properties[PROPERTY_foregroundSet] = new PropertyDescriptor ( "foregroundSet", org.gpl.JSplitButton.JSplitButton.class, "isForegroundSet", null ); // NOI18N
-            properties[PROPERTY_graphics] = new PropertyDescriptor ( "graphics", org.gpl.JSplitButton.JSplitButton.class, "getGraphics", null ); // NOI18N
-            properties[PROPERTY_graphicsConfiguration] = new PropertyDescriptor ( "graphicsConfiguration", org.gpl.JSplitButton.JSplitButton.class, "getGraphicsConfiguration", null ); // NOI18N
-            properties[PROPERTY_height] = new PropertyDescriptor ( "height", org.gpl.JSplitButton.JSplitButton.class, "getHeight", null ); // NOI18N
-            properties[PROPERTY_hideActionText] = new PropertyDescriptor ( "hideActionText", org.gpl.JSplitButton.JSplitButton.class, "getHideActionText", "setHideActionText" ); // NOI18N
-            properties[PROPERTY_hierarchyBoundsListeners] = new PropertyDescriptor ( "hierarchyBoundsListeners", org.gpl.JSplitButton.JSplitButton.class, "getHierarchyBoundsListeners", null ); // NOI18N
-            properties[PROPERTY_hierarchyListeners] = new PropertyDescriptor ( "hierarchyListeners", org.gpl.JSplitButton.JSplitButton.class, "getHierarchyListeners", null ); // NOI18N
-            properties[PROPERTY_horizontalAlignment] = new PropertyDescriptor ( "horizontalAlignment", org.gpl.JSplitButton.JSplitButton.class, "getHorizontalAlignment", "setHorizontalAlignment" ); // NOI18N
-            properties[PROPERTY_horizontalTextPosition] = new PropertyDescriptor ( "horizontalTextPosition", org.gpl.JSplitButton.JSplitButton.class, "getHorizontalTextPosition", "setHorizontalTextPosition" ); // NOI18N
-            properties[PROPERTY_icon] = new PropertyDescriptor ( "icon", org.gpl.JSplitButton.JSplitButton.class, "getIcon", "setIcon" ); // NOI18N
-            properties[PROPERTY_iconTextGap] = new PropertyDescriptor ( "iconTextGap", org.gpl.JSplitButton.JSplitButton.class, "getIconTextGap", "setIconTextGap" ); // NOI18N
-            properties[PROPERTY_ignoreRepaint] = new PropertyDescriptor ( "ignoreRepaint", org.gpl.JSplitButton.JSplitButton.class, "getIgnoreRepaint", "setIgnoreRepaint" ); // NOI18N
-            properties[PROPERTY_image] = new PropertyDescriptor ( "image", org.gpl.JSplitButton.JSplitButton.class, "getImage", "setImage" ); // NOI18N
-            properties[PROPERTY_inheritsPopupMenu] = new PropertyDescriptor ( "inheritsPopupMenu", org.gpl.JSplitButton.JSplitButton.class, "getInheritsPopupMenu", "setInheritsPopupMenu" ); // NOI18N
-            properties[PROPERTY_inputContext] = new PropertyDescriptor ( "inputContext", org.gpl.JSplitButton.JSplitButton.class, "getInputContext", null ); // NOI18N
-            properties[PROPERTY_inputMap] = new PropertyDescriptor ( "inputMap", org.gpl.JSplitButton.JSplitButton.class, "getInputMap", null ); // NOI18N
-            properties[PROPERTY_inputMethodListeners] = new PropertyDescriptor ( "inputMethodListeners", org.gpl.JSplitButton.JSplitButton.class, "getInputMethodListeners", null ); // NOI18N
-            properties[PROPERTY_inputMethodRequests] = new PropertyDescriptor ( "inputMethodRequests", org.gpl.JSplitButton.JSplitButton.class, "getInputMethodRequests", null ); // NOI18N
-            properties[PROPERTY_inputVerifier] = new PropertyDescriptor ( "inputVerifier", org.gpl.JSplitButton.JSplitButton.class, "getInputVerifier", "setInputVerifier" ); // NOI18N
-            properties[PROPERTY_insets] = new PropertyDescriptor ( "insets", org.gpl.JSplitButton.JSplitButton.class, "getInsets", null ); // NOI18N
-            properties[PROPERTY_itemListeners] = new PropertyDescriptor ( "itemListeners", org.gpl.JSplitButton.JSplitButton.class, "getItemListeners", null ); // NOI18N
-            properties[PROPERTY_keyListeners] = new PropertyDescriptor ( "keyListeners", org.gpl.JSplitButton.JSplitButton.class, "getKeyListeners", null ); // NOI18N
-            properties[PROPERTY_label] = new PropertyDescriptor ( "label", org.gpl.JSplitButton.JSplitButton.class, "getLabel", "setLabel" ); // NOI18N
-            properties[PROPERTY_layout] = new PropertyDescriptor ( "layout", org.gpl.JSplitButton.JSplitButton.class, "getLayout", "setLayout" ); // NOI18N
-            properties[PROPERTY_lightweight] = new PropertyDescriptor ( "lightweight", org.gpl.JSplitButton.JSplitButton.class, "isLightweight", null ); // NOI18N
-            properties[PROPERTY_locale] = new PropertyDescriptor ( "locale", org.gpl.JSplitButton.JSplitButton.class, "getLocale", "setLocale" ); // NOI18N
-            properties[PROPERTY_location] = new PropertyDescriptor ( "location", org.gpl.JSplitButton.JSplitButton.class, "getLocation", "setLocation" ); // NOI18N
-            properties[PROPERTY_locationOnScreen] = new PropertyDescriptor ( "locationOnScreen", org.gpl.JSplitButton.JSplitButton.class, "getLocationOnScreen", null ); // NOI18N
-            properties[PROPERTY_managingFocus] = new PropertyDescriptor ( "managingFocus", org.gpl.JSplitButton.JSplitButton.class, "isManagingFocus", null ); // NOI18N
-            properties[PROPERTY_margin] = new PropertyDescriptor ( "margin", org.gpl.JSplitButton.JSplitButton.class, "getMargin", "setMargin" ); // NOI18N
-            properties[PROPERTY_maximumSize] = new PropertyDescriptor ( "maximumSize", org.gpl.JSplitButton.JSplitButton.class, "getMaximumSize", "setMaximumSize" ); // NOI18N
-            properties[PROPERTY_maximumSizeSet] = new PropertyDescriptor ( "maximumSizeSet", org.gpl.JSplitButton.JSplitButton.class, "isMaximumSizeSet", null ); // NOI18N
-            properties[PROPERTY_minimumSize] = new PropertyDescriptor ( "minimumSize", org.gpl.JSplitButton.JSplitButton.class, "getMinimumSize", "setMinimumSize" ); // NOI18N
-            properties[PROPERTY_minimumSizeSet] = new PropertyDescriptor ( "minimumSizeSet", org.gpl.JSplitButton.JSplitButton.class, "isMinimumSizeSet", null ); // NOI18N
-            properties[PROPERTY_mnemonic] = new PropertyDescriptor ( "mnemonic", org.gpl.JSplitButton.JSplitButton.class, null, "setMnemonic" ); // NOI18N
-            properties[PROPERTY_model] = new PropertyDescriptor ( "model", org.gpl.JSplitButton.JSplitButton.class, "getModel", "setModel" ); // NOI18N
-            properties[PROPERTY_mouseListeners] = new PropertyDescriptor ( "mouseListeners", org.gpl.JSplitButton.JSplitButton.class, "getMouseListeners", null ); // NOI18N
-            properties[PROPERTY_mouseMotionListeners] = new PropertyDescriptor ( "mouseMotionListeners", org.gpl.JSplitButton.JSplitButton.class, "getMouseMotionListeners", null ); // NOI18N
-            properties[PROPERTY_mousePosition] = new PropertyDescriptor ( "mousePosition", org.gpl.JSplitButton.JSplitButton.class, "getMousePosition", null ); // NOI18N
-            properties[PROPERTY_mouseWheelListeners] = new PropertyDescriptor ( "mouseWheelListeners", org.gpl.JSplitButton.JSplitButton.class, "getMouseWheelListeners", null ); // NOI18N
-            properties[PROPERTY_multiClickThreshhold] = new PropertyDescriptor ( "multiClickThreshhold", org.gpl.JSplitButton.JSplitButton.class, "getMultiClickThreshhold", "setMultiClickThreshhold" ); // NOI18N
-            properties[PROPERTY_name] = new PropertyDescriptor ( "name", org.gpl.JSplitButton.JSplitButton.class, "getName", "setName" ); // NOI18N
-            properties[PROPERTY_nextFocusableComponent] = new PropertyDescriptor ( "nextFocusableComponent", org.gpl.JSplitButton.JSplitButton.class, "getNextFocusableComponent", "setNextFocusableComponent" ); // NOI18N
-            properties[PROPERTY_opaque] = new PropertyDescriptor ( "opaque", org.gpl.JSplitButton.JSplitButton.class, "isOpaque", "setOpaque" ); // NOI18N
-            properties[PROPERTY_optimizedDrawingEnabled] = new PropertyDescriptor ( "optimizedDrawingEnabled", org.gpl.JSplitButton.JSplitButton.class, "isOptimizedDrawingEnabled", null ); // NOI18N
-            properties[PROPERTY_paintingForPrint] = new PropertyDescriptor ( "paintingForPrint", org.gpl.JSplitButton.JSplitButton.class, "isPaintingForPrint", null ); // NOI18N
-            properties[PROPERTY_paintingTile] = new PropertyDescriptor ( "paintingTile", org.gpl.JSplitButton.JSplitButton.class, "isPaintingTile", null ); // NOI18N
-            properties[PROPERTY_parent] = new PropertyDescriptor ( "parent", org.gpl.JSplitButton.JSplitButton.class, "getParent", null ); // NOI18N
-            properties[PROPERTY_peer] = new PropertyDescriptor ( "peer", org.gpl.JSplitButton.JSplitButton.class, "getPeer", null ); // NOI18N
-            properties[PROPERTY_popupMenu] = new PropertyDescriptor ( "popupMenu", org.gpl.JSplitButton.JSplitButton.class, "getPopupMenu", "setPopupMenu" ); // NOI18N
-            properties[PROPERTY_preferredSize] = new PropertyDescriptor ( "preferredSize", org.gpl.JSplitButton.JSplitButton.class, "getPreferredSize", "setPreferredSize" ); // NOI18N
-            properties[PROPERTY_preferredSizeSet] = new PropertyDescriptor ( "preferredSizeSet", org.gpl.JSplitButton.JSplitButton.class, "isPreferredSizeSet", null ); // NOI18N
-            properties[PROPERTY_pressedIcon] = new PropertyDescriptor ( "pressedIcon", org.gpl.JSplitButton.JSplitButton.class, "getPressedIcon", "setPressedIcon" ); // NOI18N
-            properties[PROPERTY_propertyChangeListeners] = new PropertyDescriptor ( "propertyChangeListeners", org.gpl.JSplitButton.JSplitButton.class, "getPropertyChangeListeners", null ); // NOI18N
-            properties[PROPERTY_registeredKeyStrokes] = new PropertyDescriptor ( "registeredKeyStrokes", org.gpl.JSplitButton.JSplitButton.class, "getRegisteredKeyStrokes", null ); // NOI18N
-            properties[PROPERTY_requestFocusEnabled] = new PropertyDescriptor ( "requestFocusEnabled", org.gpl.JSplitButton.JSplitButton.class, "isRequestFocusEnabled", "setRequestFocusEnabled" ); // NOI18N
-            properties[PROPERTY_rolloverEnabled] = new PropertyDescriptor ( "rolloverEnabled", org.gpl.JSplitButton.JSplitButton.class, "isRolloverEnabled", "setRolloverEnabled" ); // NOI18N
-            properties[PROPERTY_rolloverIcon] = new PropertyDescriptor ( "rolloverIcon", org.gpl.JSplitButton.JSplitButton.class, "getRolloverIcon", "setRolloverIcon" ); // NOI18N
-            properties[PROPERTY_rolloverSelectedIcon] = new PropertyDescriptor ( "rolloverSelectedIcon", org.gpl.JSplitButton.JSplitButton.class, "getRolloverSelectedIcon", "setRolloverSelectedIcon" ); // NOI18N
-            properties[PROPERTY_rootPane] = new PropertyDescriptor ( "rootPane", org.gpl.JSplitButton.JSplitButton.class, "getRootPane", null ); // NOI18N
-            properties[PROPERTY_selected] = new PropertyDescriptor ( "selected", org.gpl.JSplitButton.JSplitButton.class, "isSelected", "setSelected" ); // NOI18N
-            properties[PROPERTY_selectedIcon] = new PropertyDescriptor ( "selectedIcon", org.gpl.JSplitButton.JSplitButton.class, "getSelectedIcon", "setSelectedIcon" ); // NOI18N
-            properties[PROPERTY_selectedObjects] = new PropertyDescriptor ( "selectedObjects", org.gpl.JSplitButton.JSplitButton.class, "getSelectedObjects", null ); // NOI18N
-            properties[PROPERTY_separatorSpacing] = new PropertyDescriptor ( "separatorSpacing", org.gpl.JSplitButton.JSplitButton.class, "getSeparatorSpacing", "setSeparatorSpacing" ); // NOI18N
-            properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", org.gpl.JSplitButton.JSplitButton.class, "isShowing", null ); // NOI18N
-            properties[PROPERTY_size] = new PropertyDescriptor ( "size", org.gpl.JSplitButton.JSplitButton.class, "getSize", "setSize" ); // NOI18N
-            properties[PROPERTY_splitWidth] = new PropertyDescriptor ( "splitWidth", org.gpl.JSplitButton.JSplitButton.class, "getSplitWidth", "setSplitWidth" ); // NOI18N
-            properties[PROPERTY_text] = new PropertyDescriptor ( "text", org.gpl.JSplitButton.JSplitButton.class, "getText", "setText" ); // NOI18N
-            properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", org.gpl.JSplitButton.JSplitButton.class, "getToolkit", null ); // NOI18N
-            properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", org.gpl.JSplitButton.JSplitButton.class, "getToolTipText", "setToolTipText" ); // NOI18N
-            properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", org.gpl.JSplitButton.JSplitButton.class, "getTopLevelAncestor", null ); // NOI18N
-            properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", org.gpl.JSplitButton.JSplitButton.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
-            properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", org.gpl.JSplitButton.JSplitButton.class, "getTreeLock", null ); // NOI18N
-            properties[PROPERTY_UI] = new PropertyDescriptor ( "UI", org.gpl.JSplitButton.JSplitButton.class, "getUI", "setUI" ); // NOI18N
-            properties[PROPERTY_UIClassID] = new PropertyDescriptor ( "UIClassID", org.gpl.JSplitButton.JSplitButton.class, "getUIClassID", null ); // NOI18N
-            properties[PROPERTY_valid] = new PropertyDescriptor ( "valid", org.gpl.JSplitButton.JSplitButton.class, "isValid", null ); // NOI18N
-            properties[PROPERTY_validateRoot] = new PropertyDescriptor ( "validateRoot", org.gpl.JSplitButton.JSplitButton.class, "isValidateRoot", null ); // NOI18N
-            properties[PROPERTY_verifyInputWhenFocusTarget] = new PropertyDescriptor ( "verifyInputWhenFocusTarget", org.gpl.JSplitButton.JSplitButton.class, "getVerifyInputWhenFocusTarget", "setVerifyInputWhenFocusTarget" ); // NOI18N
-            properties[PROPERTY_verticalAlignment] = new PropertyDescriptor ( "verticalAlignment", org.gpl.JSplitButton.JSplitButton.class, "getVerticalAlignment", "setVerticalAlignment" ); // NOI18N
-            properties[PROPERTY_verticalTextPosition] = new PropertyDescriptor ( "verticalTextPosition", org.gpl.JSplitButton.JSplitButton.class, "getVerticalTextPosition", "setVerticalTextPosition" ); // NOI18N
-            properties[PROPERTY_vetoableChangeListeners] = new PropertyDescriptor ( "vetoableChangeListeners", org.gpl.JSplitButton.JSplitButton.class, "getVetoableChangeListeners", null ); // NOI18N
-            properties[PROPERTY_visible] = new PropertyDescriptor ( "visible", org.gpl.JSplitButton.JSplitButton.class, "isVisible", "setVisible" ); // NOI18N
-            properties[PROPERTY_visibleRect] = new PropertyDescriptor ( "visibleRect", org.gpl.JSplitButton.JSplitButton.class, "getVisibleRect", null ); // NOI18N
-            properties[PROPERTY_width] = new PropertyDescriptor ( "width", org.gpl.JSplitButton.JSplitButton.class, "getWidth", null ); // NOI18N
-            properties[PROPERTY_x] = new PropertyDescriptor ( "x", org.gpl.JSplitButton.JSplitButton.class, "getX", null ); // NOI18N
-            properties[PROPERTY_y] = new PropertyDescriptor ( "y", org.gpl.JSplitButton.JSplitButton.class, "getY", null ); // NOI18N
+            properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", com.alexandriasoftware.swing.JSplitButton.class, "getAccessibleContext", null ); // NOI18N
+            properties[PROPERTY_action] = new PropertyDescriptor ( "action", com.alexandriasoftware.swing.JSplitButton.class, "getAction", "setAction" ); // NOI18N
+            properties[PROPERTY_actionCommand] = new PropertyDescriptor ( "actionCommand", com.alexandriasoftware.swing.JSplitButton.class, "getActionCommand", "setActionCommand" ); // NOI18N
+            properties[PROPERTY_actionListeners] = new PropertyDescriptor ( "actionListeners", com.alexandriasoftware.swing.JSplitButton.class, "getActionListeners", null ); // NOI18N
+            properties[PROPERTY_actionMap] = new PropertyDescriptor ( "actionMap", com.alexandriasoftware.swing.JSplitButton.class, "getActionMap", "setActionMap" ); // NOI18N
+            properties[PROPERTY_alignmentX] = new PropertyDescriptor ( "alignmentX", com.alexandriasoftware.swing.JSplitButton.class, "getAlignmentX", "setAlignmentX" ); // NOI18N
+            properties[PROPERTY_alignmentY] = new PropertyDescriptor ( "alignmentY", com.alexandriasoftware.swing.JSplitButton.class, "getAlignmentY", "setAlignmentY" ); // NOI18N
+            properties[PROPERTY_alwaysDropDown] = new PropertyDescriptor ( "alwaysDropDown", com.alexandriasoftware.swing.JSplitButton.class, "isAlwaysDropDown", "setAlwaysDropDown" ); // NOI18N
+            properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", com.alexandriasoftware.swing.JSplitButton.class, "getAncestorListeners", null ); // NOI18N
+            properties[PROPERTY_arrowColor] = new PropertyDescriptor ( "arrowColor", com.alexandriasoftware.swing.JSplitButton.class, "getArrowColor", "setArrowColor" ); // NOI18N
+            properties[PROPERTY_arrowSize] = new PropertyDescriptor ( "arrowSize", com.alexandriasoftware.swing.JSplitButton.class, "getArrowSize", "setArrowSize" ); // NOI18N
+            properties[PROPERTY_autoscrolls] = new PropertyDescriptor ( "autoscrolls", com.alexandriasoftware.swing.JSplitButton.class, "getAutoscrolls", "setAutoscrolls" ); // NOI18N
+            properties[PROPERTY_background] = new PropertyDescriptor ( "background", com.alexandriasoftware.swing.JSplitButton.class, "getBackground", "setBackground" ); // NOI18N
+            properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", com.alexandriasoftware.swing.JSplitButton.class, "isBackgroundSet", null ); // NOI18N
+            properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", com.alexandriasoftware.swing.JSplitButton.class, "getBaselineResizeBehavior", null ); // NOI18N
+            properties[PROPERTY_border] = new PropertyDescriptor ( "border", com.alexandriasoftware.swing.JSplitButton.class, "getBorder", "setBorder" ); // NOI18N
+            properties[PROPERTY_borderPainted] = new PropertyDescriptor ( "borderPainted", com.alexandriasoftware.swing.JSplitButton.class, "isBorderPainted", "setBorderPainted" ); // NOI18N
+            properties[PROPERTY_bounds] = new PropertyDescriptor ( "bounds", com.alexandriasoftware.swing.JSplitButton.class, "getBounds", "setBounds" ); // NOI18N
+            properties[PROPERTY_changeListeners] = new PropertyDescriptor ( "changeListeners", com.alexandriasoftware.swing.JSplitButton.class, "getChangeListeners", null ); // NOI18N
+            properties[PROPERTY_colorModel] = new PropertyDescriptor ( "colorModel", com.alexandriasoftware.swing.JSplitButton.class, "getColorModel", null ); // NOI18N
+            properties[PROPERTY_component] = new IndexedPropertyDescriptor ( "component", com.alexandriasoftware.swing.JSplitButton.class, null, null, "getComponent", null ); // NOI18N
+            properties[PROPERTY_componentCount] = new PropertyDescriptor ( "componentCount", com.alexandriasoftware.swing.JSplitButton.class, "getComponentCount", null ); // NOI18N
+            properties[PROPERTY_componentListeners] = new PropertyDescriptor ( "componentListeners", com.alexandriasoftware.swing.JSplitButton.class, "getComponentListeners", null ); // NOI18N
+            properties[PROPERTY_componentOrientation] = new PropertyDescriptor ( "componentOrientation", com.alexandriasoftware.swing.JSplitButton.class, "getComponentOrientation", "setComponentOrientation" ); // NOI18N
+            properties[PROPERTY_componentPopupMenu] = new PropertyDescriptor ( "componentPopupMenu", com.alexandriasoftware.swing.JSplitButton.class, "getComponentPopupMenu", "setComponentPopupMenu" ); // NOI18N
+            properties[PROPERTY_components] = new PropertyDescriptor ( "components", com.alexandriasoftware.swing.JSplitButton.class, "getComponents", null ); // NOI18N
+            properties[PROPERTY_containerListeners] = new PropertyDescriptor ( "containerListeners", com.alexandriasoftware.swing.JSplitButton.class, "getContainerListeners", null ); // NOI18N
+            properties[PROPERTY_contentAreaFilled] = new PropertyDescriptor ( "contentAreaFilled", com.alexandriasoftware.swing.JSplitButton.class, "isContentAreaFilled", "setContentAreaFilled" ); // NOI18N
+            properties[PROPERTY_cursor] = new PropertyDescriptor ( "cursor", com.alexandriasoftware.swing.JSplitButton.class, "getCursor", "setCursor" ); // NOI18N
+            properties[PROPERTY_cursorSet] = new PropertyDescriptor ( "cursorSet", com.alexandriasoftware.swing.JSplitButton.class, "isCursorSet", null ); // NOI18N
+            properties[PROPERTY_debugGraphicsOptions] = new PropertyDescriptor ( "debugGraphicsOptions", com.alexandriasoftware.swing.JSplitButton.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions" ); // NOI18N
+            properties[PROPERTY_defaultButton] = new PropertyDescriptor ( "defaultButton", com.alexandriasoftware.swing.JSplitButton.class, "isDefaultButton", null ); // NOI18N
+            properties[PROPERTY_defaultCapable] = new PropertyDescriptor ( "defaultCapable", com.alexandriasoftware.swing.JSplitButton.class, "isDefaultCapable", "setDefaultCapable" ); // NOI18N
+            properties[PROPERTY_disabledArrowColor] = new PropertyDescriptor ( "disabledArrowColor", com.alexandriasoftware.swing.JSplitButton.class, "getDisabledArrowColor", "setDisabledArrowColor" ); // NOI18N
+            properties[PROPERTY_disabledIcon] = new PropertyDescriptor ( "disabledIcon", com.alexandriasoftware.swing.JSplitButton.class, "getDisabledIcon", "setDisabledIcon" ); // NOI18N
+            properties[PROPERTY_disabledImage] = new PropertyDescriptor ( "disabledImage", com.alexandriasoftware.swing.JSplitButton.class, "getDisabledImage", "setDisabledImage" ); // NOI18N
+            properties[PROPERTY_disabledSelectedIcon] = new PropertyDescriptor ( "disabledSelectedIcon", com.alexandriasoftware.swing.JSplitButton.class, "getDisabledSelectedIcon", "setDisabledSelectedIcon" ); // NOI18N
+            properties[PROPERTY_displayable] = new PropertyDescriptor ( "displayable", com.alexandriasoftware.swing.JSplitButton.class, "isDisplayable", null ); // NOI18N
+            properties[PROPERTY_displayedMnemonicIndex] = new PropertyDescriptor ( "displayedMnemonicIndex", com.alexandriasoftware.swing.JSplitButton.class, "getDisplayedMnemonicIndex", "setDisplayedMnemonicIndex" ); // NOI18N
+            properties[PROPERTY_doubleBuffered] = new PropertyDescriptor ( "doubleBuffered", com.alexandriasoftware.swing.JSplitButton.class, "isDoubleBuffered", "setDoubleBuffered" ); // NOI18N
+            properties[PROPERTY_dropTarget] = new PropertyDescriptor ( "dropTarget", com.alexandriasoftware.swing.JSplitButton.class, "getDropTarget", "setDropTarget" ); // NOI18N
+            properties[PROPERTY_enabled] = new PropertyDescriptor ( "enabled", com.alexandriasoftware.swing.JSplitButton.class, "isEnabled", "setEnabled" ); // NOI18N
+            properties[PROPERTY_focusable] = new PropertyDescriptor ( "focusable", com.alexandriasoftware.swing.JSplitButton.class, "isFocusable", "setFocusable" ); // NOI18N
+            properties[PROPERTY_focusCycleRoot] = new PropertyDescriptor ( "focusCycleRoot", com.alexandriasoftware.swing.JSplitButton.class, "isFocusCycleRoot", "setFocusCycleRoot" ); // NOI18N
+            properties[PROPERTY_focusCycleRootAncestor] = new PropertyDescriptor ( "focusCycleRootAncestor", com.alexandriasoftware.swing.JSplitButton.class, "getFocusCycleRootAncestor", null ); // NOI18N
+            properties[PROPERTY_focusListeners] = new PropertyDescriptor ( "focusListeners", com.alexandriasoftware.swing.JSplitButton.class, "getFocusListeners", null ); // NOI18N
+            properties[PROPERTY_focusOwner] = new PropertyDescriptor ( "focusOwner", com.alexandriasoftware.swing.JSplitButton.class, "isFocusOwner", null ); // NOI18N
+            properties[PROPERTY_focusPainted] = new PropertyDescriptor ( "focusPainted", com.alexandriasoftware.swing.JSplitButton.class, "isFocusPainted", "setFocusPainted" ); // NOI18N
+            properties[PROPERTY_focusTraversable] = new PropertyDescriptor ( "focusTraversable", com.alexandriasoftware.swing.JSplitButton.class, "isFocusTraversable", null ); // NOI18N
+            properties[PROPERTY_focusTraversalKeys] = new IndexedPropertyDescriptor ( "focusTraversalKeys", com.alexandriasoftware.swing.JSplitButton.class, null, null, null, "setFocusTraversalKeys" ); // NOI18N
+            properties[PROPERTY_focusTraversalKeysEnabled] = new PropertyDescriptor ( "focusTraversalKeysEnabled", com.alexandriasoftware.swing.JSplitButton.class, "getFocusTraversalKeysEnabled", "setFocusTraversalKeysEnabled" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicy] = new PropertyDescriptor ( "focusTraversalPolicy", com.alexandriasoftware.swing.JSplitButton.class, "getFocusTraversalPolicy", "setFocusTraversalPolicy" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicyProvider] = new PropertyDescriptor ( "focusTraversalPolicyProvider", com.alexandriasoftware.swing.JSplitButton.class, "isFocusTraversalPolicyProvider", "setFocusTraversalPolicyProvider" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicySet] = new PropertyDescriptor ( "focusTraversalPolicySet", com.alexandriasoftware.swing.JSplitButton.class, "isFocusTraversalPolicySet", null ); // NOI18N
+            properties[PROPERTY_font] = new PropertyDescriptor ( "font", com.alexandriasoftware.swing.JSplitButton.class, "getFont", "setFont" ); // NOI18N
+            properties[PROPERTY_fontSet] = new PropertyDescriptor ( "fontSet", com.alexandriasoftware.swing.JSplitButton.class, "isFontSet", null ); // NOI18N
+            properties[PROPERTY_foreground] = new PropertyDescriptor ( "foreground", com.alexandriasoftware.swing.JSplitButton.class, "getForeground", "setForeground" ); // NOI18N
+            properties[PROPERTY_foregroundSet] = new PropertyDescriptor ( "foregroundSet", com.alexandriasoftware.swing.JSplitButton.class, "isForegroundSet", null ); // NOI18N
+            properties[PROPERTY_graphics] = new PropertyDescriptor ( "graphics", com.alexandriasoftware.swing.JSplitButton.class, "getGraphics", null ); // NOI18N
+            properties[PROPERTY_graphicsConfiguration] = new PropertyDescriptor ( "graphicsConfiguration", com.alexandriasoftware.swing.JSplitButton.class, "getGraphicsConfiguration", null ); // NOI18N
+            properties[PROPERTY_height] = new PropertyDescriptor ( "height", com.alexandriasoftware.swing.JSplitButton.class, "getHeight", null ); // NOI18N
+            properties[PROPERTY_hideActionText] = new PropertyDescriptor ( "hideActionText", com.alexandriasoftware.swing.JSplitButton.class, "getHideActionText", "setHideActionText" ); // NOI18N
+            properties[PROPERTY_hierarchyBoundsListeners] = new PropertyDescriptor ( "hierarchyBoundsListeners", com.alexandriasoftware.swing.JSplitButton.class, "getHierarchyBoundsListeners", null ); // NOI18N
+            properties[PROPERTY_hierarchyListeners] = new PropertyDescriptor ( "hierarchyListeners", com.alexandriasoftware.swing.JSplitButton.class, "getHierarchyListeners", null ); // NOI18N
+            properties[PROPERTY_horizontalAlignment] = new PropertyDescriptor ( "horizontalAlignment", com.alexandriasoftware.swing.JSplitButton.class, "getHorizontalAlignment", "setHorizontalAlignment" ); // NOI18N
+            properties[PROPERTY_horizontalTextPosition] = new PropertyDescriptor ( "horizontalTextPosition", com.alexandriasoftware.swing.JSplitButton.class, "getHorizontalTextPosition", "setHorizontalTextPosition" ); // NOI18N
+            properties[PROPERTY_icon] = new PropertyDescriptor ( "icon", com.alexandriasoftware.swing.JSplitButton.class, "getIcon", "setIcon" ); // NOI18N
+            properties[PROPERTY_iconTextGap] = new PropertyDescriptor ( "iconTextGap", com.alexandriasoftware.swing.JSplitButton.class, "getIconTextGap", "setIconTextGap" ); // NOI18N
+            properties[PROPERTY_ignoreRepaint] = new PropertyDescriptor ( "ignoreRepaint", com.alexandriasoftware.swing.JSplitButton.class, "getIgnoreRepaint", "setIgnoreRepaint" ); // NOI18N
+            properties[PROPERTY_image] = new PropertyDescriptor ( "image", com.alexandriasoftware.swing.JSplitButton.class, "getImage", "setImage" ); // NOI18N
+            properties[PROPERTY_inheritsPopupMenu] = new PropertyDescriptor ( "inheritsPopupMenu", com.alexandriasoftware.swing.JSplitButton.class, "getInheritsPopupMenu", "setInheritsPopupMenu" ); // NOI18N
+            properties[PROPERTY_inputContext] = new PropertyDescriptor ( "inputContext", com.alexandriasoftware.swing.JSplitButton.class, "getInputContext", null ); // NOI18N
+            properties[PROPERTY_inputMap] = new PropertyDescriptor ( "inputMap", com.alexandriasoftware.swing.JSplitButton.class, "getInputMap", null ); // NOI18N
+            properties[PROPERTY_inputMethodListeners] = new PropertyDescriptor ( "inputMethodListeners", com.alexandriasoftware.swing.JSplitButton.class, "getInputMethodListeners", null ); // NOI18N
+            properties[PROPERTY_inputMethodRequests] = new PropertyDescriptor ( "inputMethodRequests", com.alexandriasoftware.swing.JSplitButton.class, "getInputMethodRequests", null ); // NOI18N
+            properties[PROPERTY_inputVerifier] = new PropertyDescriptor ( "inputVerifier", com.alexandriasoftware.swing.JSplitButton.class, "getInputVerifier", "setInputVerifier" ); // NOI18N
+            properties[PROPERTY_insets] = new PropertyDescriptor ( "insets", com.alexandriasoftware.swing.JSplitButton.class, "getInsets", null ); // NOI18N
+            properties[PROPERTY_itemListeners] = new PropertyDescriptor ( "itemListeners", com.alexandriasoftware.swing.JSplitButton.class, "getItemListeners", null ); // NOI18N
+            properties[PROPERTY_keyListeners] = new PropertyDescriptor ( "keyListeners", com.alexandriasoftware.swing.JSplitButton.class, "getKeyListeners", null ); // NOI18N
+            properties[PROPERTY_label] = new PropertyDescriptor ( "label", com.alexandriasoftware.swing.JSplitButton.class, "getLabel", "setLabel" ); // NOI18N
+            properties[PROPERTY_layout] = new PropertyDescriptor ( "layout", com.alexandriasoftware.swing.JSplitButton.class, "getLayout", "setLayout" ); // NOI18N
+            properties[PROPERTY_lightweight] = new PropertyDescriptor ( "lightweight", com.alexandriasoftware.swing.JSplitButton.class, "isLightweight", null ); // NOI18N
+            properties[PROPERTY_locale] = new PropertyDescriptor ( "locale", com.alexandriasoftware.swing.JSplitButton.class, "getLocale", "setLocale" ); // NOI18N
+            properties[PROPERTY_location] = new PropertyDescriptor ( "location", com.alexandriasoftware.swing.JSplitButton.class, "getLocation", "setLocation" ); // NOI18N
+            properties[PROPERTY_locationOnScreen] = new PropertyDescriptor ( "locationOnScreen", com.alexandriasoftware.swing.JSplitButton.class, "getLocationOnScreen", null ); // NOI18N
+            properties[PROPERTY_managingFocus] = new PropertyDescriptor ( "managingFocus", com.alexandriasoftware.swing.JSplitButton.class, "isManagingFocus", null ); // NOI18N
+            properties[PROPERTY_margin] = new PropertyDescriptor ( "margin", com.alexandriasoftware.swing.JSplitButton.class, "getMargin", "setMargin" ); // NOI18N
+            properties[PROPERTY_maximumSize] = new PropertyDescriptor ( "maximumSize", com.alexandriasoftware.swing.JSplitButton.class, "getMaximumSize", "setMaximumSize" ); // NOI18N
+            properties[PROPERTY_maximumSizeSet] = new PropertyDescriptor ( "maximumSizeSet", com.alexandriasoftware.swing.JSplitButton.class, "isMaximumSizeSet", null ); // NOI18N
+            properties[PROPERTY_minimumSize] = new PropertyDescriptor ( "minimumSize", com.alexandriasoftware.swing.JSplitButton.class, "getMinimumSize", "setMinimumSize" ); // NOI18N
+            properties[PROPERTY_minimumSizeSet] = new PropertyDescriptor ( "minimumSizeSet", com.alexandriasoftware.swing.JSplitButton.class, "isMinimumSizeSet", null ); // NOI18N
+            properties[PROPERTY_mnemonic] = new PropertyDescriptor ( "mnemonic", com.alexandriasoftware.swing.JSplitButton.class, null, "setMnemonic" ); // NOI18N
+            properties[PROPERTY_model] = new PropertyDescriptor ( "model", com.alexandriasoftware.swing.JSplitButton.class, "getModel", "setModel" ); // NOI18N
+            properties[PROPERTY_mouseListeners] = new PropertyDescriptor ( "mouseListeners", com.alexandriasoftware.swing.JSplitButton.class, "getMouseListeners", null ); // NOI18N
+            properties[PROPERTY_mouseMotionListeners] = new PropertyDescriptor ( "mouseMotionListeners", com.alexandriasoftware.swing.JSplitButton.class, "getMouseMotionListeners", null ); // NOI18N
+            properties[PROPERTY_mousePosition] = new PropertyDescriptor ( "mousePosition", com.alexandriasoftware.swing.JSplitButton.class, "getMousePosition", null ); // NOI18N
+            properties[PROPERTY_mouseWheelListeners] = new PropertyDescriptor ( "mouseWheelListeners", com.alexandriasoftware.swing.JSplitButton.class, "getMouseWheelListeners", null ); // NOI18N
+            properties[PROPERTY_multiClickThreshhold] = new PropertyDescriptor ( "multiClickThreshhold", com.alexandriasoftware.swing.JSplitButton.class, "getMultiClickThreshhold", "setMultiClickThreshhold" ); // NOI18N
+            properties[PROPERTY_name] = new PropertyDescriptor ( "name", com.alexandriasoftware.swing.JSplitButton.class, "getName", "setName" ); // NOI18N
+            properties[PROPERTY_nextFocusableComponent] = new PropertyDescriptor ( "nextFocusableComponent", com.alexandriasoftware.swing.JSplitButton.class, "getNextFocusableComponent", "setNextFocusableComponent" ); // NOI18N
+            properties[PROPERTY_opaque] = new PropertyDescriptor ( "opaque", com.alexandriasoftware.swing.JSplitButton.class, "isOpaque", "setOpaque" ); // NOI18N
+            properties[PROPERTY_optimizedDrawingEnabled] = new PropertyDescriptor ( "optimizedDrawingEnabled", com.alexandriasoftware.swing.JSplitButton.class, "isOptimizedDrawingEnabled", null ); // NOI18N
+            properties[PROPERTY_paintingForPrint] = new PropertyDescriptor ( "paintingForPrint", com.alexandriasoftware.swing.JSplitButton.class, "isPaintingForPrint", null ); // NOI18N
+            properties[PROPERTY_paintingTile] = new PropertyDescriptor ( "paintingTile", com.alexandriasoftware.swing.JSplitButton.class, "isPaintingTile", null ); // NOI18N
+            properties[PROPERTY_parent] = new PropertyDescriptor ( "parent", com.alexandriasoftware.swing.JSplitButton.class, "getParent", null ); // NOI18N
+            properties[PROPERTY_peer] = new PropertyDescriptor ( "peer", com.alexandriasoftware.swing.JSplitButton.class, "getPeer", null ); // NOI18N
+            properties[PROPERTY_popupMenu] = new PropertyDescriptor ( "popupMenu", com.alexandriasoftware.swing.JSplitButton.class, "getPopupMenu", "setPopupMenu" ); // NOI18N
+            properties[PROPERTY_preferredSize] = new PropertyDescriptor ( "preferredSize", com.alexandriasoftware.swing.JSplitButton.class, "getPreferredSize", "setPreferredSize" ); // NOI18N
+            properties[PROPERTY_preferredSizeSet] = new PropertyDescriptor ( "preferredSizeSet", com.alexandriasoftware.swing.JSplitButton.class, "isPreferredSizeSet", null ); // NOI18N
+            properties[PROPERTY_pressedIcon] = new PropertyDescriptor ( "pressedIcon", com.alexandriasoftware.swing.JSplitButton.class, "getPressedIcon", "setPressedIcon" ); // NOI18N
+            properties[PROPERTY_propertyChangeListeners] = new PropertyDescriptor ( "propertyChangeListeners", com.alexandriasoftware.swing.JSplitButton.class, "getPropertyChangeListeners", null ); // NOI18N
+            properties[PROPERTY_registeredKeyStrokes] = new PropertyDescriptor ( "registeredKeyStrokes", com.alexandriasoftware.swing.JSplitButton.class, "getRegisteredKeyStrokes", null ); // NOI18N
+            properties[PROPERTY_requestFocusEnabled] = new PropertyDescriptor ( "requestFocusEnabled", com.alexandriasoftware.swing.JSplitButton.class, "isRequestFocusEnabled", "setRequestFocusEnabled" ); // NOI18N
+            properties[PROPERTY_rolloverEnabled] = new PropertyDescriptor ( "rolloverEnabled", com.alexandriasoftware.swing.JSplitButton.class, "isRolloverEnabled", "setRolloverEnabled" ); // NOI18N
+            properties[PROPERTY_rolloverIcon] = new PropertyDescriptor ( "rolloverIcon", com.alexandriasoftware.swing.JSplitButton.class, "getRolloverIcon", "setRolloverIcon" ); // NOI18N
+            properties[PROPERTY_rolloverSelectedIcon] = new PropertyDescriptor ( "rolloverSelectedIcon", com.alexandriasoftware.swing.JSplitButton.class, "getRolloverSelectedIcon", "setRolloverSelectedIcon" ); // NOI18N
+            properties[PROPERTY_rootPane] = new PropertyDescriptor ( "rootPane", com.alexandriasoftware.swing.JSplitButton.class, "getRootPane", null ); // NOI18N
+            properties[PROPERTY_selected] = new PropertyDescriptor ( "selected", com.alexandriasoftware.swing.JSplitButton.class, "isSelected", "setSelected" ); // NOI18N
+            properties[PROPERTY_selectedIcon] = new PropertyDescriptor ( "selectedIcon", com.alexandriasoftware.swing.JSplitButton.class, "getSelectedIcon", "setSelectedIcon" ); // NOI18N
+            properties[PROPERTY_selectedObjects] = new PropertyDescriptor ( "selectedObjects", com.alexandriasoftware.swing.JSplitButton.class, "getSelectedObjects", null ); // NOI18N
+            properties[PROPERTY_separatorSpacing] = new PropertyDescriptor ( "separatorSpacing", com.alexandriasoftware.swing.JSplitButton.class, "getSeparatorSpacing", "setSeparatorSpacing" ); // NOI18N
+            properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", com.alexandriasoftware.swing.JSplitButton.class, "isShowing", null ); // NOI18N
+            properties[PROPERTY_size] = new PropertyDescriptor ( "size", com.alexandriasoftware.swing.JSplitButton.class, "getSize", "setSize" ); // NOI18N
+            properties[PROPERTY_splitWidth] = new PropertyDescriptor ( "splitWidth", com.alexandriasoftware.swing.JSplitButton.class, "getSplitWidth", "setSplitWidth" ); // NOI18N
+            properties[PROPERTY_text] = new PropertyDescriptor ( "text", com.alexandriasoftware.swing.JSplitButton.class, "getText", "setText" ); // NOI18N
+            properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", com.alexandriasoftware.swing.JSplitButton.class, "getToolkit", null ); // NOI18N
+            properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", com.alexandriasoftware.swing.JSplitButton.class, "getToolTipText", "setToolTipText" ); // NOI18N
+            properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", com.alexandriasoftware.swing.JSplitButton.class, "getTopLevelAncestor", null ); // NOI18N
+            properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", com.alexandriasoftware.swing.JSplitButton.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
+            properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", com.alexandriasoftware.swing.JSplitButton.class, "getTreeLock", null ); // NOI18N
+            properties[PROPERTY_UI] = new PropertyDescriptor ( "UI", com.alexandriasoftware.swing.JSplitButton.class, "getUI", "setUI" ); // NOI18N
+            properties[PROPERTY_UIClassID] = new PropertyDescriptor ( "UIClassID", com.alexandriasoftware.swing.JSplitButton.class, "getUIClassID", null ); // NOI18N
+            properties[PROPERTY_valid] = new PropertyDescriptor ( "valid", com.alexandriasoftware.swing.JSplitButton.class, "isValid", null ); // NOI18N
+            properties[PROPERTY_validateRoot] = new PropertyDescriptor ( "validateRoot", com.alexandriasoftware.swing.JSplitButton.class, "isValidateRoot", null ); // NOI18N
+            properties[PROPERTY_verifyInputWhenFocusTarget] = new PropertyDescriptor ( "verifyInputWhenFocusTarget", com.alexandriasoftware.swing.JSplitButton.class, "getVerifyInputWhenFocusTarget", "setVerifyInputWhenFocusTarget" ); // NOI18N
+            properties[PROPERTY_verticalAlignment] = new PropertyDescriptor ( "verticalAlignment", com.alexandriasoftware.swing.JSplitButton.class, "getVerticalAlignment", "setVerticalAlignment" ); // NOI18N
+            properties[PROPERTY_verticalTextPosition] = new PropertyDescriptor ( "verticalTextPosition", com.alexandriasoftware.swing.JSplitButton.class, "getVerticalTextPosition", "setVerticalTextPosition" ); // NOI18N
+            properties[PROPERTY_vetoableChangeListeners] = new PropertyDescriptor ( "vetoableChangeListeners", com.alexandriasoftware.swing.JSplitButton.class, "getVetoableChangeListeners", null ); // NOI18N
+            properties[PROPERTY_visible] = new PropertyDescriptor ( "visible", com.alexandriasoftware.swing.JSplitButton.class, "isVisible", "setVisible" ); // NOI18N
+            properties[PROPERTY_visibleRect] = new PropertyDescriptor ( "visibleRect", com.alexandriasoftware.swing.JSplitButton.class, "getVisibleRect", null ); // NOI18N
+            properties[PROPERTY_width] = new PropertyDescriptor ( "width", com.alexandriasoftware.swing.JSplitButton.class, "getWidth", null ); // NOI18N
+            properties[PROPERTY_x] = new PropertyDescriptor ( "x", com.alexandriasoftware.swing.JSplitButton.class, "getX", null ); // NOI18N
+            properties[PROPERTY_y] = new PropertyDescriptor ( "y", com.alexandriasoftware.swing.JSplitButton.class, "getY", null ); // NOI18N
         }
         catch(IntrospectionException e) {
             e.printStackTrace();
@@ -350,23 +364,23 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         EventSetDescriptor[] eventSets = new EventSetDescriptor[17];
     
         try {
-            eventSets[EVENT_actionListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "actionListener", java.awt.event.ActionListener.class, new String[] {"actionPerformed"}, "addActionListener", "removeActionListener" ); // NOI18N
-            eventSets[EVENT_ancestorListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "ancestorListener", javax.swing.event.AncestorListener.class, new String[] {"ancestorAdded", "ancestorRemoved", "ancestorMoved"}, "addAncestorListener", "removeAncestorListener" ); // NOI18N
-            eventSets[EVENT_changeListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "changeListener", javax.swing.event.ChangeListener.class, new String[] {"stateChanged"}, "addChangeListener", "removeChangeListener" ); // NOI18N
-            eventSets[EVENT_componentListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "componentListener", java.awt.event.ComponentListener.class, new String[] {"componentResized", "componentMoved", "componentShown", "componentHidden"}, "addComponentListener", "removeComponentListener" ); // NOI18N
-            eventSets[EVENT_containerListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "containerListener", java.awt.event.ContainerListener.class, new String[] {"componentAdded", "componentRemoved"}, "addContainerListener", "removeContainerListener" ); // NOI18N
-            eventSets[EVENT_focusListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "focusListener", java.awt.event.FocusListener.class, new String[] {"focusGained", "focusLost"}, "addFocusListener", "removeFocusListener" ); // NOI18N
-            eventSets[EVENT_hierarchyBoundsListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "hierarchyBoundsListener", java.awt.event.HierarchyBoundsListener.class, new String[] {"ancestorMoved", "ancestorResized"}, "addHierarchyBoundsListener", "removeHierarchyBoundsListener" ); // NOI18N
-            eventSets[EVENT_hierarchyListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "hierarchyListener", java.awt.event.HierarchyListener.class, new String[] {"hierarchyChanged"}, "addHierarchyListener", "removeHierarchyListener" ); // NOI18N
-            eventSets[EVENT_inputMethodListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "inputMethodListener", java.awt.event.InputMethodListener.class, new String[] {"inputMethodTextChanged", "caretPositionChanged"}, "addInputMethodListener", "removeInputMethodListener" ); // NOI18N
-            eventSets[EVENT_itemListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "itemListener", java.awt.event.ItemListener.class, new String[] {"itemStateChanged"}, "addItemListener", "removeItemListener" ); // NOI18N
-            eventSets[EVENT_keyListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "keyListener", java.awt.event.KeyListener.class, new String[] {"keyTyped", "keyPressed", "keyReleased"}, "addKeyListener", "removeKeyListener" ); // NOI18N
-            eventSets[EVENT_mouseListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "mouseListener", java.awt.event.MouseListener.class, new String[] {"mouseClicked", "mousePressed", "mouseReleased", "mouseEntered", "mouseExited"}, "addMouseListener", "removeMouseListener" ); // NOI18N
-            eventSets[EVENT_mouseMotionListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "mouseMotionListener", java.awt.event.MouseMotionListener.class, new String[] {"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener" ); // NOI18N
-            eventSets[EVENT_mouseWheelListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "mouseWheelListener", java.awt.event.MouseWheelListener.class, new String[] {"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener" ); // NOI18N
-            eventSets[EVENT_propertyChangeListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[] {"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener" ); // NOI18N
-            eventSets[EVENT_splitButtonActionListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "splitButtonActionListener", org.gpl.JSplitButton.action.SplitButtonActionListener.class, new String[] {"buttonClicked", "splitButtonClicked"}, "addSplitButtonActionListener", "removeSplitButtonActionListener" ); // NOI18N
-            eventSets[EVENT_vetoableChangeListener] = new EventSetDescriptor ( org.gpl.JSplitButton.JSplitButton.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[] {"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener" ); // NOI18N
+            eventSets[EVENT_actionListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "actionListener", java.awt.event.ActionListener.class, new String[] {"actionPerformed"}, "addActionListener", "removeActionListener" ); // NOI18N
+            eventSets[EVENT_ancestorListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "ancestorListener", javax.swing.event.AncestorListener.class, new String[] {"ancestorAdded", "ancestorRemoved", "ancestorMoved"}, "addAncestorListener", "removeAncestorListener" ); // NOI18N
+            eventSets[EVENT_changeListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "changeListener", javax.swing.event.ChangeListener.class, new String[] {"stateChanged"}, "addChangeListener", "removeChangeListener" ); // NOI18N
+            eventSets[EVENT_componentListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "componentListener", java.awt.event.ComponentListener.class, new String[] {"componentResized", "componentMoved", "componentShown", "componentHidden"}, "addComponentListener", "removeComponentListener" ); // NOI18N
+            eventSets[EVENT_containerListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "containerListener", java.awt.event.ContainerListener.class, new String[] {"componentAdded", "componentRemoved"}, "addContainerListener", "removeContainerListener" ); // NOI18N
+            eventSets[EVENT_focusListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "focusListener", java.awt.event.FocusListener.class, new String[] {"focusGained", "focusLost"}, "addFocusListener", "removeFocusListener" ); // NOI18N
+            eventSets[EVENT_hierarchyBoundsListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "hierarchyBoundsListener", java.awt.event.HierarchyBoundsListener.class, new String[] {"ancestorMoved", "ancestorResized"}, "addHierarchyBoundsListener", "removeHierarchyBoundsListener" ); // NOI18N
+            eventSets[EVENT_hierarchyListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "hierarchyListener", java.awt.event.HierarchyListener.class, new String[] {"hierarchyChanged"}, "addHierarchyListener", "removeHierarchyListener" ); // NOI18N
+            eventSets[EVENT_inputMethodListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "inputMethodListener", java.awt.event.InputMethodListener.class, new String[] {"inputMethodTextChanged", "caretPositionChanged"}, "addInputMethodListener", "removeInputMethodListener" ); // NOI18N
+            eventSets[EVENT_itemListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "itemListener", java.awt.event.ItemListener.class, new String[] {"itemStateChanged"}, "addItemListener", "removeItemListener" ); // NOI18N
+            eventSets[EVENT_keyListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "keyListener", java.awt.event.KeyListener.class, new String[] {"keyTyped", "keyPressed", "keyReleased"}, "addKeyListener", "removeKeyListener" ); // NOI18N
+            eventSets[EVENT_mouseListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "mouseListener", java.awt.event.MouseListener.class, new String[] {"mouseClicked", "mousePressed", "mouseReleased", "mouseEntered", "mouseExited"}, "addMouseListener", "removeMouseListener" ); // NOI18N
+            eventSets[EVENT_mouseMotionListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "mouseMotionListener", java.awt.event.MouseMotionListener.class, new String[] {"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener" ); // NOI18N
+            eventSets[EVENT_mouseWheelListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "mouseWheelListener", java.awt.event.MouseWheelListener.class, new String[] {"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener" ); // NOI18N
+            eventSets[EVENT_propertyChangeListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[] {"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener" ); // NOI18N
+            eventSets[EVENT_splitButtonActionListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "splitButtonActionListener", com.alexandriasoftware.swing.action.SplitButtonActionListener.class, new String[] {"buttonClicked", "splitButtonClicked"}, "addSplitButtonActionListener", "removeSplitButtonActionListener" ); // NOI18N
+            eventSets[EVENT_vetoableChangeListener] = new EventSetDescriptor ( com.alexandriasoftware.swing.JSplitButton.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[] {"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener" ); // NOI18N
         }
         catch(IntrospectionException e) {
             e.printStackTrace();
@@ -541,7 +555,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         try {
             methods[METHOD_action0] = new MethodDescriptor(java.awt.Component.class.getMethod("action", new Class[] {java.awt.Event.class, java.lang.Object.class})); // NOI18N
             methods[METHOD_action0].setDisplayName ( "" );
-            methods[METHOD_actionPerformed1] = new MethodDescriptor(org.gpl.JSplitButton.JSplitButton.class.getMethod("actionPerformed", new Class[] {java.awt.event.ActionEvent.class})); // NOI18N
+            methods[METHOD_actionPerformed1] = new MethodDescriptor(com.alexandriasoftware.swing.JSplitButton.class.getMethod("actionPerformed", new Class[] {java.awt.event.ActionEvent.class})); // NOI18N
             methods[METHOD_actionPerformed1].setDisplayName ( "" );
             methods[METHOD_add2] = new MethodDescriptor(java.awt.Component.class.getMethod("add", new Class[] {java.awt.PopupMenu.class})); // NOI18N
             methods[METHOD_add2].setDisplayName ( "" );
@@ -675,7 +689,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_handleEvent66].setDisplayName ( "" );
             methods[METHOD_hasFocus67] = new MethodDescriptor(java.awt.Component.class.getMethod("hasFocus", new Class[] {})); // NOI18N
             methods[METHOD_hasFocus67].setDisplayName ( "" );
-            methods[METHOD_hide68] = new MethodDescriptor(java.awt.Component.class.getMethod("hide", new Class[] {})); // NOI18N
+            methods[METHOD_hide68] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("hide", new Class[] {})); // NOI18N
             methods[METHOD_hide68].setDisplayName ( "" );
             methods[METHOD_imageUpdate69] = new MethodDescriptor(javax.swing.AbstractButton.class.getMethod("imageUpdate", new Class[] {java.awt.Image.class, int.class, int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_imageUpdate69].setDisplayName ( "" );
@@ -715,29 +729,29 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_lostFocus86].setDisplayName ( "" );
             methods[METHOD_minimumSize87] = new MethodDescriptor(java.awt.Container.class.getMethod("minimumSize", new Class[] {})); // NOI18N
             methods[METHOD_minimumSize87].setDisplayName ( "" );
-            methods[METHOD_mouseClicked88] = new MethodDescriptor(org.gpl.JSplitButton.JSplitButton.class.getMethod("mouseClicked", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_mouseClicked88] = new MethodDescriptor(com.alexandriasoftware.swing.JSplitButton.class.getMethod("mouseClicked", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
             methods[METHOD_mouseClicked88].setDisplayName ( "" );
             methods[METHOD_mouseDown89] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseDown", new Class[] {java.awt.Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_mouseDown89].setDisplayName ( "" );
             methods[METHOD_mouseDrag90] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseDrag", new Class[] {java.awt.Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_mouseDrag90].setDisplayName ( "" );
-            methods[METHOD_mouseDragged91] = new MethodDescriptor(org.gpl.JSplitButton.JSplitButton.class.getMethod("mouseDragged", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_mouseDragged91] = new MethodDescriptor(com.alexandriasoftware.swing.JSplitButton.class.getMethod("mouseDragged", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
             methods[METHOD_mouseDragged91].setDisplayName ( "" );
             methods[METHOD_mouseEnter92] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseEnter", new Class[] {java.awt.Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_mouseEnter92].setDisplayName ( "" );
-            methods[METHOD_mouseEntered93] = new MethodDescriptor(org.gpl.JSplitButton.JSplitButton.class.getMethod("mouseEntered", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_mouseEntered93] = new MethodDescriptor(com.alexandriasoftware.swing.JSplitButton.class.getMethod("mouseEntered", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
             methods[METHOD_mouseEntered93].setDisplayName ( "" );
             methods[METHOD_mouseExit94] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseExit", new Class[] {java.awt.Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_mouseExit94].setDisplayName ( "" );
-            methods[METHOD_mouseExited95] = new MethodDescriptor(org.gpl.JSplitButton.JSplitButton.class.getMethod("mouseExited", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_mouseExited95] = new MethodDescriptor(com.alexandriasoftware.swing.JSplitButton.class.getMethod("mouseExited", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
             methods[METHOD_mouseExited95].setDisplayName ( "" );
             methods[METHOD_mouseMove96] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseMove", new Class[] {java.awt.Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_mouseMove96].setDisplayName ( "" );
-            methods[METHOD_mouseMoved97] = new MethodDescriptor(org.gpl.JSplitButton.JSplitButton.class.getMethod("mouseMoved", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_mouseMoved97] = new MethodDescriptor(com.alexandriasoftware.swing.JSplitButton.class.getMethod("mouseMoved", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
             methods[METHOD_mouseMoved97].setDisplayName ( "" );
-            methods[METHOD_mousePressed98] = new MethodDescriptor(org.gpl.JSplitButton.JSplitButton.class.getMethod("mousePressed", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_mousePressed98] = new MethodDescriptor(com.alexandriasoftware.swing.JSplitButton.class.getMethod("mousePressed", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
             methods[METHOD_mousePressed98].setDisplayName ( "" );
-            methods[METHOD_mouseReleased99] = new MethodDescriptor(org.gpl.JSplitButton.JSplitButton.class.getMethod("mouseReleased", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_mouseReleased99] = new MethodDescriptor(com.alexandriasoftware.swing.JSplitButton.class.getMethod("mouseReleased", new Class[] {java.awt.event.MouseEvent.class})); // NOI18N
             methods[METHOD_mouseReleased99].setDisplayName ( "" );
             methods[METHOD_mouseUp100] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseUp", new Class[] {java.awt.Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_mouseUp100].setDisplayName ( "" );
@@ -835,7 +849,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_toString146].setDisplayName ( "" );
             methods[METHOD_transferFocus147] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocus", new Class[] {})); // NOI18N
             methods[METHOD_transferFocus147].setDisplayName ( "" );
-            methods[METHOD_transferFocusBackward148] = new MethodDescriptor(java.awt.Container.class.getMethod("transferFocusBackward", new Class[] {})); // NOI18N
+            methods[METHOD_transferFocusBackward148] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocusBackward", new Class[] {})); // NOI18N
             methods[METHOD_transferFocusBackward148].setDisplayName ( "" );
             methods[METHOD_transferFocusDownCycle149] = new MethodDescriptor(java.awt.Container.class.getMethod("transferFocusDownCycle", new Class[] {})); // NOI18N
             methods[METHOD_transferFocusDownCycle149].setDisplayName ( "" );
@@ -860,8 +874,8 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static java.awt.Image iconColor32 = null;
     private static java.awt.Image iconMono16 = null;
     private static java.awt.Image iconMono32 = null;//GEN-END:IconsDef
-    private static String iconNameC16 = "org/gpl/components/resources/splitbutton_16.png";//GEN-BEGIN:Icons
-    private static String iconNameC32 = "org/gpl/components/resources/splitbutton_32.png";
+    private static String iconNameC16 = "/com/alexandriasoftware/swing/splitbutton_16.png";//GEN-BEGIN:Icons
+    private static String iconNameC32 = "/com/alexandriasoftware/swing/splitbutton_32.png";
     private static String iconNameM16 = null;
     private static String iconNameM32 = null;//GEN-END:Icons
 

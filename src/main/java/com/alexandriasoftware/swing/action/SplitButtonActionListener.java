@@ -37,12 +37,16 @@ public interface SplitButtonActionListener extends EventListener {
 
     /**
      * Invoked when the button part is clicked.
+     *
+     * @param evt The event
      */
-    public void buttonClicked(ActionEvent e);
+    public void buttonClicked(ActionEvent evt);
 
     /**
      * Invoked when split part is clicked.
+     *
+     * @param evt The event
      */
-    public void splitButtonClicked(ActionEvent e);
+    public void splitButtonClicked(ActionEvent evt);
 
 }

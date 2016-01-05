@@ -18,11 +18,24 @@
 package com.alexandriasoftware.swing;
 
 import com.alexandriasoftware.swing.action.SplitButtonActionListener;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JPopupMenu;
+import javax.swing.UIManager;
 
 /**
  * An implementation of a "split" button.The left side acts like a normal

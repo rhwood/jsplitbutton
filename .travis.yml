@@ -6,4 +6,4 @@ jdk:
 matrix:
   include:
   - jdk: oraclejdk8
-    script: mvn clean site-deploy
+    script: mvn clean site generate-sources javadoc:javadoc site:stage site-deploy

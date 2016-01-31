@@ -5,7 +5,46 @@
     <artifactId>jsplitbutton</artifactId>
     <version>1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <url>http://rhwood.github.io/jsplitbutton</url>
+
+    <scm>
+        <connection>scm:git:git@github.com:rhwood/jsplitbutton.git</connection>
+        <developerConnection>scm:git:git@github.com:rhwood/jsplitbutton.git</developerConnection>
+        <url>https://github.com/rhwood/jsplitbutton</url>
+        <tag>site</tag>
+    </scm>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/rhwood/jsplitbutton/issues</url>
+    </issueManagement>
+    <distributionManagement>
+        <site>
+            <id>github</id>
+            <url>scm:git:git@github.com:rhwood/jsplitbutton.git</url>
+        </site>
+    </distributionManagement>
+
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.4</version>
+                    <configuration>
+                        <skipDeploy>true</skipDeploy><!-- don't deploy site with maven-site-plugin -->
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>1.1</version>
+                    <configuration>
+                        <scmBranch>gh-pages</scmBranch>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>        
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -15,6 +54,19 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>scm-publish</id>
+                        <phase>site-deploy</phase><!-- deploy site with maven-scm-publish-plugin -->
+                        <goals>
+                            <goal>publish-scm</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>        
         </plugins>
     </build>
     <properties>
@@ -37,4 +89,16 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
+                <configuration>
+                    <configLocation>config/sun_checks.xml</configLocation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

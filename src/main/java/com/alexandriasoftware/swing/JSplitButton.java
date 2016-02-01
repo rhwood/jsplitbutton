@@ -65,8 +65,12 @@ import javax.swing.UIManager;
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016
  */
-public class JSplitButton extends JButton implements MouseMotionListener, MouseListener, ActionListener, Serializable {
+public class JSplitButton extends JButton implements MouseMotionListener,
+        MouseListener, ActionListener, Serializable {
 
+    /**
+     * Key used for serialization.
+     */
     private static final long serialVersionUID = 1L;
 
     private int separatorSpacing = 4;
@@ -145,7 +149,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
      * split part of the button).
      *
      * @return separatorSpacingimage = null; //to repaint the image with the new
-     * size
+     *         size
      */
     public int getSeparatorSpacing() {
         return separatorSpacing;
@@ -175,7 +179,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
      * Show the dropdown menu, if attached, even if the button part is clicked.
      *
      * @param alwaysDropDown true to show the attached dropdown even if the
-     * button part is clicked, false otherwise
+     *                       button part is clicked, false otherwise
      */
     public void setAlwaysDropDown(boolean alwaysDropDown) {
         this.alwaysDropDown = alwaysDropDown;
@@ -374,7 +378,7 @@ public class JSplitButton extends JButton implements MouseMotionListener, MouseL
     /**
      * Rotates the given image with the specified angle.
      *
-     * @param img image to rotate
+     * @param img   image to rotate
      * @param angle angle of rotation
      * @return rotated image
      */

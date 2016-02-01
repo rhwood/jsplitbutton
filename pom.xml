@@ -52,6 +52,7 @@
                 <version>0.12</version>
                 <configuration>
                     <message>Site update by Travis CI</message>
+                    <userName>rhwood</userName>
                     <oauth2Token>${env:TOKEN}</oauth2Token>
                 </configuration>
                 <executions>

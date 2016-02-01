@@ -6,7 +6,7 @@ jdk:
 matrix:
   include:
   - jdk: oraclejdk8
-    script: mvn clean site site:stage site-deploy
+    script: mvn clean site site-deploy
 before_script:
 #- git config --global user.email ${GIT_EMAIL}
 #- git config --global user.name ${GIT_NAME}

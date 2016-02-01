@@ -16,6 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 /**
- * Swing implementation of a split button and JavaBean information for using it in an IDE.
+ * Swing implementation of a split button and JavaBean information for using it
+ * in an IDE.
  */
 package com.alexandriasoftware.swing;

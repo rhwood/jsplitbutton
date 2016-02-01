@@ -8,8 +8,8 @@
     <url>http://rhwood.github.io/jsplitbutton</url>
 
     <scm>
-        <connection>scm:git:git@github.com:rhwood/jsplitbutton.git</connection>
-        <developerConnection>scm:git:git@github.com:rhwood/jsplitbutton.git</developerConnection>
+        <connection>scm:git:https://github.com/rhwood/jsplitbutton.git</connection>
+        <developerConnection>scm:git:https://github.com/rhwood/jsplitbutton.git</developerConnection>
         <url>https://github.com/rhwood/jsplitbutton</url>
         <tag>site</tag>
     </scm>
@@ -20,7 +20,7 @@
     <distributionManagement>
         <site>
             <id>github</id>
-            <url>scm:git:git@github.com:rhwood/jsplitbutton.git</url>
+            <url>scm:git:https://github.com/rhwood/jsplitbutton.git</url>
         </site>
     </distributionManagement>
 

@@ -3,14 +3,11 @@ jdk:
 - oraclejdk8
 - oraclejdk7
 - openjdk6
-matrix:
-  include:
-  - jdk: oraclejdk8
-    script: mvn --settings .travis.settings.xml clean site site-deploy
-before_script:
-#- git config --global user.email ${GIT_EMAIL}
-#- git config --global user.name ${GIT_NAME}
-env:
+after_success: mvn --quiet --settings .travis.settings.xml clean site site-deploy
+cache:
+  directories:
+  - $HOME/.m2
+  env:
   global:
   - secure: r6l+3I+3OMfo4iSyLuioOE91OxUdoDUZ9WPW/kjdE9Hr//0SQAJcQwIGJPMLIPaOKB5uXFG/P8TaoX/m1vzCvwDM+cmPUjGGHbmQLenlGjeogCtZWWt3olzf4ljU9uRtrCPLsmqJIxCkE9XXQp45Eue7NvVfGvuVs8Dv8EbDBXZ+2NCTq9ybNHjOd7dhf9gdenggi93wH+MX+dKV1S4SRrlHSYTUpHortjrZKT95mliUKmpfZcpihbohonuotXZC+Gq8kIMQ+xJfFjkAiIz33XFT6HeSsdUOLbFnixMdGsvE4AoBheVYpZznVeFnIMnTKozRmgxUpVbMwuqZIR4LkidD3bUIdKWHRlxB6kayCaRdKjcbrNT2JCYV3SQN50YVlWRXufLMnxYei7kAEltzkwllzQwM7gU8G40SOhkF1sTVDeLD91kgehhNiGaSO6Z59HkGL6vb0TkSkIYkNCAaJlhYrVNUXA9I6IDKjRJKt91z4RW6qXE5fNvsmubKJmS2gz2XAEOTg2YOpLpb5oFM6bSvRKTia9NIBKHqQ4U6VrGeSdZ6+IRwnRYgIm95B8GxzQO/kkvR/3mzM1oObSjPcv/VniTQLeDII9qSpVRQV1UFvwHUsGylG9G3d3JgoXxv3dAkdB8r+qHP0tMG8O8/iMzTTXWyStPGhq0ndtCPxdM=
   - secure: JMY3PNjZ8E1SigchffdjFu+WyyVZhAt5JZQLexqP/j2IcDtzR70wlaIphJjzT01DCzaNfQhH+5lBd7n0VWxhYcAYpVfx3F7YSbkT+GXVGCmyqd3qPw9Td6jI+DfuSJBT0ycpUuyM+jx5dVM5C03h3QWHPt9ARolM4+F/FgJQCWL3InXaKGVzsTOkH0OMupJmsRKk/CACPO2eJvhJoC89q4T8zhDJl7jkM7AUD/pa1WWNPAViRw3zkxlis32oyHktOFaBRZfDedLYlhHx9BHT2R57pjIdeKzDPQFlnDxhDheyAh9+W4S4HmBIAv2nHPqLUvOfUWmDyrnZCRVPlZ5E9Qtvs+wjc4CHAxs5bt5hImNsSij8JAN0DXw0DvRGtsEYH+7s45BSWk2Ol5PXqSfUkIXLzuQKlMIwrB0W0BAJAYonIZ4jr/I+t3iLRAQ80mUk6Kq0PdjZ8IQ2lYBv9b7OdFDY5b5vIpexJ8o2WmNW4SZP7UiaX37k5dsYKk5muapIuwU6AwZuaniLn11KINDWNVqtDfqDESfXd2QBVncrJlYLfM4IP+uRY0V4vV/POaN4c0w+ihQH7Pwd9CsJndDG+HKEMmpy7gETk8jHv39p3rcVFPx/dFWXfkGiVfEX87xxJkFzYWi4cq064Z6u14a13okoAAVa5iBJvmItapHObzU=

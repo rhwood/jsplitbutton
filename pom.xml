@@ -35,15 +35,6 @@
                         <skipDeploy>true</skipDeploy><!-- don't deploy site with maven-site-plugin -->
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-scm-publish-plugin</artifactId>
-                    <version>1.1</version>
-                    <configuration>
-                        <scmBranch>gh-pages</scmBranch>
-                        <password>${env:TOKEN}</password>
-                    </configuration>
-                </plugin>
             </plugins>
         </pluginManagement>        
         <plugins>
@@ -56,19 +47,22 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-publish-plugin</artifactId>
-                <version>1.1</version>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <message>Site update by Travis CI</message>
+                    <oauth2Token>${env:TOKEN}</oauth2Token>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>scm-publish</id>
-                        <phase>site-deploy</phase><!-- deploy site with maven-scm-publish-plugin -->
                         <goals>
-                            <goal>publish-scm</goal>
+                            <goal>site</goal>
                         </goals>
+                        <phase>site-deploy</phase>
                     </execution>
-                </executions>
-            </plugin>        
+                </executions>            
+            </plugin>
         </plugins>
     </build>
     <properties>

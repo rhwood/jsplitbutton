@@ -51,10 +51,8 @@
                 <artifactId>site-maven-plugin</artifactId>
                 <version>0.12</version>
                 <configuration>
-                    <repositoryOwner>rhwood</repositoryOwner>
-                    <repositoryName>jsplitbutton</repositoryName>
+                    <server>github</server>
                     <message>Site update by Travis CI</message>
-                    <oauth2Token>${env:TOKEN}</oauth2Token>
                 </configuration>
                 <executions>
                     <execution>

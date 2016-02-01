@@ -1,12 +1,11 @@
 language: java
 jdk:
-- oraclejdk8
 - oraclejdk7
 - openjdk6
 matrix:
   include:
   - jdk: oraclejdk8
-  - after_success: mvn --quiet --settings .travis.settings.xml clean site site-deploy
+  - script: mvn --quiet --settings .travis.settings.xml test clean site site-deploy
 cache:
   directories:
   - $HOME/.m2

@@ -44,7 +44,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int PROPERTY_actionMap = 4;
     private static final int PROPERTY_alignmentX = 5;
     private static final int PROPERTY_alignmentY = 6;
-    private static final int PROPERTY_alwaysDropDown = 7;
+    private static final int PROPERTY_alwaysPopup = 7;
     private static final int PROPERTY_ancestorListeners = 8;
     private static final int PROPERTY_arrowColor = 9;
     private static final int PROPERTY_arrowSize = 10;
@@ -194,7 +194,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_actionMap] = new PropertyDescriptor ( "actionMap", com.alexandriasoftware.swing.JSplitButton.class, "getActionMap", "setActionMap" ); // NOI18N
             properties[PROPERTY_alignmentX] = new PropertyDescriptor ( "alignmentX", com.alexandriasoftware.swing.JSplitButton.class, "getAlignmentX", "setAlignmentX" ); // NOI18N
             properties[PROPERTY_alignmentY] = new PropertyDescriptor ( "alignmentY", com.alexandriasoftware.swing.JSplitButton.class, "getAlignmentY", "setAlignmentY" ); // NOI18N
-            properties[PROPERTY_alwaysDropDown] = new PropertyDescriptor ( "alwaysDropDown", com.alexandriasoftware.swing.JSplitButton.class, "isAlwaysDropDown", "setAlwaysDropDown" ); // NOI18N
+            properties[PROPERTY_alwaysPopup] = new PropertyDescriptor ( "alwaysPopup", com.alexandriasoftware.swing.JSplitButton.class, "isAlwaysPopup", "setAlwaysPopup" ); // NOI18N
             properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", com.alexandriasoftware.swing.JSplitButton.class, "getAncestorListeners", null ); // NOI18N
             properties[PROPERTY_arrowColor] = new PropertyDescriptor ( "arrowColor", com.alexandriasoftware.swing.JSplitButton.class, "getArrowColor", "setArrowColor" ); // NOI18N
             properties[PROPERTY_arrowSize] = new PropertyDescriptor ( "arrowSize", com.alexandriasoftware.swing.JSplitButton.class, "getArrowSize", "setArrowSize" ); // NOI18N

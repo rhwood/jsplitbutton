@@ -52,16 +52,6 @@ import javax.swing.UIManager;
  * {@link com.alexandriasoftware.swing.action.SplitButtonActionListener} to
  * handle these events.
  *
- * Use as you wish, but an acknowledgement would be appreciated, ;) <br><br>
- * <b>Known Issue:</b><br>
- * The 'button part' of the splitbutton is being drawn without the border??? and
- * this is only happening in CDE/Motif and Metal Look and Feels. GTK+ and nimbus
- * works perfect. No Idea why? if anybody could point out the mistake that'd be
- * nice.My email naveedmurtuza[at]gmail.com<br><br>
- * P.S. The fireXXX methods has been directly plagarized from JDK source code,
- * and yes even the javadocs..;)<br><br>
- * The border bug in metal L&amp;F is now fixed. Thanks to Hervé Guillaume.
- *
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016
  */
@@ -79,7 +69,7 @@ public class JSplitButton extends JButton implements MouseMotionListener,
     private boolean onSplit;
     private Rectangle splitRectangle;
     private JPopupMenu popupMenu;
-    private boolean alwaysDropDown;
+    private boolean alwaysPopup;
     private Color arrowColor = Color.BLACK;
     private Color disabledArrowColor = Color.GRAY;
     private Image image;
@@ -145,18 +135,17 @@ public class JSplitButton extends JButton implements MouseMotionListener,
 
     /**
      * Returns the separatorSpacing. Separator spacing is the space above and
-     * below the separator( the line drawn when you hover your mouse over the
+     * below the separator (the line drawn when you hover your mouse over the
      * split part of the button).
      *
-     * @return separatorSpacingimage = null; //to repaint the image with the new
-     *         size
+     * @return the spacing
      */
     public int getSeparatorSpacing() {
         return separatorSpacing;
     }
 
     /**
-     * Sets the separatorSpacing.Separator spacing is the space above and below
+     * Sets the separatorSpacing. Separator spacing is the space above and below
      * the separator (the line drawn when you hover your mouse over the split
      * part of the button).
      *
@@ -167,12 +156,33 @@ public class JSplitButton extends JButton implements MouseMotionListener,
     }
 
     /**
+     * Show the popup menu, if attached, even if the button part is clicked.
+     *
+     * @return true if alwaysPopup, false otherwise.
+     */
+    public boolean isAlwaysPopup() {
+        return alwaysPopup;
+    }
+
+    /**
+     * Show the popup menu, if attached, even if the button part is clicked.
+     *
+     * @param alwaysPopup true to show the attached JPopupMenu even if the
+     *                    button part is clicked, false otherwise
+     */
+    public void setAlwaysPopup(boolean alwaysPopup) {
+        this.alwaysPopup = alwaysPopup;
+    }
+
+    /**
      * Show the dropdown menu, if attached, even if the button part is clicked.
      *
      * @return true if alwaysDropdown, false otherwise.
+     * @deprecated use {@link #isAlwaysPopup() } instead.
      */
+    @Deprecated
     public boolean isAlwaysDropDown() {
-        return alwaysDropDown;
+        return alwaysPopup;
     }
 
     /**
@@ -180,9 +190,11 @@ public class JSplitButton extends JButton implements MouseMotionListener,
      *
      * @param alwaysDropDown true to show the attached dropdown even if the
      *                       button part is clicked, false otherwise
+     * @deprecated use {@link #setAlwaysPopup(boolean) } instead.
      */
+    @Deprecated
     public void setAlwaysDropDown(boolean alwaysDropDown) {
-        this.alwaysDropDown = alwaysDropDown;
+        this.alwaysPopup = alwaysDropDown;
     }
 
     /**
@@ -365,7 +377,7 @@ public class JSplitButton extends JButton implements MouseMotionListener,
         int mh = getHeight() / 2;
         int mw = splitWidth / 2;
         g.drawImage((isEnabled() ? getImage() : getDisabledImage()), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
-        if (onSplit && !alwaysDropDown && popupMenu != null) {
+        if (onSplit && !alwaysPopup && popupMenu != null) {
             g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.background"));
             g.drawLine(1, separatorSpacing + 2, 1, getHeight() - separatorSpacing - 2);
             g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.shadow"));
@@ -432,7 +444,7 @@ public class JSplitButton extends JButton implements MouseMotionListener,
     public void actionPerformed(ActionEvent e) {
         if (popupMenu == null) {
             fireButtonClicked(e);
-        } else if (alwaysDropDown) {
+        } else if (alwaysPopup) {
             popupMenu.show(this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());
             fireButtonClicked(e);
         } else if (onSplit) {

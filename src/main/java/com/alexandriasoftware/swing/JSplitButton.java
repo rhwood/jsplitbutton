@@ -281,32 +281,10 @@ public class JSplitButton extends JButton implements MouseMotionListener,
     public Image getImage() {
         if (image != null) {
             return image;
+        } else if (popupMenu == null) {
+            return this.getDisabledImage();
         } else {
-            Graphics2D g;
-            BufferedImage img = new BufferedImage(arrowSize, arrowSize, BufferedImage.TYPE_INT_RGB);
-            g = img.createGraphics();
-            g.setColor(Color.WHITE);
-            g.fillRect(0, 0, img.getWidth(), img.getHeight());
-            g.setColor(popupMenu != null ? arrowColor : disabledArrowColor);
-            //this creates a triangle facing right >
-            g.fillPolygon(new int[]{0, 0, arrowSize / 2}, new int[]{0, arrowSize, arrowSize / 2}, 3);
-            g.dispose();
-            //rotate it to face downwards
-            img = rotate(img, 90);
-            BufferedImage dimg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
-            g = dimg.createGraphics();
-            g.setComposite(AlphaComposite.Src);
-            g.drawImage(img, null, 0, 0);
-            g.dispose();
-            for (int i = 0; i < dimg.getHeight(); i++) {
-                for (int j = 0; j < dimg.getWidth(); j++) {
-                    if (dimg.getRGB(j, i) == Color.WHITE.getRGB()) {
-                        dimg.setRGB(j, i, 0x8F1C1C);
-                    }
-                }
-            }
-
-            image = Toolkit.getDefaultToolkit().createImage(dimg.getSource());
+            image = this.getImage(arrowColor);
             return image;
         }
     }
@@ -330,33 +308,43 @@ public class JSplitButton extends JButton implements MouseMotionListener,
         if (disabledImage != null) {
             return disabledImage;
         } else {
-            Graphics2D g;
-            BufferedImage img = new BufferedImage(arrowSize, arrowSize, BufferedImage.TYPE_INT_RGB);
-            g = img.createGraphics();
-            g.setColor(Color.WHITE);
-            g.fillRect(0, 0, img.getWidth(), img.getHeight());
-            g.setColor(disabledArrowColor);
-            // this creates a triangle facing right >
-            g.fillPolygon(new int[]{0, 0, arrowSize / 2}, new int[]{0, arrowSize, arrowSize / 2}, 3);
-            g.dispose();
-            // rotate it to face downwards
-            img = rotate(img, 90);
-            BufferedImage dimg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
-            g = dimg.createGraphics();
-            g.setComposite(AlphaComposite.Src);
-            g.drawImage(img, null, 0, 0);
-            g.dispose();
-            for (int i = 0; i < dimg.getHeight(); i++) {
-                for (int j = 0; j < dimg.getWidth(); j++) {
-                    if (dimg.getRGB(j, i) == Color.WHITE.getRGB()) {
-                        dimg.setRGB(j, i, 0x8F1C1C);
-                    }
-                }
-            }
-
-            disabledImage = Toolkit.getDefaultToolkit().createImage(dimg.getSource());
+            disabledImage = this.getImage(disabledArrowColor);
             return disabledImage;
         }
+    }
+
+    /**
+     * Draws the default arrow image in the specified color.
+     *
+     * @param color
+     * @return image
+     */
+    private Image getImage(Color color) {
+        Graphics2D g;
+        BufferedImage img = new BufferedImage(arrowSize, arrowSize, BufferedImage.TYPE_INT_RGB);
+        g = img.createGraphics();
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, img.getWidth(), img.getHeight());
+        g.setColor(color);
+        // this creates a triangle facing right >
+        g.fillPolygon(new int[]{0, 0, arrowSize / 2}, new int[]{0, arrowSize, arrowSize / 2}, 3);
+        g.dispose();
+        // rotate it to face downwards
+        img = rotate(img, 90);
+        BufferedImage dimg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        g = dimg.createGraphics();
+        g.setComposite(AlphaComposite.Src);
+        g.drawImage(img, null, 0, 0);
+        g.dispose();
+        for (int i = 0; i < dimg.getHeight(); i++) {
+            for (int j = 0; j < dimg.getWidth(); j++) {
+                if (dimg.getRGB(j, i) == Color.WHITE.getRGB()) {
+                    dimg.setRGB(j, i, 0x8F1C1C);
+                }
+            }
+        }
+
+        return Toolkit.getDefaultToolkit().createImage(dimg.getSource());
     }
 
     /**
@@ -465,19 +453,24 @@ public class JSplitButton extends JButton implements MouseMotionListener,
     }
 // <editor-fold defaultstate="collapsed" desc="Unused Listeners">
 
-    public void mouseDragged(MouseEvent e) {
+    @Override
+    public void mouseDragged(final MouseEvent e) {
     }
 
-    public void mouseClicked(MouseEvent e) {
+    @Override
+    public void mouseClicked(final MouseEvent e) {
     }
 
-    public void mousePressed(MouseEvent e) {
+    @Override
+    public void mousePressed(final MouseEvent e) {
     }
 
-    public void mouseReleased(MouseEvent e) {
+    @Override
+    public void mouseReleased(final MouseEvent e) {
     }
 
-    public void mouseEntered(MouseEvent e) {
+    @Override
+    public void mouseEntered(final MouseEvent e) {
     }
 // </editor-fold>
 
@@ -489,7 +482,7 @@ public class JSplitButton extends JButton implements MouseMotionListener,
      * @param event the <code>ActionEvent</code> object
      * @see EventListenerList
      */
-    private void fireButtonClicked(ActionEvent event) {
+    private void fireButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
         Object[] listeners = listenerList.getListenerList();
         ActionEvent e = null;
@@ -522,7 +515,7 @@ public class JSplitButton extends JButton implements MouseMotionListener,
      * @param event the <code>ActionEvent</code> object
      * @see EventListenerList
      */
-    private void fireSplitbuttonClicked(ActionEvent event) {
+    private void fireSplitbuttonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
         Object[] listeners = listenerList.getListenerList();
         ActionEvent e = null;

@@ -55,8 +55,7 @@ import javax.swing.UIManager;
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016
  */
-public class JSplitButton extends JButton implements MouseMotionListener,
-        MouseListener, ActionListener, Serializable {
+public class JSplitButton extends JButton implements Serializable {
 
     /**
      * Key used for serialization.
@@ -66,7 +65,7 @@ public class JSplitButton extends JButton implements MouseMotionListener,
     private int separatorSpacing = 4;
     private int splitWidth = 22;
     private int arrowSize = 8;
-    private boolean onSplit;
+    boolean onSplit = false;
     private Rectangle splitRectangle;
     private JPopupMenu popupMenu;
     private boolean alwaysPopup;
@@ -74,6 +73,7 @@ public class JSplitButton extends JButton implements MouseMotionListener,
     private Color disabledArrowColor = Color.GRAY;
     private Image image;
     private Image disabledImage;
+    final Listener listener;
 
     /**
      * Creates a button with initial text and an icon.
@@ -83,9 +83,10 @@ public class JSplitButton extends JButton implements MouseMotionListener,
      */
     public JSplitButton(String text, Icon icon) {
         super(text, icon);
-        addMouseMotionListener(this);
-        addMouseListener(this);
-        addActionListener(this);
+        this.listener = new Listener();
+        super.addMouseMotionListener(this.listener);
+        super.addMouseListener(this.listener);
+        super.addActionListener(this.listener);
     }
 
     /**
@@ -417,64 +418,6 @@ public class JSplitButton extends JButton implements MouseMotionListener,
     }
 
     /**
-     *
-     * @param e the mouse event
-     */
-    public void mouseMoved(MouseEvent e) {
-        onSplit = splitRectangle.contains(e.getPoint());
-        repaint(splitRectangle);
-    }
-
-    /**
-     *
-     * @param e the action event
-     */
-    public void actionPerformed(ActionEvent e) {
-        if (popupMenu == null) {
-            fireButtonClicked(e);
-        } else if (alwaysPopup) {
-            popupMenu.show(this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());
-            fireButtonClicked(e);
-        } else if (onSplit) {
-            popupMenu.show(this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());
-            fireSplitbuttonClicked(e);
-        } else {
-            fireButtonClicked(e);
-        }
-    }
-
-    /**
-     *
-     * @param e the mouse event
-     */
-    public void mouseExited(MouseEvent e) {
-        onSplit = false;
-        repaint(splitRectangle);
-    }
-// <editor-fold defaultstate="collapsed" desc="Unused Listeners">
-
-    @Override
-    public void mouseDragged(final MouseEvent e) {
-    }
-
-    @Override
-    public void mouseClicked(final MouseEvent e) {
-    }
-
-    @Override
-    public void mousePressed(final MouseEvent e) {
-    }
-
-    @Override
-    public void mouseReleased(final MouseEvent e) {
-    }
-
-    @Override
-    public void mouseEntered(final MouseEvent e) {
-    }
-// </editor-fold>
-
-    /**
      * Notifies all listeners that have registered interest for notification on
      * this event type. The event instance is lazily created using the
      * <code>event</code> parameter.
@@ -538,5 +481,49 @@ public class JSplitButton extends JButton implements MouseMotionListener,
                 ((SplitButtonActionListener) listeners[i + 1]).splitButtonClicked(e);
             }
         }
+    }
+
+    class Listener implements MouseMotionListener, MouseListener, ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            if (popupMenu == null) {
+                fireButtonClicked(e);
+            } else if (alwaysPopup) {
+                popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());
+                fireButtonClicked(e);
+            } else if (onSplit) {
+                popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());
+                fireSplitbuttonClicked(e);
+            } else {
+                fireButtonClicked(e);
+            }
+        }
+
+        public void mouseExited(MouseEvent e) {
+            onSplit = false;
+            repaint(splitRectangle);
+        }
+
+        public void mouseMoved(MouseEvent e) {
+            onSplit = splitRectangle.contains(e.getPoint());
+            repaint(splitRectangle);
+        }
+
+        // <editor-fold defaultstate="collapsed" desc="Unused Listeners">
+        public void mouseDragged(MouseEvent e) {
+        }
+
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        public void mousePressed(MouseEvent e) {
+        }
+
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        public void mouseEntered(MouseEvent e) {
+        }
+        // </editor-fold>
     }
 }

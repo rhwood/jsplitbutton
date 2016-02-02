@@ -108,20 +108,20 @@ public class JSplitButtonTest {
      * Test of isAlwaysDropDown method, of class JSplitButton.
      */
     @Test
-    public void testIsAlwaysDropDown() {
+    public void testIsAlwaysPopup() {
         JSplitButton instance = new JSplitButton();
-        Assert.assertEquals(false, instance.isAlwaysDropDown());
+        Assert.assertEquals(false, instance.isAlwaysPopup());
     }
 
     /**
      * Test of setAlwaysDropDown method, of class JSplitButton.
      */
     @Test
-    public void testSetAlwaysDropDown() {
+    public void testSetAlwaysPopup() {
         boolean alwaysDropDown = true;
         JSplitButton instance = new JSplitButton();
-        instance.setAlwaysDropDown(alwaysDropDown);
-        Assert.assertEquals(alwaysDropDown, instance.isAlwaysDropDown());
+        instance.setAlwaysPopup(alwaysDropDown);
+        Assert.assertEquals(alwaysDropDown, instance.isAlwaysPopup());
     }
 
     /**
@@ -270,8 +270,8 @@ public class JSplitButtonTest {
         SplitButtonActionListener l = new AbstractSplitButtonActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
-        instance.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
-        Assert.assertEquals(fired, 1);
+        instance.listener.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertEquals(1, fired);
     }
 
     /**
@@ -282,10 +282,10 @@ public class JSplitButtonTest {
         SplitButtonActionListener l = new AbstractSplitButtonActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
-        instance.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        instance.listener.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         instance.removeSplitButtonActionListener(l);
-        instance.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
-        Assert.assertEquals(fired, 1);
+        instance.listener.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertEquals(1, fired);
     }
 
     /**
@@ -297,7 +297,7 @@ public class JSplitButtonTest {
         System.out.println("mouseMoved");
         JSplitButton instance = new JSplitButton();
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_MOVED, 0, 0, 0, false);
-        instance.mouseMoved(e);
+        instance.listener.mouseMoved(e);
         // TODO review the generated test code and remove the default call to fail.
         Assert.fail("The test case is a prototype.");
     }
@@ -310,7 +310,7 @@ public class JSplitButtonTest {
         ActionEvent e = null;
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(new AbstractSplitButtonActionListener());
-        instance.actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        instance.listener.actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(1, fired);
     }
 
@@ -318,54 +318,12 @@ public class JSplitButtonTest {
      * Test of mouseExited method, of class JSplitButton.
      */
     @Test
-    @Ignore
     public void testMouseExited() {
-        System.out.println("mouseExited");
         JSplitButton instance = new JSplitButton();
+        instance.onSplit = true;
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_EXITED, 0, 0, 0, false);
-        instance.mouseExited(e);
-        // TODO review the generated test code and remove the default call to fail.
-        Assert.fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of mouseDragged method, of class JSplitButton.
-     */
-    @Test
-    public void testMouseDragged() {
-        // as empty as the tested method
-    }
-
-    /**
-     * Test of mouseClicked method, of class JSplitButton.
-     */
-    @Test
-    public void testMouseClicked() {
-        // as empty as the tested method
-    }
-
-    /**
-     * Test of mousePressed method, of class JSplitButton.
-     */
-    @Test
-    public void testMousePressed() {
-        // as empty as the tested method
-    }
-
-    /**
-     * Test of mouseReleased method, of class JSplitButton.
-     */
-    @Test
-    public void testMouseReleased() {
-        // as empty as the tested method
-    }
-
-    /**
-     * Test of mouseEntered method, of class JSplitButton.
-     */
-    @Test
-    public void testMouseEntered() {
-        // as empty as the tested method
+        instance.listener.mouseExited(e);
+        Assert.assertFalse(instance.onSplit);
     }
 
     class AbstractSplitButtonActionListener implements SplitButtonActionListener {

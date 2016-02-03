@@ -270,7 +270,7 @@ public class JSplitButtonTest {
         SplitButtonActionListener l = new AbstractSplitButtonActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
-        instance.listener.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         Assert.assertEquals(1, fired);
     }
 
@@ -282,9 +282,9 @@ public class JSplitButtonTest {
         SplitButtonActionListener l = new AbstractSplitButtonActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
-        instance.listener.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         instance.removeSplitButtonActionListener(l);
-        instance.listener.actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         Assert.assertEquals(1, fired);
     }
 
@@ -297,7 +297,7 @@ public class JSplitButtonTest {
         System.out.println("mouseMoved");
         JSplitButton instance = new JSplitButton();
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_MOVED, 0, 0, 0, false);
-        instance.listener.mouseMoved(e);
+        instance.getListener().mouseMoved(e);
         // TODO review the generated test code and remove the default call to fail.
         Assert.fail("The test case is a prototype.");
     }
@@ -310,7 +310,7 @@ public class JSplitButtonTest {
         ActionEvent e = null;
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(new AbstractSplitButtonActionListener());
-        instance.listener.actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(1, fired);
     }
 
@@ -322,7 +322,7 @@ public class JSplitButtonTest {
         JSplitButton instance = new JSplitButton();
         instance.onSplit = true;
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_EXITED, 0, 0, 0, false);
-        instance.listener.mouseExited(e);
+        instance.getListener().mouseExited(e);
         Assert.assertFalse(instance.onSplit);
     }
 

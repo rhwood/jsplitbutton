@@ -73,7 +73,7 @@ public class JSplitButton extends JButton implements Serializable {
     private Color disabledArrowColor = Color.GRAY;
     private Image image;
     private Image disabledImage;
-    final Listener listener;
+    private final Listener listener;
 
     /**
      * Creates a button with initial text and an icon.
@@ -81,7 +81,7 @@ public class JSplitButton extends JButton implements Serializable {
      * @param text the text of the button
      * @param icon the Icon image to display on the button
      */
-    public JSplitButton(String text, Icon icon) {
+    public JSplitButton(final String text, final Icon icon) {
         super(text, icon);
         this.listener = new Listener();
         super.addMouseMotionListener(this.listener);
@@ -94,7 +94,7 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param text the text of the button
      */
-    public JSplitButton(String text) {
+    public JSplitButton(final String text) {
         this(text, null);
     }
 
@@ -103,7 +103,7 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param icon the Icon image to display on the button
      */
-    public JSplitButton(Icon icon) {
+    public JSplitButton(final Icon icon) {
         this(null, icon);
     }
 
@@ -129,7 +129,7 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param popupMenu the menu to display
      */
-    public void setPopupMenu(JPopupMenu popupMenu) {
+    public void setPopupMenu(final JPopupMenu popupMenu) {
         this.popupMenu = popupMenu;
         image = null; //to repaint the arrow image
     }
@@ -152,7 +152,7 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param separatorSpacing the spacing
      */
-    public void setSeparatorSpacing(int separatorSpacing) {
+    public void setSeparatorSpacing(final int separatorSpacing) {
         this.separatorSpacing = separatorSpacing;
     }
 
@@ -171,7 +171,7 @@ public class JSplitButton extends JButton implements Serializable {
      * @param alwaysPopup true to show the attached JPopupMenu even if the
      *                    button part is clicked, false otherwise
      */
-    public void setAlwaysPopup(boolean alwaysPopup) {
+    public void setAlwaysPopup(final boolean alwaysPopup) {
         this.alwaysPopup = alwaysPopup;
     }
 
@@ -194,7 +194,7 @@ public class JSplitButton extends JButton implements Serializable {
      * @deprecated use {@link #setAlwaysPopup(boolean) } instead.
      */
     @Deprecated
-    public void setAlwaysDropDown(boolean alwaysDropDown) {
+    public void setAlwaysDropDown(final boolean alwaysDropDown) {
         this.alwaysPopup = alwaysDropDown;
     }
 
@@ -212,26 +212,27 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param arrowColor the color of the arrow
      */
-    public void setArrowColor(Color arrowColor) {
+    public void setArrowColor(final Color arrowColor) {
         this.arrowColor = arrowColor;
         image = null; // to repaint the image with the new color
     }
 
     /**
-     * gets the disabled arrow color
+     * Gets the disabled arrow color.
      *
-     * @return disabledArrowColor color of the arrow if no popup attached.
+     * @return color of the arrow if no popup menu is attached.
      */
     public Color getDisabledArrowColor() {
         return disabledArrowColor;
     }
 
     /**
-     * sets the disabled arrow color
+     * Sets the disabled arrow color.
      *
-     * @param disabledArrowColor color of the arrow if no popup attached.
+     * @param disabledArrowColor color of the arrow if no popup menu is
+     *                           attached.
      */
-    public void setDisabledArrowColor(Color disabledArrowColor) {
+    public void setDisabledArrowColor(final Color disabledArrowColor) {
         this.disabledArrowColor = disabledArrowColor;
         image = null; //to repaint the image with the new color
     }
@@ -250,12 +251,12 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param splitWidth the width of the split
      */
-    public void setSplitWidth(int splitWidth) {
+    public void setSplitWidth(final int splitWidth) {
         this.splitWidth = splitWidth;
     }
 
     /**
-     * gets the size of the arrow.
+     * Gets the size of the arrow.
      *
      * @return size of the arrow
      */
@@ -264,11 +265,11 @@ public class JSplitButton extends JButton implements Serializable {
     }
 
     /**
-     * sets the size of the arrow
+     * Sets the size of the arrow.
      *
      * @param arrowSize the size of the arrow
      */
-    public void setArrowSize(int arrowSize) {
+    public void setArrowSize(final int arrowSize) {
         this.arrowSize = arrowSize;
         image = null; //to repaint the image with the new size
     }
@@ -295,7 +296,7 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param image the image
      */
-    public void setImage(Image image) {
+    public void setImage(final Image image) {
         this.image = image;
     }
 
@@ -320,7 +321,7 @@ public class JSplitButton extends JButton implements Serializable {
      * @param color
      * @return image
      */
-    private Image getImage(Color color) {
+    private Image getImage(final Color color) {
         Graphics2D g;
         BufferedImage img = new BufferedImage(arrowSize, arrowSize, BufferedImage.TYPE_INT_RGB);
         g = img.createGraphics();
@@ -353,12 +354,12 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param image the new image to use
      */
-    public void setDisabledImage(Image image) {
+    public void setDisabledImage(final Image image) {
         this.disabledImage = image;
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
         Color oldColor = g.getColor();
         splitRectangle = new Rectangle(getWidth() - splitWidth, 0, splitWidth, getHeight());
@@ -383,7 +384,7 @@ public class JSplitButton extends JButton implements Serializable {
      * @param angle angle of rotation
      * @return rotated image
      */
-    private BufferedImage rotate(BufferedImage img, int angle) {
+    private BufferedImage rotate(final BufferedImage img, final int angle) {
         int w = img.getWidth();
         int h = img.getHeight();
         BufferedImage dimg = new BufferedImage(w, h, img.getType());
@@ -398,7 +399,7 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param l the <code>ActionListener</code> to be added
      */
-    public void addSplitButtonActionListener(SplitButtonActionListener l) {
+    public void addSplitButtonActionListener(final SplitButtonActionListener l) {
         listenerList.add(SplitButtonActionListener.class, l);
     }
 
@@ -409,7 +410,7 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param l the listener to be removed
      */
-    public void removeSplitButtonActionListener(SplitButtonActionListener l) {
+    public void removeSplitButtonActionListener(final SplitButtonActionListener l) {
         if ((l != null) && (getAction() == l)) {
             setAction(null);
         } else {
@@ -483,10 +484,22 @@ public class JSplitButton extends JButton implements Serializable {
         }
     }
 
+    /**
+     * @return the listener
+     */
+    Listener getListener() {
+        return listener;
+    }
+
+    /**
+     * Listener for internal changes within the JSplitButton itself.
+     *
+     * Package private so its available to tests.
+     */
     class Listener implements MouseMotionListener, MouseListener, ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(final ActionEvent e) {
             if (popupMenu == null) {
                 fireButtonClicked(e);
             } else if (alwaysPopup) {
@@ -501,36 +514,36 @@ public class JSplitButton extends JButton implements Serializable {
         }
 
         @Override
-        public void mouseExited(MouseEvent e) {
+        public void mouseExited(final MouseEvent e) {
             onSplit = false;
             repaint(splitRectangle);
         }
 
         @Override
-        public void mouseMoved(MouseEvent e) {
+        public void mouseMoved(final MouseEvent e) {
             onSplit = splitRectangle.contains(e.getPoint());
             repaint(splitRectangle);
         }
 
         // <editor-fold defaultstate="collapsed" desc="Unused Listeners">
         @Override
-        public void mouseDragged(MouseEvent e) {
+        public void mouseDragged(final MouseEvent e) {
         }
 
         @Override
-        public void mouseClicked(MouseEvent e) {
+        public void mouseClicked(final MouseEvent e) {
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
+        public void mousePressed(final MouseEvent e) {
         }
 
         @Override
-        public void mouseReleased(MouseEvent e) {
+        public void mouseReleased(final MouseEvent e) {
         }
 
         @Override
-        public void mouseEntered(MouseEvent e) {
+        public void mouseEntered(final MouseEvent e) {
         }
         // </editor-fold>
     }

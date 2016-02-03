@@ -485,6 +485,7 @@ public class JSplitButton extends JButton implements Serializable {
 
     class Listener implements MouseMotionListener, MouseListener, ActionListener {
 
+        @Override
         public void actionPerformed(ActionEvent e) {
             if (popupMenu == null) {
                 fireButtonClicked(e);
@@ -499,29 +500,36 @@ public class JSplitButton extends JButton implements Serializable {
             }
         }
 
+        @Override
         public void mouseExited(MouseEvent e) {
             onSplit = false;
             repaint(splitRectangle);
         }
 
+        @Override
         public void mouseMoved(MouseEvent e) {
             onSplit = splitRectangle.contains(e.getPoint());
             repaint(splitRectangle);
         }
 
         // <editor-fold defaultstate="collapsed" desc="Unused Listeners">
+        @Override
         public void mouseDragged(MouseEvent e) {
         }
 
+        @Override
         public void mouseClicked(MouseEvent e) {
         }
 
+        @Override
         public void mousePressed(MouseEvent e) {
         }
 
+        @Override
         public void mouseReleased(MouseEvent e) {
         }
 
+        @Override
         public void mouseEntered(MouseEvent e) {
         }
         // </editor-fold>

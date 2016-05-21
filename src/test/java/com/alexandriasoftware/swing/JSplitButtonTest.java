@@ -17,7 +17,9 @@
  */
 package com.alexandriasoftware.swing;
 
+import com.alexandriasoftware.swing.action.ButtonClickedActionListener;
 import com.alexandriasoftware.swing.action.SplitButtonActionListener;
+import com.alexandriasoftware.swing.action.SplitButtonClickedActionListener;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -289,6 +291,60 @@ public class JSplitButtonTest {
     }
 
     /**
+     * Test of addSplitButtonActionListener method, of class JSplitButton.
+     */
+    @Test
+    public void testAddButtonClickedActionListener() {
+        ButtonClickedActionListener l = new AbstractButtonClickedActionListener();
+        JSplitButton instance = new JSplitButton();
+        instance.addButtonClickedActionListener(l);
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertEquals(1, fired);
+    }
+
+    /**
+     * Test of removeSplitButtonActionListener method, of class JSplitButton.
+     */
+    @Test
+    public void testRemoveButtonClickedActionListener() {
+        AbstractButtonClickedActionListener l = new AbstractButtonClickedActionListener();
+        JSplitButton instance = new JSplitButton();
+        instance.addButtonClickedActionListener(l);
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        instance.removeButtonClickedActionListener(l);
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertEquals(1, fired);
+    }
+
+    /**
+     * Test of addSplitButtonActionListener method, of class JSplitButton.
+     */
+    @Test
+    public void testAddSplitButtonClickedActionListener() {
+        SplitButtonClickedActionListener l = new AbstractSplitButtonClickedActionListener();
+        JSplitButton instance = new JSplitButton();
+        instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
+        instance.addSplitButtonClickedActionListener(l);
+        instance.fireSplitButtonClicked(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertEquals(1, fired);
+    }
+
+    /**
+     * Test of removeSplitButtonActionListener method, of class JSplitButton.
+     */
+    @Test
+    public void testRemoveSplitButtonClickedActionListener() {
+        SplitButtonClickedActionListener l = new AbstractSplitButtonClickedActionListener();
+        JSplitButton instance = new JSplitButton();
+        instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
+        instance.addSplitButtonClickedActionListener(l);
+        instance.fireSplitButtonClicked(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        instance.removeSplitButtonClickedActionListener(l);
+        instance.fireSplitButtonClicked(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertEquals(1, fired);
+    }
+
+    /**
      * Test of mouseMoved method, of class JSplitButton.
      */
     @Test
@@ -326,12 +382,30 @@ public class JSplitButtonTest {
         Assert.assertFalse(instance.onSplit);
     }
 
-    class AbstractSplitButtonActionListener implements SplitButtonActionListener {
+    private class AbstractSplitButtonClickedActionListener implements SplitButtonClickedActionListener {
 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            fired += 1;
+        }
+    }
+
+    private class AbstractButtonClickedActionListener implements ButtonClickedActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            fired += 1;
+        }
+    }
+
+    private class AbstractSplitButtonActionListener implements SplitButtonActionListener {
+
+        @Override
         public void buttonClicked(ActionEvent e) {
             fired += 1;
         }
 
+        @Override
         public void splitButtonClicked(ActionEvent e) {
             // do nothing
         }

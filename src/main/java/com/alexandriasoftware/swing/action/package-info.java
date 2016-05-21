@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 /**
- * {@link java.util.EventListener} for
+ * {@link java.util.EventListener}s for
  * {@link com.alexandriasoftware.swing.JSplitButton}.
  */
 package com.alexandriasoftware.swing.action;

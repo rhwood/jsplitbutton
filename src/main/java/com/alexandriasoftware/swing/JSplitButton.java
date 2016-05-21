@@ -17,7 +17,9 @@
  */
 package com.alexandriasoftware.swing;
 
+import com.alexandriasoftware.swing.action.ButtonClickedActionListener;
 import com.alexandriasoftware.swing.action.SplitButtonActionListener;
+import com.alexandriasoftware.swing.action.SplitButtonClickedActionListener;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -398,7 +400,13 @@ public class JSplitButton extends JButton implements Serializable {
      * Adds an <code>SplitButtonActionListener</code> to the button.
      *
      * @param l the <code>ActionListener</code> to be added
+     * @deprecated Use
+     * {@link #addButtonClickedActionListener(com.alexandriasoftware.swing.action.ButtonClickedActionListener)}
+     * or
+     * {@link #addSplitButtonClickedActionListener(com.alexandriasoftware.swing.action.SplitButtonClickedActionListener)}
+     * instead.
      */
+    @Deprecated
     public void addSplitButtonActionListener(final SplitButtonActionListener l) {
         listenerList.add(SplitButtonActionListener.class, l);
     }
@@ -409,13 +417,65 @@ public class JSplitButton extends JButton implements Serializable {
      * the <code>Action</code> is set to <code>null</code>.
      *
      * @param l the listener to be removed
+     * @deprecated Use
+     * {@link #removeButtonClickedActionListener(com.alexandriasoftware.swing.action.ButtonClickedActionListener)}
+     * or
+     * {@link #removeSplitButtonClickedActionListener(com.alexandriasoftware.swing.action.SplitButtonClickedActionListener)}
+     * instead.
      */
+    @Deprecated
     public void removeSplitButtonActionListener(final SplitButtonActionListener l) {
         if ((l != null) && (getAction() == l)) {
             setAction(null);
         } else {
             listenerList.remove(SplitButtonActionListener.class, l);
         }
+    }
+
+    /**
+     * Add a
+     * {@link com.alexandriasoftware.swing.action.ButtonClickedActionListener}
+     * to the button. This listener will be notified whenever the button part is
+     * clicked.
+     *
+     * @param l the listener to add.
+     */
+    public void addButtonClickedActionListener(final ButtonClickedActionListener l) {
+        listenerList.add(ButtonClickedActionListener.class, l);
+    }
+
+    /**
+     * Remove a
+     * {@link com.alexandriasoftware.swing.action.ButtonClickedActionListener}
+     * from the button.
+     *
+     * @param l the listener to remove.
+     */
+    public void removeButtonClickedActionListener(final ButtonClickedActionListener l) {
+        listenerList.remove(ButtonClickedActionListener.class, l);
+    }
+
+    /**
+     * Add a
+     * {@link com.alexandriasoftware.swing.action.SplitButtonClickedActionListener}
+     * to the button. This listener will be notified whenever the split part is
+     * clicked.
+     *
+     * @param l the listener to add.
+     */
+    public void addSplitButtonClickedActionListener(final SplitButtonClickedActionListener l) {
+        listenerList.add(SplitButtonClickedActionListener.class, l);
+    }
+
+    /**
+     * Remove a
+     * {@link com.alexandriasoftware.swing.action.SplitButtonClickedActionListener}
+     * from the button.
+     *
+     * @param l the listener to remove.
+     */
+    public void removeSplitButtonClickedActionListener(final SplitButtonClickedActionListener l) {
+        listenerList.remove(SplitButtonClickedActionListener.class, l);
     }
 
     /**
@@ -428,25 +488,28 @@ public class JSplitButton extends JButton implements Serializable {
      */
     private void fireButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-        Object[] listeners = listenerList.getListenerList();
-        ActionEvent e = null;
-        // Process the listeners last to first, notifying
-        // those that are interested in this event
-        for (int i = listeners.length - 2; i >= 0; i -= 2) {
-            if (listeners[i] == SplitButtonActionListener.class) {
-                // Lazily create the event:
-                if (e == null) {
-                    String actionCommand = event.getActionCommand();
-                    if (actionCommand == null) {
-                        actionCommand = getActionCommand();
-                    }
-                    e = new ActionEvent(JSplitButton.this,
-                            ActionEvent.ACTION_PERFORMED,
-                            actionCommand,
-                            event.getWhen(),
-                            event.getModifiers());
+        SplitButtonActionListener[] splitButtonListeners = listenerList.getListeners(SplitButtonActionListener.class);
+        ButtonClickedActionListener[] buttonClickedListeners = listenerList.getListeners(ButtonClickedActionListener.class);
+        if (splitButtonListeners.length != 0 || buttonClickedListeners.length != 0) {
+            String actionCommand = event.getActionCommand();
+            if (actionCommand == null) {
+                actionCommand = getActionCommand();
+            }
+            ActionEvent e = new ActionEvent(JSplitButton.this,
+                    ActionEvent.ACTION_PERFORMED,
+                    actionCommand,
+                    event.getWhen(),
+                    event.getModifiers());
+            // Process the listeners last to first
+            if (splitButtonListeners.length != 0) {
+                for (int i = splitButtonListeners.length - 1; i >= 0; i--) {
+                    splitButtonListeners[i].buttonClicked(e);
                 }
-                ((SplitButtonActionListener) listeners[i + 1]).buttonClicked(e);
+            }
+            if (buttonClickedListeners.length != 0) {
+                for (int i = buttonClickedListeners.length - 1; i >= 0; i--) {
+                    buttonClickedListeners[i].actionPerformed(e);
+                }
             }
         }
     }
@@ -455,31 +518,36 @@ public class JSplitButton extends JButton implements Serializable {
      * Notifies all listeners that have registered interest for notification on
      * this event type. The event instance is lazily created using the
      * <code>event</code> parameter.
+     * <p>
+     * Package protected for testing purposes.
      *
      * @param event the <code>ActionEvent</code> object
      * @see EventListenerList
      */
-    private void fireSplitbuttonClicked(final ActionEvent event) {
+    void fireSplitButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-        Object[] listeners = listenerList.getListenerList();
-        ActionEvent e = null;
-        // Process the listeners last to first, notifying
-        // those that are interested in this event
-        for (int i = listeners.length - 2; i >= 0; i -= 2) {
-            if (listeners[i] == SplitButtonActionListener.class) {
-                // Lazily create the event:
-                if (e == null) {
-                    String actionCommand = event.getActionCommand();
-                    if (actionCommand == null) {
-                        actionCommand = getActionCommand();
-                    }
-                    e = new ActionEvent(JSplitButton.this,
-                            ActionEvent.ACTION_PERFORMED,
-                            actionCommand,
-                            event.getWhen(),
-                            event.getModifiers());
+        SplitButtonActionListener[] splitButtonListeners = listenerList.getListeners(SplitButtonActionListener.class);
+        SplitButtonClickedActionListener[] buttonClickedListeners = listenerList.getListeners(SplitButtonClickedActionListener.class);
+        if (splitButtonListeners.length != 0 || buttonClickedListeners.length != 0) {
+            String actionCommand = event.getActionCommand();
+            if (actionCommand == null) {
+                actionCommand = getActionCommand();
+            }
+            ActionEvent e = new ActionEvent(JSplitButton.this,
+                    ActionEvent.ACTION_PERFORMED,
+                    actionCommand,
+                    event.getWhen(),
+                    event.getModifiers());
+            // Process the listeners last to first
+            if (splitButtonListeners.length != 0) {
+                for (int i = splitButtonListeners.length - 1; i >= 0; i--) {
+                    splitButtonListeners[i].splitButtonClicked(e);
                 }
-                ((SplitButtonActionListener) listeners[i + 1]).splitButtonClicked(e);
+            }
+            if (buttonClickedListeners.length != 0) {
+                for (int i = buttonClickedListeners.length - 1; i >= 0; i--) {
+                    buttonClickedListeners[i].actionPerformed(e);
+                }
             }
         }
     }
@@ -507,7 +575,7 @@ public class JSplitButton extends JButton implements Serializable {
                 fireButtonClicked(e);
             } else if (onSplit) {
                 popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());
-                fireSplitbuttonClicked(e);
+                fireSplitButtonClicked(e);
             } else {
                 fireButtonClicked(e);
             }

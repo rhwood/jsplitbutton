@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 5,
-             Errors: 71,
+      <title>File: 7,
+             Errors: 95,
              Warnings: 0,
              Infos: 0
       </title>
@@ -60,6 +60,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.ButtonClickedActionListener.java">com/alexandriasoftware/swing/action/ButtonClickedActionListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.SplitButtonActionListener.java">com/alexandriasoftware/swing/action/SplitButtonActionListener.java</a>
                 </td>
                 <td>
@@ -70,6 +84,20 @@ under the License.
                 </td>
                 <td>
                   0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.SplitButtonClickedActionListener.java">com/alexandriasoftware/swing/action/SplitButtonClickedActionListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
                 </td>
               </tr>
                           <tr>
@@ -111,7 +139,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  71
+                  91
                 </td>
               </tr>
                       </tbody>

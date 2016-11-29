@@ -20,7 +20,7 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>JSplitButton - Checkstyle report</title>
-    <link>http://rhwood.github.io/jsplitbutton</link>
+    <link>https://rhwood.github.io/jsplitbutton</link>
     <description>JSplitButton - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
@@ -30,9 +30,9 @@ under the License.
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://rhwood.github.io/jsplitbutton/checkstyle.html</link>
+            <link>https://rhwood.github.io/jsplitbutton/checkstyle.html</link>
       <description>
-        <p>Click <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.package-info.java">com/alexandriasoftware/swing/action/package-info.java</a>
+                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.package-info.java">com/alexandriasoftware/swing/action/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.ButtonClickedActionListener.java">com/alexandriasoftware/swing/action/ButtonClickedActionListener.java</a>
+                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.ButtonClickedActionListener.java">com/alexandriasoftware/swing/action/ButtonClickedActionListener.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.SplitButtonActionListener.java">com/alexandriasoftware/swing/action/SplitButtonActionListener.java</a>
+                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.SplitButtonActionListener.java">com/alexandriasoftware/swing/action/SplitButtonActionListener.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.SplitButtonClickedActionListener.java">com/alexandriasoftware/swing/action/SplitButtonClickedActionListener.java</a>
+                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.SplitButtonClickedActionListener.java">com/alexandriasoftware/swing/action/SplitButtonClickedActionListener.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.JSplitButtonBeanInfo.java">com/alexandriasoftware/swing/JSplitButtonBeanInfo.java</a>
+                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.JSplitButtonBeanInfo.java">com/alexandriasoftware/swing/JSplitButtonBeanInfo.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.package-info.java">com/alexandriasoftware/swing/package-info.java</a>
+                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.package-info.java">com/alexandriasoftware/swing/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.JSplitButton.java">com/alexandriasoftware/swing/JSplitButton.java</a>
+                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.JSplitButton.java">com/alexandriasoftware/swing/JSplitButton.java</a>
                 </td>
                 <td>
                   0

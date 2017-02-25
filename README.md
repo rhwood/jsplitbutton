@@ -4,6 +4,7 @@ A split button control for Java Swing.
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.alexandriasoftware.swing/jsplitbutton/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.alexandriasoftware.swing/jsplitbutton)
 [![Javadocs](https://www.javadoc.io/badge/com.alexandriasoftware.swing/jsplitbutton.svg)](https://www.javadoc.io/doc/com.alexandriasoftware.swing/jsplitbutton)
 [![Build Status](https://travis-ci.org/rhwood/jsplitbutton.svg?branch=master)](https://travis-ci.org/rhwood/jsplitbutton)
+[![Coverage Status](https://coveralls.io/repos/github/rhwood/jsplitbutton/badge.svg?branch=master)](https://coveralls.io/github/rhwood/jsplitbutton?branch=master)
 
 A simple implementation of the split button control for Java Swing. This control raises two events:
 

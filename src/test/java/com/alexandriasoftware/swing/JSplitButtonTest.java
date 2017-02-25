@@ -120,10 +120,12 @@ public class JSplitButtonTest {
      */
     @Test
     public void testSetAlwaysPopup() {
-        boolean alwaysDropDown = true;
         JSplitButton instance = new JSplitButton();
-        instance.setAlwaysPopup(alwaysDropDown);
-        Assert.assertEquals(alwaysDropDown, instance.isAlwaysPopup());
+        Assert.assertEquals(false, instance.isAlwaysPopup());
+        instance.setAlwaysPopup(true);
+        Assert.assertEquals(true, instance.isAlwaysPopup());
+        instance.setAlwaysPopup(false);
+        Assert.assertEquals(false, instance.isAlwaysPopup());
     }
 
     /**
@@ -380,6 +382,26 @@ public class JSplitButtonTest {
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_EXITED, 0, 0, 0, false);
         instance.getListener().mouseExited(e);
         Assert.assertFalse(instance.onSplit);
+    }
+
+    @Test
+    public void testIsAlwaysDropDown() {
+        JSplitButton instance = new JSplitButton();
+        Assert.assertEquals(false, instance.isAlwaysDropDown());
+        Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
+    }
+
+    @Test
+    public void testSetAlwaysDropDown() {
+        JSplitButton instance = new JSplitButton();
+        Assert.assertEquals(false, instance.isAlwaysDropDown());
+        Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
+        instance.setAlwaysPopup(true);
+        Assert.assertEquals(true, instance.isAlwaysDropDown());
+        Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
+        instance.setAlwaysPopup(false);
+        Assert.assertEquals(false, instance.isAlwaysDropDown());
+        Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
     }
 
     private class AbstractSplitButtonClickedActionListener implements SplitButtonClickedActionListener {

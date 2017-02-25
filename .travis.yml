@@ -1,8 +1,8 @@
 language: java
 jdk:
 - oraclejdk8
-script: mvn test site site-deploy --quiet --batch-mode --settings .travis.settings.xml
-after_success: mvn jacoco:report coveralls:report --quiet --batch-mode --settings .travis.settings.xml
+script: mvn test site site-deploy --batch-mode --settings .travis.settings.xml
+after_success: mvn jacoco:report coveralls:report --batch-mode --settings .travis.settings.xml
 cache:
   directories:
   - $HOME/.m2

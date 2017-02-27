@@ -3,7 +3,7 @@ jdk:
 - oraclejdk8
 script: mvn test --quiet --batch-mode --settings .travis.settings.xml
 after_success:
-- mvn site site-deploy --quiet --batch-mode --settings .travis.settings.xml
+- mvn site site-deploy --batch-mode --settings .travis.settings.xml
 - mvn clean test jacoco:report coveralls:report --batch-mode --settings .travis.settings.xml
 cache:
   directories:

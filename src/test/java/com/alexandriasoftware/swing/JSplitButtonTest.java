@@ -25,6 +25,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPopupMenu;
 import org.junit.After;
@@ -61,6 +62,29 @@ public class JSplitButtonTest {
 
     @After
     public void tearDown() {
+    }
+
+    @Test
+    public void testCtorNull() {
+        JSplitButton instance = new JSplitButton();
+        Assert.assertTrue(instance.getText().isEmpty());
+        Assert.assertNull(instance.getIcon());
+    }
+
+    @Test
+    public void testCtorText() {
+        String text = "test1";
+        JSplitButton instance = new JSplitButton(text);
+        Assert.assertEquals(text, instance.getText());
+        Assert.assertNull(instance.getIcon());
+    }
+
+    @Test
+    public void testCtorIcon() {
+        Icon icon = new ImageIcon();
+        JSplitButton instance = new JSplitButton(icon);
+        Assert.assertTrue(instance.getText().isEmpty());
+        Assert.assertEquals(icon, instance.getIcon());
     }
 
     /**

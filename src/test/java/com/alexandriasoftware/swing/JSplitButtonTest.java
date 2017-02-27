@@ -407,6 +407,46 @@ public class JSplitButtonTest {
         instance.getListener().mouseExited(e);
         Assert.assertFalse(instance.onSplit);
     }
+    @Test
+    public void testMouseDragged() {
+        JSplitButton instance = new JSplitButton();
+        instance.onSplit = true;
+        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_DRAGGED, 0, 0, 0, false);
+        instance.getListener().mouseDragged(e);
+        Assert.assertTrue(instance.onSplit);
+    }
+    @Test
+    public void testMouseClicked() {
+        JSplitButton instance = new JSplitButton();
+        instance.onSplit = true;
+        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_CLICKED, 0, 0, 0, false);
+        instance.getListener().mouseClicked(e);
+        Assert.assertTrue(instance.onSplit);
+    }
+    @Test
+    public void testMousePressed() {
+        JSplitButton instance = new JSplitButton();
+        instance.onSplit = true;
+        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_PRESSED, 0, 0, 0, false);
+        instance.getListener().mousePressed(e);
+        Assert.assertTrue(instance.onSplit);
+    }
+    @Test
+    public void testMouseReleased() {
+        JSplitButton instance = new JSplitButton();
+        instance.onSplit = true;
+        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_RELEASED, 0, 0, 0, false);
+        instance.getListener().mouseReleased(e);
+        Assert.assertTrue(instance.onSplit);
+    }
+    @Test
+    public void testMouseEntered() {
+        JSplitButton instance = new JSplitButton();
+        instance.onSplit = true;
+        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_ENTERED, 0, 0, 0, false);
+        instance.getListener().mouseEntered(e);
+        Assert.assertTrue(instance.onSplit);
+    }
 
     @Test
     public void testIsAlwaysDropDown() {

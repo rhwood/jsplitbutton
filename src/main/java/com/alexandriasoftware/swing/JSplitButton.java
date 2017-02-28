@@ -288,7 +288,7 @@ public class JSplitButton extends JButton implements Serializable {
         } else if (popupMenu == null) {
             return this.getDisabledImage();
         } else {
-            image = this.getImage(arrowColor);
+            image = this.getImage(this.arrowSize, this.arrowColor);
             return image;
         }
     }
@@ -312,7 +312,7 @@ public class JSplitButton extends JButton implements Serializable {
         if (disabledImage != null) {
             return disabledImage;
         } else {
-            disabledImage = this.getImage(disabledArrowColor);
+            disabledImage = this.getImage(this.arrowSize, this.disabledArrowColor);
             return disabledImage;
         }
     }
@@ -323,15 +323,15 @@ public class JSplitButton extends JButton implements Serializable {
      * @param color
      * @return image
      */
-    private Image getImage(final Color color) {
+    private Image getImage(final int size, final Color color) {
         Graphics2D g;
-        BufferedImage img = new BufferedImage(arrowSize, arrowSize, BufferedImage.TYPE_INT_RGB);
+        BufferedImage img = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
         g = img.createGraphics();
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, img.getWidth(), img.getHeight());
         g.setColor(color);
         // this creates a triangle facing right >
-        g.fillPolygon(new int[]{0, 0, arrowSize / 2}, new int[]{0, arrowSize, arrowSize / 2}, 3);
+        g.fillPolygon(new int[]{0, 0, size / 2}, new int[]{0, size, size / 2}, 3);
         g.dispose();
         // rotate it to face downwards
         img = rotate(img, 90);

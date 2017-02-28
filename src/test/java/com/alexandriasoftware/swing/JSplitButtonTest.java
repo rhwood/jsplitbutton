@@ -239,6 +239,9 @@ public class JSplitButtonTest {
     public void testGetImage() {
         JSplitButton instance = new JSplitButton();
         Assert.assertNotNull(instance.getImage());
+        instance.setImage(null);
+        instance.setPopupMenu(new JPopupMenu());
+        Assert.assertNotNull(instance.getImage());
     }
 
     /**

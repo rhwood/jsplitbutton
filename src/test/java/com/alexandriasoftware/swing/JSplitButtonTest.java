@@ -458,13 +458,13 @@ public class JSplitButtonTest {
     @Test
     public void testSetAlwaysDropDown() {
         JSplitButton instance = new JSplitButton();
-        Assert.assertEquals(false, instance.isAlwaysDropDown());
+        Assert.assertEquals(false, instance.isAlwaysPopup());
         Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
-        instance.setAlwaysPopup(true);
-        Assert.assertEquals(true, instance.isAlwaysDropDown());
+        instance.setAlwaysDropDown(true);
+        Assert.assertEquals(true, instance.isAlwaysPopup());
         Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
-        instance.setAlwaysPopup(false);
-        Assert.assertEquals(false, instance.isAlwaysDropDown());
+        instance.setAlwaysDropDown(false);
+        Assert.assertEquals(false, instance.isAlwaysPopup());
         Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
     }
 

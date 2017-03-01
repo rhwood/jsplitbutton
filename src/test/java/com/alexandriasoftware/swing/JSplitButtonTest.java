@@ -25,6 +25,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPopupMenu;
@@ -310,13 +311,16 @@ public class JSplitButtonTest {
      */
     @Test
     public void testRemoveSplitButtonActionListener() {
-        SplitButtonActionListener l = new AbstractSplitButtonActionListener();
+        AbstractSplitButtonActionListener l = new AbstractSplitButtonActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         instance.removeSplitButtonActionListener(l);
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         Assert.assertEquals(1, fired);
+        instance.setAction(l);
+        instance.removeSplitButtonActionListener(l);
+        Assert.assertNull(instance.getAction());
     }
 
     /**
@@ -410,6 +414,7 @@ public class JSplitButtonTest {
         instance.getListener().mouseExited(e);
         Assert.assertFalse(instance.onSplit);
     }
+
     @Test
     public void testMouseDragged() {
         JSplitButton instance = new JSplitButton();
@@ -418,6 +423,7 @@ public class JSplitButtonTest {
         instance.getListener().mouseDragged(e);
         Assert.assertTrue(instance.onSplit);
     }
+
     @Test
     public void testMouseClicked() {
         JSplitButton instance = new JSplitButton();
@@ -426,6 +432,7 @@ public class JSplitButtonTest {
         instance.getListener().mouseClicked(e);
         Assert.assertTrue(instance.onSplit);
     }
+
     @Test
     public void testMousePressed() {
         JSplitButton instance = new JSplitButton();
@@ -434,6 +441,7 @@ public class JSplitButtonTest {
         instance.getListener().mousePressed(e);
         Assert.assertTrue(instance.onSplit);
     }
+
     @Test
     public void testMouseReleased() {
         JSplitButton instance = new JSplitButton();
@@ -442,6 +450,7 @@ public class JSplitButtonTest {
         instance.getListener().mouseReleased(e);
         Assert.assertTrue(instance.onSplit);
     }
+
     @Test
     public void testMouseEntered() {
         JSplitButton instance = new JSplitButton();
@@ -487,7 +496,7 @@ public class JSplitButtonTest {
         }
     }
 
-    private class AbstractSplitButtonActionListener implements SplitButtonActionListener {
+    private class AbstractSplitButtonActionListener extends AbstractAction implements SplitButtonActionListener {
 
         @Override
         public void buttonClicked(ActionEvent e) {
@@ -497,6 +506,10 @@ public class JSplitButtonTest {
         @Override
         public void splitButtonClicked(ActionEvent e) {
             // do nothing
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            fired += 1;
         }
     };
 

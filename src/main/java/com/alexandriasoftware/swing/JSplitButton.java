@@ -518,13 +518,11 @@ public class JSplitButton extends JButton implements Serializable {
      * Notifies all listeners that have registered interest for notification on
      * this event type. The event instance is lazily created using the
      * <code>event</code> parameter.
-     * <p>
-     * Package protected for testing purposes.
      *
      * @param event the <code>ActionEvent</code> object
      * @see EventListenerList
      */
-    void fireSplitButtonClicked(final ActionEvent event) {
+    private void fireSplitButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
         SplitButtonActionListener[] splitButtonListeners = listenerList.getListeners(SplitButtonActionListener.class);
         SplitButtonClickedActionListener[] buttonClickedListeners = listenerList.getListeners(SplitButtonClickedActionListener.class);

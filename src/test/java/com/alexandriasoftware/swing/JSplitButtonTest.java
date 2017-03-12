@@ -25,6 +25,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -302,8 +304,12 @@ public class JSplitButtonTest {
         SplitButtonActionListener l = new AbstractSplitButtonActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertFalse(instance.onSplit);
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
         Assert.assertEquals(1, fired);
+        instance.onSplit = true;
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
+        Assert.assertEquals(2, fired);
     }
 
     /**
@@ -331,8 +337,18 @@ public class JSplitButtonTest {
         ButtonClickedActionListener l = new AbstractButtonClickedActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addButtonClickedActionListener(l);
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        // right side, set action command
+        fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddButtonClickedActionListener"));
+        Assert.assertEquals(0, fired);
+        // right side, null action command
+        fireSplitButtonClicked(instance, new ActionEvent(instance, 0, null));
+        Assert.assertEquals(0, fired);
+        // left side, set action command
+        fireButtonClicked(instance, new ActionEvent(instance, 0, "testAddButtonClickedActionListener"));
         Assert.assertEquals(1, fired);
+        // left side, null action command
+        fireButtonClicked(instance, new ActionEvent(instance, 0, null));
+        Assert.assertEquals(2, fired);
     }
 
     /**
@@ -343,9 +359,10 @@ public class JSplitButtonTest {
         AbstractButtonClickedActionListener l = new AbstractButtonClickedActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addButtonClickedActionListener(l);
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveButtonClickedActionListener"));
+        Assert.assertEquals(1, fired);
         instance.removeButtonClickedActionListener(l);
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveButtonClickedActionListener"));
         Assert.assertEquals(1, fired);
     }
 
@@ -358,8 +375,18 @@ public class JSplitButtonTest {
         JSplitButton instance = new JSplitButton();
         instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
         instance.addSplitButtonClickedActionListener(l);
-        instance.fireSplitButtonClicked(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        // set action command
+        fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonClickedActionListener"));
         Assert.assertEquals(1, fired);
+        // null action command
+        fireSplitButtonClicked(instance, new ActionEvent(instance, 0, null));
+        Assert.assertEquals(2, fired);
+        // set action command
+        fireButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonClickedActionListener"));
+        Assert.assertEquals(2, fired);
+        // null action command
+        fireButtonClicked(instance, new ActionEvent(instance, 0, null));
+        Assert.assertEquals(2, fired);
     }
 
     /**
@@ -371,9 +398,9 @@ public class JSplitButtonTest {
         JSplitButton instance = new JSplitButton();
         instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
         instance.addSplitButtonClickedActionListener(l);
-        instance.fireSplitButtonClicked(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         instance.removeSplitButtonClickedActionListener(l);
-        instance.fireSplitButtonClicked(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         Assert.assertEquals(1, fired);
     }
 
@@ -400,15 +427,13 @@ public class JSplitButtonTest {
         Assert.assertEquals(4, fired);
         // TODO: place following in JFrame and display the frame
         /*
-        instance.setPopupMenu(new JPopupMenu());
-        // menu, always popup true
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
-        Assert.assertEquals(3, fired);
-        instance.setAlwaysPopup(false);
-        // menu, always popup false
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
-        Assert.assertEquals(4, fired);
-        */
+         * instance.setPopupMenu(new JPopupMenu()); // menu, always popup true
+         * instance.getListener().actionPerformed(new ActionEvent(instance, 0,
+         * "testActionPerformed")); Assert.assertEquals(3, fired);
+         * instance.setAlwaysPopup(false); // menu, always popup false
+         * instance.getListener().actionPerformed(new ActionEvent(instance, 0,
+         * "testActionPerformed")); Assert.assertEquals(4, fired);
+         */
     }
 
     /**
@@ -498,6 +523,37 @@ public class JSplitButtonTest {
         instance.setAlwaysDropDown(false);
         Assert.assertEquals(false, instance.isAlwaysPopup());
         Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
+    }
+
+    private void fireSplitButtonClicked(JSplitButton instance, ActionEvent event) {
+        this.fireEvent(instance, event, "fireSplitButtonClicked");
+    }
+    
+    private void fireButtonClicked(JSplitButton instance, ActionEvent event) {
+        this.fireEvent(instance, event, "fireButtonClicked");
+    }
+    
+    private void fireEvent(JSplitButton instance, ActionEvent event, String fire) {
+        try {
+            Method method = instance.getClass().getDeclaredMethod(fire, new Class<?>[]{ActionEvent.class});
+            method.setAccessible(true);
+            method.invoke(instance, event);
+        }
+        catch (NoSuchMethodException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (SecurityException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (IllegalAccessException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (IllegalArgumentException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (InvocationTargetException ex) {
+            Assert.fail(ex.getMessage());
+        }
     }
 
     private class AbstractSplitButtonClickedActionListener implements SplitButtonClickedActionListener {

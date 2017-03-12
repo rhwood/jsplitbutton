@@ -289,7 +289,10 @@ public class JSplitButtonTest {
      */
     @Test
     public void testPaintComponent() {
+        JFrame frame = new JFrame();
         JSplitButton instance = new JSplitButton();
+        frame.add(instance);
+        frame.setVisible(true);
         Graphics g = instance.getGraphics();
         instance.paintComponent(g);
         // no exceptions passes

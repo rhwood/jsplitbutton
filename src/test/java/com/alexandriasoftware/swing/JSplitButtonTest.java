@@ -295,6 +295,7 @@ public class JSplitButtonTest {
         frame.setVisible(true);
         instance.setAlwaysPopup(false);
         instance.setPopupMenu(new JPopupMenu());
+        instance.onSplit = true;
         Graphics g = instance.getGraphics();
         instance.paintComponent(g);
         // no exceptions passes

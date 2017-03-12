@@ -30,13 +30,13 @@ import java.lang.reflect.Method;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPopupMenu;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -288,14 +288,11 @@ public class JSplitButtonTest {
      * Test of paintComponent method, of class JSplitButton.
      */
     @Test
-    @Ignore
     public void testPaintComponent() {
-        System.out.println("paintComponent");
         JSplitButton instance = new JSplitButton();
         Graphics g = instance.getGraphics();
         instance.paintComponent(g);
-        // TODO review the generated test code and remove the default call to fail.
-        Assert.fail("The test case is a prototype.");
+        // no exceptions passes
     }
 
     /**
@@ -416,7 +413,10 @@ public class JSplitButtonTest {
      */
     @Test
     public void testActionPerformed() {
+        JFrame frame = new JFrame();
         JSplitButton instance = new JSplitButton();
+        frame.add(instance);
+        frame.setVisible(true);
         instance.setPopupMenu(null);
         instance.addButtonClickedActionListener(new AbstractButtonClickedActionListener());
         // no menu, always popup false, action command not null
@@ -432,15 +432,20 @@ public class JSplitButtonTest {
         // no menu, always popup true, action command null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
         Assert.assertEquals(4, this.buttonClickFired);
-        // TODO: place following in JFrame and display the frame
-        /*
-         * instance.setPopupMenu(new JPopupMenu()); // menu, always popup true
-         * instance.getListener().actionPerformed(new ActionEvent(instance, 0,
-         * "testActionPerformed")); Assert.assertEquals(3, this.buttonClickFired);
-         * instance.setAlwaysPopup(false); // menu, always popup false
-         * instance.getListener().actionPerformed(new ActionEvent(instance, 0,
-         * "testActionPerformed")); Assert.assertEquals(4, this.buttonClickFired);
-         */
+        instance.setPopupMenu(new JPopupMenu());
+        // menu, always popup true, action command not null
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        Assert.assertEquals(5, this.buttonClickFired);
+        // menu, always popup true, action command null
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
+        Assert.assertEquals(6, this.buttonClickFired);
+        instance.setAlwaysPopup(false);
+        // menu, always popup false, action command not null
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        Assert.assertEquals(7, this.buttonClickFired);
+        // menu, always popup false, action command not null
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
+        Assert.assertEquals(8, this.buttonClickFired);
     }
 
     /**
@@ -535,11 +540,11 @@ public class JSplitButtonTest {
     private void fireSplitButtonClicked(JSplitButton instance, ActionEvent event) {
         this.fireEvent(instance, event, "fireSplitButtonClicked");
     }
-    
+
     private void fireButtonClicked(JSplitButton instance, ActionEvent event) {
         this.fireEvent(instance, event, "fireButtonClicked");
     }
-    
+
     private void fireEvent(JSplitButton instance, ActionEvent event, String fire) {
         try {
             Method method = instance.getClass().getDeclaredMethod(fire, new Class<?>[]{ActionEvent.class});

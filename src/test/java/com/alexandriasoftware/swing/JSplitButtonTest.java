@@ -45,7 +45,8 @@ import org.junit.Test;
  */
 public class JSplitButtonTest {
 
-    int fired = 0;
+    int buttonClickFired = 0;
+    int splitButtonClickFired = 0;
 
     public JSplitButtonTest() {
     }
@@ -60,7 +61,8 @@ public class JSplitButtonTest {
 
     @Before
     public void setUp() {
-        fired = 0;
+        this.buttonClickFired = 0;
+        this.splitButtonClickFired = 0;
     }
 
     @After
@@ -305,11 +307,13 @@ public class JSplitButtonTest {
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
         Assert.assertFalse(instance.onSplit);
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
-        Assert.assertEquals(1, fired);
+        fireButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
+        Assert.assertEquals(1, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
         instance.onSplit = true;
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
-        Assert.assertEquals(2, fired);
+        fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
+        Assert.assertEquals(1, this.buttonClickFired);
+        Assert.assertEquals(1, this.splitButtonClickFired);
     }
 
     /**
@@ -321,10 +325,12 @@ public class JSplitButtonTest {
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertEquals(1, this.buttonClickFired);
         instance.removeSplitButtonActionListener(l);
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
-        Assert.assertEquals(1, fired);
+        Assert.assertEquals(1, this.buttonClickFired);
         instance.setAction(l);
+        Assert.assertEquals(l, instance.getAction());
         instance.removeSplitButtonActionListener(l);
         Assert.assertNull(instance.getAction());
     }
@@ -339,16 +345,16 @@ public class JSplitButtonTest {
         instance.addButtonClickedActionListener(l);
         // right side, set action command
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddButtonClickedActionListener"));
-        Assert.assertEquals(0, fired);
+        Assert.assertEquals(0, this.buttonClickFired);
         // right side, null action command
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, null));
-        Assert.assertEquals(0, fired);
+        Assert.assertEquals(0, this.buttonClickFired);
         // left side, set action command
         fireButtonClicked(instance, new ActionEvent(instance, 0, "testAddButtonClickedActionListener"));
-        Assert.assertEquals(1, fired);
+        Assert.assertEquals(1, this.buttonClickFired);
         // left side, null action command
         fireButtonClicked(instance, new ActionEvent(instance, 0, null));
-        Assert.assertEquals(2, fired);
+        Assert.assertEquals(2, this.buttonClickFired);
     }
 
     /**
@@ -360,10 +366,10 @@ public class JSplitButtonTest {
         JSplitButton instance = new JSplitButton();
         instance.addButtonClickedActionListener(l);
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveButtonClickedActionListener"));
-        Assert.assertEquals(1, fired);
+        Assert.assertEquals(1, this.buttonClickFired);
         instance.removeButtonClickedActionListener(l);
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveButtonClickedActionListener"));
-        Assert.assertEquals(1, fired);
+        Assert.assertEquals(1, this.buttonClickFired);
     }
 
     /**
@@ -377,16 +383,16 @@ public class JSplitButtonTest {
         instance.addSplitButtonClickedActionListener(l);
         // set action command
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonClickedActionListener"));
-        Assert.assertEquals(1, fired);
+        Assert.assertEquals(1, this.splitButtonClickFired);
         // null action command
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, null));
-        Assert.assertEquals(2, fired);
+        Assert.assertEquals(2, this.splitButtonClickFired);
         // set action command
         fireButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonClickedActionListener"));
-        Assert.assertEquals(2, fired);
+        Assert.assertEquals(2, this.splitButtonClickFired);
         // null action command
         fireButtonClicked(instance, new ActionEvent(instance, 0, null));
-        Assert.assertEquals(2, fired);
+        Assert.assertEquals(2, this.splitButtonClickFired);
     }
 
     /**
@@ -399,9 +405,10 @@ public class JSplitButtonTest {
         instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
         instance.addSplitButtonClickedActionListener(l);
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
+        Assert.assertEquals(1, this.splitButtonClickFired);
         instance.removeSplitButtonClickedActionListener(l);
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
-        Assert.assertEquals(1, fired);
+        Assert.assertEquals(1, this.splitButtonClickFired);
     }
 
     /**
@@ -414,25 +421,25 @@ public class JSplitButtonTest {
         instance.addButtonClickedActionListener(new AbstractButtonClickedActionListener());
         // no menu, always popup false, action command not null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
-        Assert.assertEquals(1, fired);
+        Assert.assertEquals(1, this.buttonClickFired);
         // no menu, always popup false, action command null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
-        Assert.assertEquals(2, fired);
+        Assert.assertEquals(2, this.buttonClickFired);
         instance.setAlwaysPopup(true);
         // no menu, always popup true, action command not null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
-        Assert.assertEquals(3, fired);
+        Assert.assertEquals(3, this.buttonClickFired);
         // no menu, always popup true, action command null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
-        Assert.assertEquals(4, fired);
+        Assert.assertEquals(4, this.buttonClickFired);
         // TODO: place following in JFrame and display the frame
         /*
          * instance.setPopupMenu(new JPopupMenu()); // menu, always popup true
          * instance.getListener().actionPerformed(new ActionEvent(instance, 0,
-         * "testActionPerformed")); Assert.assertEquals(3, fired);
+         * "testActionPerformed")); Assert.assertEquals(3, this.buttonClickFired);
          * instance.setAlwaysPopup(false); // menu, always popup false
          * instance.getListener().actionPerformed(new ActionEvent(instance, 0,
-         * "testActionPerformed")); Assert.assertEquals(4, fired);
+         * "testActionPerformed")); Assert.assertEquals(4, this.buttonClickFired);
          */
     }
 
@@ -560,7 +567,7 @@ public class JSplitButtonTest {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            fired += 1;
+            splitButtonClickFired += 1;
         }
     }
 
@@ -568,7 +575,7 @@ public class JSplitButtonTest {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            fired += 1;
+            buttonClickFired += 1;
         }
     }
 
@@ -576,16 +583,16 @@ public class JSplitButtonTest {
 
         @Override
         public void buttonClicked(ActionEvent e) {
-            fired += 1;
+            buttonClickFired += 1;
         }
 
         @Override
         public void splitButtonClicked(ActionEvent e) {
-            // do nothing
+            splitButtonClickFired += 1;
         }
 
         public void actionPerformed(ActionEvent e) {
-            fired += 1;
+            buttonClickFired += 1;
         }
     };
 

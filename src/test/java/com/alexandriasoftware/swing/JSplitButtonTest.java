@@ -293,6 +293,8 @@ public class JSplitButtonTest {
         JSplitButton instance = new JSplitButton();
         frame.add(instance);
         frame.setVisible(true);
+        instance.setAlwaysPopup(false);
+        instance.setPopupMenu(new JPopupMenu());
         Graphics g = instance.getGraphics();
         instance.paintComponent(g);
         // no exceptions passes
@@ -422,33 +424,47 @@ public class JSplitButtonTest {
         frame.setVisible(true);
         instance.setPopupMenu(null);
         instance.addButtonClickedActionListener(new AbstractButtonClickedActionListener());
+        instance.addSplitButtonClickedActionListener(new AbstractSplitButtonClickedActionListener());
         // no menu, always popup false, action command not null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(1, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
         // no menu, always popup false, action command null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
         Assert.assertEquals(2, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
         instance.setAlwaysPopup(true);
         // no menu, always popup true, action command not null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(3, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
         // no menu, always popup true, action command null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
         Assert.assertEquals(4, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
         instance.setPopupMenu(new JPopupMenu());
         // menu, always popup true, action command not null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(5, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
         // menu, always popup true, action command null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
         Assert.assertEquals(6, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
         instance.setAlwaysPopup(false);
         // menu, always popup false, action command not null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(7, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
         // menu, always popup false, action command not null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
         Assert.assertEquals(8, this.buttonClickFired);
+        Assert.assertEquals(0, this.splitButtonClickFired);
+        instance.onSplit = true;
+        // menu, always popup false, on split
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        Assert.assertEquals(8, this.buttonClickFired);
+        Assert.assertEquals(1, this.splitButtonClickFired);
     }
 
     /**

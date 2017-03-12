@@ -43,7 +43,7 @@ splitButton.addSplitButtonActionListener(new SplitButtonActionListener() {
     }
 
     public void splitButtonClicked(ActionEvent e) {
-        System.out.println("Split Part licked");
+        System.out.println("Split Part Clicked");
     }
 });
 //add popup menu
@@ -59,11 +59,11 @@ or (using Java 8 lambda expressions):
 JSplitButton splitButton = new JSplitButton();
 //register for button listener
 splitButton.addButtonClickedActionListener((ActionEvent e) -> {
-    System.out.println("Button licked");
+    System.out.println("Button Clicked");
 });
 //register for split button listener
 splitButton.addSplitButtonClickedActionListener((ActionEvent e) -> {
-    System.out.println("Split Part licked");
+    System.out.println("Split Part Clicked");
 });
 //add popup menu
 splitButton.add(popupMenu);

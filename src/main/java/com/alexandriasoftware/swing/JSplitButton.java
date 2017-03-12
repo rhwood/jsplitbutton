@@ -67,7 +67,7 @@ public class JSplitButton extends JButton implements Serializable {
     private int separatorSpacing = 4;
     private int splitWidth = 22;
     private int arrowSize = 8;
-    boolean onSplit = false;
+    private boolean onSplit = false;
     private Rectangle splitRectangle = new Rectangle();
     private JPopupMenu popupMenu;
     private boolean alwaysPopup;

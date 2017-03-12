@@ -25,6 +25,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import javax.swing.AbstractAction;
@@ -295,7 +296,7 @@ public class JSplitButtonTest {
         frame.setVisible(true);
         instance.setAlwaysPopup(false);
         instance.setPopupMenu(new JPopupMenu());
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         Graphics g = instance.getGraphics();
         instance.paintComponent(g);
         // no exceptions passes
@@ -309,11 +310,11 @@ public class JSplitButtonTest {
         SplitButtonActionListener l = new AbstractSplitButtonActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addSplitButtonActionListener(l);
-        Assert.assertFalse(instance.onSplit);
+        Assert.assertFalse(getOnSplit(instance));
         fireButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
         Assert.assertEquals(1, this.buttonClickFired);
         Assert.assertEquals(0, this.splitButtonClickFired);
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
         Assert.assertEquals(1, this.buttonClickFired);
         Assert.assertEquals(1, this.splitButtonClickFired);
@@ -461,7 +462,7 @@ public class JSplitButtonTest {
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
         Assert.assertEquals(8, this.buttonClickFired);
         Assert.assertEquals(0, this.splitButtonClickFired);
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         // menu, always popup false, on split
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(8, this.buttonClickFired);
@@ -474,10 +475,10 @@ public class JSplitButtonTest {
     @Test
     public void testMouseMoved() {
         JSplitButton instance = new JSplitButton();
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_MOVED, 0, 0, 0, false);
         instance.getListener().mouseMoved(e);
-        Assert.assertFalse(instance.onSplit);
+        Assert.assertFalse(getOnSplit(instance));
     }
 
     /**
@@ -486,55 +487,55 @@ public class JSplitButtonTest {
     @Test
     public void testMouseExited() {
         JSplitButton instance = new JSplitButton();
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_EXITED, 0, 0, 0, false);
         instance.getListener().mouseExited(e);
-        Assert.assertFalse(instance.onSplit);
+        Assert.assertFalse(getOnSplit(instance));
     }
 
     @Test
     public void testMouseDragged() {
         JSplitButton instance = new JSplitButton();
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_DRAGGED, 0, 0, 0, false);
         instance.getListener().mouseDragged(e);
-        Assert.assertTrue(instance.onSplit);
+        Assert.assertTrue(getOnSplit(instance));
     }
 
     @Test
     public void testMouseClicked() {
         JSplitButton instance = new JSplitButton();
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_CLICKED, 0, 0, 0, false);
         instance.getListener().mouseClicked(e);
-        Assert.assertTrue(instance.onSplit);
+        Assert.assertTrue(getOnSplit(instance));
     }
 
     @Test
     public void testMousePressed() {
         JSplitButton instance = new JSplitButton();
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_PRESSED, 0, 0, 0, false);
         instance.getListener().mousePressed(e);
-        Assert.assertTrue(instance.onSplit);
+        Assert.assertTrue(getOnSplit(instance));
     }
 
     @Test
     public void testMouseReleased() {
         JSplitButton instance = new JSplitButton();
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_RELEASED, 0, 0, 0, false);
         instance.getListener().mouseReleased(e);
-        Assert.assertTrue(instance.onSplit);
+        Assert.assertTrue(getOnSplit(instance));
     }
 
     @Test
     public void testMouseEntered() {
         JSplitButton instance = new JSplitButton();
-        instance.onSplit = true;
+        setOnSplit(instance, true);
         MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_ENTERED, 0, 0, 0, false);
         instance.getListener().mouseEntered(e);
-        Assert.assertTrue(instance.onSplit);
+        Assert.assertTrue(getOnSplit(instance));
     }
 
     @Test
@@ -584,6 +585,48 @@ public class JSplitButtonTest {
             Assert.fail(ex.getMessage());
         }
         catch (InvocationTargetException ex) {
+            Assert.fail(ex.getMessage());
+        }
+    }
+
+    private boolean getOnSplit(JSplitButton instance) {
+        try {
+            Field field = instance.getClass().getDeclaredField("onSplit");
+            field.setAccessible(true);
+            return (Boolean) field.get(instance);
+        }
+        catch (NoSuchFieldException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (SecurityException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (IllegalAccessException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (IllegalArgumentException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        Assert.fail("Unable to get onSplit value");
+        return false;
+    }
+
+    private void setOnSplit(JSplitButton instance, boolean onSplit) {
+        try {
+            Field field = instance.getClass().getDeclaredField("onSplit");
+            field.setAccessible(true);
+            field.set(instance, onSplit);
+        }
+        catch (NoSuchFieldException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (SecurityException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (IllegalAccessException ex) {
+            Assert.fail(ex.getMessage());
+        }
+        catch (IllegalArgumentException ex) {
             Assert.fail(ex.getMessage());
         }
     }

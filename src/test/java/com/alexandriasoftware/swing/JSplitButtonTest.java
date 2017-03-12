@@ -378,29 +378,43 @@ public class JSplitButtonTest {
     }
 
     /**
-     * Test of mouseMoved method, of class JSplitButton.
-     */
-    @Test
-    @Ignore
-    public void testMouseMoved() {
-        System.out.println("mouseMoved");
-        JSplitButton instance = new JSplitButton();
-        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_MOVED, 0, 0, 0, false);
-        instance.getListener().mouseMoved(e);
-        // TODO review the generated test code and remove the default call to fail.
-        Assert.fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of actionPerformed method, of class JSplitButton.
      */
     @Test
     public void testActionPerformed() {
-        ActionEvent e = null;
         JSplitButton instance = new JSplitButton();
-        instance.addSplitButtonActionListener(new AbstractSplitButtonActionListener());
+        instance.setPopupMenu(null);
+        instance.addButtonClickedActionListener(new AbstractButtonClickedActionListener());
+        // no menu, always popup false
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(1, fired);
+        instance.setAlwaysPopup(true);
+        // no menu, always popup true
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        Assert.assertEquals(2, fired);
+        // TODO: place following in JFrame and display the frame
+        /*
+        instance.setPopupMenu(new JPopupMenu());
+        // menu, always popup true
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        Assert.assertEquals(3, fired);
+        instance.setAlwaysPopup(false);
+        // menu, always popup false
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        Assert.assertEquals(4, fired);
+        */
+    }
+
+    /**
+     * Test of mouseMoved method, of class JSplitButton.
+     */
+    @Test
+    public void testMouseMoved() {
+        JSplitButton instance = new JSplitButton();
+        instance.onSplit = true;
+        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_MOVED, 0, 0, 0, false);
+        instance.getListener().mouseMoved(e);
+        Assert.assertFalse(instance.onSplit);
     }
 
     /**

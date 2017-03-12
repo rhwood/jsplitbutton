@@ -385,13 +385,19 @@ public class JSplitButtonTest {
         JSplitButton instance = new JSplitButton();
         instance.setPopupMenu(null);
         instance.addButtonClickedActionListener(new AbstractButtonClickedActionListener());
-        // no menu, always popup false
+        // no menu, always popup false, action command not null
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
         Assert.assertEquals(1, fired);
-        instance.setAlwaysPopup(true);
-        // no menu, always popup true
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        // no menu, always popup false, action command null
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
         Assert.assertEquals(2, fired);
+        instance.setAlwaysPopup(true);
+        // no menu, always popup true, action command not null
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        Assert.assertEquals(3, fired);
+        // no menu, always popup true, action command null
+        instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
+        Assert.assertEquals(4, fired);
         // TODO: place following in JFrame and display the frame
         /*
         instance.setPopupMenu(new JPopupMenu());

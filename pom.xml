@@ -129,6 +129,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <quiet>true</quiet>
+                </configuration>
             </plugin>            
             <plugin>
                 <groupId>com.github.github</groupId>
@@ -208,6 +211,7 @@
                 <version>2.10.3</version>
                 <configuration>
                     <show>public</show>
+                    <quiet>true</quiet>
                 </configuration>
             </plugin>
             <plugin>

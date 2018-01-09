@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>JSplitButton &#x2013; About</title>
+    <title>JSplitButton &#x2013; About JSplitButton</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -95,9 +95,85 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section">
-<h2><a name="About_JSplitButton"></a>About JSplitButton</h2><a name="About_JSplitButton"></a>
-<p>Swing implementation of a split button and JavaBean information for using it in an IDE.</p></div>
+        <h1>About JSplitButton</h1>
+<p>A Split Button control for Java Swing.</p>
+<p><a class="externalLink" href="https://maven-badges.herokuapp.com/maven-central/com.alexandriasoftware.swing/jsplitbutton"><img src="https://maven-badges.herokuapp.com/maven-central/com.alexandriasoftware.swing/jsplitbutton/badge.svg" alt="Maven Central" /></a> <a class="externalLink" href="https://www.javadoc.io/doc/com.alexandriasoftware.swing/jsplitbutton"><img src="https://www.javadoc.io/badge/com.alexandriasoftware.swing/jsplitbutton.svg" alt="Javadocs" /></a> <a class="externalLink" href="https://travis-ci.org/rhwood/jsplitbutton"><img src="https://travis-ci.org/rhwood/jsplitbutton.svg?branch=master" alt="Build Status" /></a> <a class="externalLink" href="https://coveralls.io/github/rhwood/jsplitbutton?branch=master"><img src="https://coveralls.io/repos/github/rhwood/jsplitbutton/badge.svg?branch=master" alt="Coverage Status" /></a> <a class="externalLink" href="https://codeclimate.com/github/rhwood/jsplitbutton/maintainability"><img src="https://api.codeclimate.com/v1/badges/a9870d03476e5f70c721/maintainability" alt="Maintainability" /></a> <a class="externalLink" href="https://codeclimate.com/github/rhwood/jsplitbutton/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a9870d03476e5f70c721/test_coverage" alt="Test Coverage" /></a></p>
+<p>A simple implementation of the split button control for Java Swing. This control raises two events:</p>
+
+<ul>
+  
+<li><tt>buttonClicked(ActionEvent e)</tt></li>
+  
+<li><tt>splitButtonClicked(ActionEvent e)</tt></li>
+</ul>
+<p>The buttonClicked event is raised when the main, or left, part of the button is clicked, which will not trigger the popup menu. The splitButtonClicked event is raised when the split, or right, part of the button is clicked and displays a popup menu.</p>
+<p>To handle these events you need a listener that implements:</p>
+
+<ul>
+  
+<li><tt>SplitButtonActionListener</tt> to handle both events in a single listener</li>
+  
+<li><tt>ButtonClickedActionListener</tt> to handle just buttonClicked</li>
+  
+<li><tt>SplitButtonClickedActionListener</tt> to handle just splitButtonClicked</li>
+</ul>
+<p>See also <a class="externalLink" href="http://naveedmurtuza.blogspot.ch/2010/11/jsplitbutton.html">http://naveedmurtuza.blogspot.ch/2010/11/jsplitbutton.html</a></p>
+<div class="section">
+<h2><a name="Screenshots"></a>Screenshots</h2>
+<p><img src="https://raw.github.com/rhwood/jsplitbutton/master/wiki/images/JSplitButton-GTK.png" alt="alt tag" /></p>
+<p><img src="https://raw.github.com/rhwood/jsplitbutton/master/wiki/images/JSplitButton-Nimbus.png" alt="alt tag" /></p>
+<p><img src="https://raw.github.com/rhwood/jsplitbutton/master/wiki/images/JSplitButton-Metal.png" alt="alt tag" /></p></div>
+<div class="section">
+<h2><a name="Using_the_Control"></a>Using the Control</h2>
+
+<div class="source">
+<div class="source">
+<pre>//first instantiate the control
+JSplitButton splitButton = new JSplitButton();
+//register for listener
+splitButton.addSplitButtonActionListener(new SplitButtonActionListener() {
+
+    public void buttonClicked(ActionEvent e) {
+        System.out.println(&quot;Button Clicked&quot;);
+    }
+
+    public void splitButtonClicked(ActionEvent e) {
+        System.out.println(&quot;Split Part Clicked&quot;);
+    }
+});
+//add popup menu
+splitButton.add(popupMenu);
+//add this control to panel
+panel.add(splitButton);
+</pre></div></div>
+<p>or (using Java 8 lambda expressions):</p>
+
+<div class="source">
+<div class="source">
+<pre>//first instantiate the control
+JSplitButton splitButton = new JSplitButton();
+//register for button listener
+splitButton.addButtonClickedActionListener((ActionEvent e) -&gt; {
+    System.out.println(&quot;Button Clicked&quot;);
+});
+//register for split button listener
+splitButton.addSplitButtonClickedActionListener((ActionEvent e) -&gt; {
+    System.out.println(&quot;Split Part Clicked&quot;);
+});
+//add popup menu
+splitButton.add(popupMenu);
+//add this control to panel
+panel.add(splitButton);
+</pre></div></div></div>
+<div class="section">
+<h2><a name="Prior_History"></a>Prior History</h2>
+
+<ul>
+  
+<li><a class="externalLink" href="http://code.google.com/p/jsplitbutton">Original development</a> by Naveed Quadri in 2012</li>
+  
+<li><a class="externalLink" href="https://github.com/akuhtz/jsplitbutton">Updated</a> by <a class="externalLink" href="https://github.com/akuhtz">Andreas Kuhtz</a> in 2015</li>
+</ul></div>
       </div>
     </div>
     <div class="clear">

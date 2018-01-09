@@ -60,20 +60,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.SplitButtonActionListener.java">com/alexandriasoftware/swing/action/SplitButtonActionListener.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.ButtonClickedActionListener.java">com/alexandriasoftware/swing/action/ButtonClickedActionListener.java</a>
                 </td>
                 <td>
@@ -84,6 +70,20 @@ under the License.
                 </td>
                 <td>
                   2
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://rhwood.github.io/jsplitbutton/checkstyle.html#com.alexandriasoftware.swing.action.SplitButtonActionListener.java">com/alexandriasoftware/swing/action/SplitButtonActionListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>

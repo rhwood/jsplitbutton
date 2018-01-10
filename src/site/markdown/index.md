@@ -74,6 +74,11 @@ splitButton.add(popupMenu);
 panel.add(splitButton);
 ```
 
+## License
+
+- Versions 1.3.1 and newer are released under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
+- Version 1.3.0 is released under the [GNU Public License 2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+
 ## Prior History
 
 * [Original development](http://code.google.com/p/jsplitbutton) by Naveed Quadri in 2012

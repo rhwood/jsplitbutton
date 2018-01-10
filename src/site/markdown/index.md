@@ -1,5 +1,4 @@
-About JSplitButton
-==================
+# About JSplitButton
 
 A Split Button control for Java Swing.
 

@@ -15,6 +15,7 @@
  */
 package com.alexandriasoftware.swing;
 
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.beans.*;
 
@@ -963,46 +964,38 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      * @return An image object representing the requested icon. May return null
      *         if no suitable icon is available.
      */
+    @Override
     public java.awt.Image getIcon(int iconKind) {
         switch (iconKind) {
             case ICON_COLOR_16x16:
                 return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource("resources/splitbutton_16.png"));
-            /*
-             * if ( iconNameC16 == null ) return null; else { if( iconColor16 ==
-             * null ) iconColor16 = loadImage( iconNameC16 ); return
-             * iconColor16;
-            }
-             */
             case ICON_COLOR_32x32:
                 return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource("resources/splitbutton_32.png"));
-//            if ( iconNameC32 == null )
-//                return null;
-//            else {
-//                if( iconColor32 == null )
-//                    iconColor32 = loadImage( iconNameC32 );
-//                return iconColor32;
-//            }
             case ICON_MONO_16x16:
-                if (iconNameM16 == null) {
-                    return null;
-                } else {
-                    if (iconMono16 == null) {
-                        iconMono16 = loadImage(iconNameM16);
-                    }
-                    return iconMono16;
+                if (iconMono16 == null) {
+                    iconMono16 = getIcon(iconNameM16);
                 }
+                return iconMono16;
             case ICON_MONO_32x32:
-                if (iconNameM32 == null) {
-                    return null;
-                } else {
-                    if (iconMono32 == null) {
-                        iconMono32 = loadImage(iconNameM32);
-                    }
-                    return iconMono32;
+                if (iconMono32 == null) {
+                    iconMono32 = getIcon(iconNameM32);
                 }
+                return iconMono32;
             default:
                 return null;
         }
+    }
+
+    /**
+     * Get an icon given its name.
+     * @param name the icon name
+     * @return the icon or null if name is null
+     */
+    private Image getIcon(String name) {
+        if (name == null) {
+            return null;
+        }
+        return loadImage(name);
     }
 
 }

@@ -43,14 +43,14 @@ import javax.swing.UIManager;
  *
  * This class raises two events:
  * <ol>
- * <li>{@link com.alexandriasoftware.swing.action.SplitButtonActionListener#buttonClicked(java.awt.event.ActionEvent)}
+ * <li>{@link SplitButtonActionListener#buttonClicked(java.awt.event.ActionEvent)}
  * when the button is clicked</li>
- * <li>{@link com.alexandriasoftware.swing.action.SplitButtonActionListener#splitButtonClicked(java.awt.event.ActionEvent)}
+ * <li>{@link SplitButtonActionListener#splitButtonClicked(java.awt.event.ActionEvent)}
  * when the split part of the button is clicked</li>
  * </ol>
- * You need to implement
- * {@link com.alexandriasoftware.swing.action.SplitButtonActionListener} to
- * handle these events.
+ * You need to implement {@link SplitButtonActionListener} to handle both events
+ * or {@link ButtonClickedActionListener} or
+ * {@link SplitButtonClickedActionListener} to handle individual events.
  *
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016
@@ -399,9 +399,8 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param l the <code>ActionListener</code> to be added
      * @deprecated Use
-     * {@link #addButtonClickedActionListener(com.alexandriasoftware.swing.action.ButtonClickedActionListener)}
-     * or
-     * {@link #addSplitButtonClickedActionListener(com.alexandriasoftware.swing.action.SplitButtonClickedActionListener)}
+     * {@link #addButtonClickedActionListener(ButtonClickedActionListener)} or
+     * {@link #addSplitButtonClickedActionListener(SplitButtonClickedActionListener)}
      * instead.
      */
     @Deprecated
@@ -416,9 +415,9 @@ public class JSplitButton extends JButton implements Serializable {
      *
      * @param l the listener to be removed
      * @deprecated Use
-     * {@link #removeButtonClickedActionListener(com.alexandriasoftware.swing.action.ButtonClickedActionListener)}
+     * {@link #removeButtonClickedActionListener(ButtonClickedActionListener)}
      * or
-     * {@link #removeSplitButtonClickedActionListener(com.alexandriasoftware.swing.action.SplitButtonClickedActionListener)}
+     * {@link #removeSplitButtonClickedActionListener(SplitButtonClickedActionListener)}
      * instead.
      */
     @Deprecated
@@ -431,10 +430,8 @@ public class JSplitButton extends JButton implements Serializable {
     }
 
     /**
-     * Add a
-     * {@link com.alexandriasoftware.swing.action.ButtonClickedActionListener}
-     * to the button. This listener will be notified whenever the button part is
-     * clicked.
+     * Add a {@link ButtonClickedActionListener} to the button. This listener
+     * will be notified whenever the button part is clicked.
      *
      * @param l the listener to add.
      */
@@ -443,9 +440,7 @@ public class JSplitButton extends JButton implements Serializable {
     }
 
     /**
-     * Remove a
-     * {@link com.alexandriasoftware.swing.action.ButtonClickedActionListener}
-     * from the button.
+     * Remove a {@link ButtonClickedActionListener} from the button.
      *
      * @param l the listener to remove.
      */
@@ -454,10 +449,8 @@ public class JSplitButton extends JButton implements Serializable {
     }
 
     /**
-     * Add a
-     * {@link com.alexandriasoftware.swing.action.SplitButtonClickedActionListener}
-     * to the button. This listener will be notified whenever the split part is
-     * clicked.
+     * Add a {@link SplitButtonClickedActionListener} to the button. This
+     * listener will be notified whenever the split part is clicked.
      *
      * @param l the listener to add.
      */
@@ -466,9 +459,7 @@ public class JSplitButton extends JButton implements Serializable {
     }
 
     /**
-     * Remove a
-     * {@link com.alexandriasoftware.swing.action.SplitButtonClickedActionListener}
-     * from the button.
+     * Remove a {@link SplitButtonClickedActionListener} from the button.
      *
      * @param l the listener to remove.
      */

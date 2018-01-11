@@ -15,6 +15,7 @@
  */
 package com.alexandriasoftware.swing.action;
 
+import com.alexandriasoftware.swing.JSplitButton;
 import java.awt.event.ActionEvent;
 import java.util.EventListener;
 
@@ -22,9 +23,11 @@ import java.util.EventListener;
  * The listener interface for receiving action events. The class that is
  * interested in processing an action event implements this interface, and the
  * object created with that class is registered with a component, using the
- * component's <code>addSplitButtonActionListener</code> method. When the action
- * event occurs, that object's <code>buttonClicked</code> or
- * <code>splitButtonClicked</code> method is invoked.
+ * component's
+ * {@link JSplitButton#addSplitButtonActionListener(SplitButtonActionListener)}
+ * method. When the action event occurs, the listening object's
+ * {@link #buttonClicked(java.awt.event.ActionEvent)} or
+ * {@link #splitButtonClicked(java.awt.event.ActionEvent)} method is invoked.
  *
  * @see ActionEvent
  *

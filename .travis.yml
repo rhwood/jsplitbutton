@@ -20,7 +20,8 @@ after_success:
 - mvn clean test jacoco:report coveralls:report --batch-mode --settings .travis.settings.xml
 
 after_script:
-- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+- cp ./target/jacoco.exec .
+- ./cc-test-reporter after-build --prefix ./src/main --exit-code $TRAVIS_TEST_RESULT
 
 cache:
   directories:

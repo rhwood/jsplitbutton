@@ -476,31 +476,8 @@ public class JSplitButton extends JButton {
      */
     private void fireButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-<span class="fc" id="L479">        SplitButtonActionListener[] splitButtonListeners = listenerList.getListeners(SplitButtonActionListener.class);</span>
-<span class="fc" id="L480">        ButtonClickedActionListener[] buttonClickedListeners = listenerList.getListeners(ButtonClickedActionListener.class);</span>
-<span class="fc bfc" id="L481" title="All 4 branches covered.">        if (splitButtonListeners.length != 0 || buttonClickedListeners.length != 0) {</span>
-<span class="fc" id="L482">            String actionCommand = event.getActionCommand();</span>
-<span class="fc bfc" id="L483" title="All 2 branches covered.">            if (actionCommand == null) {</span>
-<span class="fc" id="L484">                actionCommand = getActionCommand();</span>
-            }
-<span class="fc" id="L486">            ActionEvent e = new ActionEvent(JSplitButton.this,</span>
-                    ActionEvent.ACTION_PERFORMED,
-                    actionCommand,
-<span class="fc" id="L489">                    event.getWhen(),</span>
-<span class="fc" id="L490">                    event.getModifiers());</span>
-            // Process the listeners last to first
-<span class="fc bfc" id="L492" title="All 2 branches covered.">            if (splitButtonListeners.length != 0) {</span>
-<span class="fc bfc" id="L493" title="All 2 branches covered.">                for (int i = splitButtonListeners.length - 1; i &gt;= 0; i--) {</span>
-<span class="fc" id="L494">                    splitButtonListeners[i].buttonClicked(e);</span>
-                }
-            }
-<span class="fc bfc" id="L497" title="All 2 branches covered.">            if (buttonClickedListeners.length != 0) {</span>
-<span class="fc bfc" id="L498" title="All 2 branches covered.">                for (int i = buttonClickedListeners.length - 1; i &gt;= 0; i--) {</span>
-<span class="fc" id="L499">                    buttonClickedListeners[i].actionPerformed(e);</span>
-                }
-            }
-        }
-<span class="fc" id="L503">    }</span>
+<span class="fc" id="L479">        this.fireActionEvent(event, false, listenerList.getListeners(ButtonClickedActionListener.class));</span>
+<span class="fc" id="L480">    }</span>
 
     /**
      * Notifies all listeners that have registered interest for notification on
@@ -512,37 +489,55 @@ public class JSplitButton extends JButton {
      */
     private void fireSplitButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-<span class="fc" id="L515">        SplitButtonActionListener[] splitButtonListeners = listenerList.getListeners(SplitButtonActionListener.class);</span>
-<span class="fc" id="L516">        SplitButtonClickedActionListener[] buttonClickedListeners = listenerList.getListeners(SplitButtonClickedActionListener.class);</span>
-<span class="fc bfc" id="L517" title="All 4 branches covered.">        if (splitButtonListeners.length != 0 || buttonClickedListeners.length != 0) {</span>
-<span class="fc" id="L518">            String actionCommand = event.getActionCommand();</span>
-<span class="fc bfc" id="L519" title="All 2 branches covered.">            if (actionCommand == null) {</span>
-<span class="fc" id="L520">                actionCommand = getActionCommand();</span>
+<span class="fc" id="L492">        this.fireActionEvent(event, true, listenerList.getListeners(SplitButtonClickedActionListener.class));</span>
+<span class="fc" id="L493">    }</span>
+
+    /**
+     * Notifies all listeners that have registered interest for notification on
+     * this event type. The event instance is lazily created using the
+     * &lt;code&gt;event&lt;/code&gt; parameter.
+     *
+     * @param event                the &lt;code&gt;ActionEvent&lt;/code&gt; object
+     * @param singleEventListeners the array of event-specific listeners, either
+     *                             {@link ButtonClickedActionListener}s or
+     *                             {@link SplitButtonClickedActionListener}s
+     * @see EventListenerList
+     */
+    private void fireActionEvent(final ActionEvent event, boolean split, ActionListener[] singleEventListeners) {
+<span class="fc" id="L507">        SplitButtonActionListener[] jointEventListeners = listenerList.getListeners(SplitButtonActionListener.class);</span>
+<span class="fc bfc" id="L508" title="All 4 branches covered.">        if (jointEventListeners.length != 0 || singleEventListeners.length != 0) {</span>
+<span class="fc" id="L509">            String actionCommand = event.getActionCommand();</span>
+<span class="fc bfc" id="L510" title="All 2 branches covered.">            if (actionCommand == null) {</span>
+<span class="fc" id="L511">                actionCommand = getActionCommand();</span>
             }
-<span class="fc" id="L522">            ActionEvent e = new ActionEvent(JSplitButton.this,</span>
+<span class="fc" id="L513">            ActionEvent e = new ActionEvent(JSplitButton.this,</span>
                     ActionEvent.ACTION_PERFORMED,
                     actionCommand,
-<span class="fc" id="L525">                    event.getWhen(),</span>
-<span class="fc" id="L526">                    event.getModifiers());</span>
+<span class="fc" id="L516">                    event.getWhen(),</span>
+<span class="fc" id="L517">                    event.getModifiers());</span>
             // Process the listeners last to first
-<span class="fc bfc" id="L528" title="All 2 branches covered.">            if (splitButtonListeners.length != 0) {</span>
-<span class="fc bfc" id="L529" title="All 2 branches covered.">                for (int i = splitButtonListeners.length - 1; i &gt;= 0; i--) {</span>
-<span class="fc" id="L530">                    splitButtonListeners[i].splitButtonClicked(e);</span>
+<span class="fc bfc" id="L519" title="All 2 branches covered.">            if (jointEventListeners.length != 0) {</span>
+<span class="fc bfc" id="L520" title="All 2 branches covered.">                for (int i = jointEventListeners.length - 1; i &gt;= 0; i--) {</span>
+<span class="fc bfc" id="L521" title="All 2 branches covered.">                    if (split) {</span>
+<span class="fc" id="L522">                        jointEventListeners[i].splitButtonClicked(e);</span>
+                    } else {
+<span class="fc" id="L524">                        jointEventListeners[i].buttonClicked(e);</span>
+                    }
                 }
             }
-<span class="fc bfc" id="L533" title="All 2 branches covered.">            if (buttonClickedListeners.length != 0) {</span>
-<span class="fc bfc" id="L534" title="All 2 branches covered.">                for (int i = buttonClickedListeners.length - 1; i &gt;= 0; i--) {</span>
-<span class="fc" id="L535">                    buttonClickedListeners[i].actionPerformed(e);</span>
+<span class="fc bfc" id="L528" title="All 2 branches covered.">            if (singleEventListeners.length != 0) {</span>
+<span class="fc bfc" id="L529" title="All 2 branches covered.">                for (int i = singleEventListeners.length - 1; i &gt;= 0; i--) {</span>
+<span class="fc" id="L530">                    singleEventListeners[i].actionPerformed(e);</span>
                 }
             }
         }
-<span class="fc" id="L539">    }</span>
+<span class="fc" id="L534">    }</span>
 
     /**
      * @return the listener
      */
     Listener getListener() {
-<span class="fc" id="L545">        return listener;</span>
+<span class="fc" id="L540">        return listener;</span>
     }
 
     /**
@@ -550,55 +545,55 @@ public class JSplitButton extends JButton {
      *
      * Package private so its available to tests.
      */
-<span class="fc" id="L553">    class Listener implements MouseMotionListener, MouseListener, ActionListener {</span>
+<span class="fc" id="L548">    class Listener implements MouseMotionListener, MouseListener, ActionListener {</span>
 
         @Override
         public void actionPerformed(final ActionEvent e) {
-<span class="fc bfc" id="L557" title="All 2 branches covered.">            if (popupMenu == null) {</span>
-<span class="fc" id="L558">                fireButtonClicked(e);</span>
-<span class="fc bfc" id="L559" title="All 2 branches covered.">            } else if (alwaysPopup) {</span>
-<span class="fc" id="L560">                popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());</span>
-<span class="fc" id="L561">                fireButtonClicked(e);</span>
-<span class="fc bfc" id="L562" title="All 2 branches covered.">            } else if (onSplit) {</span>
-<span class="fc" id="L563">                popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());</span>
-<span class="fc" id="L564">                fireSplitButtonClicked(e);</span>
+<span class="fc bfc" id="L552" title="All 2 branches covered.">            if (popupMenu == null) {</span>
+<span class="fc" id="L553">                fireButtonClicked(e);</span>
+<span class="fc bfc" id="L554" title="All 2 branches covered.">            } else if (alwaysPopup) {</span>
+<span class="fc" id="L555">                popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());</span>
+<span class="fc" id="L556">                fireButtonClicked(e);</span>
+<span class="fc bfc" id="L557" title="All 2 branches covered.">            } else if (onSplit) {</span>
+<span class="fc" id="L558">                popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());</span>
+<span class="fc" id="L559">                fireSplitButtonClicked(e);</span>
             } else {
-<span class="fc" id="L566">                fireButtonClicked(e);</span>
+<span class="fc" id="L561">                fireButtonClicked(e);</span>
             }
-<span class="fc" id="L568">        }</span>
+<span class="fc" id="L563">        }</span>
 
         @Override
         public void mouseExited(final MouseEvent e) {
-<span class="fc" id="L572">            onSplit = false;</span>
-<span class="fc" id="L573">            repaint(splitRectangle);</span>
-<span class="fc" id="L574">        }</span>
+<span class="fc" id="L567">            onSplit = false;</span>
+<span class="fc" id="L568">            repaint(splitRectangle);</span>
+<span class="fc" id="L569">        }</span>
 
         @Override
         public void mouseMoved(final MouseEvent e) {
-<span class="fc" id="L578">            onSplit = splitRectangle.contains(e.getPoint());</span>
-<span class="fc" id="L579">            repaint(splitRectangle);</span>
-<span class="fc" id="L580">        }</span>
+<span class="fc" id="L573">            onSplit = splitRectangle.contains(e.getPoint());</span>
+<span class="fc" id="L574">            repaint(splitRectangle);</span>
+<span class="fc" id="L575">        }</span>
 
         // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Unused Listeners&quot;&gt;
         @Override
         public void mouseDragged(final MouseEvent e) {
-<span class="fc" id="L585">        }</span>
+<span class="fc" id="L580">        }</span>
 
         @Override
         public void mouseClicked(final MouseEvent e) {
-<span class="fc" id="L589">        }</span>
+<span class="fc" id="L584">        }</span>
 
         @Override
         public void mousePressed(final MouseEvent e) {
-<span class="fc" id="L593">        }</span>
+<span class="fc" id="L588">        }</span>
 
         @Override
         public void mouseReleased(final MouseEvent e) {
-<span class="fc" id="L597">        }</span>
+<span class="fc" id="L592">        }</span>
 
         @Override
         public void mouseEntered(final MouseEvent e) {
-<span class="fc" id="L601">        }</span>
+<span class="fc" id="L596">        }</span>
         // &lt;/editor-fold&gt;
     }
 }

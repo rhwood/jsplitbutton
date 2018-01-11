@@ -26,7 +26,7 @@ under the License.
     <copyright>&#169;2018</copyright>
     <item>
       <title>File: 7,
-             Errors: 95,
+             Errors: 93,
              Warnings: 0,
              Infos: 0
       </title>
@@ -83,7 +83,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -139,7 +139,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  91
+                  88
                 </td>
               </tr>
                       </tbody>

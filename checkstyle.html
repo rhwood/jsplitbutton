@@ -71,7 +71,7 @@ JSplitButton
 <td>7</td>
 <td>0</td>
 <td>0</td>
-<td>95</td></tr></table></div>
+<td>93</td></tr></table></div>
 <div class="section">
 <h2><a name="Files"></a>Files</h2>
 <table border="0" class="bodyTable">
@@ -84,13 +84,18 @@ JSplitButton
 <td><a href="#com.alexandriasoftware.swing.JSplitButton.java">com/alexandriasoftware/swing/JSplitButton.java</a></td>
 <td>0</td>
 <td>0</td>
-<td>91</td></tr>
+<td>88</td></tr>
 <tr class="a">
 <td><a href="#com.alexandriasoftware.swing.action.ButtonClickedActionListener.java">com/alexandriasoftware/swing/action/ButtonClickedActionListener.java</a></td>
 <td>0</td>
 <td>0</td>
 <td>2</td></tr>
 <tr class="b">
+<td><a href="#com.alexandriasoftware.swing.action.SplitButtonActionListener.java">com/alexandriasoftware/swing/action/SplitButtonActionListener.java</a></td>
+<td>0</td>
+<td>0</td>
+<td>1</td></tr>
+<tr class="a">
 <td><a href="#com.alexandriasoftware.swing.action.SplitButtonClickedActionListener.java">com/alexandriasoftware/swing/action/SplitButtonClickedActionListener.java</a></td>
 <td>0</td>
 <td>0</td>
@@ -98,30 +103,35 @@ JSplitButton
 <div class="section">
 <h2><a name="Rules"></a>Rules</h2>
 <table border="0" class="bodyTable">
-<tr class="a">
+<tr class="b">
 <th>Category</th>
 <th>Rule</th>
 <th>Violations</th>
 <th>Severity</th></tr>
-<tr class="b">
+<tr class="a">
 <td>coding</td>
 <td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_coding.html#AvoidInlineConditionals">AvoidInlineConditionals</a></td>
 <td>1</td>
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
-<tr class="a">
+<tr class="b">
 <td></td>
 <td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_coding.html#HiddenField">HiddenField</a></td>
 <td>9</td>
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
-<tr class="b">
+<tr class="a">
 <td></td>
 <td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_coding.html#MagicNumber">MagicNumber</a></td>
 <td>6</td>
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
-<tr class="a">
+<tr class="b">
 <td>design</td>
 <td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_design.html#DesignForExtension">DesignForExtension</a></td>
 <td>28</td>
+<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
+<tr class="a">
+<td>imports</td>
+<td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_imports.html#UnusedImports">UnusedImports</a></td>
+<td>3</td>
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
 <tr class="b">
 <td>javadoc</td>
@@ -134,68 +144,79 @@ JSplitButton
 <td>12</td>
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
 <tr class="b">
+<td>modifier</td>
+<td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_modifier.html#ModifierOrder">ModifierOrder</a></td>
+<td>1</td>
+<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr>
+<tr class="a">
 <td>sizes</td>
 <td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_sizes.html#LineLength">LineLength</a></td>
-<td>37</td>
+<td>31</td>
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td></tr></table></div>
 <div class="section">
 <h2><a name="Details"></a>Details</h2>
 <div class="section">
 <h3 id="com.alexandriasoftware.swing.JSplitButton.java">com/alexandriasoftware/swing/JSplitButton.java</h3>
 <table border="0" class="bodyTable">
-<tr class="a">
+<tr class="b">
 <th>Severity</th>
 <th>Category</th>
 <th>Rule</th>
 <th>Message</th>
 <th>Line</th></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>sizes</td>
-<td>LineLength</td>
-<td>Line is longer than 80 characters (found 118).</td>
-<td>46</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
-<td>Line is longer than 80 characters (found 123).</td>
-<td>48</td></tr>
+<td>Line is longer than 80 characters (found 82).</td>
+<td>45</td></tr>
 <tr class="b">
+<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
+<td>sizes</td>
+<td>LineLength</td>
+<td>Line is longer than 80 characters (found 87).</td>
+<td>47</td></tr>
+<tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>javadoc</td>
 <td>JavadocVariable</td>
 <td>Missing a Javadoc comment.</td>
-<td>65</td></tr>
-<tr class="a">
+<td>64</td></tr>
+<tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>MagicNumber</td>
 <td>'4' is a magic number.</td>
-<td>65</td></tr>
-<tr class="b">
+<td>64</td></tr>
+<tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>javadoc</td>
 <td>JavadocVariable</td>
 <td>Missing a Javadoc comment.</td>
-<td>66</td></tr>
-<tr class="a">
+<td>65</td></tr>
+<tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>MagicNumber</td>
 <td>'22' is a magic number.</td>
-<td>66</td></tr>
-<tr class="b">
+<td>65</td></tr>
+<tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>javadoc</td>
 <td>JavadocVariable</td>
 <td>Missing a Javadoc comment.</td>
-<td>67</td></tr>
-<tr class="a">
+<td>66</td></tr>
+<tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>MagicNumber</td>
 <td>'8' is a magic number.</td>
+<td>66</td></tr>
+<tr class="a">
+<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
+<td>javadoc</td>
+<td>JavadocVariable</td>
+<td>Missing a Javadoc comment.</td>
 <td>67</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
@@ -247,454 +268,430 @@ JSplitButton
 <td>75</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>javadoc</td>
-<td>JavadocVariable</td>
-<td>Missing a Javadoc comment.</td>
-<td>76</td></tr>
+<td>modifier</td>
+<td>ModifierOrder</td>
+<td>'final' modifier out of order with the JLS suggestions.</td>
+<td>75</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getPopupMenu' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>122</td></tr>
+<td>121</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setPopupMenu' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>132</td></tr>
+<td>131</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'popupMenu' hides a field.</td>
-<td>132</td></tr>
+<td>131</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getSeparatorSpacing' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>144</td></tr>
+<td>143</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setSeparatorSpacing' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>155</td></tr>
+<td>154</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'separatorSpacing' hides a field.</td>
-<td>155</td></tr>
+<td>154</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'isAlwaysPopup' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>164</td></tr>
+<td>163</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setAlwaysPopup' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>174</td></tr>
+<td>173</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'alwaysPopup' hides a field.</td>
-<td>174</td></tr>
+<td>173</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'isAlwaysDropDown' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>184</td></tr>
+<td>183</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setAlwaysDropDown' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>196</td></tr>
+<td>195</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getArrowColor' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>206</td></tr>
+<td>205</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setArrowColor' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>215</td></tr>
+<td>214</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'arrowColor' hides a field.</td>
-<td>215</td></tr>
+<td>214</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getDisabledArrowColor' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>225</td></tr>
+<td>224</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setDisabledArrowColor' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>235</td></tr>
+<td>234</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'disabledArrowColor' hides a field.</td>
-<td>235</td></tr>
+<td>234</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getSplitWidth' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>245</td></tr>
+<td>244</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setSplitWidth' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>254</td></tr>
+<td>253</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'splitWidth' hides a field.</td>
-<td>254</td></tr>
+<td>253</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getArrowSize' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>263</td></tr>
+<td>262</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setArrowSize' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>272</td></tr>
+<td>271</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'arrowSize' hides a field.</td>
-<td>272</td></tr>
+<td>271</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getImage' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>283</td></tr>
+<td>282</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setImage' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>299</td></tr>
+<td>298</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'image' hides a field.</td>
-<td>299</td></tr>
+<td>298</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getDisabledImage' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>309</td></tr>
+<td>308</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 83).</td>
-<td>313</td></tr>
+<td>312</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>javadoc</td>
 <td>JavadocMethod</td>
 <td>Expected @param tag for 'size'.</td>
-<td>324</td></tr>
+<td>323</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>javadoc</td>
 <td>JavadocMethod</td>
 <td>Expected @param tag for 'color'.</td>
-<td>324</td></tr>
+<td>323</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 86).</td>
-<td>326</td></tr>
+<td>325</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 82).</td>
-<td>332</td></tr>
+<td>331</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>MagicNumber</td>
 <td>'3' is a magic number.</td>
-<td>332</td></tr>
+<td>331</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>MagicNumber</td>
 <td>'90' is a magic number.</td>
-<td>335</td></tr>
+<td>334</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 109).</td>
-<td>336</td></tr>
+<td>335</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>MagicNumber</td>
 <td>'0x8F1C1C' is a magic number.</td>
-<td>344</td></tr>
+<td>343</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'setDisabledImage' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>357</td></tr>
+<td>356</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>HiddenField</td>
 <td>'image' hides a field.</td>
-<td>357</td></tr>
+<td>356</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'paintComponent' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>361</td></tr>
+<td>360</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 92).</td>
-<td>365</td></tr>
+<td>364</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 119).</td>
-<td>369</td></tr>
+<td>368</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>coding</td>
 <td>AvoidInlineConditionals</td>
 <td>Avoid inline conditionals.</td>
-<td>369</td></tr>
+<td>368</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 89).</td>
-<td>371</td></tr>
+<td>370</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 87).</td>
-<td>372</td></tr>
+<td>371</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 85).</td>
-<td>373</td></tr>
+<td>372</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 87).</td>
-<td>374</td></tr>
+<td>373</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
-<td>Line is longer than 80 characters (found 111).</td>
+<td>Line is longer than 80 characters (found 85).</td>
 <td>402</td></tr>
 <tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>sizes</td>
-<td>LineLength</td>
-<td>Line is longer than 80 characters (found 121).</td>
-<td>404</td></tr>
-<tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'addSplitButtonActionListener' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>407</td></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>sizes</td>
-<td>LineLength</td>
-<td>Line is longer than 80 characters (found 81).</td>
-<td>408</td></tr>
+<td>405</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
-<td>Line is longer than 80 characters (found 114).</td>
-<td>419</td></tr>
+<td>Line is longer than 80 characters (found 81).</td>
+<td>406</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
-<td>Line is longer than 80 characters (found 124).</td>
-<td>421</td></tr>
+<td>Line is longer than 80 characters (found 88).</td>
+<td>419</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'removeSplitButtonActionListener' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>424</td></tr>
+<td>422</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 84).</td>
-<td>425</td></tr>
+<td>423</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 85).</td>
-<td>441</td></tr>
+<td>437</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'addButtonClickedActionListener' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>441</td></tr>
+<td>437</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 88).</td>
-<td>452</td></tr>
+<td>446</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'removeButtonClickedActionListener' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>452</td></tr>
+<td>446</td></tr>
 <tr class="a">
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>sizes</td>
-<td>LineLength</td>
-<td>Line is longer than 80 characters (found 83).</td>
-<td>458</td></tr>
-<tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 95).</td>
-<td>464</td></tr>
-<tr class="a">
+<td>456</td></tr>
+<tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'addSplitButtonClickedActionListener' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>464</td></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>sizes</td>
-<td>LineLength</td>
-<td>Line is longer than 80 characters (found 83).</td>
-<td>470</td></tr>
+<td>456</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 98).</td>
-<td>475</td></tr>
+<td>465</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'removeSplitButtonClickedActionListener' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>475</td></tr>
+<td>465</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 118).</td>
-<td>489</td></tr>
+<td>479</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 124).</td>
-<td>490</td></tr>
+<td>480</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 85).</td>
-<td>491</td></tr>
+<td>481</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 118).</td>
-<td>525</td></tr>
+<td>515</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 134).</td>
-<td>526</td></tr>
+<td>516</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 85).</td>
-<td>527</td></tr>
+<td>517</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>design</td>
 <td>DesignForExtension</td>
 <td>Method 'getListener' is not designed for extension - needs to be abstract, final or empty.</td>
-<td>554</td></tr>
+<td>544</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 82).</td>
-<td>563</td></tr>
+<td>553</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 123).</td>
-<td>570</td></tr>
+<td>560</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 80 characters (found 123).</td>
-<td>573</td></tr></table></div>
+<td>563</td></tr></table></div>
 <div class="section">
 <h3 id="com.alexandriasoftware.swing.action.ButtonClickedActionListener.java">com/alexandriasoftware/swing/action/ButtonClickedActionListener.java</h3>
 <table border="0" class="bodyTable">
@@ -706,16 +703,31 @@ JSplitButton
 <th>Line</th></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>sizes</td>
-<td>LineLength</td>
-<td>Line is longer than 80 characters (found 148).</td>
-<td>25</td></tr>
+<td>imports</td>
+<td>UnusedImports</td>
+<td>Unused import - com.alexandriasoftware.swing.JSplitButton.</td>
+<td>18</td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
-<td>Line is longer than 80 characters (found 84).</td>
-<td>27</td></tr></table></div>
+<td>Line is longer than 80 characters (found 83).</td>
+<td>26</td></tr></table></div>
+<div class="section">
+<h3 id="com.alexandriasoftware.swing.action.SplitButtonActionListener.java">com/alexandriasoftware/swing/action/SplitButtonActionListener.java</h3>
+<table border="0" class="bodyTable">
+<tr class="b">
+<th>Severity</th>
+<th>Category</th>
+<th>Rule</th>
+<th>Message</th>
+<th>Line</th></tr>
+<tr class="a">
+<td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
+<td>imports</td>
+<td>UnusedImports</td>
+<td>Unused import - com.alexandriasoftware.swing.JSplitButton.</td>
+<td>18</td></tr></table></div>
 <div class="section">
 <h3 id="com.alexandriasoftware.swing.action.SplitButtonClickedActionListener.java">com/alexandriasoftware/swing/action/SplitButtonClickedActionListener.java</h3>
 <table border="0" class="bodyTable">
@@ -727,16 +739,16 @@ JSplitButton
 <th>Line</th></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
-<td>sizes</td>
-<td>LineLength</td>
-<td>Line is longer than 80 characters (found 158).</td>
-<td>25</td></tr>
+<td>imports</td>
+<td>UnusedImports</td>
+<td>Unused import - com.alexandriasoftware.swing.JSplitButton.</td>
+<td>18</td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" />&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
-<td>Line is longer than 80 characters (found 84).</td>
-<td>27</td></tr></table></div></div>
+<td>Line is longer than 80 characters (found 93).</td>
+<td>26</td></tr></table></div></div>
       </div>
     </div>
     <div class="clear">

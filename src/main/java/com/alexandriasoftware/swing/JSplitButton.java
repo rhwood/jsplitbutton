@@ -31,7 +31,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
-import java.io.Serializable;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
@@ -55,7 +54,7 @@ import javax.swing.UIManager;
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016
  */
-public class JSplitButton extends JButton implements Serializable {
+public class JSplitButton extends JButton {
 
     /**
      * Key used for serialization.
@@ -71,9 +70,9 @@ public class JSplitButton extends JButton implements Serializable {
     private boolean alwaysPopup;
     private Color arrowColor = Color.BLACK;
     private Color disabledArrowColor = Color.GRAY;
-    private Image image;
-    private Image disabledImage;
-    private final Listener listener;
+    private transient Image image;
+    private transient Image disabledImage;
+    private transient final Listener listener;
 
     /**
      * Creates a button with initial text and an icon.
@@ -389,7 +388,7 @@ public class JSplitButton extends JButton implements Serializable {
         int h = img.getHeight();
         BufferedImage dimg = new BufferedImage(w, h, img.getType());
         Graphics2D g = dimg.createGraphics();
-        g.rotate(Math.toRadians(angle), w / 2, h / 2);
+        g.rotate(Math.toRadians(angle), w / 2.0, h / 2.0);
         g.drawImage(img, null, 0, 0);
         return dimg;
     }

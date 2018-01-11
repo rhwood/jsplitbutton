@@ -476,30 +476,7 @@ public class JSplitButton extends JButton {
      */
     private void fireButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-        SplitButtonActionListener[] splitButtonListeners = listenerList.getListeners(SplitButtonActionListener.class);
-        ButtonClickedActionListener[] buttonClickedListeners = listenerList.getListeners(ButtonClickedActionListener.class);
-        if (splitButtonListeners.length != 0 || buttonClickedListeners.length != 0) {
-            String actionCommand = event.getActionCommand();
-            if (actionCommand == null) {
-                actionCommand = getActionCommand();
-            }
-            ActionEvent e = new ActionEvent(JSplitButton.this,
-                    ActionEvent.ACTION_PERFORMED,
-                    actionCommand,
-                    event.getWhen(),
-                    event.getModifiers());
-            // Process the listeners last to first
-            if (splitButtonListeners.length != 0) {
-                for (int i = splitButtonListeners.length - 1; i >= 0; i--) {
-                    splitButtonListeners[i].buttonClicked(e);
-                }
-            }
-            if (buttonClickedListeners.length != 0) {
-                for (int i = buttonClickedListeners.length - 1; i >= 0; i--) {
-                    buttonClickedListeners[i].actionPerformed(e);
-                }
-            }
-        }
+        this.fireActionEvent(event, listenerList.getListeners(ButtonClickedActionListener.class));
     }
 
     /**
@@ -512,9 +489,23 @@ public class JSplitButton extends JButton {
      */
     private void fireSplitButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-        SplitButtonActionListener[] splitButtonListeners = listenerList.getListeners(SplitButtonActionListener.class);
-        SplitButtonClickedActionListener[] buttonClickedListeners = listenerList.getListeners(SplitButtonClickedActionListener.class);
-        if (splitButtonListeners.length != 0 || buttonClickedListeners.length != 0) {
+        this.fireActionEvent(event, listenerList.getListeners(SplitButtonClickedActionListener.class));
+    }
+
+    /**
+     * Notifies all listeners that have registered interest for notification on
+     * this event type. The event instance is lazily created using the
+     * <code>event</code> parameter.
+     *
+     * @param event                the <code>ActionEvent</code> object
+     * @param singleEventListeners the array of event-specific listeners, either
+     *                             {@link ButtonClickedActionListener}s or
+     *                             {@link SplitButtonClickedActionListener}s
+     * @see EventListenerList
+     */
+    private void fireActionEvent(final ActionEvent event, ActionListener[] singleEventListeners) {
+        SplitButtonActionListener[] jointEventListeners = listenerList.getListeners(SplitButtonActionListener.class);
+        if (jointEventListeners.length != 0 || singleEventListeners.length != 0) {
             String actionCommand = event.getActionCommand();
             if (actionCommand == null) {
                 actionCommand = getActionCommand();
@@ -525,14 +516,14 @@ public class JSplitButton extends JButton {
                     event.getWhen(),
                     event.getModifiers());
             // Process the listeners last to first
-            if (splitButtonListeners.length != 0) {
-                for (int i = splitButtonListeners.length - 1; i >= 0; i--) {
-                    splitButtonListeners[i].splitButtonClicked(e);
+            if (jointEventListeners.length != 0) {
+                for (int i = jointEventListeners.length - 1; i >= 0; i--) {
+                    jointEventListeners[i].splitButtonClicked(e);
                 }
             }
-            if (buttonClickedListeners.length != 0) {
-                for (int i = buttonClickedListeners.length - 1; i >= 0; i--) {
-                    buttonClickedListeners[i].actionPerformed(e);
+            if (singleEventListeners.length != 0) {
+                for (int i = singleEventListeners.length - 1; i >= 0; i--) {
+                    singleEventListeners[i].actionPerformed(e);
                 }
             }
         }

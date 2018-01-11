@@ -178,7 +178,7 @@ public class JSplitButton extends JButton {
      * Show the dropdown menu, if attached, even if the button part is clicked.
      *
      * @return true if alwaysDropdown, false otherwise.
-     * @deprecated use {@link #isAlwaysPopup() } instead.
+     * @deprecated Since 1.3.0; use {@link #isAlwaysPopup() } instead.
      */
     @Deprecated
     public boolean isAlwaysDropDown() {
@@ -190,7 +190,7 @@ public class JSplitButton extends JButton {
      *
      * @param alwaysDropDown true to show the attached dropdown even if the
      *                       button part is clicked, false otherwise
-     * @deprecated use {@link #setAlwaysPopup(boolean) } instead.
+     * @deprecated Since 1.3.0; use {@link #setAlwaysPopup(boolean) } instead.
      */
     @Deprecated
     public void setAlwaysDropDown(final boolean alwaysDropDown) {
@@ -397,7 +397,7 @@ public class JSplitButton extends JButton {
      * Adds an <code>SplitButtonActionListener</code> to the button.
      *
      * @param l the <code>ActionListener</code> to be added
-     * @deprecated Use
+     * @deprecated Since 1.3.0; use
      * {@link #addButtonClickedActionListener(ButtonClickedActionListener)} or
      * {@link #addSplitButtonClickedActionListener(SplitButtonClickedActionListener)}
      * instead.
@@ -413,7 +413,7 @@ public class JSplitButton extends JButton {
      * the <code>Action</code> is set to <code>null</code>.
      *
      * @param l the listener to be removed
-     * @deprecated Use
+     * @deprecated Since 1.3.0; use
      * {@link #removeButtonClickedActionListener(ButtonClickedActionListener)}
      * or
      * {@link #removeSplitButtonClickedActionListener(SplitButtonClickedActionListener)}

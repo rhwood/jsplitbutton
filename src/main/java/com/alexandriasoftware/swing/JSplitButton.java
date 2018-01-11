@@ -476,7 +476,7 @@ public class JSplitButton extends JButton {
      */
     private void fireButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-        this.fireActionEvent(event, listenerList.getListeners(ButtonClickedActionListener.class));
+        this.fireActionEvent(event, false, listenerList.getListeners(ButtonClickedActionListener.class));
     }
 
     /**
@@ -489,7 +489,7 @@ public class JSplitButton extends JButton {
      */
     private void fireSplitButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-        this.fireActionEvent(event, listenerList.getListeners(SplitButtonClickedActionListener.class));
+        this.fireActionEvent(event, true, listenerList.getListeners(SplitButtonClickedActionListener.class));
     }
 
     /**
@@ -503,7 +503,7 @@ public class JSplitButton extends JButton {
      *                             {@link SplitButtonClickedActionListener}s
      * @see EventListenerList
      */
-    private void fireActionEvent(final ActionEvent event, ActionListener[] singleEventListeners) {
+    private void fireActionEvent(final ActionEvent event, boolean split, ActionListener[] singleEventListeners) {
         SplitButtonActionListener[] jointEventListeners = listenerList.getListeners(SplitButtonActionListener.class);
         if (jointEventListeners.length != 0 || singleEventListeners.length != 0) {
             String actionCommand = event.getActionCommand();
@@ -518,7 +518,11 @@ public class JSplitButton extends JButton {
             // Process the listeners last to first
             if (jointEventListeners.length != 0) {
                 for (int i = jointEventListeners.length - 1; i >= 0; i--) {
-                    jointEventListeners[i].splitButtonClicked(e);
+                    if (split) {
+                        jointEventListeners[i].splitButtonClicked(e);
+                    } else {
+                        jointEventListeners[i].buttonClicked(e);
+                    }
                 }
             }
             if (singleEventListeners.length != 0) {

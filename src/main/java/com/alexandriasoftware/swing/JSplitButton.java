@@ -37,8 +37,10 @@ import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
 
 /**
- * An implementation of a "split" button.The left side acts like a normal
- * button, right side has a jPopupMenu attached.
+ * An implementation of a "split" button. The left side acts like a normal
+ * button, right side has a jPopupMenu attached. If there is no attached menu,
+ * the right side of the split button appears disabled, and clicking anywhere in
+ * the button triggers the normal button action.
  *
  * This class raises two events:
  * <ol>
@@ -421,7 +423,7 @@ public class JSplitButton extends JButton {
      */
     @Deprecated
     public void removeSplitButtonActionListener(final SplitButtonActionListener l) {
-        if ((l != null) && (getAction() == l)) {
+        if ((l != null) && (l.equals(getAction()))) {
             setAction(null);
         } else {
             listenerList.remove(SplitButtonActionListener.class, l);

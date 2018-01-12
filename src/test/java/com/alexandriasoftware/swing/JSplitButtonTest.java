@@ -472,11 +472,7 @@ public class JSplitButtonTest {
      */
     @Test
     public void testMouseMoved() {
-        JSplitButton instance = new JSplitButton();
-        setOnSplit(instance, true);
-        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_MOVED, 0, 0, 0, false);
-        instance.getListener().mouseMoved(e);
-        Assert.assertFalse(getOnSplit(instance));
+        this.testMouseEvent(MouseEvent.MOUSE_MOVED, false);
     }
 
     /**
@@ -484,56 +480,64 @@ public class JSplitButtonTest {
      */
     @Test
     public void testMouseExited() {
-        JSplitButton instance = new JSplitButton();
-        setOnSplit(instance, true);
-        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_EXITED, 0, 0, 0, false);
-        instance.getListener().mouseExited(e);
-        Assert.assertFalse(getOnSplit(instance));
+        this.testMouseEvent(MouseEvent.MOUSE_EXITED, false);
     }
 
     @Test
     public void testMouseDragged() {
-        JSplitButton instance = new JSplitButton();
-        setOnSplit(instance, true);
-        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_DRAGGED, 0, 0, 0, false);
-        instance.getListener().mouseDragged(e);
-        Assert.assertTrue(getOnSplit(instance));
+        this.testMouseEvent(MouseEvent.MOUSE_DRAGGED, true);
     }
 
     @Test
     public void testMouseClicked() {
-        JSplitButton instance = new JSplitButton();
-        setOnSplit(instance, true);
-        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_CLICKED, 0, 0, 0, false);
-        instance.getListener().mouseClicked(e);
-        Assert.assertTrue(getOnSplit(instance));
+        this.testMouseEvent(MouseEvent.MOUSE_CLICKED, true);
     }
 
     @Test
     public void testMousePressed() {
-        JSplitButton instance = new JSplitButton();
-        setOnSplit(instance, true);
-        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_PRESSED, 0, 0, 0, false);
-        instance.getListener().mousePressed(e);
-        Assert.assertTrue(getOnSplit(instance));
+        this.testMouseEvent(MouseEvent.MOUSE_PRESSED, true);
     }
 
     @Test
     public void testMouseReleased() {
-        JSplitButton instance = new JSplitButton();
-        setOnSplit(instance, true);
-        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_RELEASED, 0, 0, 0, false);
-        instance.getListener().mouseReleased(e);
-        Assert.assertTrue(getOnSplit(instance));
+        this.testMouseEvent(MouseEvent.MOUSE_RELEASED, true);
     }
 
     @Test
     public void testMouseEntered() {
+        this.testMouseEvent(MouseEvent.MOUSE_ENTERED, true);
+    }
+
+    private void testMouseEvent(int event, boolean onSplit) {
         JSplitButton instance = new JSplitButton();
         setOnSplit(instance, true);
-        MouseEvent e = new MouseEvent(instance, 0, 0, MouseEvent.MOUSE_ENTERED, 0, 0, 0, false);
-        instance.getListener().mouseEntered(e);
-        Assert.assertTrue(getOnSplit(instance));
+        MouseEvent e = new MouseEvent(instance, 0, 0, event, 0, 0, 0, false);
+        switch (event) {
+            case MouseEvent.MOUSE_CLICKED:
+                instance.getListener().mouseClicked(e);
+                break;
+            case MouseEvent.MOUSE_DRAGGED:
+                instance.getListener().mouseDragged(e);
+                break;
+            case MouseEvent.MOUSE_ENTERED:
+                instance.getListener().mouseEntered(e);
+                break;
+            case MouseEvent.MOUSE_EXITED:
+                instance.getListener().mouseExited(e);
+                break;
+            case MouseEvent.MOUSE_MOVED:
+                instance.getListener().mouseMoved(e);
+                break;
+            case MouseEvent.MOUSE_PRESSED:
+                instance.getListener().mousePressed(e);
+                break;
+            case MouseEvent.MOUSE_RELEASED:
+                instance.getListener().mouseReleased(e);
+                break;
+            default:
+                Assert.fail("Unexpected event id");
+        }
+        Assert.assertEquals(onSplit, getOnSplit(instance));
     }
 
     @Test

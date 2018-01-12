@@ -21,7 +21,7 @@ after_success:
 
 after_script:
 - cp ./target/site/jacoco/jacoco.xml .
-- ./cc-test-reporter after-build --debug --coverage-input-type jacoco --prefix ${PWD}/src/main/java --exit-code $TRAVIS_TEST_RESULT
+- ./cc-test-reporter after-build --debug --coverage-input-type jacoco --exit-code $TRAVIS_TEST_RESULT
 
 cache:
   directories:

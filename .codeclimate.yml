@@ -1,5 +1,10 @@
 version: "2"
 plugins:
+engines:
+  duplication:
+    enabled: true
+  fixme:
+    enabled: true
   sonar-java:
     enabled: true
     config:

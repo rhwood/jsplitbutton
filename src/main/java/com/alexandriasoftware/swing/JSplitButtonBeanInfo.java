@@ -854,8 +854,8 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static java.awt.Image iconColor32 = null;
     private static java.awt.Image iconMono16 = null;
     private static java.awt.Image iconMono32 = null;//GEN-END:IconsDef
-    private static String iconNameC16 = "/com/alexandriasoftware/swing/splitbutton_16.png";//GEN-BEGIN:Icons
-    private static String iconNameC32 = "/com/alexandriasoftware/swing/splitbutton_32.png";
+    private static String iconNameC16 = "resources/splitbutton_16.png";//GEN-BEGIN:Icons
+    private static String iconNameC32 = "resources/splitbutton_32.png";
     private static String iconNameM16 = null;
     private static String iconNameM32 = null;//GEN-END:Icons
 
@@ -874,6 +874,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      *         May return null if the information should be obtained by
      *         automatic analysis.
      */
+    @Override
     public BeanDescriptor getBeanDescriptor() {
         return getBdescriptor();
     }
@@ -890,6 +891,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      * of getPropertyDescriptors can use "instanceof" to check if a given
      * PropertyDescriptor is an IndexedPropertyDescriptor.
      */
+    @Override
     public PropertyDescriptor[] getPropertyDescriptors() {
         return getPdescriptor();
     }
@@ -901,6 +903,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      *         fired by this bean. May return null if the information should be
      *         obtained by automatic analysis.
      */
+    @Override
     public EventSetDescriptor[] getEventSetDescriptors() {
         return getEdescriptor();
     }
@@ -912,6 +915,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      *         by this bean. May return null if the information should be
      *         obtained by automatic analysis.
      */
+    @Override
     public MethodDescriptor[] getMethodDescriptors() {
         return getMdescriptor();
     }
@@ -926,6 +930,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      * <P>
      * Returns -1 if there is no default property.
      */
+    @Override
     public int getDefaultPropertyIndex() {
         return DEFAULT_PROPERTY_INDEX;
     }
@@ -939,6 +944,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      * <P>
      * Returns -1 if there is no default event.
      */
+    @Override
     public int getDefaultEventIndex() {
         return DEFAULT_EVENT_INDEX;
     }
@@ -968,9 +974,9 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     public java.awt.Image getIcon(int iconKind) {
         switch (iconKind) {
             case ICON_COLOR_16x16:
-                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource("resources/splitbutton_16.png"));
+                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(iconNameC16));
             case ICON_COLOR_32x32:
-                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource("resources/splitbutton_32.png"));
+                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(iconNameC32));
             case ICON_MONO_16x16:
                 if (iconMono16 == null) {
                     iconMono16 = getIcon(iconNameM16);

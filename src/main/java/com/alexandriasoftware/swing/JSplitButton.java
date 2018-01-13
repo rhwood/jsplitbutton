@@ -184,7 +184,7 @@ public class JSplitButton extends JButton {
      */
     @Deprecated
     public boolean isAlwaysDropDown() {
-        return alwaysPopup;
+        return isAlwaysPopup();
     }
 
     /**
@@ -196,7 +196,7 @@ public class JSplitButton extends JButton {
      */
     @Deprecated
     public void setAlwaysDropDown(final boolean alwaysDropDown) {
-        this.alwaysPopup = alwaysDropDown;
+        setAlwaysPopup(alwaysDropDown);
     }
 
     /**

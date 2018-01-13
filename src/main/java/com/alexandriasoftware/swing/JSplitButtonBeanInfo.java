@@ -443,7 +443,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_GET_CLIENT_PROPERTY_45 = 45;
     private static final int METHOD_GET_COMPONENT_AT_46 = 46;
     private static final int METHOD_GET_COMPONENT_AT_47 = 47;
-    private static final int METHOD_GET_COMPONENT_ZOrder48 = 48;
+    private static final int METHOD_GET_COMPONENT_Z_ORDER_48 = 48;
     private static final int METHOD_GET_CONDITION_FOR_KEY_STROKE_49 = 49;
     private static final int METHOD_GET_DEFAULT_LOCALE_50 = 50;
     private static final int METHOD_GET_FOCUS_TRAVERSAL_KEYS_51 = 51;
@@ -527,7 +527,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_REVALIDATE_129 = 129;
     private static final int METHOD_SCROLL_RECT_TO_VISIBLE_130 = 130;
     private static final int METHOD_SET_BOUNDS_131 = 131;
-    private static final int METHOD_SET_COMPONENT_ZOrder132 = 132;
+    private static final int METHOD_SET_COMPONENT_Z_ORDER_132 = 132;
     private static final int METHOD_SET_DEFAULT_LOCALE_133 = 133;
     private static final int METHOD_SET_MNEMONIC_134 = 134;
     private static final int METHOD_SHOW_135 = 135;
@@ -645,8 +645,8 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_GET_COMPONENT_AT_46].setDisplayName ( "" );
             methods[METHOD_GET_COMPONENT_AT_47] = new MethodDescriptor(java.awt.Container.class.getMethod("getComponentAt", new Class[] {java.awt.Point.class})); // NOI18N
             methods[METHOD_GET_COMPONENT_AT_47].setDisplayName ( "" );
-            methods[METHOD_GET_COMPONENT_ZOrder48] = new MethodDescriptor(java.awt.Container.class.getMethod("getComponentZOrder", new Class[] {java.awt.Component.class})); // NOI18N
-            methods[METHOD_GET_COMPONENT_ZOrder48].setDisplayName ( "" );
+            methods[METHOD_GET_COMPONENT_Z_ORDER_48] = new MethodDescriptor(java.awt.Container.class.getMethod("getComponentZOrder", new Class[] {java.awt.Component.class})); // NOI18N
+            methods[METHOD_GET_COMPONENT_Z_ORDER_48].setDisplayName ( "" );
             methods[METHOD_GET_CONDITION_FOR_KEY_STROKE_49] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getConditionForKeyStroke", new Class[] {javax.swing.KeyStroke.class})); // NOI18N
             methods[METHOD_GET_CONDITION_FOR_KEY_STROKE_49].setDisplayName ( "" );
             methods[METHOD_GET_DEFAULT_LOCALE_50] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getDefaultLocale", new Class[] {})); // NOI18N
@@ -813,8 +813,8 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_SCROLL_RECT_TO_VISIBLE_130].setDisplayName ( "" );
             methods[METHOD_SET_BOUNDS_131] = new MethodDescriptor(java.awt.Component.class.getMethod("setBounds", new Class[] {int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_SET_BOUNDS_131].setDisplayName ( "" );
-            methods[METHOD_SET_COMPONENT_ZOrder132] = new MethodDescriptor(java.awt.Container.class.getMethod("setComponentZOrder", new Class[] {java.awt.Component.class, int.class})); // NOI18N
-            methods[METHOD_SET_COMPONENT_ZOrder132].setDisplayName ( "" );
+            methods[METHOD_SET_COMPONENT_Z_ORDER_132] = new MethodDescriptor(java.awt.Container.class.getMethod("setComponentZOrder", new Class[] {java.awt.Component.class, int.class})); // NOI18N
+            methods[METHOD_SET_COMPONENT_Z_ORDER_132].setDisplayName ( "" );
             methods[METHOD_SET_DEFAULT_LOCALE_133] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("setDefaultLocale", new Class[] {java.util.Locale.class})); // NOI18N
             methods[METHOD_SET_DEFAULT_LOCALE_133].setDisplayName ( "" );
             methods[METHOD_SET_MNEMONIC_134] = new MethodDescriptor(javax.swing.AbstractButton.class.getMethod("setMnemonic", new Class[] {int.class})); // NOI18N
@@ -859,8 +859,8 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static String iconNameM16 = null;
     private static String iconNameM32 = null;//GEN-END:Icons
 
-    private static final int defaultPropertyIndex = -1;//GEN-BEGIN:Idx
-    private static final int defaultEventIndex = -1;//GEN-END:Idx
+    private static final int DEFAULT_PROPERTY_INDEX = -1;//GEN-BEGIN:Idx
+    private static final int DEFAULT_EVENT_INDEX = -1;//GEN-END:Idx
 
 
 //GEN-FIRST:Superclass
@@ -927,7 +927,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      * Returns -1 if there is no default property.
      */
     public int getDefaultPropertyIndex() {
-        return defaultPropertyIndex;
+        return DEFAULT_PROPERTY_INDEX;
     }
 
     /**
@@ -940,7 +940,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      * Returns -1 if there is no default event.
      */
     public int getDefaultEventIndex() {
-        return defaultEventIndex;
+        return DEFAULT_EVENT_INDEX;
     }
 
     /**

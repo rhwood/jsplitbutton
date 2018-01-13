@@ -579,22 +579,28 @@ public class JSplitButton extends JButton {
         // <editor-fold defaultstate="collapsed" desc="Unused Listeners">
         @Override
         public void mouseDragged(final MouseEvent e) {
+            // required by MouseMotionListener API, but ignored as drag/drop
+            // not intrisicly supported within this widget
         }
 
         @Override
         public void mouseClicked(final MouseEvent e) {
+            // required by MouseListener API, but handled by actionPerformed()
         }
 
         @Override
         public void mousePressed(final MouseEvent e) {
+            // required by MouseListener API, but handled by actionPerformed()
         }
 
         @Override
         public void mouseReleased(final MouseEvent e) {
+            // required by MouseListener API, but handled by actionPerformed()
         }
 
         @Override
         public void mouseEntered(final MouseEvent e) {
+            // required by MouseListener API, but handled by mouseMoved()
         }
         // </editor-fold>
     }

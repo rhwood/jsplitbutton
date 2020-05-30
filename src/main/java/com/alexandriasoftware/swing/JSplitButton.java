@@ -177,29 +177,6 @@ public class JSplitButton extends JButton {
     }
 
     /**
-     * Show the dropdown menu, if attached, even if the button part is clicked.
-     *
-     * @return true if alwaysDropdown, false otherwise.
-     * @deprecated Since 1.3.0; use {@link #isAlwaysPopup() } instead.
-     */
-    @Deprecated
-    public boolean isAlwaysDropDown() {
-        return isAlwaysPopup();
-    }
-
-    /**
-     * Show the dropdown menu, if attached, even if the button part is clicked.
-     *
-     * @param alwaysDropDown true to show the attached dropdown even if the
-     *                       button part is clicked, false otherwise
-     * @deprecated Since 1.3.0; use {@link #setAlwaysPopup(boolean) } instead.
-     */
-    @Deprecated
-    public void setAlwaysDropDown(final boolean alwaysDropDown) {
-        setAlwaysPopup(alwaysDropDown);
-    }
-
-    /**
      * Gets the color of the arrow.
      *
      * @return the color of the arrow
@@ -393,41 +370,6 @@ public class JSplitButton extends JButton {
         g.rotate(Math.toRadians(angle), w / 2.0, h / 2.0);
         g.drawImage(img, null, 0, 0);
         return dimg;
-    }
-
-    /**
-     * Adds an <code>SplitButtonActionListener</code> to the button.
-     *
-     * @param l the <code>ActionListener</code> to be added
-     * @deprecated Since 1.3.0; use
-     * {@link #addButtonClickedActionListener(ButtonClickedActionListener)} or
-     * {@link #addSplitButtonClickedActionListener(SplitButtonClickedActionListener)}
-     * instead.
-     */
-    @Deprecated
-    public void addSplitButtonActionListener(final SplitButtonActionListener l) {
-        listenerList.add(SplitButtonActionListener.class, l);
-    }
-
-    /**
-     * Removes an <code>SplitButtonActionListener</code> from the button. If the
-     * listener is the currently set <code>Action</code> for the button, then
-     * the <code>Action</code> is set to <code>null</code>.
-     *
-     * @param l the listener to be removed
-     * @deprecated Since 1.3.0; use
-     * {@link #removeButtonClickedActionListener(ButtonClickedActionListener)}
-     * or
-     * {@link #removeSplitButtonClickedActionListener(SplitButtonClickedActionListener)}
-     * instead.
-     */
-    @Deprecated
-    public void removeSplitButtonActionListener(final SplitButtonActionListener l) {
-        if ((l != null) && (l.equals(getAction()))) {
-            setAction(null);
-        } else {
-            listenerList.remove(SplitButtonActionListener.class, l);
-        }
     }
 
     /**

@@ -16,7 +16,6 @@
 package com.alexandriasoftware.swing;
 
 import com.alexandriasoftware.swing.action.ButtonClickedActionListener;
-import com.alexandriasoftware.swing.action.SplitButtonActionListener;
 import com.alexandriasoftware.swing.action.SplitButtonClickedActionListener;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -26,7 +25,6 @@ import java.awt.event.MouseEvent;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -304,43 +302,6 @@ public class JSplitButtonTest {
      * Test of addSplitButtonActionListener method, of class JSplitButton.
      */
     @Test
-    public void testAddSplitButtonActionListener() {
-        SplitButtonActionListener l = new AbstractSplitButtonActionListener();
-        JSplitButton instance = new JSplitButton();
-        instance.addSplitButtonActionListener(l);
-        Assert.assertFalse(getOnSplit(instance));
-        fireButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
-        Assert.assertEquals(1, this.buttonClickFired);
-        Assert.assertEquals(0, this.splitButtonClickFired);
-        setOnSplit(instance, true);
-        fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonActionListener"));
-        Assert.assertEquals(1, this.buttonClickFired);
-        Assert.assertEquals(1, this.splitButtonClickFired);
-    }
-
-    /**
-     * Test of removeSplitButtonActionListener method, of class JSplitButton.
-     */
-    @Test
-    public void testRemoveSplitButtonActionListener() {
-        AbstractSplitButtonActionListener l = new AbstractSplitButtonActionListener();
-        JSplitButton instance = new JSplitButton();
-        instance.addSplitButtonActionListener(l);
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
-        Assert.assertEquals(1, this.buttonClickFired);
-        instance.removeSplitButtonActionListener(l);
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
-        Assert.assertEquals(1, this.buttonClickFired);
-        instance.setAction(l);
-        Assert.assertEquals(l, instance.getAction());
-        instance.removeSplitButtonActionListener(l);
-        Assert.assertNull(instance.getAction());
-    }
-
-    /**
-     * Test of addSplitButtonActionListener method, of class JSplitButton.
-     */
-    @Test
     public void testAddButtonClickedActionListener() {
         ButtonClickedActionListener l = new AbstractButtonClickedActionListener();
         JSplitButton instance = new JSplitButton();
@@ -540,26 +501,6 @@ public class JSplitButtonTest {
         Assert.assertEquals(onSplit, getOnSplit(instance));
     }
 
-    @Test
-    public void testIsAlwaysDropDown() {
-        JSplitButton instance = new JSplitButton();
-        Assert.assertEquals(false, instance.isAlwaysDropDown());
-        Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
-    }
-
-    @Test
-    public void testSetAlwaysDropDown() {
-        JSplitButton instance = new JSplitButton();
-        Assert.assertEquals(false, instance.isAlwaysPopup());
-        Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
-        instance.setAlwaysDropDown(true);
-        Assert.assertEquals(true, instance.isAlwaysPopup());
-        Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
-        instance.setAlwaysDropDown(false);
-        Assert.assertEquals(false, instance.isAlwaysPopup());
-        Assert.assertEquals(instance.isAlwaysPopup(), instance.isAlwaysDropDown());
-    }
-
     private void fireSplitButtonClicked(JSplitButton instance, ActionEvent event) {
         this.fireEvent(instance, event, "fireSplitButtonClicked");
     }
@@ -574,19 +515,7 @@ public class JSplitButtonTest {
             method.setAccessible(true);
             method.invoke(instance, event);
         }
-        catch (NoSuchMethodException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (SecurityException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (IllegalAccessException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (IllegalArgumentException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (InvocationTargetException ex) {
+        catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             Assert.fail(ex.getMessage());
         }
     }
@@ -597,16 +526,7 @@ public class JSplitButtonTest {
             field.setAccessible(true);
             return (Boolean) field.get(instance);
         }
-        catch (NoSuchFieldException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (SecurityException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (IllegalAccessException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (IllegalArgumentException ex) {
+        catch (NoSuchFieldException | SecurityException | IllegalAccessException | IllegalArgumentException ex) {
             Assert.fail(ex.getMessage());
         }
         Assert.fail("Unable to get onSplit value");
@@ -619,16 +539,7 @@ public class JSplitButtonTest {
             field.setAccessible(true);
             field.set(instance, onSplit);
         }
-        catch (NoSuchFieldException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (SecurityException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (IllegalAccessException ex) {
-            Assert.fail(ex.getMessage());
-        }
-        catch (IllegalArgumentException ex) {
+        catch (NoSuchFieldException | SecurityException | IllegalAccessException | IllegalArgumentException ex) {
             Assert.fail(ex.getMessage());
         }
     }
@@ -648,22 +559,5 @@ public class JSplitButtonTest {
             buttonClickFired += 1;
         }
     }
-
-    private class AbstractSplitButtonActionListener extends AbstractAction implements SplitButtonActionListener {
-
-        @Override
-        public void buttonClicked(ActionEvent e) {
-            buttonClickFired += 1;
-        }
-
-        @Override
-        public void splitButtonClicked(ActionEvent e) {
-            splitButtonClickFired += 1;
-        }
-
-        public void actionPerformed(ActionEvent e) {
-            buttonClickFired += 1;
-        }
-    };
 
 }

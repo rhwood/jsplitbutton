@@ -9,3 +9,11 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 /nbproject/
+
+# VS Code / Eclipse settings
+.project
+.classpath
+.vscode
+
+# macOS detritus
+.DS_Store

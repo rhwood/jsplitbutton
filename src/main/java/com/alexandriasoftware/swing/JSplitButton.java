@@ -16,7 +16,6 @@
 package com.alexandriasoftware.swing;
 
 import com.alexandriasoftware.swing.action.ButtonClickedActionListener;
-import com.alexandriasoftware.swing.action.SplitButtonActionListener;
 import com.alexandriasoftware.swing.action.SplitButtonClickedActionListener;
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -42,16 +41,9 @@ import javax.swing.UIManager;
  * the right side of the split button appears disabled, and clicking anywhere in
  * the button triggers the normal button action.
  *
- * This class raises two events:
- * <ol>
- * <li>{@link SplitButtonActionListener#buttonClicked(java.awt.event.ActionEvent)}
- * when the button is clicked</li>
- * <li>{@link SplitButtonActionListener#splitButtonClicked(java.awt.event.ActionEvent)}
- * when the split part of the button is clicked</li>
- * </ol>
- * You need to implement {@link SplitButtonActionListener} to handle both events
- * or {@link ButtonClickedActionListener} or
- * {@link SplitButtonClickedActionListener} to handle individual events.
+ * Implement {@link ButtonClickedActionListener} to handle the event raised when
+ * the main button is clicked and {@link SplitButtonClickedActionListener} to
+ * handle the event raised when the popup menu is triggered.
  *
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016
@@ -420,7 +412,7 @@ public class JSplitButton extends JButton {
      */
     private void fireButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-        this.fireActionEvent(event, false, listenerList.getListeners(ButtonClickedActionListener.class));
+        this.fireActionEvent(event, listenerList.getListeners(ButtonClickedActionListener.class));
     }
 
     /**
@@ -433,7 +425,7 @@ public class JSplitButton extends JButton {
      */
     private void fireSplitButtonClicked(final ActionEvent event) {
         // Guaranteed to return a non-null array
-        this.fireActionEvent(event, true, listenerList.getListeners(SplitButtonClickedActionListener.class));
+        this.fireActionEvent(event, listenerList.getListeners(SplitButtonClickedActionListener.class));
     }
 
     /**
@@ -447,9 +439,8 @@ public class JSplitButton extends JButton {
      *                             {@link SplitButtonClickedActionListener}s
      * @see EventListenerList
      */
-    private void fireActionEvent(final ActionEvent event, boolean split, ActionListener[] singleEventListeners) {
-        SplitButtonActionListener[] jointEventListeners = listenerList.getListeners(SplitButtonActionListener.class);
-        if (jointEventListeners.length != 0 || singleEventListeners.length != 0) {
+    private void fireActionEvent(final ActionEvent event, ActionListener[] singleEventListeners) {
+        if (singleEventListeners.length != 0) {
             String actionCommand = event.getActionCommand();
             if (actionCommand == null) {
                 actionCommand = getActionCommand();
@@ -460,15 +451,6 @@ public class JSplitButton extends JButton {
                     event.getWhen(),
                     event.getModifiers());
             // Process the listeners last to first
-            if (jointEventListeners.length != 0) {
-                for (int i = jointEventListeners.length - 1; i >= 0; i--) {
-                    if (split) {
-                        jointEventListeners[i].splitButtonClicked(e);
-                    } else {
-                        jointEventListeners[i].buttonClicked(e);
-                    }
-                }
-            }
             if (singleEventListeners.length != 0) {
                 for (int i = singleEventListeners.length - 1; i >= 0; i--) {
                     singleEventListeners[i].actionPerformed(e);

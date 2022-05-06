@@ -41,16 +41,9 @@ import javax.swing.UIManager;
  * the right side of the split button appears disabled, and clicking anywhere in
  * the button triggers the normal button action.
  *
- * This class raises two events:
- * <ol>
- * <li>{@link SplitButtonActionListener#buttonClicked(java.awt.event.ActionEvent)}
- * when the button is clicked</li>
- * <li>{@link SplitButtonActionListener#splitButtonClicked(java.awt.event.ActionEvent)}
- * when the split part of the button is clicked</li>
- * </ol>
- * You need to implement {@link SplitButtonActionListener} to handle both events
- * or {@link ButtonClickedActionListener} or
- * {@link SplitButtonClickedActionListener} to handle individual events.
+ * Implement {@link ButtonClickedActionListener} to handle the event raised when
+ * the main button is clicked and {@link SplitButtonClickedActionListener} to
+ * handle the event raised when the popup menu is triggered.
  *
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016

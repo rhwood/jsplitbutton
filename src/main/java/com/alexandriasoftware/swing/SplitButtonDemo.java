@@ -15,7 +15,6 @@
  */
 package com.alexandriasoftware.swing;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -33,6 +32,12 @@ public class SplitButtonDemo {
 
     static int count = 0;
 
+    /**
+     * Run a small demonstration program.
+     * 
+     * @param args command line arguments; ignored
+     * @throws IOException if unable to load popup button icon
+     */
     public static void main(String[] args) throws IOException {
         JFrame frame = new JFrame();
         frame.setLayout(new FlowLayout());
@@ -45,7 +50,6 @@ public class SplitButtonDemo {
         menu.add("Item 3");
         JPanel panel = new JPanel();
         panel.add(button);
-//        panel.setBackground(Color.red);
         frame.add(panel);
         JLabel label = new JLabel("Clicked " + count + " times");
         frame.add(label);
@@ -55,7 +59,6 @@ public class SplitButtonDemo {
             count++;
             label.setText("Clicked " + count + " times");
         });
-        
     }
 
 }

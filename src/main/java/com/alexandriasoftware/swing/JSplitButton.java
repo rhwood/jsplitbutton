@@ -54,19 +54,46 @@ public class JSplitButton extends JButton {
      * Key used for serialization.
      */
     private static final long serialVersionUID = 1L;
-
+    /**
+     * Vertical spacing around visual separator.
+     */
     private int separatorSpacing = 4;
+    /**
+     * Width of split button containing menu arrow.
+     */
     private int splitWidth = 22;
+    /**
+     * Size of menu arrow.
+     */
     private int arrowSize = 8;
+    /**
+     * True if mouse is hovering over split; false otherwise.
+     */
     private boolean onSplit = false;
+    /**
+     * Component in split button.
+     */
     private Rectangle splitRectangle = new Rectangle();
+    /**
+     * Menu with split button.
+     */
     private JPopupMenu popupMenu;
+    /**
+     * True if menu should always be displayed when button clicked; false if
+     * menu should only be displayed when split clicked.
+     */
     private boolean alwaysPopup;
+    /**
+     * Color of menu arrow.
+     */
     private Color arrowColor = Color.BLACK;
+    /**
+     * Color or menu arrow when disabled.
+     */
     private Color disabledArrowColor = Color.GRAY;
     private transient Image image;
     private transient Image disabledImage;
-    private transient final Listener listener;
+    private final transient Listener listener;
 
     /**
      * Creates a button with initial text and an icon.

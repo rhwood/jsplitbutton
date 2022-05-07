@@ -15,13 +15,52 @@
  */
 package com.alexandriasoftware.swing;
 
+import com.alexandriasoftware.swing.action.ButtonClickedActionListener;
+import com.alexandriasoftware.swing.action.SplitButtonClickedActionListener;
+import java.awt.AWTEvent;
+import java.awt.Component;
+import java.awt.ComponentOrientation;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Event;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.ImageCapabilities;
+import java.awt.Insets;
+import java.awt.MenuComponent;
+import java.awt.Point;
+import java.awt.PopupMenu;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.beans.*;
-import static java.beans.BeanInfo.ICON_COLOR_16x16;
-import static java.beans.BeanInfo.ICON_COLOR_32x32;
-import static java.beans.BeanInfo.ICON_MONO_16x16;
-import static java.beans.BeanInfo.ICON_MONO_32x32;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentListener;
+import java.awt.event.ContainerListener;
+import java.awt.event.FocusListener;
+import java.awt.event.HierarchyBoundsListener;
+import java.awt.event.HierarchyListener;
+import java.awt.event.InputMethodListener;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelListener;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
+import java.beans.BeanDescriptor;
+import java.beans.EventSetDescriptor;
+import java.beans.IndexedPropertyDescriptor;
+import java.beans.IntrospectionException;
+import java.beans.MethodDescriptor;
+import java.beans.PropertyDescriptor;
+import java.beans.SimpleBeanInfo;
+import javax.swing.AbstractButton;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.ChangeListener;
 
 /**
  * @author Naveed Quadri 2012
@@ -189,149 +228,149 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         PropertyDescriptor[] properties = new PropertyDescriptor[143];
 
         try {
-            properties[PROPERTY_ACCESSIBLE_CONTEXT] = new PropertyDescriptor("accessibleContext", com.alexandriasoftware.swing.JSplitButton.class, "getAccessibleContext", null); // NOI18N
-            properties[PROPERTY_ACTION] = new PropertyDescriptor("action", com.alexandriasoftware.swing.JSplitButton.class, "getAction", "setAction"); // NOI18N
-            properties[PROPERTY_ACTION_COMMAND] = new PropertyDescriptor("actionCommand", com.alexandriasoftware.swing.JSplitButton.class, "getActionCommand", "setActionCommand"); // NOI18N
-            properties[PROPERTY_ACTION_LISTENERS] = new PropertyDescriptor("actionListeners", com.alexandriasoftware.swing.JSplitButton.class, "getActionListeners", null); // NOI18N
-            properties[PROPERTY_ACTION_MAP] = new PropertyDescriptor("actionMap", com.alexandriasoftware.swing.JSplitButton.class, "getActionMap", "setActionMap"); // NOI18N
-            properties[PROPERTY_ALIGNMENT_X] = new PropertyDescriptor("alignmentX", com.alexandriasoftware.swing.JSplitButton.class, "getAlignmentX", "setAlignmentX"); // NOI18N
-            properties[PROPERTY_ALIGNMENT_Y] = new PropertyDescriptor("alignmentY", com.alexandriasoftware.swing.JSplitButton.class, "getAlignmentY", "setAlignmentY"); // NOI18N
-            properties[PROPERTY_ALWAYS_POPUP] = new PropertyDescriptor("alwaysPopup", com.alexandriasoftware.swing.JSplitButton.class, "isAlwaysPopup", "setAlwaysPopup"); // NOI18N
-            properties[PROPERTY_ANCESTOR_LISTENERS] = new PropertyDescriptor("ancestorListeners", com.alexandriasoftware.swing.JSplitButton.class, "getAncestorListeners", null); // NOI18N
-            properties[PROPERTY_ARROW_COLOR] = new PropertyDescriptor("arrowColor", com.alexandriasoftware.swing.JSplitButton.class, "getArrowColor", "setArrowColor"); // NOI18N
-            properties[PROPERTY_ARROW_SIZE] = new PropertyDescriptor("arrowSize", com.alexandriasoftware.swing.JSplitButton.class, "getArrowSize", "setArrowSize"); // NOI18N
-            properties[PROPERTY_AUTOSCROLLS] = new PropertyDescriptor("autoscrolls", com.alexandriasoftware.swing.JSplitButton.class, "getAutoscrolls", "setAutoscrolls"); // NOI18N
-            properties[PROPERTY_BACKGROUND] = new PropertyDescriptor("background", com.alexandriasoftware.swing.JSplitButton.class, "getBackground", "setBackground"); // NOI18N
-            properties[PROPERTY_BACKGROUND_SET] = new PropertyDescriptor("backgroundSet", com.alexandriasoftware.swing.JSplitButton.class, "isBackgroundSet", null); // NOI18N
-            properties[PROPERTY_BASELINE_RESIZE_BEHAVIOR] = new PropertyDescriptor("baselineResizeBehavior", com.alexandriasoftware.swing.JSplitButton.class, "getBaselineResizeBehavior", null); // NOI18N
-            properties[PROPERTY_BORDER] = new PropertyDescriptor("border", com.alexandriasoftware.swing.JSplitButton.class, "getBorder", "setBorder"); // NOI18N
-            properties[PROPERTY_BORDER_PAINTED] = new PropertyDescriptor("borderPainted", com.alexandriasoftware.swing.JSplitButton.class, "isBorderPainted", "setBorderPainted"); // NOI18N
-            properties[PROPERTY_BOUNDS] = new PropertyDescriptor("bounds", com.alexandriasoftware.swing.JSplitButton.class, "getBounds", "setBounds"); // NOI18N
-            properties[PROPERTY_CHANGE_LISTENERS] = new PropertyDescriptor("changeListeners", com.alexandriasoftware.swing.JSplitButton.class, "getChangeListeners", null); // NOI18N
-            properties[PROPERTY_COLOR_MODEL] = new PropertyDescriptor("colorModel", com.alexandriasoftware.swing.JSplitButton.class, "getColorModel", null); // NOI18N
-            properties[PROPERTY_COMPONENT] = new IndexedPropertyDescriptor("component", com.alexandriasoftware.swing.JSplitButton.class, null, null, "getComponent", null); // NOI18N
-            properties[PROPERTY_COMPONENT_COUNT] = new PropertyDescriptor("componentCount", com.alexandriasoftware.swing.JSplitButton.class, "getComponentCount", null); // NOI18N
-            properties[PROPERTY_COMPONENT_LISTENERS] = new PropertyDescriptor("componentListeners", com.alexandriasoftware.swing.JSplitButton.class, "getComponentListeners", null); // NOI18N
-            properties[PROPERTY_COMPONENT_ORIENTATION] = new PropertyDescriptor("componentOrientation", com.alexandriasoftware.swing.JSplitButton.class, "getComponentOrientation", "setComponentOrientation"); // NOI18N
-            properties[PROPERTY_COMPONENT_POPUP_MENU] = new PropertyDescriptor("componentPopupMenu", com.alexandriasoftware.swing.JSplitButton.class, "getComponentPopupMenu", "setComponentPopupMenu"); // NOI18N
-            properties[PROPERTY_COMPONENTS] = new PropertyDescriptor("components", com.alexandriasoftware.swing.JSplitButton.class, "getComponents", null); // NOI18N
-            properties[PROPERTY_CONTAINER_LISTENERS] = new PropertyDescriptor("containerListeners", com.alexandriasoftware.swing.JSplitButton.class, "getContainerListeners", null); // NOI18N
-            properties[PROPERTY_CONTENT_AREA_FILLED] = new PropertyDescriptor("contentAreaFilled", com.alexandriasoftware.swing.JSplitButton.class, "isContentAreaFilled", "setContentAreaFilled"); // NOI18N
-            properties[PROPERTY_CURSOR] = new PropertyDescriptor("cursor", com.alexandriasoftware.swing.JSplitButton.class, "getCursor", "setCursor"); // NOI18N
-            properties[PROPERTY_CURSOR_SET] = new PropertyDescriptor("cursorSet", com.alexandriasoftware.swing.JSplitButton.class, "isCursorSet", null); // NOI18N
-            properties[PROPERTY_DEBUG_GRAPHICS_OPTIONS] = new PropertyDescriptor("debugGraphicsOptions", com.alexandriasoftware.swing.JSplitButton.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions"); // NOI18N
-            properties[PROPERTY_DEFAULT_BUTTON] = new PropertyDescriptor("defaultButton", com.alexandriasoftware.swing.JSplitButton.class, "isDefaultButton", null); // NOI18N
-            properties[PROPERTY_DEFAULT_CAPABLE] = new PropertyDescriptor("defaultCapable", com.alexandriasoftware.swing.JSplitButton.class, "isDefaultCapable", "setDefaultCapable"); // NOI18N
-            properties[PROPERTY_DISABLED_ARROW_COLOR] = new PropertyDescriptor("disabledArrowColor", com.alexandriasoftware.swing.JSplitButton.class, "getDisabledArrowColor", "setDisabledArrowColor"); // NOI18N
-            properties[PROPERTY_DISABLED_ICON] = new PropertyDescriptor("disabledIcon", com.alexandriasoftware.swing.JSplitButton.class, "getDisabledIcon", "setDisabledIcon"); // NOI18N
-            properties[PROPERTY_DISABLED_IMAGE] = new PropertyDescriptor("disabledImage", com.alexandriasoftware.swing.JSplitButton.class, "getDisabledImage", "setDisabledImage"); // NOI18N
-            properties[PROPERTY_DISABLED_SELECTED_ICON] = new PropertyDescriptor("disabledSelectedIcon", com.alexandriasoftware.swing.JSplitButton.class, "getDisabledSelectedIcon", "setDisabledSelectedIcon"); // NOI18N
-            properties[PROPERTY_DISPLAYABLE] = new PropertyDescriptor("displayable", com.alexandriasoftware.swing.JSplitButton.class, "isDisplayable", null); // NOI18N
-            properties[PROPERTY_DISPLAYED_MNEMONIC_INDEX] = new PropertyDescriptor("displayedMnemonicIndex", com.alexandriasoftware.swing.JSplitButton.class, "getDisplayedMnemonicIndex", "setDisplayedMnemonicIndex"); // NOI18N
-            properties[PROPERTY_DOUBLE_BUFFERED] = new PropertyDescriptor("doubleBuffered", com.alexandriasoftware.swing.JSplitButton.class, "isDoubleBuffered", "setDoubleBuffered"); // NOI18N
-            properties[PROPERTY_DROP_TARGET] = new PropertyDescriptor("dropTarget", com.alexandriasoftware.swing.JSplitButton.class, "getDropTarget", "setDropTarget"); // NOI18N
-            properties[PROPERTY_ENABLED] = new PropertyDescriptor("enabled", com.alexandriasoftware.swing.JSplitButton.class, "isEnabled", "setEnabled"); // NOI18N
-            properties[PROPERTY_FOCUSABLE] = new PropertyDescriptor("focusable", com.alexandriasoftware.swing.JSplitButton.class, "isFocusable", "setFocusable"); // NOI18N
-            properties[PROPERTY_FOCUS_CYCLE_ROOT] = new PropertyDescriptor("focusCycleRoot", com.alexandriasoftware.swing.JSplitButton.class, "isFocusCycleRoot", "setFocusCycleRoot"); // NOI18N
-            properties[PROPERTY_FOCUS_CYCLE_ROOT_ANCESTOR] = new PropertyDescriptor("focusCycleRootAncestor", com.alexandriasoftware.swing.JSplitButton.class, "getFocusCycleRootAncestor", null); // NOI18N
-            properties[PROPERTY_FOCUS_LISTENERS] = new PropertyDescriptor("focusListeners", com.alexandriasoftware.swing.JSplitButton.class, "getFocusListeners", null); // NOI18N
-            properties[PROPERTY_FOCUS_OWNER] = new PropertyDescriptor("focusOwner", com.alexandriasoftware.swing.JSplitButton.class, "isFocusOwner", null); // NOI18N
-            properties[PROPERTY_FOCUS_PAINTED] = new PropertyDescriptor("focusPainted", com.alexandriasoftware.swing.JSplitButton.class, "isFocusPainted", "setFocusPainted"); // NOI18N
-            properties[PROPERTY_FOCUS_TRAVERSABLE] = new PropertyDescriptor("focusTraversable", com.alexandriasoftware.swing.JSplitButton.class, "isFocusTraversable", null); // NOI18N
-            properties[PROPERTY_FOCUS_TRAVERSAL_KEYS] = new IndexedPropertyDescriptor("focusTraversalKeys", com.alexandriasoftware.swing.JSplitButton.class, null, null, null, "setFocusTraversalKeys"); // NOI18N
-            properties[PROPERTY_FOCUS_TRAVERSAL_KEYS_ENABLED] = new PropertyDescriptor("focusTraversalKeysEnabled", com.alexandriasoftware.swing.JSplitButton.class, "getFocusTraversalKeysEnabled", "setFocusTraversalKeysEnabled"); // NOI18N
-            properties[PROPERTY_FOCUS_TRAVERSAL_POLICY] = new PropertyDescriptor("focusTraversalPolicy", com.alexandriasoftware.swing.JSplitButton.class, "getFocusTraversalPolicy", "setFocusTraversalPolicy"); // NOI18N
-            properties[PROPERTY_FOCUS_TRAVERSAL_POLICY_PROVIDER] = new PropertyDescriptor("focusTraversalPolicyProvider", com.alexandriasoftware.swing.JSplitButton.class, "isFocusTraversalPolicyProvider", "setFocusTraversalPolicyProvider"); // NOI18N
-            properties[PROPERTY_FOCUS_TRAVERSAL_POLICY_SET] = new PropertyDescriptor("focusTraversalPolicySet", com.alexandriasoftware.swing.JSplitButton.class, "isFocusTraversalPolicySet", null); // NOI18N
-            properties[PROPERTY_FONT] = new PropertyDescriptor("font", com.alexandriasoftware.swing.JSplitButton.class, "getFont", "setFont"); // NOI18N
-            properties[PROPERTY_FONT_SET] = new PropertyDescriptor("fontSet", com.alexandriasoftware.swing.JSplitButton.class, "isFontSet", null); // NOI18N
-            properties[PROPERTY_FOREGROUND] = new PropertyDescriptor("foreground", com.alexandriasoftware.swing.JSplitButton.class, "getForeground", "setForeground"); // NOI18N
-            properties[PROPERTY_FOREGROUND_SET] = new PropertyDescriptor("foregroundSet", com.alexandriasoftware.swing.JSplitButton.class, "isForegroundSet", null); // NOI18N
-            properties[PROPERTY_GRAPHICS] = new PropertyDescriptor("graphics", com.alexandriasoftware.swing.JSplitButton.class, "getGraphics", null); // NOI18N
-            properties[PROPERTY_GRAPHICS_CONFIGURATION] = new PropertyDescriptor("graphicsConfiguration", com.alexandriasoftware.swing.JSplitButton.class, "getGraphicsConfiguration", null); // NOI18N
-            properties[PROPERTY_HEIGHT] = new PropertyDescriptor("height", com.alexandriasoftware.swing.JSplitButton.class, "getHeight", null); // NOI18N
-            properties[PROPERTY_HIDE_ACTION_TEXT] = new PropertyDescriptor("hideActionText", com.alexandriasoftware.swing.JSplitButton.class, "getHideActionText", "setHideActionText"); // NOI18N
-            properties[PROPERTY_HIERARCHY_BOUNDS_LISTENERS] = new PropertyDescriptor("hierarchyBoundsListeners", com.alexandriasoftware.swing.JSplitButton.class, "getHierarchyBoundsListeners", null); // NOI18N
-            properties[PROPERTY_HIERARCHY_LISTENERS] = new PropertyDescriptor("hierarchyListeners", com.alexandriasoftware.swing.JSplitButton.class, "getHierarchyListeners", null); // NOI18N
-            properties[PROPERTY_HORIZONTAL_ALIGNMENT] = new PropertyDescriptor("horizontalAlignment", com.alexandriasoftware.swing.JSplitButton.class, "getHorizontalAlignment", "setHorizontalAlignment"); // NOI18N
-            properties[PROPERTY_HORIZONTAL_TEXT_POSITION] = new PropertyDescriptor("horizontalTextPosition", com.alexandriasoftware.swing.JSplitButton.class, "getHorizontalTextPosition", "setHorizontalTextPosition"); // NOI18N
-            properties[PROPERTY_ICON] = new PropertyDescriptor("icon", com.alexandriasoftware.swing.JSplitButton.class, "getIcon", "setIcon"); // NOI18N
-            properties[PROPERTY_ICON_TEXT_GAP] = new PropertyDescriptor("iconTextGap", com.alexandriasoftware.swing.JSplitButton.class, "getIconTextGap", "setIconTextGap"); // NOI18N
-            properties[PROPERTY_IGNORE_REPAINT] = new PropertyDescriptor("ignoreRepaint", com.alexandriasoftware.swing.JSplitButton.class, "getIgnoreRepaint", "setIgnoreRepaint"); // NOI18N
-            properties[PROPERTY_IMAGE] = new PropertyDescriptor("image", com.alexandriasoftware.swing.JSplitButton.class, "getImage", "setImage"); // NOI18N
-            properties[PROPERTY_INHERITS_POPUP_MENU] = new PropertyDescriptor("inheritsPopupMenu", com.alexandriasoftware.swing.JSplitButton.class, "getInheritsPopupMenu", "setInheritsPopupMenu"); // NOI18N
-            properties[PROPERTY_INPUT_CONTEXT] = new PropertyDescriptor("inputContext", com.alexandriasoftware.swing.JSplitButton.class, "getInputContext", null); // NOI18N
-            properties[PROPERTY_INPUT_MAP] = new PropertyDescriptor("inputMap", com.alexandriasoftware.swing.JSplitButton.class, "getInputMap", null); // NOI18N
-            properties[PROPERTY_INPUT_METHOD_LISTENERS] = new PropertyDescriptor("inputMethodListeners", com.alexandriasoftware.swing.JSplitButton.class, "getInputMethodListeners", null); // NOI18N
-            properties[PROPERTY_INPUT_METHOD_REQUESTS] = new PropertyDescriptor("inputMethodRequests", com.alexandriasoftware.swing.JSplitButton.class, "getInputMethodRequests", null); // NOI18N
-            properties[PROPERTY_INPUT_VERIFIER] = new PropertyDescriptor("inputVerifier", com.alexandriasoftware.swing.JSplitButton.class, "getInputVerifier", "setInputVerifier"); // NOI18N
-            properties[PROPERTY_INSETS] = new PropertyDescriptor("insets", com.alexandriasoftware.swing.JSplitButton.class, "getInsets", null); // NOI18N
-            properties[PROPERTY_ITEM_LISTENERS] = new PropertyDescriptor("itemListeners", com.alexandriasoftware.swing.JSplitButton.class, "getItemListeners", null); // NOI18N
-            properties[PROPERTY_KEY_LISTENERS] = new PropertyDescriptor("keyListeners", com.alexandriasoftware.swing.JSplitButton.class, "getKeyListeners", null); // NOI18N
-            properties[PROPERTY_LABEL] = new PropertyDescriptor("label", com.alexandriasoftware.swing.JSplitButton.class, "getLabel", "setLabel"); // NOI18N
-            properties[PROPERTY_LAYOUT] = new PropertyDescriptor("layout", com.alexandriasoftware.swing.JSplitButton.class, "getLayout", "setLayout"); // NOI18N
-            properties[PROPERTY_LIGHTWEIGHT] = new PropertyDescriptor("lightweight", com.alexandriasoftware.swing.JSplitButton.class, "isLightweight", null); // NOI18N
-            properties[PROPERTY_LOCALE] = new PropertyDescriptor("locale", com.alexandriasoftware.swing.JSplitButton.class, "getLocale", "setLocale"); // NOI18N
-            properties[PROPERTY_LOCATION] = new PropertyDescriptor("location", com.alexandriasoftware.swing.JSplitButton.class, "getLocation", "setLocation"); // NOI18N
-            properties[PROPERTY_LOCATION_ON_SCREEN] = new PropertyDescriptor("locationOnScreen", com.alexandriasoftware.swing.JSplitButton.class, "getLocationOnScreen", null); // NOI18N
-            properties[PROPERTY_MANAGING_FOCUS] = new PropertyDescriptor("managingFocus", com.alexandriasoftware.swing.JSplitButton.class, "isManagingFocus", null); // NOI18N
-            properties[PROPERTY_MARGIN] = new PropertyDescriptor("margin", com.alexandriasoftware.swing.JSplitButton.class, "getMargin", "setMargin"); // NOI18N
-            properties[PROPERTY_MAXIMUM_SIZE] = new PropertyDescriptor("maximumSize", com.alexandriasoftware.swing.JSplitButton.class, "getMaximumSize", "setMaximumSize"); // NOI18N
-            properties[PROPERTY_MAXIMUM_SIZE_SET] = new PropertyDescriptor("maximumSizeSet", com.alexandriasoftware.swing.JSplitButton.class, "isMaximumSizeSet", null); // NOI18N
-            properties[PROPERTY_MINIMUM_SIZE] = new PropertyDescriptor("minimumSize", com.alexandriasoftware.swing.JSplitButton.class, "getMinimumSize", "setMinimumSize"); // NOI18N
-            properties[PROPERTY_MINIMUM_SIZE_SET] = new PropertyDescriptor("minimumSizeSet", com.alexandriasoftware.swing.JSplitButton.class, "isMinimumSizeSet", null); // NOI18N
-            properties[PROPERTY_MNEMONIC] = new PropertyDescriptor("mnemonic", com.alexandriasoftware.swing.JSplitButton.class, null, "setMnemonic"); // NOI18N
-            properties[PROPERTY_MODEL] = new PropertyDescriptor("model", com.alexandriasoftware.swing.JSplitButton.class, "getModel", "setModel"); // NOI18N
-            properties[PROPERTY_MOUSE_LISTENERS] = new PropertyDescriptor("mouseListeners", com.alexandriasoftware.swing.JSplitButton.class, "getMouseListeners", null); // NOI18N
-            properties[PROPERTY_MOUSE_MOTION_LISTENERS] = new PropertyDescriptor("mouseMotionListeners", com.alexandriasoftware.swing.JSplitButton.class, "getMouseMotionListeners", null); // NOI18N
-            properties[PROPERTY_MOUSE_POSITION] = new PropertyDescriptor("mousePosition", com.alexandriasoftware.swing.JSplitButton.class, "getMousePosition", null); // NOI18N
-            properties[PROPERTY_MOUSE_WHEEL_LISTENERS] = new PropertyDescriptor("mouseWheelListeners", com.alexandriasoftware.swing.JSplitButton.class, "getMouseWheelListeners", null); // NOI18N
-            properties[PROPERTY_MULTI_CLICK_THRESHHOLD] = new PropertyDescriptor("multiClickThreshhold", com.alexandriasoftware.swing.JSplitButton.class, "getMultiClickThreshhold", "setMultiClickThreshhold"); // NOI18N
-            properties[PROPERTY_NAME] = new PropertyDescriptor("name", com.alexandriasoftware.swing.JSplitButton.class, "getName", "setName"); // NOI18N
-            properties[PROPERTY_NEXT_FOCUSABLE_COMPONENT] = new PropertyDescriptor("nextFocusableComponent", com.alexandriasoftware.swing.JSplitButton.class, "getNextFocusableComponent", "setNextFocusableComponent"); // NOI18N
-            properties[PROPERTY_OPAQUE] = new PropertyDescriptor("opaque", com.alexandriasoftware.swing.JSplitButton.class, "isOpaque", "setOpaque"); // NOI18N
-            properties[PROPERTY_OPTIMIZED_DRAWING_ENABLED] = new PropertyDescriptor("optimizedDrawingEnabled", com.alexandriasoftware.swing.JSplitButton.class, "isOptimizedDrawingEnabled", null); // NOI18N
-            properties[PROPERTY_PAINTING_FOR_PRINT] = new PropertyDescriptor("paintingForPrint", com.alexandriasoftware.swing.JSplitButton.class, "isPaintingForPrint", null); // NOI18N
-            properties[PROPERTY_PAINTING_TILE] = new PropertyDescriptor("paintingTile", com.alexandriasoftware.swing.JSplitButton.class, "isPaintingTile", null); // NOI18N
-            properties[PROPERTY_PARENT] = new PropertyDescriptor("parent", com.alexandriasoftware.swing.JSplitButton.class, "getParent", null); // NOI18N
-            properties[PROPERTY_PEER] = new PropertyDescriptor("peer", com.alexandriasoftware.swing.JSplitButton.class, "getPeer", null); // NOI18N
-            properties[PROPERTY_POPUP_MENU] = new PropertyDescriptor("popupMenu", com.alexandriasoftware.swing.JSplitButton.class, "getPopupMenu", "setPopupMenu"); // NOI18N
-            properties[PROPERTY_PREFERRED_SIZE] = new PropertyDescriptor("preferredSize", com.alexandriasoftware.swing.JSplitButton.class, "getPreferredSize", "setPreferredSize"); // NOI18N
-            properties[PROPERTY_PREFERRED_SIZE_SET] = new PropertyDescriptor("preferredSizeSet", com.alexandriasoftware.swing.JSplitButton.class, "isPreferredSizeSet", null); // NOI18N
-            properties[PROPERTY_PRESSED_ICON] = new PropertyDescriptor("pressedIcon", com.alexandriasoftware.swing.JSplitButton.class, "getPressedIcon", "setPressedIcon"); // NOI18N
-            properties[PROPERTY_PROPERTY_CHANGE_LISTENERS] = new PropertyDescriptor("propertyChangeListeners", com.alexandriasoftware.swing.JSplitButton.class, "getPropertyChangeListeners", null); // NOI18N
-            properties[PROPERTY_REGISTERED_KEY_STROKES] = new PropertyDescriptor("registeredKeyStrokes", com.alexandriasoftware.swing.JSplitButton.class, "getRegisteredKeyStrokes", null); // NOI18N
-            properties[PROPERTY_REQUEST_FOCUS_ENABLED] = new PropertyDescriptor("requestFocusEnabled", com.alexandriasoftware.swing.JSplitButton.class, "isRequestFocusEnabled", "setRequestFocusEnabled"); // NOI18N
-            properties[PROPERTY_ROLLOVER_ENABLED] = new PropertyDescriptor("rolloverEnabled", com.alexandriasoftware.swing.JSplitButton.class, "isRolloverEnabled", "setRolloverEnabled"); // NOI18N
-            properties[PROPERTY_ROLLOVER_ICON] = new PropertyDescriptor("rolloverIcon", com.alexandriasoftware.swing.JSplitButton.class, "getRolloverIcon", "setRolloverIcon"); // NOI18N
-            properties[PROPERTY_ROLLOVER_SELECTED_ICON] = new PropertyDescriptor("rolloverSelectedIcon", com.alexandriasoftware.swing.JSplitButton.class, "getRolloverSelectedIcon", "setRolloverSelectedIcon"); // NOI18N
-            properties[PROPERTY_ROOT_PANE] = new PropertyDescriptor("rootPane", com.alexandriasoftware.swing.JSplitButton.class, "getRootPane", null); // NOI18N
-            properties[PROPERTY_SELECTED] = new PropertyDescriptor("selected", com.alexandriasoftware.swing.JSplitButton.class, "isSelected", "setSelected"); // NOI18N
-            properties[PROPERTY_SELECTED_ICON] = new PropertyDescriptor("selectedIcon", com.alexandriasoftware.swing.JSplitButton.class, "getSelectedIcon", "setSelectedIcon"); // NOI18N
-            properties[PROPERTY_SELECTED_OBJECTS] = new PropertyDescriptor("selectedObjects", com.alexandriasoftware.swing.JSplitButton.class, "getSelectedObjects", null); // NOI18N
-            properties[PROPERTY_SEPARATOR_SPACING] = new PropertyDescriptor("separatorSpacing", com.alexandriasoftware.swing.JSplitButton.class, "getSeparatorSpacing", "setSeparatorSpacing"); // NOI18N
-            properties[PROPERTY_SHOWING] = new PropertyDescriptor("showing", com.alexandriasoftware.swing.JSplitButton.class, "isShowing", null); // NOI18N
-            properties[PROPERTY_SIZE] = new PropertyDescriptor("size", com.alexandriasoftware.swing.JSplitButton.class, "getSize", "setSize"); // NOI18N
-            properties[PROPERTY_SPLIT_WIDTH] = new PropertyDescriptor("splitWidth", com.alexandriasoftware.swing.JSplitButton.class, "getSplitWidth", "setSplitWidth"); // NOI18N
-            properties[PROPERTY_TEXT] = new PropertyDescriptor("text", com.alexandriasoftware.swing.JSplitButton.class, "getText", "setText"); // NOI18N
-            properties[PROPERTY_TOOLKIT] = new PropertyDescriptor("toolkit", com.alexandriasoftware.swing.JSplitButton.class, "getToolkit", null); // NOI18N
-            properties[PROPERTY_TOOL_TIP_TEXT] = new PropertyDescriptor("toolTipText", com.alexandriasoftware.swing.JSplitButton.class, "getToolTipText", "setToolTipText"); // NOI18N
-            properties[PROPERTY_TOP_LEVEL_ANCESTOR] = new PropertyDescriptor("topLevelAncestor", com.alexandriasoftware.swing.JSplitButton.class, "getTopLevelAncestor", null); // NOI18N
-            properties[PROPERTY_TRANSFER_HANDLER] = new PropertyDescriptor("transferHandler", com.alexandriasoftware.swing.JSplitButton.class, "getTransferHandler", "setTransferHandler"); // NOI18N
-            properties[PROPERTY_TREE_LOCK] = new PropertyDescriptor("treeLock", com.alexandriasoftware.swing.JSplitButton.class, "getTreeLock", null); // NOI18N
-            properties[PROPERTY_UI] = new PropertyDescriptor("UI", com.alexandriasoftware.swing.JSplitButton.class, "getUI", "setUI"); // NOI18N
-            properties[PROPERTY_UI_CLASS_ID] = new PropertyDescriptor("UIClassID", com.alexandriasoftware.swing.JSplitButton.class, "getUIClassID", null); // NOI18N
-            properties[PROPERTY_VALID] = new PropertyDescriptor("valid", com.alexandriasoftware.swing.JSplitButton.class, "isValid", null); // NOI18N
-            properties[PROPERTY_VALIDATE_ROOT] = new PropertyDescriptor("validateRoot", com.alexandriasoftware.swing.JSplitButton.class, "isValidateRoot", null); // NOI18N
-            properties[PROPERTY_VERIFY_INPUT_WHEN_FOCUS_TARGET] = new PropertyDescriptor("verifyInputWhenFocusTarget", com.alexandriasoftware.swing.JSplitButton.class, "getVerifyInputWhenFocusTarget", "setVerifyInputWhenFocusTarget"); // NOI18N
-            properties[PROPERTY_VERTICAL_ALIGNMENT] = new PropertyDescriptor("verticalAlignment", com.alexandriasoftware.swing.JSplitButton.class, "getVerticalAlignment", "setVerticalAlignment"); // NOI18N
-            properties[PROPERTY_VERTICAL_TEXT_POSITION] = new PropertyDescriptor("verticalTextPosition", com.alexandriasoftware.swing.JSplitButton.class, "getVerticalTextPosition", "setVerticalTextPosition"); // NOI18N
-            properties[PROPERTY_VETOABLE_CHANGE_LISTENERS] = new PropertyDescriptor("vetoableChangeListeners", com.alexandriasoftware.swing.JSplitButton.class, "getVetoableChangeListeners", null); // NOI18N
-            properties[PROPERTY_VISIBLE] = new PropertyDescriptor("visible", com.alexandriasoftware.swing.JSplitButton.class, "isVisible", "setVisible"); // NOI18N
-            properties[PROPERTY_VISIBLE_RECT] = new PropertyDescriptor("visibleRect", com.alexandriasoftware.swing.JSplitButton.class, "getVisibleRect", null); // NOI18N
-            properties[PROPERTY_WIDTH] = new PropertyDescriptor("width", com.alexandriasoftware.swing.JSplitButton.class, "getWidth", null); // NOI18N
-            properties[PROPERTY_X] = new PropertyDescriptor("x", com.alexandriasoftware.swing.JSplitButton.class, "getX", null); // NOI18N
-            properties[PROPERTY_Y] = new PropertyDescriptor("y", com.alexandriasoftware.swing.JSplitButton.class, "getY", null); // NOI18N
+            properties[PROPERTY_ACCESSIBLE_CONTEXT] = new PropertyDescriptor("accessibleContext", JSplitButton.class, "getAccessibleContext", null); // NOI18N
+            properties[PROPERTY_ACTION] = new PropertyDescriptor("action", JSplitButton.class, "getAction", "setAction"); // NOI18N
+            properties[PROPERTY_ACTION_COMMAND] = new PropertyDescriptor("actionCommand", JSplitButton.class, "getActionCommand", "setActionCommand"); // NOI18N
+            properties[PROPERTY_ACTION_LISTENERS] = new PropertyDescriptor("actionListeners", JSplitButton.class, "getActionListeners", null); // NOI18N
+            properties[PROPERTY_ACTION_MAP] = new PropertyDescriptor("actionMap", JSplitButton.class, "getActionMap", "setActionMap"); // NOI18N
+            properties[PROPERTY_ALIGNMENT_X] = new PropertyDescriptor("alignmentX", JSplitButton.class, "getAlignmentX", "setAlignmentX"); // NOI18N
+            properties[PROPERTY_ALIGNMENT_Y] = new PropertyDescriptor("alignmentY", JSplitButton.class, "getAlignmentY", "setAlignmentY"); // NOI18N
+            properties[PROPERTY_ALWAYS_POPUP] = new PropertyDescriptor("alwaysPopup", JSplitButton.class, "isAlwaysPopup", "setAlwaysPopup"); // NOI18N
+            properties[PROPERTY_ANCESTOR_LISTENERS] = new PropertyDescriptor("ancestorListeners", JSplitButton.class, "getAncestorListeners", null); // NOI18N
+            properties[PROPERTY_ARROW_COLOR] = new PropertyDescriptor("arrowColor", JSplitButton.class, "getArrowColor", "setArrowColor"); // NOI18N
+            properties[PROPERTY_ARROW_SIZE] = new PropertyDescriptor("arrowSize", JSplitButton.class, "getArrowSize", "setArrowSize"); // NOI18N
+            properties[PROPERTY_AUTOSCROLLS] = new PropertyDescriptor("autoscrolls", JSplitButton.class, "getAutoscrolls", "setAutoscrolls"); // NOI18N
+            properties[PROPERTY_BACKGROUND] = new PropertyDescriptor("background", JSplitButton.class, "getBackground", "setBackground"); // NOI18N
+            properties[PROPERTY_BACKGROUND_SET] = new PropertyDescriptor("backgroundSet", JSplitButton.class, "isBackgroundSet", null); // NOI18N
+            properties[PROPERTY_BASELINE_RESIZE_BEHAVIOR] = new PropertyDescriptor("baselineResizeBehavior", JSplitButton.class, "getBaselineResizeBehavior", null); // NOI18N
+            properties[PROPERTY_BORDER] = new PropertyDescriptor("border", JSplitButton.class, "getBorder", "setBorder"); // NOI18N
+            properties[PROPERTY_BORDER_PAINTED] = new PropertyDescriptor("borderPainted", JSplitButton.class, "isBorderPainted", "setBorderPainted"); // NOI18N
+            properties[PROPERTY_BOUNDS] = new PropertyDescriptor("bounds", JSplitButton.class, "getBounds", "setBounds"); // NOI18N
+            properties[PROPERTY_CHANGE_LISTENERS] = new PropertyDescriptor("changeListeners", JSplitButton.class, "getChangeListeners", null); // NOI18N
+            properties[PROPERTY_COLOR_MODEL] = new PropertyDescriptor("colorModel", JSplitButton.class, "getColorModel", null); // NOI18N
+            properties[PROPERTY_COMPONENT] = new IndexedPropertyDescriptor("component", JSplitButton.class, null, null, "getComponent", null); // NOI18N
+            properties[PROPERTY_COMPONENT_COUNT] = new PropertyDescriptor("componentCount", JSplitButton.class, "getComponentCount", null); // NOI18N
+            properties[PROPERTY_COMPONENT_LISTENERS] = new PropertyDescriptor("componentListeners", JSplitButton.class, "getComponentListeners", null); // NOI18N
+            properties[PROPERTY_COMPONENT_ORIENTATION] = new PropertyDescriptor("componentOrientation", JSplitButton.class, "getComponentOrientation", "setComponentOrientation"); // NOI18N
+            properties[PROPERTY_COMPONENT_POPUP_MENU] = new PropertyDescriptor("componentPopupMenu", JSplitButton.class, "getComponentPopupMenu", "setComponentPopupMenu"); // NOI18N
+            properties[PROPERTY_COMPONENTS] = new PropertyDescriptor("components", JSplitButton.class, "getComponents", null); // NOI18N
+            properties[PROPERTY_CONTAINER_LISTENERS] = new PropertyDescriptor("containerListeners", JSplitButton.class, "getContainerListeners", null); // NOI18N
+            properties[PROPERTY_CONTENT_AREA_FILLED] = new PropertyDescriptor("contentAreaFilled", JSplitButton.class, "isContentAreaFilled", "setContentAreaFilled"); // NOI18N
+            properties[PROPERTY_CURSOR] = new PropertyDescriptor("cursor", JSplitButton.class, "getCursor", "setCursor"); // NOI18N
+            properties[PROPERTY_CURSOR_SET] = new PropertyDescriptor("cursorSet", JSplitButton.class, "isCursorSet", null); // NOI18N
+            properties[PROPERTY_DEBUG_GRAPHICS_OPTIONS] = new PropertyDescriptor("debugGraphicsOptions", JSplitButton.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions"); // NOI18N
+            properties[PROPERTY_DEFAULT_BUTTON] = new PropertyDescriptor("defaultButton", JSplitButton.class, "isDefaultButton", null); // NOI18N
+            properties[PROPERTY_DEFAULT_CAPABLE] = new PropertyDescriptor("defaultCapable", JSplitButton.class, "isDefaultCapable", "setDefaultCapable"); // NOI18N
+            properties[PROPERTY_DISABLED_ARROW_COLOR] = new PropertyDescriptor("disabledArrowColor", JSplitButton.class, "getDisabledArrowColor", "setDisabledArrowColor"); // NOI18N
+            properties[PROPERTY_DISABLED_ICON] = new PropertyDescriptor("disabledIcon", JSplitButton.class, "getDisabledIcon", "setDisabledIcon"); // NOI18N
+            properties[PROPERTY_DISABLED_IMAGE] = new PropertyDescriptor("disabledImage", JSplitButton.class, "getDisabledImage", "setDisabledImage"); // NOI18N
+            properties[PROPERTY_DISABLED_SELECTED_ICON] = new PropertyDescriptor("disabledSelectedIcon", JSplitButton.class, "getDisabledSelectedIcon", "setDisabledSelectedIcon"); // NOI18N
+            properties[PROPERTY_DISPLAYABLE] = new PropertyDescriptor("displayable", JSplitButton.class, "isDisplayable", null); // NOI18N
+            properties[PROPERTY_DISPLAYED_MNEMONIC_INDEX] = new PropertyDescriptor("displayedMnemonicIndex", JSplitButton.class, "getDisplayedMnemonicIndex", "setDisplayedMnemonicIndex"); // NOI18N
+            properties[PROPERTY_DOUBLE_BUFFERED] = new PropertyDescriptor("doubleBuffered", JSplitButton.class, "isDoubleBuffered", "setDoubleBuffered"); // NOI18N
+            properties[PROPERTY_DROP_TARGET] = new PropertyDescriptor("dropTarget", JSplitButton.class, "getDropTarget", "setDropTarget"); // NOI18N
+            properties[PROPERTY_ENABLED] = new PropertyDescriptor("enabled", JSplitButton.class, "isEnabled", "setEnabled"); // NOI18N
+            properties[PROPERTY_FOCUSABLE] = new PropertyDescriptor("focusable", JSplitButton.class, "isFocusable", "setFocusable"); // NOI18N
+            properties[PROPERTY_FOCUS_CYCLE_ROOT] = new PropertyDescriptor("focusCycleRoot", JSplitButton.class, "isFocusCycleRoot", "setFocusCycleRoot"); // NOI18N
+            properties[PROPERTY_FOCUS_CYCLE_ROOT_ANCESTOR] = new PropertyDescriptor("focusCycleRootAncestor", JSplitButton.class, "getFocusCycleRootAncestor", null); // NOI18N
+            properties[PROPERTY_FOCUS_LISTENERS] = new PropertyDescriptor("focusListeners", JSplitButton.class, "getFocusListeners", null); // NOI18N
+            properties[PROPERTY_FOCUS_OWNER] = new PropertyDescriptor("focusOwner", JSplitButton.class, "isFocusOwner", null); // NOI18N
+            properties[PROPERTY_FOCUS_PAINTED] = new PropertyDescriptor("focusPainted", JSplitButton.class, "isFocusPainted", "setFocusPainted"); // NOI18N
+            properties[PROPERTY_FOCUS_TRAVERSABLE] = new PropertyDescriptor("focusTraversable", JSplitButton.class, "isFocusTraversable", null); // NOI18N
+            properties[PROPERTY_FOCUS_TRAVERSAL_KEYS] = new IndexedPropertyDescriptor("focusTraversalKeys", JSplitButton.class, null, null, null, "setFocusTraversalKeys"); // NOI18N
+            properties[PROPERTY_FOCUS_TRAVERSAL_KEYS_ENABLED] = new PropertyDescriptor("focusTraversalKeysEnabled", JSplitButton.class, "getFocusTraversalKeysEnabled", "setFocusTraversalKeysEnabled"); // NOI18N
+            properties[PROPERTY_FOCUS_TRAVERSAL_POLICY] = new PropertyDescriptor("focusTraversalPolicy", JSplitButton.class, "getFocusTraversalPolicy", "setFocusTraversalPolicy"); // NOI18N
+            properties[PROPERTY_FOCUS_TRAVERSAL_POLICY_PROVIDER] = new PropertyDescriptor("focusTraversalPolicyProvider", JSplitButton.class, "isFocusTraversalPolicyProvider", "setFocusTraversalPolicyProvider"); // NOI18N
+            properties[PROPERTY_FOCUS_TRAVERSAL_POLICY_SET] = new PropertyDescriptor("focusTraversalPolicySet", JSplitButton.class, "isFocusTraversalPolicySet", null); // NOI18N
+            properties[PROPERTY_FONT] = new PropertyDescriptor("font", JSplitButton.class, "getFont", "setFont"); // NOI18N
+            properties[PROPERTY_FONT_SET] = new PropertyDescriptor("fontSet", JSplitButton.class, "isFontSet", null); // NOI18N
+            properties[PROPERTY_FOREGROUND] = new PropertyDescriptor("foreground", JSplitButton.class, "getForeground", "setForeground"); // NOI18N
+            properties[PROPERTY_FOREGROUND_SET] = new PropertyDescriptor("foregroundSet", JSplitButton.class, "isForegroundSet", null); // NOI18N
+            properties[PROPERTY_GRAPHICS] = new PropertyDescriptor("graphics", JSplitButton.class, "getGraphics", null); // NOI18N
+            properties[PROPERTY_GRAPHICS_CONFIGURATION] = new PropertyDescriptor("graphicsConfiguration", JSplitButton.class, "getGraphicsConfiguration", null); // NOI18N
+            properties[PROPERTY_HEIGHT] = new PropertyDescriptor("height", JSplitButton.class, "getHeight", null); // NOI18N
+            properties[PROPERTY_HIDE_ACTION_TEXT] = new PropertyDescriptor("hideActionText", JSplitButton.class, "getHideActionText", "setHideActionText"); // NOI18N
+            properties[PROPERTY_HIERARCHY_BOUNDS_LISTENERS] = new PropertyDescriptor("hierarchyBoundsListeners", JSplitButton.class, "getHierarchyBoundsListeners", null); // NOI18N
+            properties[PROPERTY_HIERARCHY_LISTENERS] = new PropertyDescriptor("hierarchyListeners", JSplitButton.class, "getHierarchyListeners", null); // NOI18N
+            properties[PROPERTY_HORIZONTAL_ALIGNMENT] = new PropertyDescriptor("horizontalAlignment", JSplitButton.class, "getHorizontalAlignment", "setHorizontalAlignment"); // NOI18N
+            properties[PROPERTY_HORIZONTAL_TEXT_POSITION] = new PropertyDescriptor("horizontalTextPosition", JSplitButton.class, "getHorizontalTextPosition", "setHorizontalTextPosition"); // NOI18N
+            properties[PROPERTY_ICON] = new PropertyDescriptor("icon", JSplitButton.class, "getIcon", "setIcon"); // NOI18N
+            properties[PROPERTY_ICON_TEXT_GAP] = new PropertyDescriptor("iconTextGap", JSplitButton.class, "getIconTextGap", "setIconTextGap"); // NOI18N
+            properties[PROPERTY_IGNORE_REPAINT] = new PropertyDescriptor("ignoreRepaint", JSplitButton.class, "getIgnoreRepaint", "setIgnoreRepaint"); // NOI18N
+            properties[PROPERTY_IMAGE] = new PropertyDescriptor("image", JSplitButton.class, "getImage", "setImage"); // NOI18N
+            properties[PROPERTY_INHERITS_POPUP_MENU] = new PropertyDescriptor("inheritsPopupMenu", JSplitButton.class, "getInheritsPopupMenu", "setInheritsPopupMenu"); // NOI18N
+            properties[PROPERTY_INPUT_CONTEXT] = new PropertyDescriptor("inputContext", JSplitButton.class, "getInputContext", null); // NOI18N
+            properties[PROPERTY_INPUT_MAP] = new PropertyDescriptor("inputMap", JSplitButton.class, "getInputMap", null); // NOI18N
+            properties[PROPERTY_INPUT_METHOD_LISTENERS] = new PropertyDescriptor("inputMethodListeners", JSplitButton.class, "getInputMethodListeners", null); // NOI18N
+            properties[PROPERTY_INPUT_METHOD_REQUESTS] = new PropertyDescriptor("inputMethodRequests", JSplitButton.class, "getInputMethodRequests", null); // NOI18N
+            properties[PROPERTY_INPUT_VERIFIER] = new PropertyDescriptor("inputVerifier", JSplitButton.class, "getInputVerifier", "setInputVerifier"); // NOI18N
+            properties[PROPERTY_INSETS] = new PropertyDescriptor("insets", JSplitButton.class, "getInsets", null); // NOI18N
+            properties[PROPERTY_ITEM_LISTENERS] = new PropertyDescriptor("itemListeners", JSplitButton.class, "getItemListeners", null); // NOI18N
+            properties[PROPERTY_KEY_LISTENERS] = new PropertyDescriptor("keyListeners", JSplitButton.class, "getKeyListeners", null); // NOI18N
+            properties[PROPERTY_LABEL] = new PropertyDescriptor("label", JSplitButton.class, "getLabel", "setLabel"); // NOI18N
+            properties[PROPERTY_LAYOUT] = new PropertyDescriptor("layout", JSplitButton.class, "getLayout", "setLayout"); // NOI18N
+            properties[PROPERTY_LIGHTWEIGHT] = new PropertyDescriptor("lightweight", JSplitButton.class, "isLightweight", null); // NOI18N
+            properties[PROPERTY_LOCALE] = new PropertyDescriptor("locale", JSplitButton.class, "getLocale", "setLocale"); // NOI18N
+            properties[PROPERTY_LOCATION] = new PropertyDescriptor("location", JSplitButton.class, "getLocation", "setLocation"); // NOI18N
+            properties[PROPERTY_LOCATION_ON_SCREEN] = new PropertyDescriptor("locationOnScreen", JSplitButton.class, "getLocationOnScreen", null); // NOI18N
+            properties[PROPERTY_MANAGING_FOCUS] = new PropertyDescriptor("managingFocus", JSplitButton.class, "isManagingFocus", null); // NOI18N
+            properties[PROPERTY_MARGIN] = new PropertyDescriptor("margin", JSplitButton.class, "getMargin", "setMargin"); // NOI18N
+            properties[PROPERTY_MAXIMUM_SIZE] = new PropertyDescriptor("maximumSize", JSplitButton.class, "getMaximumSize", "setMaximumSize"); // NOI18N
+            properties[PROPERTY_MAXIMUM_SIZE_SET] = new PropertyDescriptor("maximumSizeSet", JSplitButton.class, "isMaximumSizeSet", null); // NOI18N
+            properties[PROPERTY_MINIMUM_SIZE] = new PropertyDescriptor("minimumSize", JSplitButton.class, "getMinimumSize", "setMinimumSize"); // NOI18N
+            properties[PROPERTY_MINIMUM_SIZE_SET] = new PropertyDescriptor("minimumSizeSet", JSplitButton.class, "isMinimumSizeSet", null); // NOI18N
+            properties[PROPERTY_MNEMONIC] = new PropertyDescriptor("mnemonic", JSplitButton.class, null, "setMnemonic"); // NOI18N
+            properties[PROPERTY_MODEL] = new PropertyDescriptor("model", JSplitButton.class, "getModel", "setModel"); // NOI18N
+            properties[PROPERTY_MOUSE_LISTENERS] = new PropertyDescriptor("mouseListeners", JSplitButton.class, "getMouseListeners", null); // NOI18N
+            properties[PROPERTY_MOUSE_MOTION_LISTENERS] = new PropertyDescriptor("mouseMotionListeners", JSplitButton.class, "getMouseMotionListeners", null); // NOI18N
+            properties[PROPERTY_MOUSE_POSITION] = new PropertyDescriptor("mousePosition", JSplitButton.class, "getMousePosition", null); // NOI18N
+            properties[PROPERTY_MOUSE_WHEEL_LISTENERS] = new PropertyDescriptor("mouseWheelListeners", JSplitButton.class, "getMouseWheelListeners", null); // NOI18N
+            properties[PROPERTY_MULTI_CLICK_THRESHHOLD] = new PropertyDescriptor("multiClickThreshhold", JSplitButton.class, "getMultiClickThreshhold", "setMultiClickThreshhold"); // NOI18N
+            properties[PROPERTY_NAME] = new PropertyDescriptor("name", JSplitButton.class, "getName", "setName"); // NOI18N
+            properties[PROPERTY_NEXT_FOCUSABLE_COMPONENT] = new PropertyDescriptor("nextFocusableComponent", JSplitButton.class, "getNextFocusableComponent", "setNextFocusableComponent"); // NOI18N
+            properties[PROPERTY_OPAQUE] = new PropertyDescriptor("opaque", JSplitButton.class, "isOpaque", "setOpaque"); // NOI18N
+            properties[PROPERTY_OPTIMIZED_DRAWING_ENABLED] = new PropertyDescriptor("optimizedDrawingEnabled", JSplitButton.class, "isOptimizedDrawingEnabled", null); // NOI18N
+            properties[PROPERTY_PAINTING_FOR_PRINT] = new PropertyDescriptor("paintingForPrint", JSplitButton.class, "isPaintingForPrint", null); // NOI18N
+            properties[PROPERTY_PAINTING_TILE] = new PropertyDescriptor("paintingTile", JSplitButton.class, "isPaintingTile", null); // NOI18N
+            properties[PROPERTY_PARENT] = new PropertyDescriptor("parent", JSplitButton.class, "getParent", null); // NOI18N
+            properties[PROPERTY_PEER] = new PropertyDescriptor("peer", JSplitButton.class, "getPeer", null); // NOI18N
+            properties[PROPERTY_POPUP_MENU] = new PropertyDescriptor("popupMenu", JSplitButton.class, "getPopupMenu", "setPopupMenu"); // NOI18N
+            properties[PROPERTY_PREFERRED_SIZE] = new PropertyDescriptor("preferredSize", JSplitButton.class, "getPreferredSize", "setPreferredSize"); // NOI18N
+            properties[PROPERTY_PREFERRED_SIZE_SET] = new PropertyDescriptor("preferredSizeSet", JSplitButton.class, "isPreferredSizeSet", null); // NOI18N
+            properties[PROPERTY_PRESSED_ICON] = new PropertyDescriptor("pressedIcon", JSplitButton.class, "getPressedIcon", "setPressedIcon"); // NOI18N
+            properties[PROPERTY_PROPERTY_CHANGE_LISTENERS] = new PropertyDescriptor("propertyChangeListeners", JSplitButton.class, "getPropertyChangeListeners", null); // NOI18N
+            properties[PROPERTY_REGISTERED_KEY_STROKES] = new PropertyDescriptor("registeredKeyStrokes", JSplitButton.class, "getRegisteredKeyStrokes", null); // NOI18N
+            properties[PROPERTY_REQUEST_FOCUS_ENABLED] = new PropertyDescriptor("requestFocusEnabled", JSplitButton.class, "isRequestFocusEnabled", "setRequestFocusEnabled"); // NOI18N
+            properties[PROPERTY_ROLLOVER_ENABLED] = new PropertyDescriptor("rolloverEnabled", JSplitButton.class, "isRolloverEnabled", "setRolloverEnabled"); // NOI18N
+            properties[PROPERTY_ROLLOVER_ICON] = new PropertyDescriptor("rolloverIcon", JSplitButton.class, "getRolloverIcon", "setRolloverIcon"); // NOI18N
+            properties[PROPERTY_ROLLOVER_SELECTED_ICON] = new PropertyDescriptor("rolloverSelectedIcon", JSplitButton.class, "getRolloverSelectedIcon", "setRolloverSelectedIcon"); // NOI18N
+            properties[PROPERTY_ROOT_PANE] = new PropertyDescriptor("rootPane", JSplitButton.class, "getRootPane", null); // NOI18N
+            properties[PROPERTY_SELECTED] = new PropertyDescriptor("selected", JSplitButton.class, "isSelected", "setSelected"); // NOI18N
+            properties[PROPERTY_SELECTED_ICON] = new PropertyDescriptor("selectedIcon", JSplitButton.class, "getSelectedIcon", "setSelectedIcon"); // NOI18N
+            properties[PROPERTY_SELECTED_OBJECTS] = new PropertyDescriptor("selectedObjects", JSplitButton.class, "getSelectedObjects", null); // NOI18N
+            properties[PROPERTY_SEPARATOR_SPACING] = new PropertyDescriptor("separatorSpacing", JSplitButton.class, "getSeparatorSpacing", "setSeparatorSpacing"); // NOI18N
+            properties[PROPERTY_SHOWING] = new PropertyDescriptor("showing", JSplitButton.class, "isShowing", null); // NOI18N
+            properties[PROPERTY_SIZE] = new PropertyDescriptor("size", JSplitButton.class, "getSize", "setSize"); // NOI18N
+            properties[PROPERTY_SPLIT_WIDTH] = new PropertyDescriptor("splitWidth", JSplitButton.class, "getSplitWidth", "setSplitWidth"); // NOI18N
+            properties[PROPERTY_TEXT] = new PropertyDescriptor("text", JSplitButton.class, "getText", "setText"); // NOI18N
+            properties[PROPERTY_TOOLKIT] = new PropertyDescriptor("toolkit", JSplitButton.class, "getToolkit", null); // NOI18N
+            properties[PROPERTY_TOOL_TIP_TEXT] = new PropertyDescriptor("toolTipText", JSplitButton.class, "getToolTipText", "setToolTipText"); // NOI18N
+            properties[PROPERTY_TOP_LEVEL_ANCESTOR] = new PropertyDescriptor("topLevelAncestor", JSplitButton.class, "getTopLevelAncestor", null); // NOI18N
+            properties[PROPERTY_TRANSFER_HANDLER] = new PropertyDescriptor("transferHandler", JSplitButton.class, "getTransferHandler", "setTransferHandler"); // NOI18N
+            properties[PROPERTY_TREE_LOCK] = new PropertyDescriptor("treeLock", JSplitButton.class, "getTreeLock", null); // NOI18N
+            properties[PROPERTY_UI] = new PropertyDescriptor("UI", JSplitButton.class, "getUI", "setUI"); // NOI18N
+            properties[PROPERTY_UI_CLASS_ID] = new PropertyDescriptor("UIClassID", JSplitButton.class, "getUIClassID", null); // NOI18N
+            properties[PROPERTY_VALID] = new PropertyDescriptor("valid", JSplitButton.class, "isValid", null); // NOI18N
+            properties[PROPERTY_VALIDATE_ROOT] = new PropertyDescriptor("validateRoot", JSplitButton.class, "isValidateRoot", null); // NOI18N
+            properties[PROPERTY_VERIFY_INPUT_WHEN_FOCUS_TARGET] = new PropertyDescriptor("verifyInputWhenFocusTarget", JSplitButton.class, "getVerifyInputWhenFocusTarget", "setVerifyInputWhenFocusTarget"); // NOI18N
+            properties[PROPERTY_VERTICAL_ALIGNMENT] = new PropertyDescriptor("verticalAlignment", JSplitButton.class, "getVerticalAlignment", "setVerticalAlignment"); // NOI18N
+            properties[PROPERTY_VERTICAL_TEXT_POSITION] = new PropertyDescriptor("verticalTextPosition", JSplitButton.class, "getVerticalTextPosition", "setVerticalTextPosition"); // NOI18N
+            properties[PROPERTY_VETOABLE_CHANGE_LISTENERS] = new PropertyDescriptor("vetoableChangeListeners", JSplitButton.class, "getVetoableChangeListeners", null); // NOI18N
+            properties[PROPERTY_VISIBLE] = new PropertyDescriptor("visible", JSplitButton.class, "isVisible", "setVisible"); // NOI18N
+            properties[PROPERTY_VISIBLE_RECT] = new PropertyDescriptor("visibleRect", JSplitButton.class, "getVisibleRect", null); // NOI18N
+            properties[PROPERTY_WIDTH] = new PropertyDescriptor("width", JSplitButton.class, "getWidth", null); // NOI18N
+            properties[PROPERTY_X] = new PropertyDescriptor("x", JSplitButton.class, "getX", null); // NOI18N
+            properties[PROPERTY_Y] = new PropertyDescriptor("y", JSplitButton.class, "getY", null); // NOI18N
         } catch (IntrospectionException e) {
         }
 
@@ -368,25 +407,25 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         EventSetDescriptor[] eventSets = new EventSetDescriptor[19];
 
         try {
-            eventSets[EVENT_ACTION_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "actionListener", java.awt.event.ActionListener.class, new String[]{"actionPerformed"}, "addActionListener", "removeActionListener"); // NOI18N
-            eventSets[EVENT_ANCESTOR_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "ancestorListener", javax.swing.event.AncestorListener.class, new String[]{"ancestorAdded", "ancestorRemoved", "ancestorMoved"}, "addAncestorListener", "removeAncestorListener"); // NOI18N
-            eventSets[EVENT_BUTTON_CLICKED_ACTION_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "buttonClickedActionListener", com.alexandriasoftware.swing.action.ButtonClickedActionListener.class, new String[]{}, "addButtonClickedActionListener", "removeButtonClickedActionListener"); // NOI18N
-            eventSets[EVENT_CHANGE_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "changeListener", javax.swing.event.ChangeListener.class, new String[]{"stateChanged"}, "addChangeListener", "removeChangeListener"); // NOI18N
-            eventSets[EVENT_COMPONENT_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "componentListener", java.awt.event.ComponentListener.class, new String[]{"componentResized", "componentMoved", "componentShown", "componentHidden"}, "addComponentListener", "removeComponentListener"); // NOI18N
-            eventSets[EVENT_CONTAINER_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "containerListener", java.awt.event.ContainerListener.class, new String[]{"componentAdded", "componentRemoved"}, "addContainerListener", "removeContainerListener"); // NOI18N
-            eventSets[EVENT_FOCUS_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "focusListener", java.awt.event.FocusListener.class, new String[]{"focusGained", "focusLost"}, "addFocusListener", "removeFocusListener"); // NOI18N
-            eventSets[EVENT_HIERARCHY_BOUNDS_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "hierarchyBoundsListener", java.awt.event.HierarchyBoundsListener.class, new String[]{"ancestorMoved", "ancestorResized"}, "addHierarchyBoundsListener", "removeHierarchyBoundsListener"); // NOI18N
-            eventSets[EVENT_HIERARCHY_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "hierarchyListener", java.awt.event.HierarchyListener.class, new String[]{"hierarchyChanged"}, "addHierarchyListener", "removeHierarchyListener"); // NOI18N
-            eventSets[EVENT_INPUT_METHOD_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "inputMethodListener", java.awt.event.InputMethodListener.class, new String[]{"inputMethodTextChanged", "caretPositionChanged"}, "addInputMethodListener", "removeInputMethodListener"); // NOI18N
-            eventSets[EVENT_ITEM_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "itemListener", java.awt.event.ItemListener.class, new String[]{"itemStateChanged"}, "addItemListener", "removeItemListener"); // NOI18N
-            eventSets[EVENT_KEY_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "keyListener", java.awt.event.KeyListener.class, new String[]{"keyTyped", "keyPressed", "keyReleased"}, "addKeyListener", "removeKeyListener"); // NOI18N
-            eventSets[EVENT_MOUSE_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "mouseListener", java.awt.event.MouseListener.class, new String[]{"mouseClicked", "mousePressed", "mouseReleased", "mouseEntered", "mouseExited"}, "addMouseListener", "removeMouseListener"); // NOI18N
-            eventSets[EVENT_MOUSE_MOTION_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "mouseMotionListener", java.awt.event.MouseMotionListener.class, new String[]{"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener"); // NOI18N
-            eventSets[EVENT_MOUSE_WHEEL_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "mouseWheelListener", java.awt.event.MouseWheelListener.class, new String[]{"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener"); // NOI18N
-            eventSets[EVENT_PROPERTY_CHANGE_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[]{"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener"); // NOI18N
+            eventSets[EVENT_ACTION_LISTENER] = new EventSetDescriptor(JSplitButton.class, "actionListener", ActionListener.class, new String[]{"actionPerformed"}, "addActionListener", "removeActionListener"); // NOI18N
+            eventSets[EVENT_ANCESTOR_LISTENER] = new EventSetDescriptor(JSplitButton.class, "ancestorListener", AncestorListener.class, new String[]{"ancestorAdded", "ancestorRemoved", "ancestorMoved"}, "addAncestorListener", "removeAncestorListener"); // NOI18N
+            eventSets[EVENT_BUTTON_CLICKED_ACTION_LISTENER] = new EventSetDescriptor(JSplitButton.class, "buttonClickedActionListener", ButtonClickedActionListener.class, new String[]{}, "addButtonClickedActionListener", "removeButtonClickedActionListener"); // NOI18N
+            eventSets[EVENT_CHANGE_LISTENER] = new EventSetDescriptor(JSplitButton.class, "changeListener", ChangeListener.class, new String[]{"stateChanged"}, "addChangeListener", "removeChangeListener"); // NOI18N
+            eventSets[EVENT_COMPONENT_LISTENER] = new EventSetDescriptor(JSplitButton.class, "componentListener", ComponentListener.class, new String[]{"componentResized", "componentMoved", "componentShown", "componentHidden"}, "addComponentListener", "removeComponentListener"); // NOI18N
+            eventSets[EVENT_CONTAINER_LISTENER] = new EventSetDescriptor(JSplitButton.class, "containerListener", ContainerListener.class, new String[]{"componentAdded", "componentRemoved"}, "addContainerListener", "removeContainerListener"); // NOI18N
+            eventSets[EVENT_FOCUS_LISTENER] = new EventSetDescriptor(JSplitButton.class, "focusListener", FocusListener.class, new String[]{"focusGained", "focusLost"}, "addFocusListener", "removeFocusListener"); // NOI18N
+            eventSets[EVENT_HIERARCHY_BOUNDS_LISTENER] = new EventSetDescriptor(JSplitButton.class, "hierarchyBoundsListener", HierarchyBoundsListener.class, new String[]{"ancestorMoved", "ancestorResized"}, "addHierarchyBoundsListener", "removeHierarchyBoundsListener"); // NOI18N
+            eventSets[EVENT_HIERARCHY_LISTENER] = new EventSetDescriptor(JSplitButton.class, "hierarchyListener", HierarchyListener.class, new String[]{"hierarchyChanged"}, "addHierarchyListener", "removeHierarchyListener"); // NOI18N
+            eventSets[EVENT_INPUT_METHOD_LISTENER] = new EventSetDescriptor(JSplitButton.class, "inputMethodListener", InputMethodListener.class, new String[]{"inputMethodTextChanged", "caretPositionChanged"}, "addInputMethodListener", "removeInputMethodListener"); // NOI18N
+            eventSets[EVENT_ITEM_LISTENER] = new EventSetDescriptor(JSplitButton.class, "itemListener", ItemListener.class, new String[]{"itemStateChanged"}, "addItemListener", "removeItemListener"); // NOI18N
+            eventSets[EVENT_KEY_LISTENER] = new EventSetDescriptor(JSplitButton.class, "keyListener", KeyListener.class, new String[]{"keyTyped", "keyPressed", "keyReleased"}, "addKeyListener", "removeKeyListener"); // NOI18N
+            eventSets[EVENT_MOUSE_LISTENER] = new EventSetDescriptor(JSplitButton.class, "mouseListener", MouseListener.class, new String[]{"mouseClicked", "mousePressed", "mouseReleased", "mouseEntered", "mouseExited"}, "addMouseListener", "removeMouseListener"); // NOI18N
+            eventSets[EVENT_MOUSE_MOTION_LISTENER] = new EventSetDescriptor(JSplitButton.class, "mouseMotionListener", MouseMotionListener.class, new String[]{"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener"); // NOI18N
+            eventSets[EVENT_MOUSE_WHEEL_LISTENER] = new EventSetDescriptor(JSplitButton.class, "mouseWheelListener", MouseWheelListener.class, new String[]{"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener"); // NOI18N
+            eventSets[EVENT_PROPERTY_CHANGE_LISTENER] = new EventSetDescriptor(JSplitButton.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[]{"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener"); // NOI18N
             eventSets[EVENT_SPLIT_BUTTON_ACTION_LISTENER].setInDefaultEventSet(false);
-            eventSets[EVENT_SPLIT_BUTTON_CLICKED_ACTION_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "splitButtonClickedActionListener", com.alexandriasoftware.swing.action.SplitButtonClickedActionListener.class, new String[]{}, "addSplitButtonClickedActionListener", "removeSplitButtonClickedActionListener"); // NOI18N
-            eventSets[EVENT_VETOABLE_CHANGE_LISTENER] = new EventSetDescriptor(com.alexandriasoftware.swing.JSplitButton.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[]{"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener"); // NOI18N
+            eventSets[EVENT_SPLIT_BUTTON_CLICKED_ACTION_LISTENER] = new EventSetDescriptor(JSplitButton.class, "splitButtonClickedActionListener", SplitButtonClickedActionListener.class, new String[]{}, "addSplitButtonClickedActionListener", "removeSplitButtonClickedActionListener"); // NOI18N
+            eventSets[EVENT_VETOABLE_CHANGE_LISTENER] = new EventSetDescriptor(JSplitButton.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[]{"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener"); // NOI18N
         } catch (IntrospectionException e) {
         }
 
@@ -551,299 +590,299 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         MethodDescriptor[] methods = new MethodDescriptor[147];
 
         try {
-            methods[METHOD_ACTION0] = new MethodDescriptor(java.awt.Component.class.getMethod("action", new Class[]{java.awt.Event.class, java.lang.Object.class})); // NOI18N
+            methods[METHOD_ACTION0] = new MethodDescriptor(Component.class.getMethod("action", new Class[]{Event.class, java.lang.Object.class})); // NOI18N
             methods[METHOD_ACTION0].setDisplayName("");
-            methods[METHOD_ADD_1] = new MethodDescriptor(java.awt.Component.class.getMethod("add", new Class[]{java.awt.PopupMenu.class})); // NOI18N
+            methods[METHOD_ADD_1] = new MethodDescriptor(Component.class.getMethod("add", new Class[]{PopupMenu.class})); // NOI18N
             methods[METHOD_ADD_1].setDisplayName("");
-            methods[METHOD_ADD_2] = new MethodDescriptor(java.awt.Container.class.getMethod("add", new Class[]{java.awt.Component.class})); // NOI18N
+            methods[METHOD_ADD_2] = new MethodDescriptor(Container.class.getMethod("add", new Class[]{Component.class})); // NOI18N
             methods[METHOD_ADD_2].setDisplayName("");
-            methods[METHOD_ADD_3] = new MethodDescriptor(java.awt.Container.class.getMethod("add", new Class[]{java.lang.String.class, java.awt.Component.class})); // NOI18N
+            methods[METHOD_ADD_3] = new MethodDescriptor(Container.class.getMethod("add", new Class[]{java.lang.String.class, Component.class})); // NOI18N
             methods[METHOD_ADD_3].setDisplayName("");
-            methods[METHOD_ADD_4] = new MethodDescriptor(java.awt.Container.class.getMethod("add", new Class[]{java.awt.Component.class, int.class})); // NOI18N
+            methods[METHOD_ADD_4] = new MethodDescriptor(Container.class.getMethod("add", new Class[]{Component.class, int.class})); // NOI18N
             methods[METHOD_ADD_4].setDisplayName("");
-            methods[METHOD_ADD_5] = new MethodDescriptor(java.awt.Container.class.getMethod("add", new Class[]{java.awt.Component.class, java.lang.Object.class})); // NOI18N
+            methods[METHOD_ADD_5] = new MethodDescriptor(Container.class.getMethod("add", new Class[]{Component.class, java.lang.Object.class})); // NOI18N
             methods[METHOD_ADD_5].setDisplayName("");
-            methods[METHOD_ADD_6] = new MethodDescriptor(java.awt.Container.class.getMethod("add", new Class[]{java.awt.Component.class, java.lang.Object.class, int.class})); // NOI18N
+            methods[METHOD_ADD_6] = new MethodDescriptor(Container.class.getMethod("add", new Class[]{Component.class, java.lang.Object.class, int.class})); // NOI18N
             methods[METHOD_ADD_6].setDisplayName("");
-            methods[METHOD_ADD_NOTIFY_7] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("addNotify", new Class[]{})); // NOI18N
+            methods[METHOD_ADD_NOTIFY_7] = new MethodDescriptor(JComponent.class.getMethod("addNotify", new Class[]{})); // NOI18N
             methods[METHOD_ADD_NOTIFY_7].setDisplayName("");
-            methods[METHOD_ADD_PROPERTY_CHANGE_LISTENER_8] = new MethodDescriptor(java.awt.Container.class.getMethod("addPropertyChangeListener", new Class[]{java.lang.String.class, java.beans.PropertyChangeListener.class})); // NOI18N
+            methods[METHOD_ADD_PROPERTY_CHANGE_LISTENER_8] = new MethodDescriptor(Container.class.getMethod("addPropertyChangeListener", new Class[]{java.lang.String.class, java.beans.PropertyChangeListener.class})); // NOI18N
             methods[METHOD_ADD_PROPERTY_CHANGE_LISTENER_8].setDisplayName("");
-            methods[METHOD_APPLY_COMPONENT_ORIENTATION_9] = new MethodDescriptor(java.awt.Container.class.getMethod("applyComponentOrientation", new Class[]{java.awt.ComponentOrientation.class})); // NOI18N
+            methods[METHOD_APPLY_COMPONENT_ORIENTATION_9] = new MethodDescriptor(Container.class.getMethod("applyComponentOrientation", new Class[]{ComponentOrientation.class})); // NOI18N
             methods[METHOD_APPLY_COMPONENT_ORIENTATION_9].setDisplayName("");
-            methods[METHOD_ARE_FOCUS_TRAVERSAL_KEYS_SET_10] = new MethodDescriptor(java.awt.Container.class.getMethod("areFocusTraversalKeysSet", new Class[]{int.class})); // NOI18N
+            methods[METHOD_ARE_FOCUS_TRAVERSAL_KEYS_SET_10] = new MethodDescriptor(Container.class.getMethod("areFocusTraversalKeysSet", new Class[]{int.class})); // NOI18N
             methods[METHOD_ARE_FOCUS_TRAVERSAL_KEYS_SET_10].setDisplayName("");
-            methods[METHOD_BOUNDS_11] = new MethodDescriptor(java.awt.Component.class.getMethod("bounds", new Class[]{})); // NOI18N
+            methods[METHOD_BOUNDS_11] = new MethodDescriptor(Component.class.getMethod("bounds", new Class[]{})); // NOI18N
             methods[METHOD_BOUNDS_11].setDisplayName("");
-            methods[METHOD_CHECK_IMAGE_12] = new MethodDescriptor(java.awt.Component.class.getMethod("checkImage", new Class[]{java.awt.Image.class, java.awt.image.ImageObserver.class})); // NOI18N
+            methods[METHOD_CHECK_IMAGE_12] = new MethodDescriptor(Component.class.getMethod("checkImage", new Class[]{Image.class, ImageObserver.class})); // NOI18N
             methods[METHOD_CHECK_IMAGE_12].setDisplayName("");
-            methods[METHOD_CHECK_IMAGE_13] = new MethodDescriptor(java.awt.Component.class.getMethod("checkImage", new Class[]{java.awt.Image.class, int.class, int.class, java.awt.image.ImageObserver.class})); // NOI18N
+            methods[METHOD_CHECK_IMAGE_13] = new MethodDescriptor(Component.class.getMethod("checkImage", new Class[]{Image.class, int.class, int.class, ImageObserver.class})); // NOI18N
             methods[METHOD_CHECK_IMAGE_13].setDisplayName("");
-            methods[METHOD_COMPUTE_VISIBLE_RECT_14] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("computeVisibleRect", new Class[]{java.awt.Rectangle.class})); // NOI18N
+            methods[METHOD_COMPUTE_VISIBLE_RECT_14] = new MethodDescriptor(JComponent.class.getMethod("computeVisibleRect", new Class[]{Rectangle.class})); // NOI18N
             methods[METHOD_COMPUTE_VISIBLE_RECT_14].setDisplayName("");
-            methods[METHOD_CONTAINS_15] = new MethodDescriptor(java.awt.Component.class.getMethod("contains", new Class[]{java.awt.Point.class})); // NOI18N
+            methods[METHOD_CONTAINS_15] = new MethodDescriptor(Component.class.getMethod("contains", new Class[]{Point.class})); // NOI18N
             methods[METHOD_CONTAINS_15].setDisplayName("");
-            methods[METHOD_CONTAINS_16] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("contains", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_CONTAINS_16] = new MethodDescriptor(JComponent.class.getMethod("contains", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_CONTAINS_16].setDisplayName("");
-            methods[METHOD_COUNT_COMPONENTS_17] = new MethodDescriptor(java.awt.Container.class.getMethod("countComponents", new Class[]{})); // NOI18N
+            methods[METHOD_COUNT_COMPONENTS_17] = new MethodDescriptor(Container.class.getMethod("countComponents", new Class[]{})); // NOI18N
             methods[METHOD_COUNT_COMPONENTS_17].setDisplayName("");
-            methods[METHOD_CREATE_IMAGE_18] = new MethodDescriptor(java.awt.Component.class.getMethod("createImage", new Class[]{java.awt.image.ImageProducer.class})); // NOI18N
+            methods[METHOD_CREATE_IMAGE_18] = new MethodDescriptor(Component.class.getMethod("createImage", new Class[]{ImageProducer.class})); // NOI18N
             methods[METHOD_CREATE_IMAGE_18].setDisplayName("");
-            methods[METHOD_CREATE_IMAGE_19] = new MethodDescriptor(java.awt.Component.class.getMethod("createImage", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_CREATE_IMAGE_19] = new MethodDescriptor(Component.class.getMethod("createImage", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_CREATE_IMAGE_19].setDisplayName("");
-            methods[METHOD_CREATE_TOOL_TIP_20] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("createToolTip", new Class[]{})); // NOI18N
+            methods[METHOD_CREATE_TOOL_TIP_20] = new MethodDescriptor(JComponent.class.getMethod("createToolTip", new Class[]{})); // NOI18N
             methods[METHOD_CREATE_TOOL_TIP_20].setDisplayName("");
-            methods[METHOD_CREATE_VOLATILE_IMAGE_21] = new MethodDescriptor(java.awt.Component.class.getMethod("createVolatileImage", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_CREATE_VOLATILE_IMAGE_21] = new MethodDescriptor(Component.class.getMethod("createVolatileImage", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_CREATE_VOLATILE_IMAGE_21].setDisplayName("");
-            methods[METHOD_CREATE_VOLATILE_IMAGE_22] = new MethodDescriptor(java.awt.Component.class.getMethod("createVolatileImage", new Class[]{int.class, int.class, java.awt.ImageCapabilities.class})); // NOI18N
+            methods[METHOD_CREATE_VOLATILE_IMAGE_22] = new MethodDescriptor(Component.class.getMethod("createVolatileImage", new Class[]{int.class, int.class, ImageCapabilities.class})); // NOI18N
             methods[METHOD_CREATE_VOLATILE_IMAGE_22].setDisplayName("");
-            methods[METHOD_DELIVER_EVENT_23] = new MethodDescriptor(java.awt.Container.class.getMethod("deliverEvent", new Class[]{java.awt.Event.class})); // NOI18N
+            methods[METHOD_DELIVER_EVENT_23] = new MethodDescriptor(Container.class.getMethod("deliverEvent", new Class[]{Event.class})); // NOI18N
             methods[METHOD_DELIVER_EVENT_23].setDisplayName("");
-            methods[METHOD_DISABLE_24] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("disable", new Class[]{})); // NOI18N
+            methods[METHOD_DISABLE_24] = new MethodDescriptor(JComponent.class.getMethod("disable", new Class[]{})); // NOI18N
             methods[METHOD_DISABLE_24].setDisplayName("");
-            methods[METHOD_DISPATCH_EVENT_25] = new MethodDescriptor(java.awt.Component.class.getMethod("dispatchEvent", new Class[]{java.awt.AWTEvent.class})); // NOI18N
+            methods[METHOD_DISPATCH_EVENT_25] = new MethodDescriptor(Component.class.getMethod("dispatchEvent", new Class[]{AWTEvent.class})); // NOI18N
             methods[METHOD_DISPATCH_EVENT_25].setDisplayName("");
-            methods[METHOD_DO_CLICK_26] = new MethodDescriptor(javax.swing.AbstractButton.class.getMethod("doClick", new Class[]{})); // NOI18N
+            methods[METHOD_DO_CLICK_26] = new MethodDescriptor(AbstractButton.class.getMethod("doClick", new Class[]{})); // NOI18N
             methods[METHOD_DO_CLICK_26].setDisplayName("");
-            methods[METHOD_DO_CLICK_27] = new MethodDescriptor(javax.swing.AbstractButton.class.getMethod("doClick", new Class[]{int.class})); // NOI18N
+            methods[METHOD_DO_CLICK_27] = new MethodDescriptor(AbstractButton.class.getMethod("doClick", new Class[]{int.class})); // NOI18N
             methods[METHOD_DO_CLICK_27].setDisplayName("");
-            methods[METHOD_DO_LAYOUT_28] = new MethodDescriptor(java.awt.Container.class.getMethod("doLayout", new Class[]{})); // NOI18N
+            methods[METHOD_DO_LAYOUT_28] = new MethodDescriptor(Container.class.getMethod("doLayout", new Class[]{})); // NOI18N
             methods[METHOD_DO_LAYOUT_28].setDisplayName("");
-            methods[METHOD_ENABLE_29] = new MethodDescriptor(java.awt.Component.class.getMethod("enable", new Class[]{boolean.class})); // NOI18N
+            methods[METHOD_ENABLE_29] = new MethodDescriptor(Component.class.getMethod("enable", new Class[]{boolean.class})); // NOI18N
             methods[METHOD_ENABLE_29].setDisplayName("");
-            methods[METHOD_ENABLE_30] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("enable", new Class[]{})); // NOI18N
+            methods[METHOD_ENABLE_30] = new MethodDescriptor(JComponent.class.getMethod("enable", new Class[]{})); // NOI18N
             methods[METHOD_ENABLE_30].setDisplayName("");
-            methods[METHOD_ENABLE_INPUT_METHODS_31] = new MethodDescriptor(java.awt.Component.class.getMethod("enableInputMethods", new Class[]{boolean.class})); // NOI18N
+            methods[METHOD_ENABLE_INPUT_METHODS_31] = new MethodDescriptor(Component.class.getMethod("enableInputMethods", new Class[]{boolean.class})); // NOI18N
             methods[METHOD_ENABLE_INPUT_METHODS_31].setDisplayName("");
-            methods[METHOD_FIND_COMPONENT_AT_32] = new MethodDescriptor(java.awt.Container.class.getMethod("findComponentAt", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_FIND_COMPONENT_AT_32] = new MethodDescriptor(Container.class.getMethod("findComponentAt", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_FIND_COMPONENT_AT_32].setDisplayName("");
-            methods[METHOD_FIND_COMPONENT_AT_33] = new MethodDescriptor(java.awt.Container.class.getMethod("findComponentAt", new Class[]{java.awt.Point.class})); // NOI18N
+            methods[METHOD_FIND_COMPONENT_AT_33] = new MethodDescriptor(Container.class.getMethod("findComponentAt", new Class[]{Point.class})); // NOI18N
             methods[METHOD_FIND_COMPONENT_AT_33].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_34] = new MethodDescriptor(java.awt.Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, byte.class, byte.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_34] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, byte.class, byte.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_34].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_35] = new MethodDescriptor(java.awt.Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, short.class, short.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_35] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, short.class, short.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_35].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_36] = new MethodDescriptor(java.awt.Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, long.class, long.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_36] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, long.class, long.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_36].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_37] = new MethodDescriptor(java.awt.Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, float.class, float.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_37] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, float.class, float.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_37].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_38] = new MethodDescriptor(java.awt.Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, double.class, double.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_38] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, double.class, double.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_38].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_39] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, boolean.class, boolean.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_39] = new MethodDescriptor(JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, boolean.class, boolean.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_39].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_40] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, int.class, int.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_40] = new MethodDescriptor(JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, int.class, int.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_40].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_41] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, char.class, char.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_41] = new MethodDescriptor(JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, char.class, char.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_41].setDisplayName("");
-            methods[METHOD_GET_ACTION_FOR_KEY_STROKE_42] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getActionForKeyStroke", new Class[]{javax.swing.KeyStroke.class})); // NOI18N
+            methods[METHOD_GET_ACTION_FOR_KEY_STROKE_42] = new MethodDescriptor(JComponent.class.getMethod("getActionForKeyStroke", new Class[]{KeyStroke.class})); // NOI18N
             methods[METHOD_GET_ACTION_FOR_KEY_STROKE_42].setDisplayName("");
-            methods[METHOD_GET_BASELINE_43] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getBaseline", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_GET_BASELINE_43] = new MethodDescriptor(JComponent.class.getMethod("getBaseline", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_GET_BASELINE_43].setDisplayName("");
-            methods[METHOD_GET_BOUNDS_44] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getBounds", new Class[]{java.awt.Rectangle.class})); // NOI18N
+            methods[METHOD_GET_BOUNDS_44] = new MethodDescriptor(JComponent.class.getMethod("getBounds", new Class[]{Rectangle.class})); // NOI18N
             methods[METHOD_GET_BOUNDS_44].setDisplayName("");
-            methods[METHOD_GET_CLIENT_PROPERTY_45] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getClientProperty", new Class[]{java.lang.Object.class})); // NOI18N
+            methods[METHOD_GET_CLIENT_PROPERTY_45] = new MethodDescriptor(JComponent.class.getMethod("getClientProperty", new Class[]{java.lang.Object.class})); // NOI18N
             methods[METHOD_GET_CLIENT_PROPERTY_45].setDisplayName("");
-            methods[METHOD_GET_COMPONENT_AT_46] = new MethodDescriptor(java.awt.Container.class.getMethod("getComponentAt", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_GET_COMPONENT_AT_46] = new MethodDescriptor(Container.class.getMethod("getComponentAt", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_GET_COMPONENT_AT_46].setDisplayName("");
-            methods[METHOD_GET_COMPONENT_AT_47] = new MethodDescriptor(java.awt.Container.class.getMethod("getComponentAt", new Class[]{java.awt.Point.class})); // NOI18N
+            methods[METHOD_GET_COMPONENT_AT_47] = new MethodDescriptor(Container.class.getMethod("getComponentAt", new Class[]{Point.class})); // NOI18N
             methods[METHOD_GET_COMPONENT_AT_47].setDisplayName("");
-            methods[METHOD_GET_COMPONENT_Z_ORDER_48] = new MethodDescriptor(java.awt.Container.class.getMethod("getComponentZOrder", new Class[]{java.awt.Component.class})); // NOI18N
+            methods[METHOD_GET_COMPONENT_Z_ORDER_48] = new MethodDescriptor(Container.class.getMethod("getComponentZOrder", new Class[]{Component.class})); // NOI18N
             methods[METHOD_GET_COMPONENT_Z_ORDER_48].setDisplayName("");
-            methods[METHOD_GET_CONDITION_FOR_KEY_STROKE_49] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getConditionForKeyStroke", new Class[]{javax.swing.KeyStroke.class})); // NOI18N
+            methods[METHOD_GET_CONDITION_FOR_KEY_STROKE_49] = new MethodDescriptor(JComponent.class.getMethod("getConditionForKeyStroke", new Class[]{KeyStroke.class})); // NOI18N
             methods[METHOD_GET_CONDITION_FOR_KEY_STROKE_49].setDisplayName("");
-            methods[METHOD_GET_DEFAULT_LOCALE_50] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getDefaultLocale", new Class[]{})); // NOI18N
+            methods[METHOD_GET_DEFAULT_LOCALE_50] = new MethodDescriptor(JComponent.class.getMethod("getDefaultLocale", new Class[]{})); // NOI18N
             methods[METHOD_GET_DEFAULT_LOCALE_50].setDisplayName("");
-            methods[METHOD_GET_FOCUS_TRAVERSAL_KEYS_51] = new MethodDescriptor(java.awt.Container.class.getMethod("getFocusTraversalKeys", new Class[]{int.class})); // NOI18N
+            methods[METHOD_GET_FOCUS_TRAVERSAL_KEYS_51] = new MethodDescriptor(Container.class.getMethod("getFocusTraversalKeys", new Class[]{int.class})); // NOI18N
             methods[METHOD_GET_FOCUS_TRAVERSAL_KEYS_51].setDisplayName("");
-            methods[METHOD_GET_FONT_METRICS_52] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getFontMetrics", new Class[]{java.awt.Font.class})); // NOI18N
+            methods[METHOD_GET_FONT_METRICS_52] = new MethodDescriptor(JComponent.class.getMethod("getFontMetrics", new Class[]{Font.class})); // NOI18N
             methods[METHOD_GET_FONT_METRICS_52].setDisplayName("");
-            methods[METHOD_GET_INSETS_53] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getInsets", new Class[]{java.awt.Insets.class})); // NOI18N
+            methods[METHOD_GET_INSETS_53] = new MethodDescriptor(JComponent.class.getMethod("getInsets", new Class[]{Insets.class})); // NOI18N
             methods[METHOD_GET_INSETS_53].setDisplayName("");
-            methods[METHOD_GET_LISTENERS_54] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getListeners", new Class[]{java.lang.Class.class})); // NOI18N
+            methods[METHOD_GET_LISTENERS_54] = new MethodDescriptor(JComponent.class.getMethod("getListeners", new Class[]{java.lang.Class.class})); // NOI18N
             methods[METHOD_GET_LISTENERS_54].setDisplayName("");
-            methods[METHOD_GET_LOCATION_55] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getLocation", new Class[]{java.awt.Point.class})); // NOI18N
+            methods[METHOD_GET_LOCATION_55] = new MethodDescriptor(JComponent.class.getMethod("getLocation", new Class[]{Point.class})); // NOI18N
             methods[METHOD_GET_LOCATION_55].setDisplayName("");
-            methods[METHOD_GET_MNEMONIC_56] = new MethodDescriptor(javax.swing.AbstractButton.class.getMethod("getMnemonic", new Class[]{})); // NOI18N
+            methods[METHOD_GET_MNEMONIC_56] = new MethodDescriptor(AbstractButton.class.getMethod("getMnemonic", new Class[]{})); // NOI18N
             methods[METHOD_GET_MNEMONIC_56].setDisplayName("");
-            methods[METHOD_GET_MOUSE_POSITION_57] = new MethodDescriptor(java.awt.Container.class.getMethod("getMousePosition", new Class[]{boolean.class})); // NOI18N
+            methods[METHOD_GET_MOUSE_POSITION_57] = new MethodDescriptor(Container.class.getMethod("getMousePosition", new Class[]{boolean.class})); // NOI18N
             methods[METHOD_GET_MOUSE_POSITION_57].setDisplayName("");
-            methods[METHOD_GET_POPUP_LOCATION_58] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getPopupLocation", new Class[]{java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_GET_POPUP_LOCATION_58] = new MethodDescriptor(JComponent.class.getMethod("getPopupLocation", new Class[]{MouseEvent.class})); // NOI18N
             methods[METHOD_GET_POPUP_LOCATION_58].setDisplayName("");
-            methods[METHOD_GET_PROPERTY_CHANGE_LISTENERS_59] = new MethodDescriptor(java.awt.Component.class.getMethod("getPropertyChangeListeners", new Class[]{java.lang.String.class})); // NOI18N
+            methods[METHOD_GET_PROPERTY_CHANGE_LISTENERS_59] = new MethodDescriptor(Component.class.getMethod("getPropertyChangeListeners", new Class[]{java.lang.String.class})); // NOI18N
             methods[METHOD_GET_PROPERTY_CHANGE_LISTENERS_59].setDisplayName("");
-            methods[METHOD_GET_SIZE_60] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getSize", new Class[]{java.awt.Dimension.class})); // NOI18N
+            methods[METHOD_GET_SIZE_60] = new MethodDescriptor(JComponent.class.getMethod("getSize", new Class[]{Dimension.class})); // NOI18N
             methods[METHOD_GET_SIZE_60].setDisplayName("");
-            methods[METHOD_GET_TOOL_TIP_LOCATION_61] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getToolTipLocation", new Class[]{java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_GET_TOOL_TIP_LOCATION_61] = new MethodDescriptor(JComponent.class.getMethod("getToolTipLocation", new Class[]{MouseEvent.class})); // NOI18N
             methods[METHOD_GET_TOOL_TIP_LOCATION_61].setDisplayName("");
-            methods[METHOD_GET_TOOL_TIP_TEXT_62] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getToolTipText", new Class[]{java.awt.event.MouseEvent.class})); // NOI18N
+            methods[METHOD_GET_TOOL_TIP_TEXT_62] = new MethodDescriptor(JComponent.class.getMethod("getToolTipText", new Class[]{MouseEvent.class})); // NOI18N
             methods[METHOD_GET_TOOL_TIP_TEXT_62].setDisplayName("");
-            methods[METHOD_GOT_FOCUS_63] = new MethodDescriptor(java.awt.Component.class.getMethod("gotFocus", new Class[]{java.awt.Event.class, java.lang.Object.class})); // NOI18N
+            methods[METHOD_GOT_FOCUS_63] = new MethodDescriptor(Component.class.getMethod("gotFocus", new Class[]{Event.class, java.lang.Object.class})); // NOI18N
             methods[METHOD_GOT_FOCUS_63].setDisplayName("");
-            methods[METHOD_GRAB_FOCUS_64] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("grabFocus", new Class[]{})); // NOI18N
+            methods[METHOD_GRAB_FOCUS_64] = new MethodDescriptor(JComponent.class.getMethod("grabFocus", new Class[]{})); // NOI18N
             methods[METHOD_GRAB_FOCUS_64].setDisplayName("");
-            methods[METHOD_HANDLE_EVENT_65] = new MethodDescriptor(java.awt.Component.class.getMethod("handleEvent", new Class[]{java.awt.Event.class})); // NOI18N
+            methods[METHOD_HANDLE_EVENT_65] = new MethodDescriptor(Component.class.getMethod("handleEvent", new Class[]{Event.class})); // NOI18N
             methods[METHOD_HANDLE_EVENT_65].setDisplayName("");
-            methods[METHOD_HAS_FOCUS_66] = new MethodDescriptor(java.awt.Component.class.getMethod("hasFocus", new Class[]{})); // NOI18N
+            methods[METHOD_HAS_FOCUS_66] = new MethodDescriptor(Component.class.getMethod("hasFocus", new Class[]{})); // NOI18N
             methods[METHOD_HAS_FOCUS_66].setDisplayName("");
-            methods[METHOD_HIDE_67] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("hide", new Class[]{})); // NOI18N
+            methods[METHOD_HIDE_67] = new MethodDescriptor(JComponent.class.getMethod("hide", new Class[]{})); // NOI18N
             methods[METHOD_HIDE_67].setDisplayName("");
-            methods[METHOD_IMAGE_UPDATE_68] = new MethodDescriptor(javax.swing.AbstractButton.class.getMethod("imageUpdate", new Class[]{java.awt.Image.class, int.class, int.class, int.class, int.class, int.class})); // NOI18N
+            methods[METHOD_IMAGE_UPDATE_68] = new MethodDescriptor(AbstractButton.class.getMethod("imageUpdate", new Class[]{Image.class, int.class, int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_IMAGE_UPDATE_68].setDisplayName("");
-            methods[METHOD_INSETS_69] = new MethodDescriptor(java.awt.Container.class.getMethod("insets", new Class[]{})); // NOI18N
+            methods[METHOD_INSETS_69] = new MethodDescriptor(Container.class.getMethod("insets", new Class[]{})); // NOI18N
             methods[METHOD_INSETS_69].setDisplayName("");
-            methods[METHOD_INSIDE_70] = new MethodDescriptor(java.awt.Component.class.getMethod("inside", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_INSIDE_70] = new MethodDescriptor(Component.class.getMethod("inside", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_INSIDE_70].setDisplayName("");
-            methods[METHOD_INVALIDATE_71] = new MethodDescriptor(java.awt.Container.class.getMethod("invalidate", new Class[]{})); // NOI18N
+            methods[METHOD_INVALIDATE_71] = new MethodDescriptor(Container.class.getMethod("invalidate", new Class[]{})); // NOI18N
             methods[METHOD_INVALIDATE_71].setDisplayName("");
-            methods[METHOD_IS_ANCESTOR_OF_72] = new MethodDescriptor(java.awt.Container.class.getMethod("isAncestorOf", new Class[]{java.awt.Component.class})); // NOI18N
+            methods[METHOD_IS_ANCESTOR_OF_72] = new MethodDescriptor(Container.class.getMethod("isAncestorOf", new Class[]{Component.class})); // NOI18N
             methods[METHOD_IS_ANCESTOR_OF_72].setDisplayName("");
-            methods[METHOD_IS_FOCUS_CYCLE_ROOT_73] = new MethodDescriptor(java.awt.Container.class.getMethod("isFocusCycleRoot", new Class[]{java.awt.Container.class})); // NOI18N
+            methods[METHOD_IS_FOCUS_CYCLE_ROOT_73] = new MethodDescriptor(Container.class.getMethod("isFocusCycleRoot", new Class[]{Container.class})); // NOI18N
             methods[METHOD_IS_FOCUS_CYCLE_ROOT_73].setDisplayName("");
-            methods[METHOD_IS_LIGHTWEIGHT_COMPONENT_74] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("isLightweightComponent", new Class[]{java.awt.Component.class})); // NOI18N
+            methods[METHOD_IS_LIGHTWEIGHT_COMPONENT_74] = new MethodDescriptor(JComponent.class.getMethod("isLightweightComponent", new Class[]{Component.class})); // NOI18N
             methods[METHOD_IS_LIGHTWEIGHT_COMPONENT_74].setDisplayName("");
-            methods[METHOD_KEY_DOWN_75] = new MethodDescriptor(java.awt.Component.class.getMethod("keyDown", new Class[]{java.awt.Event.class, int.class})); // NOI18N
+            methods[METHOD_KEY_DOWN_75] = new MethodDescriptor(Component.class.getMethod("keyDown", new Class[]{Event.class, int.class})); // NOI18N
             methods[METHOD_KEY_DOWN_75].setDisplayName("");
-            methods[METHOD_KEY_UP_76] = new MethodDescriptor(java.awt.Component.class.getMethod("keyUp", new Class[]{java.awt.Event.class, int.class})); // NOI18N
+            methods[METHOD_KEY_UP_76] = new MethodDescriptor(Component.class.getMethod("keyUp", new Class[]{Event.class, int.class})); // NOI18N
             methods[METHOD_KEY_UP_76].setDisplayName("");
-            methods[METHOD_LAYOUT_77] = new MethodDescriptor(java.awt.Container.class.getMethod("layout", new Class[]{})); // NOI18N
+            methods[METHOD_LAYOUT_77] = new MethodDescriptor(Container.class.getMethod("layout", new Class[]{})); // NOI18N
             methods[METHOD_LAYOUT_77].setDisplayName("");
-            methods[METHOD_LIST_78] = new MethodDescriptor(java.awt.Component.class.getMethod("list", new Class[]{})); // NOI18N
+            methods[METHOD_LIST_78] = new MethodDescriptor(Component.class.getMethod("list", new Class[]{})); // NOI18N
             methods[METHOD_LIST_78].setDisplayName("");
-            methods[METHOD_LIST_79] = new MethodDescriptor(java.awt.Component.class.getMethod("list", new Class[]{java.io.PrintStream.class})); // NOI18N
+            methods[METHOD_LIST_79] = new MethodDescriptor(Component.class.getMethod("list", new Class[]{java.io.PrintStream.class})); // NOI18N
             methods[METHOD_LIST_79].setDisplayName("");
-            methods[METHOD_LIST_80] = new MethodDescriptor(java.awt.Component.class.getMethod("list", new Class[]{java.io.PrintWriter.class})); // NOI18N
+            methods[METHOD_LIST_80] = new MethodDescriptor(Component.class.getMethod("list", new Class[]{java.io.PrintWriter.class})); // NOI18N
             methods[METHOD_LIST_80].setDisplayName("");
-            methods[METHOD_LIST_81] = new MethodDescriptor(java.awt.Container.class.getMethod("list", new Class[]{java.io.PrintStream.class, int.class})); // NOI18N
+            methods[METHOD_LIST_81] = new MethodDescriptor(Container.class.getMethod("list", new Class[]{java.io.PrintStream.class, int.class})); // NOI18N
             methods[METHOD_LIST_81].setDisplayName("");
-            methods[METHOD_LIST_82] = new MethodDescriptor(java.awt.Container.class.getMethod("list", new Class[]{java.io.PrintWriter.class, int.class})); // NOI18N
+            methods[METHOD_LIST_82] = new MethodDescriptor(Container.class.getMethod("list", new Class[]{java.io.PrintWriter.class, int.class})); // NOI18N
             methods[METHOD_LIST_82].setDisplayName("");
-            methods[METHOD_LOCATE_83] = new MethodDescriptor(java.awt.Container.class.getMethod("locate", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_LOCATE_83] = new MethodDescriptor(Container.class.getMethod("locate", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_LOCATE_83].setDisplayName("");
-            methods[METHOD_LOCATION_84] = new MethodDescriptor(java.awt.Component.class.getMethod("location", new Class[]{})); // NOI18N
+            methods[METHOD_LOCATION_84] = new MethodDescriptor(Component.class.getMethod("location", new Class[]{})); // NOI18N
             methods[METHOD_LOCATION_84].setDisplayName("");
-            methods[METHOD_LOST_FOCUS_85] = new MethodDescriptor(java.awt.Component.class.getMethod("lostFocus", new Class[]{java.awt.Event.class, java.lang.Object.class})); // NOI18N
+            methods[METHOD_LOST_FOCUS_85] = new MethodDescriptor(Component.class.getMethod("lostFocus", new Class[]{Event.class, java.lang.Object.class})); // NOI18N
             methods[METHOD_LOST_FOCUS_85].setDisplayName("");
-            methods[METHOD_MINIMUM_SIZE_86] = new MethodDescriptor(java.awt.Container.class.getMethod("minimumSize", new Class[]{})); // NOI18N
+            methods[METHOD_MINIMUM_SIZE_86] = new MethodDescriptor(Container.class.getMethod("minimumSize", new Class[]{})); // NOI18N
             methods[METHOD_MINIMUM_SIZE_86].setDisplayName("");
-            methods[METHOD_MOUSE_DOWN_87] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseDown", new Class[]{java.awt.Event.class, int.class, int.class})); // NOI18N
+            methods[METHOD_MOUSE_DOWN_87] = new MethodDescriptor(Component.class.getMethod("mouseDown", new Class[]{Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_MOUSE_DOWN_87].setDisplayName("");
-            methods[METHOD_MOUSE_DRAG_88] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseDrag", new Class[]{java.awt.Event.class, int.class, int.class})); // NOI18N
+            methods[METHOD_MOUSE_DRAG_88] = new MethodDescriptor(Component.class.getMethod("mouseDrag", new Class[]{Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_MOUSE_DRAG_88].setDisplayName("");
-            methods[METHOD_MOUSE_ENTER_89] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseEnter", new Class[]{java.awt.Event.class, int.class, int.class})); // NOI18N
+            methods[METHOD_MOUSE_ENTER_89] = new MethodDescriptor(Component.class.getMethod("mouseEnter", new Class[]{Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_MOUSE_ENTER_89].setDisplayName("");
-            methods[METHOD_MOUSE_EXIT_90] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseExit", new Class[]{java.awt.Event.class, int.class, int.class})); // NOI18N
+            methods[METHOD_MOUSE_EXIT_90] = new MethodDescriptor(Component.class.getMethod("mouseExit", new Class[]{Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_MOUSE_EXIT_90].setDisplayName("");
-            methods[METHOD_MOUSE_MOVE_91] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseMove", new Class[]{java.awt.Event.class, int.class, int.class})); // NOI18N
+            methods[METHOD_MOUSE_MOVE_91] = new MethodDescriptor(Component.class.getMethod("mouseMove", new Class[]{Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_MOUSE_MOVE_91].setDisplayName("");
-            methods[METHOD_MOUSE_UP_92] = new MethodDescriptor(java.awt.Component.class.getMethod("mouseUp", new Class[]{java.awt.Event.class, int.class, int.class})); // NOI18N
+            methods[METHOD_MOUSE_UP_92] = new MethodDescriptor(Component.class.getMethod("mouseUp", new Class[]{Event.class, int.class, int.class})); // NOI18N
             methods[METHOD_MOUSE_UP_92].setDisplayName("");
-            methods[METHOD_MOVE_93] = new MethodDescriptor(java.awt.Component.class.getMethod("move", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_MOVE_93] = new MethodDescriptor(Component.class.getMethod("move", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_MOVE_93].setDisplayName("");
-            methods[METHOD_NEXT_FOCUS_94] = new MethodDescriptor(java.awt.Component.class.getMethod("nextFocus", new Class[]{})); // NOI18N
+            methods[METHOD_NEXT_FOCUS_94] = new MethodDescriptor(Component.class.getMethod("nextFocus", new Class[]{})); // NOI18N
             methods[METHOD_NEXT_FOCUS_94].setDisplayName("");
-            methods[METHOD_PAINT_95] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("paint", new Class[]{java.awt.Graphics.class})); // NOI18N
+            methods[METHOD_PAINT_95] = new MethodDescriptor(JComponent.class.getMethod("paint", new Class[]{Graphics.class})); // NOI18N
             methods[METHOD_PAINT_95].setDisplayName("");
-            methods[METHOD_PAINT_ALL_96] = new MethodDescriptor(java.awt.Component.class.getMethod("paintAll", new Class[]{java.awt.Graphics.class})); // NOI18N
+            methods[METHOD_PAINT_ALL_96] = new MethodDescriptor(Component.class.getMethod("paintAll", new Class[]{Graphics.class})); // NOI18N
             methods[METHOD_PAINT_ALL_96].setDisplayName("");
-            methods[METHOD_PAINT_COMPONENTS_97] = new MethodDescriptor(java.awt.Container.class.getMethod("paintComponents", new Class[]{java.awt.Graphics.class})); // NOI18N
+            methods[METHOD_PAINT_COMPONENTS_97] = new MethodDescriptor(Container.class.getMethod("paintComponents", new Class[]{Graphics.class})); // NOI18N
             methods[METHOD_PAINT_COMPONENTS_97].setDisplayName("");
-            methods[METHOD_PAINT_IMMEDIATELY_98] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("paintImmediately", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
+            methods[METHOD_PAINT_IMMEDIATELY_98] = new MethodDescriptor(JComponent.class.getMethod("paintImmediately", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_PAINT_IMMEDIATELY_98].setDisplayName("");
-            methods[METHOD_PAINT_IMMEDIATELY_99] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("paintImmediately", new Class[]{java.awt.Rectangle.class})); // NOI18N
+            methods[METHOD_PAINT_IMMEDIATELY_99] = new MethodDescriptor(JComponent.class.getMethod("paintImmediately", new Class[]{Rectangle.class})); // NOI18N
             methods[METHOD_PAINT_IMMEDIATELY_99].setDisplayName("");
-            methods[METHOD_POST_EVENT_100] = new MethodDescriptor(java.awt.Component.class.getMethod("postEvent", new Class[]{java.awt.Event.class})); // NOI18N
+            methods[METHOD_POST_EVENT_100] = new MethodDescriptor(Component.class.getMethod("postEvent", new Class[]{Event.class})); // NOI18N
             methods[METHOD_POST_EVENT_100].setDisplayName("");
-            methods[METHOD_PREFERRED_SIZE_101] = new MethodDescriptor(java.awt.Container.class.getMethod("preferredSize", new Class[]{})); // NOI18N
+            methods[METHOD_PREFERRED_SIZE_101] = new MethodDescriptor(Container.class.getMethod("preferredSize", new Class[]{})); // NOI18N
             methods[METHOD_PREFERRED_SIZE_101].setDisplayName("");
-            methods[METHOD_PREPARE_IMAGE_102] = new MethodDescriptor(java.awt.Component.class.getMethod("prepareImage", new Class[]{java.awt.Image.class, java.awt.image.ImageObserver.class})); // NOI18N
+            methods[METHOD_PREPARE_IMAGE_102] = new MethodDescriptor(Component.class.getMethod("prepareImage", new Class[]{Image.class, ImageObserver.class})); // NOI18N
             methods[METHOD_PREPARE_IMAGE_102].setDisplayName("");
-            methods[METHOD_PREPARE_IMAGE_103] = new MethodDescriptor(java.awt.Component.class.getMethod("prepareImage", new Class[]{java.awt.Image.class, int.class, int.class, java.awt.image.ImageObserver.class})); // NOI18N
+            methods[METHOD_PREPARE_IMAGE_103] = new MethodDescriptor(Component.class.getMethod("prepareImage", new Class[]{Image.class, int.class, int.class, ImageObserver.class})); // NOI18N
             methods[METHOD_PREPARE_IMAGE_103].setDisplayName("");
-            methods[METHOD_PRINT_104] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("print", new Class[]{java.awt.Graphics.class})); // NOI18N
+            methods[METHOD_PRINT_104] = new MethodDescriptor(JComponent.class.getMethod("print", new Class[]{Graphics.class})); // NOI18N
             methods[METHOD_PRINT_104].setDisplayName("");
-            methods[METHOD_PRINT_ALL_105] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("printAll", new Class[]{java.awt.Graphics.class})); // NOI18N
+            methods[METHOD_PRINT_ALL_105] = new MethodDescriptor(JComponent.class.getMethod("printAll", new Class[]{Graphics.class})); // NOI18N
             methods[METHOD_PRINT_ALL_105].setDisplayName("");
-            methods[METHOD_PRINT_COMPONENTS_106] = new MethodDescriptor(java.awt.Container.class.getMethod("printComponents", new Class[]{java.awt.Graphics.class})); // NOI18N
+            methods[METHOD_PRINT_COMPONENTS_106] = new MethodDescriptor(Container.class.getMethod("printComponents", new Class[]{Graphics.class})); // NOI18N
             methods[METHOD_PRINT_COMPONENTS_106].setDisplayName("");
-            methods[METHOD_PUT_CLIENT_PROPERTY_107] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("putClientProperty", new Class[]{java.lang.Object.class, java.lang.Object.class})); // NOI18N
+            methods[METHOD_PUT_CLIENT_PROPERTY_107] = new MethodDescriptor(JComponent.class.getMethod("putClientProperty", new Class[]{java.lang.Object.class, java.lang.Object.class})); // NOI18N
             methods[METHOD_PUT_CLIENT_PROPERTY_107].setDisplayName("");
-            methods[METHOD_REGISTER_KEYBOARD_ACTION_108] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("registerKeyboardAction", new Class[]{java.awt.event.ActionListener.class, java.lang.String.class, javax.swing.KeyStroke.class, int.class})); // NOI18N
+            methods[METHOD_REGISTER_KEYBOARD_ACTION_108] = new MethodDescriptor(JComponent.class.getMethod("registerKeyboardAction", new Class[]{ActionListener.class, java.lang.String.class, KeyStroke.class, int.class})); // NOI18N
             methods[METHOD_REGISTER_KEYBOARD_ACTION_108].setDisplayName("");
-            methods[METHOD_REGISTER_KEYBOARD_ACTION_109] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("registerKeyboardAction", new Class[]{java.awt.event.ActionListener.class, javax.swing.KeyStroke.class, int.class})); // NOI18N
+            methods[METHOD_REGISTER_KEYBOARD_ACTION_109] = new MethodDescriptor(JComponent.class.getMethod("registerKeyboardAction", new Class[]{ActionListener.class, KeyStroke.class, int.class})); // NOI18N
             methods[METHOD_REGISTER_KEYBOARD_ACTION_109].setDisplayName("");
-            methods[METHOD_REMOVE_110] = new MethodDescriptor(java.awt.Component.class.getMethod("remove", new Class[]{java.awt.MenuComponent.class})); // NOI18N
+            methods[METHOD_REMOVE_110] = new MethodDescriptor(Component.class.getMethod("remove", new Class[]{MenuComponent.class})); // NOI18N
             methods[METHOD_REMOVE_110].setDisplayName("");
-            methods[METHOD_REMOVE_111] = new MethodDescriptor(java.awt.Container.class.getMethod("remove", new Class[]{int.class})); // NOI18N
+            methods[METHOD_REMOVE_111] = new MethodDescriptor(Container.class.getMethod("remove", new Class[]{int.class})); // NOI18N
             methods[METHOD_REMOVE_111].setDisplayName("");
-            methods[METHOD_REMOVE_112] = new MethodDescriptor(java.awt.Container.class.getMethod("remove", new Class[]{java.awt.Component.class})); // NOI18N
+            methods[METHOD_REMOVE_112] = new MethodDescriptor(Container.class.getMethod("remove", new Class[]{Component.class})); // NOI18N
             methods[METHOD_REMOVE_112].setDisplayName("");
-            methods[METHOD_REMOVE_ALL_113] = new MethodDescriptor(java.awt.Container.class.getMethod("removeAll", new Class[]{})); // NOI18N
+            methods[METHOD_REMOVE_ALL_113] = new MethodDescriptor(Container.class.getMethod("removeAll", new Class[]{})); // NOI18N
             methods[METHOD_REMOVE_ALL_113].setDisplayName("");
-            methods[METHOD_REMOVE_NOTIFY_114] = new MethodDescriptor(javax.swing.JButton.class.getMethod("removeNotify", new Class[]{})); // NOI18N
+            methods[METHOD_REMOVE_NOTIFY_114] = new MethodDescriptor(JButton.class.getMethod("removeNotify", new Class[]{})); // NOI18N
             methods[METHOD_REMOVE_NOTIFY_114].setDisplayName("");
-            methods[METHOD_REMOVE_PROPERTY_CHANGE_LISTENER_115] = new MethodDescriptor(java.awt.Component.class.getMethod("removePropertyChangeListener", new Class[]{java.lang.String.class, java.beans.PropertyChangeListener.class})); // NOI18N
+            methods[METHOD_REMOVE_PROPERTY_CHANGE_LISTENER_115] = new MethodDescriptor(Component.class.getMethod("removePropertyChangeListener", new Class[]{java.lang.String.class, java.beans.PropertyChangeListener.class})); // NOI18N
             methods[METHOD_REMOVE_PROPERTY_CHANGE_LISTENER_115].setDisplayName("");
-            methods[METHOD_REPAINT_116] = new MethodDescriptor(java.awt.Component.class.getMethod("repaint", new Class[]{})); // NOI18N
+            methods[METHOD_REPAINT_116] = new MethodDescriptor(Component.class.getMethod("repaint", new Class[]{})); // NOI18N
             methods[METHOD_REPAINT_116].setDisplayName("");
-            methods[METHOD_REPAINT_117] = new MethodDescriptor(java.awt.Component.class.getMethod("repaint", new Class[]{long.class})); // NOI18N
+            methods[METHOD_REPAINT_117] = new MethodDescriptor(Component.class.getMethod("repaint", new Class[]{long.class})); // NOI18N
             methods[METHOD_REPAINT_117].setDisplayName("");
-            methods[METHOD_REPAINT_118] = new MethodDescriptor(java.awt.Component.class.getMethod("repaint", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
+            methods[METHOD_REPAINT_118] = new MethodDescriptor(Component.class.getMethod("repaint", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_REPAINT_118].setDisplayName("");
-            methods[METHOD_REPAINT_119] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("repaint", new Class[]{long.class, int.class, int.class, int.class, int.class})); // NOI18N
+            methods[METHOD_REPAINT_119] = new MethodDescriptor(JComponent.class.getMethod("repaint", new Class[]{long.class, int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_REPAINT_119].setDisplayName("");
-            methods[METHOD_REPAINT_120] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("repaint", new Class[]{java.awt.Rectangle.class})); // NOI18N
+            methods[METHOD_REPAINT_120] = new MethodDescriptor(JComponent.class.getMethod("repaint", new Class[]{Rectangle.class})); // NOI18N
             methods[METHOD_REPAINT_120].setDisplayName("");
-            methods[METHOD_REQUEST_DEFAULT_FOCUS_121] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("requestDefaultFocus", new Class[]{})); // NOI18N
+            methods[METHOD_REQUEST_DEFAULT_FOCUS_121] = new MethodDescriptor(JComponent.class.getMethod("requestDefaultFocus", new Class[]{})); // NOI18N
             methods[METHOD_REQUEST_DEFAULT_FOCUS_121].setDisplayName("");
-            methods[METHOD_REQUEST_FOCUS_122] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("requestFocus", new Class[]{})); // NOI18N
+            methods[METHOD_REQUEST_FOCUS_122] = new MethodDescriptor(JComponent.class.getMethod("requestFocus", new Class[]{})); // NOI18N
             methods[METHOD_REQUEST_FOCUS_122].setDisplayName("");
-            methods[METHOD_REQUEST_FOCUS_123] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("requestFocus", new Class[]{boolean.class})); // NOI18N
+            methods[METHOD_REQUEST_FOCUS_123] = new MethodDescriptor(JComponent.class.getMethod("requestFocus", new Class[]{boolean.class})); // NOI18N
             methods[METHOD_REQUEST_FOCUS_123].setDisplayName("");
-            methods[METHOD_REQUEST_FOCUS_IN_WINDOW_124] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("requestFocusInWindow", new Class[]{})); // NOI18N
+            methods[METHOD_REQUEST_FOCUS_IN_WINDOW_124] = new MethodDescriptor(JComponent.class.getMethod("requestFocusInWindow", new Class[]{})); // NOI18N
             methods[METHOD_REQUEST_FOCUS_IN_WINDOW_124].setDisplayName("");
-            methods[METHOD_RESET_KEYBOARD_ACTIONS_125] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("resetKeyboardActions", new Class[]{})); // NOI18N
+            methods[METHOD_RESET_KEYBOARD_ACTIONS_125] = new MethodDescriptor(JComponent.class.getMethod("resetKeyboardActions", new Class[]{})); // NOI18N
             methods[METHOD_RESET_KEYBOARD_ACTIONS_125].setDisplayName("");
-            methods[METHOD_RESHAPE_126] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("reshape", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
+            methods[METHOD_RESHAPE_126] = new MethodDescriptor(JComponent.class.getMethod("reshape", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_RESHAPE_126].setDisplayName("");
-            methods[METHOD_RESIZE_127] = new MethodDescriptor(java.awt.Component.class.getMethod("resize", new Class[]{int.class, int.class})); // NOI18N
+            methods[METHOD_RESIZE_127] = new MethodDescriptor(Component.class.getMethod("resize", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_RESIZE_127].setDisplayName("");
-            methods[METHOD_RESIZE_128] = new MethodDescriptor(java.awt.Component.class.getMethod("resize", new Class[]{java.awt.Dimension.class})); // NOI18N
+            methods[METHOD_RESIZE_128] = new MethodDescriptor(Component.class.getMethod("resize", new Class[]{Dimension.class})); // NOI18N
             methods[METHOD_RESIZE_128].setDisplayName("");
-            methods[METHOD_REVALIDATE_129] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("revalidate", new Class[]{})); // NOI18N
+            methods[METHOD_REVALIDATE_129] = new MethodDescriptor(JComponent.class.getMethod("revalidate", new Class[]{})); // NOI18N
             methods[METHOD_REVALIDATE_129].setDisplayName("");
-            methods[METHOD_SCROLL_RECT_TO_VISIBLE_130] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("scrollRectToVisible", new Class[]{java.awt.Rectangle.class})); // NOI18N
+            methods[METHOD_SCROLL_RECT_TO_VISIBLE_130] = new MethodDescriptor(JComponent.class.getMethod("scrollRectToVisible", new Class[]{Rectangle.class})); // NOI18N
             methods[METHOD_SCROLL_RECT_TO_VISIBLE_130].setDisplayName("");
-            methods[METHOD_SET_BOUNDS_131] = new MethodDescriptor(java.awt.Component.class.getMethod("setBounds", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
+            methods[METHOD_SET_BOUNDS_131] = new MethodDescriptor(Component.class.getMethod("setBounds", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_SET_BOUNDS_131].setDisplayName("");
-            methods[METHOD_SET_COMPONENT_Z_ORDER_132] = new MethodDescriptor(java.awt.Container.class.getMethod("setComponentZOrder", new Class[]{java.awt.Component.class, int.class})); // NOI18N
+            methods[METHOD_SET_COMPONENT_Z_ORDER_132] = new MethodDescriptor(Container.class.getMethod("setComponentZOrder", new Class[]{Component.class, int.class})); // NOI18N
             methods[METHOD_SET_COMPONENT_Z_ORDER_132].setDisplayName("");
-            methods[METHOD_SET_DEFAULT_LOCALE_133] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("setDefaultLocale", new Class[]{java.util.Locale.class})); // NOI18N
+            methods[METHOD_SET_DEFAULT_LOCALE_133] = new MethodDescriptor(JComponent.class.getMethod("setDefaultLocale", new Class[]{java.util.Locale.class})); // NOI18N
             methods[METHOD_SET_DEFAULT_LOCALE_133].setDisplayName("");
-            methods[METHOD_SET_MNEMONIC_134] = new MethodDescriptor(javax.swing.AbstractButton.class.getMethod("setMnemonic", new Class[]{int.class})); // NOI18N
+            methods[METHOD_SET_MNEMONIC_134] = new MethodDescriptor(AbstractButton.class.getMethod("setMnemonic", new Class[]{int.class})); // NOI18N
             methods[METHOD_SET_MNEMONIC_134].setDisplayName("");
-            methods[METHOD_SHOW_135] = new MethodDescriptor(java.awt.Component.class.getMethod("show", new Class[]{})); // NOI18N
+            methods[METHOD_SHOW_135] = new MethodDescriptor(Component.class.getMethod("show", new Class[]{})); // NOI18N
             methods[METHOD_SHOW_135].setDisplayName("");
-            methods[METHOD_SHOW_136] = new MethodDescriptor(java.awt.Component.class.getMethod("show", new Class[]{boolean.class})); // NOI18N
+            methods[METHOD_SHOW_136] = new MethodDescriptor(Component.class.getMethod("show", new Class[]{boolean.class})); // NOI18N
             methods[METHOD_SHOW_136].setDisplayName("");
-            methods[METHOD_SIZE_137] = new MethodDescriptor(java.awt.Component.class.getMethod("size", new Class[]{})); // NOI18N
+            methods[METHOD_SIZE_137] = new MethodDescriptor(Component.class.getMethod("size", new Class[]{})); // NOI18N
             methods[METHOD_SIZE_137].setDisplayName("");
-            methods[METHOD_TO_STRING_138] = new MethodDescriptor(java.awt.Component.class.getMethod("toString", new Class[]{})); // NOI18N
+            methods[METHOD_TO_STRING_138] = new MethodDescriptor(Component.class.getMethod("toString", new Class[]{})); // NOI18N
             methods[METHOD_TO_STRING_138].setDisplayName("");
-            methods[METHOD_TRANSFER_FOCUS_139] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocus", new Class[]{})); // NOI18N
+            methods[METHOD_TRANSFER_FOCUS_139] = new MethodDescriptor(Component.class.getMethod("transferFocus", new Class[]{})); // NOI18N
             methods[METHOD_TRANSFER_FOCUS_139].setDisplayName("");
-            methods[METHOD_TRANSFER_FOCUS_BACKWARD_140] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocusBackward", new Class[]{})); // NOI18N
+            methods[METHOD_TRANSFER_FOCUS_BACKWARD_140] = new MethodDescriptor(Component.class.getMethod("transferFocusBackward", new Class[]{})); // NOI18N
             methods[METHOD_TRANSFER_FOCUS_BACKWARD_140].setDisplayName("");
-            methods[METHOD_TRANSFER_FOCUS_DOWN_CYCLE_141] = new MethodDescriptor(java.awt.Container.class.getMethod("transferFocusDownCycle", new Class[]{})); // NOI18N
+            methods[METHOD_TRANSFER_FOCUS_DOWN_CYCLE_141] = new MethodDescriptor(Container.class.getMethod("transferFocusDownCycle", new Class[]{})); // NOI18N
             methods[METHOD_TRANSFER_FOCUS_DOWN_CYCLE_141].setDisplayName("");
-            methods[METHOD_TRANSFER_FOCUS_UP_CYCLE_142] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocusUpCycle", new Class[]{})); // NOI18N
+            methods[METHOD_TRANSFER_FOCUS_UP_CYCLE_142] = new MethodDescriptor(Component.class.getMethod("transferFocusUpCycle", new Class[]{})); // NOI18N
             methods[METHOD_TRANSFER_FOCUS_UP_CYCLE_142].setDisplayName("");
-            methods[METHOD_UNREGISTER_KEYBOARD_ACTION_143] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("unregisterKeyboardAction", new Class[]{javax.swing.KeyStroke.class})); // NOI18N
+            methods[METHOD_UNREGISTER_KEYBOARD_ACTION_143] = new MethodDescriptor(JComponent.class.getMethod("unregisterKeyboardAction", new Class[]{KeyStroke.class})); // NOI18N
             methods[METHOD_UNREGISTER_KEYBOARD_ACTION_143].setDisplayName("");
-            methods[METHOD_UPDATE_144] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("update", new Class[]{java.awt.Graphics.class})); // NOI18N
+            methods[METHOD_UPDATE_144] = new MethodDescriptor(JComponent.class.getMethod("update", new Class[]{Graphics.class})); // NOI18N
             methods[METHOD_UPDATE_144].setDisplayName("");
-            methods[METHOD_UPDATE_UI_145] = new MethodDescriptor(javax.swing.JButton.class.getMethod("updateUI", new Class[]{})); // NOI18N
+            methods[METHOD_UPDATE_UI_145] = new MethodDescriptor(JButton.class.getMethod("updateUI", new Class[]{})); // NOI18N
             methods[METHOD_UPDATE_UI_145].setDisplayName("");
-            methods[METHOD_VALIDATE_146] = new MethodDescriptor(java.awt.Container.class.getMethod("validate", new Class[]{})); // NOI18N
+            methods[METHOD_VALIDATE_146] = new MethodDescriptor(Container.class.getMethod("validate", new Class[]{})); // NOI18N
             methods[METHOD_VALIDATE_146].setDisplayName("");
         }
         catch (NoSuchMethodException | SecurityException e) {
@@ -853,14 +892,14 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         return methods;
     }
 
-    private static java.awt.Image iconColor16 = null;
-    private static java.awt.Image iconColor32 = null;
-    private static java.awt.Image iconMono16 = null;
-    private static java.awt.Image iconMono32 = null;
-    private static final String iconNameC16 = "resources/splitbutton_16.png";
-    private static final String iconNameC32 = "resources/splitbutton_32.png";
-    private static final String iconNameM16 = null;
-    private static final String iconNameM32 = null;
+    private static Image iconColor16 = null;
+    private static Image iconColor32 = null;
+    private static Image iconMono16 = null;
+    private static Image iconMono32 = null;
+    private static final String ICON_NAME_COLOR_16 = "resources/splitbutton_16.png";
+    private static final String ICON_NAME_COLOR_32 = "resources/splitbutton_32.png";
+    private static final String ICON_NAME_MONO_16 = null;
+    private static final String ICON_NAME_MONO_32 = null;
 
     private static final int DEFAULT_PROPERTY_INDEX = -1;
     private static final int DEFAULT_EVENT_INDEX = -1;
@@ -969,20 +1008,20 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      *         if no suitable icon is available.
      */
     @Override
-    public java.awt.Image getIcon(int iconKind) {
+    public Image getIcon(int iconKind) {
         switch (iconKind) {
             case ICON_COLOR_16x16:
-                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(iconNameC16));
+                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(ICON_NAME_COLOR_16));
             case ICON_COLOR_32x32:
-                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(iconNameC32));
+                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(ICON_NAME_COLOR_32));
             case ICON_MONO_16x16:
                 if (iconMono16 == null) {
-                    iconMono16 = getIcon(iconNameM16);
+                    iconMono16 = getIcon(ICON_NAME_MONO_16);
                 }
                 return iconMono16;
             case ICON_MONO_32x32:
                 if (iconMono32 == null) {
-                    iconMono32 = getIcon(iconNameM32);
+                    iconMono32 = getIcon(ICON_NAME_MONO_32);
                 }
                 return iconMono32;
             default:

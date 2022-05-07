@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.jupiter.api.Test;
 
-abstract class JSplitButtonBeanInfoTest {
+class JSplitButtonBeanInfoTest {
 
     protected BeanInfo info;
     protected Class<?> trgt;

@@ -15,6 +15,7 @@
  */
 package com.alexandriasoftware.swing;
 
+import com.alexandriasoftware.swing.JSplitButton.Listener;
 import com.alexandriasoftware.swing.action.ButtonClickedActionListener;
 import com.alexandriasoftware.swing.action.SplitButtonClickedActionListener;
 import java.awt.Color;
@@ -34,6 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -495,14 +497,14 @@ public class JSplitButtonTest {
     }
 
     private void fireSplitButtonClicked(JSplitButton instance, ActionEvent event) {
-        this.fireEvent(instance, event, "fireSplitButtonClicked");
+        this.fireEvent(instance.getListener(), event, "fireSplitButtonClicked");
     }
 
     private void fireButtonClicked(JSplitButton instance, ActionEvent event) {
-        this.fireEvent(instance, event, "fireButtonClicked");
+        this.fireEvent(instance.getListener(), event, "fireButtonClicked");
     }
 
-    private void fireEvent(JSplitButton instance, ActionEvent event, String fire) {
+    private void fireEvent(Listener instance, ActionEvent event, String fire) {
         try {
             Method method = instance.getClass().getDeclaredMethod(fire, new Class<?>[]{ActionEvent.class});
             method.setAccessible(true);
@@ -535,10 +537,6 @@ public class JSplitButtonTest {
         catch (NoSuchFieldException | SecurityException | IllegalAccessException | IllegalArgumentException ex) {
             fail(ex.getMessage());
         }
-    }
-
-    private void fail(String message) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private class AbstractSplitButtonClickedActionListener implements SplitButtonClickedActionListener {

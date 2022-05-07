@@ -430,63 +430,6 @@ public class JSplitButton extends JButton {
     }
 
     /**
-     * Notifies all listeners that have registered interest for notification on
-     * this event type. The event instance is lazily created using the
-     * <code>event</code> parameter.
-     *
-     * @param event the <code>ActionEvent</code> object
-     * @see EventListenerList
-     */
-    private void fireButtonClicked(final ActionEvent event) {
-        // Guaranteed to return a non-null array
-        this.fireActionEvent(event, listenerList.getListeners(ButtonClickedActionListener.class));
-    }
-
-    /**
-     * Notifies all listeners that have registered interest for notification on
-     * this event type. The event instance is lazily created using the
-     * <code>event</code> parameter.
-     *
-     * @param event the <code>ActionEvent</code> object
-     * @see EventListenerList
-     */
-    private void fireSplitButtonClicked(final ActionEvent event) {
-        // Guaranteed to return a non-null array
-        this.fireActionEvent(event, listenerList.getListeners(SplitButtonClickedActionListener.class));
-    }
-
-    /**
-     * Notifies all listeners that have registered interest for notification on
-     * this event type. The event instance is lazily created using the
-     * <code>event</code> parameter.
-     *
-     * @param event                the <code>ActionEvent</code> object
-     * @param singleEventListeners the array of event-specific listeners, either
-     *                             {@link ButtonClickedActionListener}s or
-     *                             {@link SplitButtonClickedActionListener}s
-     * @see EventListenerList
-     */
-    private void fireActionEvent(final ActionEvent event, ActionListener[] singleEventListeners) {
-        if (singleEventListeners.length != 0) {
-            String actionCommand = event.getActionCommand();
-            if (actionCommand == null) {
-                actionCommand = getActionCommand();
-            }
-            ActionEvent e = new ActionEvent(JSplitButton.this,
-                    ActionEvent.ACTION_PERFORMED,
-                    actionCommand,
-                    event.getWhen(),
-                    event.getModifiers());
-            // Process the listeners last to first
-            if (singleEventListeners.length != 0) {
-                for (int i = singleEventListeners.length - 1; i >= 0; i--) {
-                    singleEventListeners[i].actionPerformed(e);
-                }
-            }
-        }
-    }
-
-    /**
      * @return the listener
      */
     Listener getListener() {
@@ -512,6 +455,64 @@ public class JSplitButton extends JButton {
                 fireSplitButtonClicked(e);
             } else {
                 fireButtonClicked(e);
+            }
+        }
+
+        /**
+         * Notifies all listeners that have registered interest for notification
+         * on this event type. The event instance is lazily created using the
+         * {@code event} parameter.
+         *
+         * @param event the {@code ActionEvent} object
+         * @see EventListenerList
+         */
+        private void fireButtonClicked(final ActionEvent event) {
+            // Guaranteed to return a non-null array
+            this.fireActionEvent(event, listenerList.getListeners(ButtonClickedActionListener.class));
+        }
+
+        /**
+         * Notifies all listeners that have registered interest for notification
+         * on this event type. The event instance is lazily created using the
+         * {@code event} parameter.
+         *
+         * @param event the {@code ActionEvent} object
+         * @see EventListenerList
+         */
+        private void fireSplitButtonClicked(final ActionEvent event) {
+            // Guaranteed to return a non-null array
+            this.fireActionEvent(event, listenerList.getListeners(SplitButtonClickedActionListener.class));
+        }
+
+        /**
+         * Notifies all listeners that have registered interest for notification
+         * on this event type. The event instance is lazily created using the
+         * {@code event} parameter.
+         *
+         * @param event                the {@code ActionEvent} object
+         * @param singleEventListeners the array of event-specific listeners,
+         *                             either
+         *                             {@link ButtonClickedActionListener}s or
+         *                             {@link SplitButtonClickedActionListener}s
+         * @see EventListenerList
+         */
+        private void fireActionEvent(final ActionEvent event, ActionListener[] singleEventListeners) {
+            if (singleEventListeners.length != 0) {
+                String actionCommand = event.getActionCommand();
+                if (actionCommand == null) {
+                    actionCommand = getActionCommand();
+                }
+                ActionEvent e = new ActionEvent(JSplitButton.this,
+                        ActionEvent.ACTION_PERFORMED,
+                        actionCommand,
+                        event.getWhen(),
+                        event.getModifiers());
+                // Process the listeners last to first
+                if (singleEventListeners.length != 0) {
+                    for (int i = singleEventListeners.length - 1; i >= 0; i--) {
+                        singleEventListeners[i].actionPerformed(e);
+                    }
+                }
             }
         }
 

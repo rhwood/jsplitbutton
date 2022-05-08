@@ -571,7 +571,9 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      */
     private static MethodDescriptor[] getMdescriptor() {
         MethodDescriptor[] methods = new MethodDescriptor[147];
-
+        final String firePropertyChange = "firePropertyChange";
+        final String remove = "remove";
+        final String repaint = "repaint";
         try {
             methods[METHOD_ADD_1] = new MethodDescriptor(Component.class.getMethod("add", new Class[]{PopupMenu.class})); // NOI18N
             methods[METHOD_ADD_1].setDisplayName("");
@@ -637,21 +639,21 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_FIND_COMPONENT_AT_32].setDisplayName("");
             methods[METHOD_FIND_COMPONENT_AT_33] = new MethodDescriptor(Container.class.getMethod("findComponentAt", new Class[]{Point.class})); // NOI18N
             methods[METHOD_FIND_COMPONENT_AT_33].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_34] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, byte.class, byte.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_34] = new MethodDescriptor(Component.class.getMethod(firePropertyChange, new Class[]{java.lang.String.class, byte.class, byte.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_34].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_35] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, short.class, short.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_35] = new MethodDescriptor(Component.class.getMethod(firePropertyChange, new Class[]{java.lang.String.class, short.class, short.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_35].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_36] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, long.class, long.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_36] = new MethodDescriptor(Component.class.getMethod(firePropertyChange, new Class[]{java.lang.String.class, long.class, long.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_36].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_37] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, float.class, float.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_37] = new MethodDescriptor(Component.class.getMethod(firePropertyChange, new Class[]{java.lang.String.class, float.class, float.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_37].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_38] = new MethodDescriptor(Component.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, double.class, double.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_38] = new MethodDescriptor(Component.class.getMethod(firePropertyChange, new Class[]{java.lang.String.class, double.class, double.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_38].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_39] = new MethodDescriptor(JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, boolean.class, boolean.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_39] = new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, new Class[]{java.lang.String.class, boolean.class, boolean.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_39].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_40] = new MethodDescriptor(JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, int.class, int.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_40] = new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, new Class[]{java.lang.String.class, int.class, int.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_40].setDisplayName("");
-            methods[METHOD_FIRE_PROPERTY_CHANGE_41] = new MethodDescriptor(JComponent.class.getMethod("firePropertyChange", new Class[]{java.lang.String.class, char.class, char.class})); // NOI18N
+            methods[METHOD_FIRE_PROPERTY_CHANGE_41] = new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, new Class[]{java.lang.String.class, char.class, char.class})); // NOI18N
             methods[METHOD_FIRE_PROPERTY_CHANGE_41].setDisplayName("");
             methods[METHOD_GET_ACTION_FOR_KEY_STROKE_42] = new MethodDescriptor(JComponent.class.getMethod("getActionForKeyStroke", new Class[]{KeyStroke.class})); // NOI18N
             methods[METHOD_GET_ACTION_FOR_KEY_STROKE_42].setDisplayName("");
@@ -765,11 +767,11 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_REGISTER_KEYBOARD_ACTION_108].setDisplayName("");
             methods[METHOD_REGISTER_KEYBOARD_ACTION_109] = new MethodDescriptor(JComponent.class.getMethod("registerKeyboardAction", new Class[]{ActionListener.class, KeyStroke.class, int.class})); // NOI18N
             methods[METHOD_REGISTER_KEYBOARD_ACTION_109].setDisplayName("");
-            methods[METHOD_REMOVE_110] = new MethodDescriptor(Component.class.getMethod("remove", new Class[]{MenuComponent.class})); // NOI18N
+            methods[METHOD_REMOVE_110] = new MethodDescriptor(Component.class.getMethod(remove, new Class[]{MenuComponent.class})); // NOI18N
             methods[METHOD_REMOVE_110].setDisplayName("");
-            methods[METHOD_REMOVE_111] = new MethodDescriptor(Container.class.getMethod("remove", new Class[]{int.class})); // NOI18N
+            methods[METHOD_REMOVE_111] = new MethodDescriptor(Container.class.getMethod(remove, new Class[]{int.class})); // NOI18N
             methods[METHOD_REMOVE_111].setDisplayName("");
-            methods[METHOD_REMOVE_112] = new MethodDescriptor(Container.class.getMethod("remove", new Class[]{Component.class})); // NOI18N
+            methods[METHOD_REMOVE_112] = new MethodDescriptor(Container.class.getMethod(remove, new Class[]{Component.class})); // NOI18N
             methods[METHOD_REMOVE_112].setDisplayName("");
             methods[METHOD_REMOVE_ALL_113] = new MethodDescriptor(Container.class.getMethod("removeAll", new Class[]{})); // NOI18N
             methods[METHOD_REMOVE_ALL_113].setDisplayName("");
@@ -777,15 +779,15 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_REMOVE_NOTIFY_114].setDisplayName("");
             methods[METHOD_REMOVE_PROPERTY_CHANGE_LISTENER_115] = new MethodDescriptor(Component.class.getMethod("removePropertyChangeListener", new Class[]{java.lang.String.class, java.beans.PropertyChangeListener.class})); // NOI18N
             methods[METHOD_REMOVE_PROPERTY_CHANGE_LISTENER_115].setDisplayName("");
-            methods[METHOD_REPAINT_116] = new MethodDescriptor(Component.class.getMethod("repaint", new Class[]{})); // NOI18N
+            methods[METHOD_REPAINT_116] = new MethodDescriptor(Component.class.getMethod(repaint, new Class[]{})); // NOI18N
             methods[METHOD_REPAINT_116].setDisplayName("");
-            methods[METHOD_REPAINT_117] = new MethodDescriptor(Component.class.getMethod("repaint", new Class[]{long.class})); // NOI18N
+            methods[METHOD_REPAINT_117] = new MethodDescriptor(Component.class.getMethod(repaint, new Class[]{long.class})); // NOI18N
             methods[METHOD_REPAINT_117].setDisplayName("");
-            methods[METHOD_REPAINT_118] = new MethodDescriptor(Component.class.getMethod("repaint", new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
+            methods[METHOD_REPAINT_118] = new MethodDescriptor(Component.class.getMethod(repaint, new Class[]{int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_REPAINT_118].setDisplayName("");
-            methods[METHOD_REPAINT_119] = new MethodDescriptor(JComponent.class.getMethod("repaint", new Class[]{long.class, int.class, int.class, int.class, int.class})); // NOI18N
+            methods[METHOD_REPAINT_119] = new MethodDescriptor(JComponent.class.getMethod(repaint, new Class[]{long.class, int.class, int.class, int.class, int.class})); // NOI18N
             methods[METHOD_REPAINT_119].setDisplayName("");
-            methods[METHOD_REPAINT_120] = new MethodDescriptor(JComponent.class.getMethod("repaint", new Class[]{Rectangle.class})); // NOI18N
+            methods[METHOD_REPAINT_120] = new MethodDescriptor(JComponent.class.getMethod(repaint, new Class[]{Rectangle.class})); // NOI18N
             methods[METHOD_REPAINT_120].setDisplayName("");
             methods[METHOD_REQUEST_DEFAULT_FOCUS_121] = new MethodDescriptor(JComponent.class.getMethod("requestDefaultFocus", new Class[]{})); // NOI18N
             methods[METHOD_REQUEST_DEFAULT_FOCUS_121].setDisplayName("");

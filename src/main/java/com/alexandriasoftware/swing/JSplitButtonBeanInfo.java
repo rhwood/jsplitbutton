@@ -394,7 +394,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int EVENT_MOUSE_MOTION_LISTENER = 13;
     private static final int EVENT_MOUSE_WHEEL_LISTENER = 14;
     private static final int EVENT_PROPERTY_CHANGE_LISTENER = 15;
-    private static final int EVENT_SPLIT_BUTTON_ACTION_LISTENER = 16;
     private static final int EVENT_SPLIT_BUTTON_CLICKED_ACTION_LISTENER = 17;
     private static final int EVENT_VETOABLE_CHANGE_LISTENER = 18;
 
@@ -422,7 +421,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             eventSets[EVENT_MOUSE_MOTION_LISTENER] = new EventSetDescriptor(JSplitButton.class, "mouseMotionListener", MouseMotionListener.class, new String[]{"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener"); // NOI18N
             eventSets[EVENT_MOUSE_WHEEL_LISTENER] = new EventSetDescriptor(JSplitButton.class, "mouseWheelListener", MouseWheelListener.class, new String[]{"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener"); // NOI18N
             eventSets[EVENT_PROPERTY_CHANGE_LISTENER] = new EventSetDescriptor(JSplitButton.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[]{"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener"); // NOI18N
-            eventSets[EVENT_SPLIT_BUTTON_ACTION_LISTENER].setInDefaultEventSet(false);
             eventSets[EVENT_SPLIT_BUTTON_CLICKED_ACTION_LISTENER] = new EventSetDescriptor(JSplitButton.class, "splitButtonClickedActionListener", SplitButtonClickedActionListener.class, new String[]{}, "addSplitButtonClickedActionListener", "removeSplitButtonClickedActionListener"); // NOI18N
             eventSets[EVENT_VETOABLE_CHANGE_LISTENER] = new EventSetDescriptor(JSplitButton.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[]{"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener"); // NOI18N
         } catch (IntrospectionException e) {
@@ -849,14 +847,8 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         return methods;
     }
 
-    private static Image iconColor16 = null;
-    private static Image iconColor32 = null;
-    private static Image iconMono16 = null;
-    private static Image iconMono32 = null;
     private static final String ICON_NAME_COLOR_16 = "resources/splitbutton_16.png";
     private static final String ICON_NAME_COLOR_32 = "resources/splitbutton_32.png";
-    private static final String ICON_NAME_MONO_16 = null;
-    private static final String ICON_NAME_MONO_32 = null;
 
     private static final int DEFAULT_PROPERTY_INDEX = -1;
     private static final int DEFAULT_EVENT_INDEX = -1;
@@ -968,35 +960,13 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     public Image getIcon(int iconKind) {
         switch (iconKind) {
             case ICON_COLOR_16x16:
+            case ICON_MONO_16x16:
                 return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(ICON_NAME_COLOR_16));
             case ICON_COLOR_32x32:
-                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(ICON_NAME_COLOR_32));
-            case ICON_MONO_16x16:
-                if (iconMono16 == null) {
-                    iconMono16 = getIcon(ICON_NAME_MONO_16);
-                }
-                return iconMono16;
             case ICON_MONO_32x32:
-                if (iconMono32 == null) {
-                    iconMono32 = getIcon(ICON_NAME_MONO_32);
-                }
-                return iconMono32;
+                return Toolkit.getDefaultToolkit().createImage(JSplitButtonBeanInfo.class.getResource(ICON_NAME_COLOR_32));
             default:
                 return null;
         }
     }
-
-    /**
-     * Get an icon given its name.
-     *
-     * @param name the icon name
-     * @return the icon or null if name is null
-     */
-    private Image getIcon(String name) {
-        if (name == null) {
-            return null;
-        }
-        return loadImage(name);
-    }
-
 }

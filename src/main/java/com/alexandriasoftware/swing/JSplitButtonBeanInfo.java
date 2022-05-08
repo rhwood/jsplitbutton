@@ -22,7 +22,6 @@ import java.awt.Component;
 import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Event;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -433,8 +432,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         return eventSets;
     }
 
-    // Method identifiers                   
-    private static final int METHOD_ACTION0 = 0;
+    // Method identifiers
     private static final int METHOD_ADD_1 = 1;
     private static final int METHOD_ADD_2 = 2;
     private static final int METHOD_ADD_3 = 3;
@@ -457,7 +455,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_CREATE_TOOL_TIP_20 = 20;
     private static final int METHOD_CREATE_VOLATILE_IMAGE_21 = 21;
     private static final int METHOD_CREATE_VOLATILE_IMAGE_22 = 22;
-    private static final int METHOD_DELIVER_EVENT_23 = 23;
     private static final int METHOD_DISABLE_24 = 24;
     private static final int METHOD_DISPATCH_EVENT_25 = 25;
     private static final int METHOD_DO_CLICK_26 = 26;
@@ -497,9 +494,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_GET_SIZE_60 = 60;
     private static final int METHOD_GET_TOOL_TIP_LOCATION_61 = 61;
     private static final int METHOD_GET_TOOL_TIP_TEXT_62 = 62;
-    private static final int METHOD_GOT_FOCUS_63 = 63;
     private static final int METHOD_GRAB_FOCUS_64 = 64;
-    private static final int METHOD_HANDLE_EVENT_65 = 65;
     private static final int METHOD_HAS_FOCUS_66 = 66;
     private static final int METHOD_HIDE_67 = 67;
     private static final int METHOD_IMAGE_UPDATE_68 = 68;
@@ -509,8 +504,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_IS_ANCESTOR_OF_72 = 72;
     private static final int METHOD_IS_FOCUS_CYCLE_ROOT_73 = 73;
     private static final int METHOD_IS_LIGHTWEIGHT_COMPONENT_74 = 74;
-    private static final int METHOD_KEY_DOWN_75 = 75;
-    private static final int METHOD_KEY_UP_76 = 76;
     private static final int METHOD_LAYOUT_77 = 77;
     private static final int METHOD_LIST_78 = 78;
     private static final int METHOD_LIST_79 = 79;
@@ -519,14 +512,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_LIST_82 = 82;
     private static final int METHOD_LOCATE_83 = 83;
     private static final int METHOD_LOCATION_84 = 84;
-    private static final int METHOD_LOST_FOCUS_85 = 85;
     private static final int METHOD_MINIMUM_SIZE_86 = 86;
-    private static final int METHOD_MOUSE_DOWN_87 = 87;
-    private static final int METHOD_MOUSE_DRAG_88 = 88;
-    private static final int METHOD_MOUSE_ENTER_89 = 89;
-    private static final int METHOD_MOUSE_EXIT_90 = 90;
-    private static final int METHOD_MOUSE_MOVE_91 = 91;
-    private static final int METHOD_MOUSE_UP_92 = 92;
     private static final int METHOD_MOVE_93 = 93;
     private static final int METHOD_NEXT_FOCUS_94 = 94;
     private static final int METHOD_PAINT_95 = 95;
@@ -534,7 +520,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_PAINT_COMPONENTS_97 = 97;
     private static final int METHOD_PAINT_IMMEDIATELY_98 = 98;
     private static final int METHOD_PAINT_IMMEDIATELY_99 = 99;
-    private static final int METHOD_POST_EVENT_100 = 100;
     private static final int METHOD_PREFERRED_SIZE_101 = 101;
     private static final int METHOD_PREPARE_IMAGE_102 = 102;
     private static final int METHOD_PREPARE_IMAGE_103 = 103;
@@ -590,8 +575,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
         MethodDescriptor[] methods = new MethodDescriptor[147];
 
         try {
-            methods[METHOD_ACTION0] = new MethodDescriptor(Component.class.getMethod("action", new Class[]{Event.class, java.lang.Object.class})); // NOI18N
-            methods[METHOD_ACTION0].setDisplayName("");
             methods[METHOD_ADD_1] = new MethodDescriptor(Component.class.getMethod("add", new Class[]{PopupMenu.class})); // NOI18N
             methods[METHOD_ADD_1].setDisplayName("");
             methods[METHOD_ADD_2] = new MethodDescriptor(Container.class.getMethod("add", new Class[]{Component.class})); // NOI18N
@@ -636,8 +619,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_CREATE_VOLATILE_IMAGE_21].setDisplayName("");
             methods[METHOD_CREATE_VOLATILE_IMAGE_22] = new MethodDescriptor(Component.class.getMethod("createVolatileImage", new Class[]{int.class, int.class, ImageCapabilities.class})); // NOI18N
             methods[METHOD_CREATE_VOLATILE_IMAGE_22].setDisplayName("");
-            methods[METHOD_DELIVER_EVENT_23] = new MethodDescriptor(Container.class.getMethod("deliverEvent", new Class[]{Event.class})); // NOI18N
-            methods[METHOD_DELIVER_EVENT_23].setDisplayName("");
             methods[METHOD_DISABLE_24] = new MethodDescriptor(JComponent.class.getMethod("disable", new Class[]{})); // NOI18N
             methods[METHOD_DISABLE_24].setDisplayName("");
             methods[METHOD_DISPATCH_EVENT_25] = new MethodDescriptor(Component.class.getMethod("dispatchEvent", new Class[]{AWTEvent.class})); // NOI18N
@@ -716,12 +697,8 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_GET_TOOL_TIP_LOCATION_61].setDisplayName("");
             methods[METHOD_GET_TOOL_TIP_TEXT_62] = new MethodDescriptor(JComponent.class.getMethod("getToolTipText", new Class[]{MouseEvent.class})); // NOI18N
             methods[METHOD_GET_TOOL_TIP_TEXT_62].setDisplayName("");
-            methods[METHOD_GOT_FOCUS_63] = new MethodDescriptor(Component.class.getMethod("gotFocus", new Class[]{Event.class, java.lang.Object.class})); // NOI18N
-            methods[METHOD_GOT_FOCUS_63].setDisplayName("");
             methods[METHOD_GRAB_FOCUS_64] = new MethodDescriptor(JComponent.class.getMethod("grabFocus", new Class[]{})); // NOI18N
             methods[METHOD_GRAB_FOCUS_64].setDisplayName("");
-            methods[METHOD_HANDLE_EVENT_65] = new MethodDescriptor(Component.class.getMethod("handleEvent", new Class[]{Event.class})); // NOI18N
-            methods[METHOD_HANDLE_EVENT_65].setDisplayName("");
             methods[METHOD_HAS_FOCUS_66] = new MethodDescriptor(Component.class.getMethod("hasFocus", new Class[]{})); // NOI18N
             methods[METHOD_HAS_FOCUS_66].setDisplayName("");
             methods[METHOD_HIDE_67] = new MethodDescriptor(JComponent.class.getMethod("hide", new Class[]{})); // NOI18N
@@ -740,10 +717,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_IS_FOCUS_CYCLE_ROOT_73].setDisplayName("");
             methods[METHOD_IS_LIGHTWEIGHT_COMPONENT_74] = new MethodDescriptor(JComponent.class.getMethod("isLightweightComponent", new Class[]{Component.class})); // NOI18N
             methods[METHOD_IS_LIGHTWEIGHT_COMPONENT_74].setDisplayName("");
-            methods[METHOD_KEY_DOWN_75] = new MethodDescriptor(Component.class.getMethod("keyDown", new Class[]{Event.class, int.class})); // NOI18N
-            methods[METHOD_KEY_DOWN_75].setDisplayName("");
-            methods[METHOD_KEY_UP_76] = new MethodDescriptor(Component.class.getMethod("keyUp", new Class[]{Event.class, int.class})); // NOI18N
-            methods[METHOD_KEY_UP_76].setDisplayName("");
             methods[METHOD_LAYOUT_77] = new MethodDescriptor(Container.class.getMethod("layout", new Class[]{})); // NOI18N
             methods[METHOD_LAYOUT_77].setDisplayName("");
             methods[METHOD_LIST_78] = new MethodDescriptor(Component.class.getMethod("list", new Class[]{})); // NOI18N
@@ -760,22 +733,8 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_LOCATE_83].setDisplayName("");
             methods[METHOD_LOCATION_84] = new MethodDescriptor(Component.class.getMethod("location", new Class[]{})); // NOI18N
             methods[METHOD_LOCATION_84].setDisplayName("");
-            methods[METHOD_LOST_FOCUS_85] = new MethodDescriptor(Component.class.getMethod("lostFocus", new Class[]{Event.class, java.lang.Object.class})); // NOI18N
-            methods[METHOD_LOST_FOCUS_85].setDisplayName("");
             methods[METHOD_MINIMUM_SIZE_86] = new MethodDescriptor(Container.class.getMethod("minimumSize", new Class[]{})); // NOI18N
             methods[METHOD_MINIMUM_SIZE_86].setDisplayName("");
-            methods[METHOD_MOUSE_DOWN_87] = new MethodDescriptor(Component.class.getMethod("mouseDown", new Class[]{Event.class, int.class, int.class})); // NOI18N
-            methods[METHOD_MOUSE_DOWN_87].setDisplayName("");
-            methods[METHOD_MOUSE_DRAG_88] = new MethodDescriptor(Component.class.getMethod("mouseDrag", new Class[]{Event.class, int.class, int.class})); // NOI18N
-            methods[METHOD_MOUSE_DRAG_88].setDisplayName("");
-            methods[METHOD_MOUSE_ENTER_89] = new MethodDescriptor(Component.class.getMethod("mouseEnter", new Class[]{Event.class, int.class, int.class})); // NOI18N
-            methods[METHOD_MOUSE_ENTER_89].setDisplayName("");
-            methods[METHOD_MOUSE_EXIT_90] = new MethodDescriptor(Component.class.getMethod("mouseExit", new Class[]{Event.class, int.class, int.class})); // NOI18N
-            methods[METHOD_MOUSE_EXIT_90].setDisplayName("");
-            methods[METHOD_MOUSE_MOVE_91] = new MethodDescriptor(Component.class.getMethod("mouseMove", new Class[]{Event.class, int.class, int.class})); // NOI18N
-            methods[METHOD_MOUSE_MOVE_91].setDisplayName("");
-            methods[METHOD_MOUSE_UP_92] = new MethodDescriptor(Component.class.getMethod("mouseUp", new Class[]{Event.class, int.class, int.class})); // NOI18N
-            methods[METHOD_MOUSE_UP_92].setDisplayName("");
             methods[METHOD_MOVE_93] = new MethodDescriptor(Component.class.getMethod("move", new Class[]{int.class, int.class})); // NOI18N
             methods[METHOD_MOVE_93].setDisplayName("");
             methods[METHOD_NEXT_FOCUS_94] = new MethodDescriptor(Component.class.getMethod("nextFocus", new Class[]{})); // NOI18N
@@ -790,8 +749,6 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_PAINT_IMMEDIATELY_98].setDisplayName("");
             methods[METHOD_PAINT_IMMEDIATELY_99] = new MethodDescriptor(JComponent.class.getMethod("paintImmediately", new Class[]{Rectangle.class})); // NOI18N
             methods[METHOD_PAINT_IMMEDIATELY_99].setDisplayName("");
-            methods[METHOD_POST_EVENT_100] = new MethodDescriptor(Component.class.getMethod("postEvent", new Class[]{Event.class})); // NOI18N
-            methods[METHOD_POST_EVENT_100].setDisplayName("");
             methods[METHOD_PREFERRED_SIZE_101] = new MethodDescriptor(Container.class.getMethod("preferredSize", new Class[]{})); // NOI18N
             methods[METHOD_PREFERRED_SIZE_101].setDisplayName("");
             methods[METHOD_PREPARE_IMAGE_102] = new MethodDescriptor(Component.class.getMethod("prepareImage", new Class[]{Image.class, ImageObserver.class})); // NOI18N

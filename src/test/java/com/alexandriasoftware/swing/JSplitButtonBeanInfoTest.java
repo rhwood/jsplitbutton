@@ -42,19 +42,19 @@ class JSplitButtonBeanInfoTest {
     @Test
     void TestGetPropertyDescriptors() {
         assertNotNull(info.getPropertyDescriptors());
-        assertEquals(143, info.getPropertyDescriptors().length);
+        assertEquals(105, info.getPropertyDescriptors().length);
     }
 
     @Test
     void TestGetEventSetDescriptors() {
         assertNotNull(info.getEventSetDescriptors());
-        assertEquals(19, info.getEventSetDescriptors().length);
+        assertEquals(18, info.getEventSetDescriptors().length);
     }
 
     @Test
     void TestGetMethodDescriptors() {
         assertNotNull(info.getMethodDescriptors());
-        assertEquals(147, info.getMethodDescriptors().length);
+        assertEquals(133, info.getMethodDescriptors().length);
     }
 
     @Test

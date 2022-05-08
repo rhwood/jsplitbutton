@@ -12,6 +12,9 @@ import java.beans.BeanInfo;
 import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnJre;
+import org.junit.jupiter.api.condition.EnabledOnJre;
+import org.junit.jupiter.api.condition.JRE;
 
 class JSplitButtonBeanInfoTest {
 
@@ -39,6 +42,14 @@ class JSplitButtonBeanInfoTest {
         assertEquals(trgt, info.getBeanDescriptor().getBeanClass());
     }
 
+    @EnabledOnJre(JRE.JAVA_8)
+    @Test
+    void TestGetPropertyDescriptorsOnJava8() {
+        assertNotNull(info.getPropertyDescriptors());
+        assertEquals(143, info.getPropertyDescriptors().length);
+    }
+
+    @DisabledOnJre(JRE.JAVA_8)
     @Test
     void TestGetPropertyDescriptors() {
         assertNotNull(info.getPropertyDescriptors());

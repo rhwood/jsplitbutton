@@ -371,6 +371,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_X] = new PropertyDescriptor("x", JSplitButton.class, "getX", null); // NOI18N
             properties[PROPERTY_Y] = new PropertyDescriptor("y", JSplitButton.class, "getY", null); // NOI18N
         } catch (IntrospectionException e) {
+            // silently ignore
         }
 
         // Here you can add code for customizing the properties array.
@@ -424,6 +425,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             eventSets[EVENT_SPLIT_BUTTON_CLICKED_ACTION_LISTENER] = new EventSetDescriptor(JSplitButton.class, "splitButtonClickedActionListener", SplitButtonClickedActionListener.class, new String[]{}, "addSplitButtonClickedActionListener", "removeSplitButtonClickedActionListener"); // NOI18N
             eventSets[EVENT_VETOABLE_CHANGE_LISTENER] = new EventSetDescriptor(JSplitButton.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[]{"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener"); // NOI18N
         } catch (IntrospectionException e) {
+            // silently ignore
         }
 
         // Here you can add code for customizing the event sets array.
@@ -843,6 +845,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods[METHOD_VALIDATE_146].setDisplayName("");
         }
         catch (NoSuchMethodException | SecurityException e) {
+            // silently ignore
         }
 
         // Here you can add code for customizing the methods array.

@@ -508,10 +508,8 @@ public class JSplitButton extends JButton {
                         event.getWhen(),
                         event.getModifiers());
                 // Process the listeners last to first
-                if (singleEventListeners.length != 0) {
-                    for (int i = singleEventListeners.length - 1; i >= 0; i--) {
-                        singleEventListeners[i].actionPerformed(e);
-                    }
+                for (int i = singleEventListeners.length - 1; i >= 0; i--) {
+                    singleEventListeners[i].actionPerformed(e);
                 }
             }
         }

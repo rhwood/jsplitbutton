@@ -43,33 +43,30 @@ import org.junit.jupiter.api.Test;
  *
  * @author Randall Wood
  */
-public class JSplitButtonTest {
+class JSplitButtonTest {
 
     int buttonClickFired = 0;
     int splitButtonClickFired = 0;
 
-    public JSplitButtonTest() {
-    }
-
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         this.buttonClickFired = 0;
         this.splitButtonClickFired = 0;
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
     }
 
     @Test
-    public void testCtorNull() {
+    void testCtorNull() {
         JSplitButton instance = new JSplitButton();
         assertTrue(instance.getText().isEmpty());
         assertNull(instance.getIcon());
     }
 
     @Test
-    public void testCtorText() {
+    void testCtorText() {
         String text = "test1";
         JSplitButton instance = new JSplitButton(text);
         assertEquals(text, instance.getText());
@@ -77,7 +74,7 @@ public class JSplitButtonTest {
     }
 
     @Test
-    public void testCtorIcon() {
+    void testCtorIcon() {
         Icon icon = new ImageIcon();
         JSplitButton instance = new JSplitButton(icon);
         assertTrue(instance.getText().isEmpty());
@@ -88,7 +85,7 @@ public class JSplitButtonTest {
      * Test of getPopupMenu method, of class JSplitButton.
      */
     @Test
-    public void testGetPopupMenu() {
+    void testGetPopupMenu() {
         JSplitButton instance = new JSplitButton();
         assertEquals(null, instance.getPopupMenu());
     }
@@ -97,7 +94,7 @@ public class JSplitButtonTest {
      * Test of setPopupMenu method, of class JSplitButton.
      */
     @Test
-    public void testSetPopupMenu() {
+    void testSetPopupMenu() {
         JPopupMenu popupMenu = null;
         JSplitButton instance = new JSplitButton();
         instance.setPopupMenu(popupMenu);
@@ -111,7 +108,7 @@ public class JSplitButtonTest {
      * Test of getSeparatorSpacing method, of class JSplitButton.
      */
     @Test
-    public void testGetSeparatorSpacing() {
+    void testGetSeparatorSpacing() {
         JSplitButton instance = new JSplitButton();
         assertEquals(4, instance.getSeparatorSpacing());
     }
@@ -120,7 +117,7 @@ public class JSplitButtonTest {
      * Test of setSeparatorSpacing method, of class JSplitButton.
      */
     @Test
-    public void testSetSeparatorSpacing() {
+    void testSetSeparatorSpacing() {
         int separatorSpacing = 0;
         JSplitButton instance = new JSplitButton();
         instance.setSeparatorSpacing(separatorSpacing);
@@ -131,7 +128,7 @@ public class JSplitButtonTest {
      * Test of isAlwaysDropDown method, of class JSplitButton.
      */
     @Test
-    public void testIsAlwaysPopup() {
+    void testIsAlwaysPopup() {
         JSplitButton instance = new JSplitButton();
         assertEquals(false, instance.isAlwaysPopup());
     }
@@ -140,7 +137,7 @@ public class JSplitButtonTest {
      * Test of setAlwaysDropDown method, of class JSplitButton.
      */
     @Test
-    public void testSetAlwaysPopup() {
+    void testSetAlwaysPopup() {
         JSplitButton instance = new JSplitButton();
         assertEquals(false, instance.isAlwaysPopup());
         instance.setAlwaysPopup(true);
@@ -153,7 +150,7 @@ public class JSplitButtonTest {
      * Test of getArrowColor method, of class JSplitButton.
      */
     @Test
-    public void testGetArrowColor() {
+    void testGetArrowColor() {
         JSplitButton instance = new JSplitButton();
         assertEquals(Color.BLACK, instance.getArrowColor());
     }
@@ -162,7 +159,7 @@ public class JSplitButtonTest {
      * Test of setArrowColor method, of class JSplitButton.
      */
     @Test
-    public void testSetArrowColor() {
+    void testSetArrowColor() {
         Color arrowColor = Color.RED;
         JSplitButton instance = new JSplitButton();
         instance.setArrowColor(arrowColor);
@@ -173,7 +170,7 @@ public class JSplitButtonTest {
      * Test of getDisabledArrowColor method, of class JSplitButton.
      */
     @Test
-    public void testGetDisabledArrowColor() {
+    void testGetDisabledArrowColor() {
         JSplitButton instance = new JSplitButton();
         assertEquals(Color.GRAY, instance.getDisabledArrowColor());
     }
@@ -182,7 +179,7 @@ public class JSplitButtonTest {
      * Test of setDisabledArrowColor method, of class JSplitButton.
      */
     @Test
-    public void testSetDisabledArrowColor() {
+    void testSetDisabledArrowColor() {
         Color disabledArrowColor = Color.RED;
         JSplitButton instance = new JSplitButton();
         instance.setDisabledArrowColor(disabledArrowColor);
@@ -193,7 +190,7 @@ public class JSplitButtonTest {
      * Test of getSplitWidth method, of class JSplitButton.
      */
     @Test
-    public void testGetSplitWidth() {
+    void testGetSplitWidth() {
         JSplitButton instance = new JSplitButton();
         assertEquals(22, instance.getSplitWidth());
     }
@@ -202,7 +199,7 @@ public class JSplitButtonTest {
      * Test of setSplitWidth method, of class JSplitButton.
      */
     @Test
-    public void testSetSplitWidth() {
+    void testSetSplitWidth() {
         int splitWidth = 0;
         JSplitButton instance = new JSplitButton();
         instance.setSplitWidth(splitWidth);
@@ -213,7 +210,7 @@ public class JSplitButtonTest {
      * Test of getArrowSize method, of class JSplitButton.
      */
     @Test
-    public void testGetArrowSize() {
+    void testGetArrowSize() {
         JSplitButton instance = new JSplitButton();
         assertEquals(8, instance.getArrowSize());
     }
@@ -222,7 +219,7 @@ public class JSplitButtonTest {
      * Test of setArrowSize method, of class JSplitButton.
      */
     @Test
-    public void testSetArrowSize() {
+    void testSetArrowSize() {
         int arrowSize = 0;
         JSplitButton instance = new JSplitButton();
         instance.setArrowSize(arrowSize);
@@ -233,7 +230,7 @@ public class JSplitButtonTest {
      * Test of getImage method, of class JSplitButton.
      */
     @Test
-    public void testGetImage() {
+    void testGetImage() {
         JSplitButton instance = new JSplitButton();
         assertNotNull(instance.getImage());
         instance.setImage(null);
@@ -245,7 +242,7 @@ public class JSplitButtonTest {
      * Test of setImage method, of class JSplitButton.
      */
     @Test
-    public void testSetImage() {
+    void testSetImage() {
         Image image = (new ImageIcon(getClass().getResource("/com/alexandriasoftware/swing/splitbutton_16.png").getFile())).getImage();
         JSplitButton instance = new JSplitButton();
         instance.setImage(null);
@@ -258,7 +255,7 @@ public class JSplitButtonTest {
      * Test of getDisabledImage method, of class JSplitButton.
      */
     @Test
-    public void testGetDisabledImage() {
+    void testGetDisabledImage() {
         JSplitButton instance = new JSplitButton();
         assertNotNull(instance.getDisabledImage());
     }
@@ -267,7 +264,7 @@ public class JSplitButtonTest {
      * Test of setDisabledImage method, of class JSplitButton.
      */
     @Test
-    public void testSetDisabledImage() {
+    void testSetDisabledImage() {
         Image image = (new ImageIcon(getClass().getResource("/com/alexandriasoftware/swing/splitbutton_16.png").getFile())).getImage();
         JSplitButton instance = new JSplitButton();
         instance.setDisabledImage(null);
@@ -280,7 +277,7 @@ public class JSplitButtonTest {
      * Test of paintComponent method, of class JSplitButton.
      */
     @Test
-    public void testPaintComponent() {
+    void testPaintComponent() {
         JFrame frame = new JFrame();
         JSplitButton instance = new JSplitButton();
         frame.add(instance);
@@ -297,7 +294,7 @@ public class JSplitButtonTest {
      * Test of addSplitButtonActionListener method, of class JSplitButton.
      */
     @Test
-    public void testAddButtonClickedActionListener() {
+    void testAddButtonClickedActionListener() {
         ButtonClickedActionListener l = new AbstractButtonClickedActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addButtonClickedActionListener(l);
@@ -319,7 +316,7 @@ public class JSplitButtonTest {
      * Test of removeSplitButtonActionListener method, of class JSplitButton.
      */
     @Test
-    public void testRemoveButtonClickedActionListener() {
+    void testRemoveButtonClickedActionListener() {
         AbstractButtonClickedActionListener l = new AbstractButtonClickedActionListener();
         JSplitButton instance = new JSplitButton();
         instance.addButtonClickedActionListener(l);
@@ -334,7 +331,7 @@ public class JSplitButtonTest {
      * Test of addSplitButtonActionListener method, of class JSplitButton.
      */
     @Test
-    public void testAddSplitButtonClickedActionListener() {
+    void testAddSplitButtonClickedActionListener() {
         SplitButtonClickedActionListener l = new AbstractSplitButtonClickedActionListener();
         JSplitButton instance = new JSplitButton();
         instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
@@ -357,7 +354,7 @@ public class JSplitButtonTest {
      * Test of removeSplitButtonActionListener method, of class JSplitButton.
      */
     @Test
-    public void testRemoveSplitButtonClickedActionListener() {
+    void testRemoveSplitButtonClickedActionListener() {
         SplitButtonClickedActionListener l = new AbstractSplitButtonClickedActionListener();
         JSplitButton instance = new JSplitButton();
         instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
@@ -373,7 +370,7 @@ public class JSplitButtonTest {
      * Test of actionPerformed method, of class JSplitButton.
      */
     @Test
-    public void testActionPerformed() {
+    void testActionPerformed() {
         JFrame frame = new JFrame();
         JSplitButton instance = new JSplitButton();
         frame.add(instance);
@@ -427,7 +424,7 @@ public class JSplitButtonTest {
      * Test of mouseMoved method, of class JSplitButton.
      */
     @Test
-    public void testMouseMoved() {
+    void testMouseMoved() {
         this.testMouseEvent(MouseEvent.MOUSE_MOVED, false);
     }
 
@@ -435,32 +432,32 @@ public class JSplitButtonTest {
      * Test of mouseExited method, of class JSplitButton.
      */
     @Test
-    public void testMouseExited() {
+    void testMouseExited() {
         this.testMouseEvent(MouseEvent.MOUSE_EXITED, false);
     }
 
     @Test
-    public void testMouseDragged() {
+    void testMouseDragged() {
         this.testMouseEvent(MouseEvent.MOUSE_DRAGGED, true);
     }
 
     @Test
-    public void testMouseClicked() {
+    void testMouseClicked() {
         this.testMouseEvent(MouseEvent.MOUSE_CLICKED, true);
     }
 
     @Test
-    public void testMousePressed() {
+    void testMousePressed() {
         this.testMouseEvent(MouseEvent.MOUSE_PRESSED, true);
     }
 
     @Test
-    public void testMouseReleased() {
+    void testMouseReleased() {
         this.testMouseEvent(MouseEvent.MOUSE_RELEASED, true);
     }
 
     @Test
-    public void testMouseEntered() {
+    void testMouseEntered() {
         this.testMouseEvent(MouseEvent.MOUSE_ENTERED, true);
     }
 

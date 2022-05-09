@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alexandriasoftware.swing;
+package com.alexandriasoftware.jsplitbutton;
 
 import java.awt.FlowLayout;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class SplitButtonDemo {
         JFrame frame = new JFrame();
         frame.setLayout(new FlowLayout());
         JSplitButton button = new JSplitButton("Split Button Demo");
-        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/swing/splitbutton_16.png"))));
+        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/jsplitbutton/splitbutton_16.png"))));
         JPopupMenu menu = new JPopupMenu();
         button.setPopupMenu(menu);
         menu.add("Item 1");

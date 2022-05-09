@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alexandriasoftware.swing;
+package com.alexandriasoftware.jsplitbutton;
 
-import com.alexandriasoftware.swing.JSplitButton.Listener;
-import com.alexandriasoftware.swing.action.ButtonClickedActionListener;
-import com.alexandriasoftware.swing.action.SplitButtonClickedActionListener;
+import com.alexandriasoftware.jsplitbutton.JSplitButton;
+import com.alexandriasoftware.jsplitbutton.JSplitButton.Listener;
+import com.alexandriasoftware.jsplitbutton.action.ButtonClickedActionListener;
+import com.alexandriasoftware.jsplitbutton.action.SplitButtonClickedActionListener;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -243,7 +244,7 @@ class JSplitButtonTest {
      */
     @Test
     void testSetImage() {
-        Image image = (new ImageIcon(getClass().getResource("/com/alexandriasoftware/swing/splitbutton_16.png").getFile())).getImage();
+        Image image = (new ImageIcon(getClass().getResource("/com/alexandriasoftware/jsplitbutton/splitbutton_16.png").getFile())).getImage();
         JSplitButton instance = new JSplitButton();
         instance.setImage(null);
         assertNotNull(instance.getImage());
@@ -265,7 +266,7 @@ class JSplitButtonTest {
      */
     @Test
     void testSetDisabledImage() {
-        Image image = (new ImageIcon(getClass().getResource("/com/alexandriasoftware/swing/splitbutton_16.png").getFile())).getImage();
+        Image image = (new ImageIcon(getClass().getResource("/com/alexandriasoftware/jsplitbutton/splitbutton_16.png").getFile())).getImage();
         JSplitButton instance = new JSplitButton();
         instance.setDisabledImage(null);
         assertNotNull(instance.getDisabledImage());

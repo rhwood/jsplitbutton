@@ -17,4 +17,4 @@
  * Swing implementation of a split button and JavaBean information for using it
  * in an IDE.
  */
-package com.alexandriasoftware.swing;
+package com.alexandriasoftware.jsplitbutton;

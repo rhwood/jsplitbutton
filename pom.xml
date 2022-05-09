@@ -121,6 +121,8 @@ limitations under the License.
             <id>Java 8</id>
             <properties>
                 <jdk8>true</jdk8>
+                <maven.compiler.source>8</maven.compiler.source>
+                <maven.compiler.target>8</maven.compiler.target>
             </properties>
             <activation>
                 <jdk>1.8</jdk>
@@ -130,6 +132,8 @@ limitations under the License.
             <id>Java 9+</id>
             <properties>
                 <jdk8>false</jdk8>
+                <maven.compiler.source>11</maven.compiler.source>
+                <maven.compiler.target>11</maven.compiler.target>
             </properties>
             <activation>
                 <jdk>[9,)</jdk>
@@ -282,8 +286,6 @@ limitations under the License.
     </build>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <sonar.projectKey>rhwood_jsplitbutton</sonar.projectKey>
         <sonar.organization>rhwood</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>

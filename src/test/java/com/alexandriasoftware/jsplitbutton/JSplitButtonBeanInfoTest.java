@@ -1,5 +1,7 @@
-package com.alexandriasoftware.swing;
+package com.alexandriasoftware.jsplitbutton;
 
+import com.alexandriasoftware.jsplitbutton.JSplitButton;
+import com.alexandriasoftware.jsplitbutton.JSplitButtonBeanInfo;
 import static java.beans.BeanInfo.ICON_COLOR_16x16;
 import static java.beans.BeanInfo.ICON_COLOR_32x32;
 import static java.beans.BeanInfo.ICON_MONO_16x16;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * {@link java.util.EventListener}s for
- * {@link com.alexandriasoftware.swing.JSplitButton}.
+ * Swing implementation of a split button and JavaBean information for using it
+ * in an IDE.
  */
-package com.alexandriasoftware.swing.action;
+package com.alexandriasoftware.jsplitbutton;

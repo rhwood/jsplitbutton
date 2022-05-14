@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alexandriasoftware.swing;
+package com.alexandriasoftware.jsplitbutton;
 
-import com.alexandriasoftware.swing.action.ButtonClickedActionListener;
-import com.alexandriasoftware.swing.action.SplitButtonClickedActionListener;
+import com.alexandriasoftware.jsplitbutton.action.ButtonClickedActionListener;
+import com.alexandriasoftware.jsplitbutton.action.SplitButtonClickedActionListener;
 import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.ComponentOrientation;

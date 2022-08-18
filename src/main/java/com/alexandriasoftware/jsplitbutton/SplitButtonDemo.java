@@ -42,7 +42,7 @@ public class SplitButtonDemo {
     public static void main(String[] args) throws IOException {
         frame.setLayout(new FlowLayout());
         JSplitButton button = new JSplitButton("Split Button Demo");
-        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/swing/splitbutton_16.png"))));
+        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/jsplitbutton/splitbutton_16.png"))));
         JPopupMenu menu = new JPopupMenu();
         button.setPopupMenu(menu);
         menu.add("Item 1");

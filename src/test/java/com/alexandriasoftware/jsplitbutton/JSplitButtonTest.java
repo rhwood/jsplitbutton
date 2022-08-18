@@ -15,7 +15,6 @@
  */
 package com.alexandriasoftware.jsplitbutton;
 
-import com.alexandriasoftware.jsplitbutton.JSplitButton;
 import com.alexandriasoftware.jsplitbutton.JSplitButton.Listener;
 import com.alexandriasoftware.jsplitbutton.action.ButtonClickedActionListener;
 import com.alexandriasoftware.jsplitbutton.action.SplitButtonClickedActionListener;
@@ -27,6 +26,7 @@ import java.awt.event.MouseEvent;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.stream.*;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -39,6 +39,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.*;
 
 /**
  *
@@ -273,181 +276,21 @@ class JSplitButtonTest {
         instance.setDisabledImage(image);
         assertEquals(image, instance.getDisabledImage());
     }
-
-    /**
-     * Test of paintComponent method, of class JSplitButton.
-     */
-    @Test
-    void testPaintComponentEnabledWithMenuAlwaysPopup() {
+    
+    @ParameterizedTest
+    @ArgumentsSource(PaintComponentArgumentsProvider.class)
+    void testPaintComponent(boolean alwaysPopup, JPopupMenu menu, boolean enabled, boolean onSplit) {
         JFrame frame = new JFrame();
         JSplitButton instance = new JSplitButton();
         frame.add(instance);
         frame.setVisible(true);
-        instance.setAlwaysPopup(true);
-        instance.setPopupMenu(new JPopupMenu());
-        instance.setEnabled(true);
+        instance.setAlwaysPopup(alwaysPopup);
+        instance.setPopupMenu(menu);
+        instance.setEnabled(enabled);
         Graphics g = instance.getGraphics();
+        setOnSplit(instance, onSplit);
+        instance.paintComponent(g);
         // no exceptions passes
-        // onSplit
-        setOnSplit(instance, true);
-        instance.paintComponent(g);
-        // !onSplit
-        setOnSplit(instance, false);
-        instance.paintComponent(g);
-    }
-
-    /**
-     * Test of paintComponent method, of class JSplitButton.
-     */
-    @Test
-    void testPaintComponentDisabledWithMenuAlwaysPopup() {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setAlwaysPopup(true);
-        instance.setPopupMenu(new JPopupMenu());
-        instance.setEnabled(false);
-        Graphics g = instance.getGraphics();
-        // no exceptions passes
-        // onSplit
-        setOnSplit(instance, true);
-        instance.paintComponent(g);
-        // !onSplit
-        setOnSplit(instance, false);
-        instance.paintComponent(g);
-    }
-
-    /**
-     * Test of paintComponent method, of class JSplitButton.
-     */
-    @Test
-    void testPaintComponentEnabledWithMenuNotAlwaysPopup() {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setAlwaysPopup(false);
-        instance.setPopupMenu(new JPopupMenu());
-        instance.setEnabled(true);
-        Graphics g = instance.getGraphics();
-        // no exceptions passes
-        // onSplit
-        setOnSplit(instance, true);
-        instance.paintComponent(g);
-        // !onSplit
-        setOnSplit(instance, false);
-        instance.paintComponent(g);
-    }
-
-    /**
-     * Test of paintComponent method, of class JSplitButton.
-     */
-    @Test
-    void testPaintComponentDisabledWithMenuNotAlwaysPopup() {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setAlwaysPopup(false);
-        instance.setPopupMenu(new JPopupMenu());
-        instance.setEnabled(false);
-        Graphics g = instance.getGraphics();
-        // no exceptions passes
-        // onSplit
-        setOnSplit(instance, true);
-        instance.paintComponent(g);
-        // !onSplit
-        setOnSplit(instance, false);
-        instance.paintComponent(g);
-    }
-
-    /**
-     * Test of paintComponent method, of class JSplitButton.
-     */
-    @Test
-    void testPaintComponentEnabledWithoutMenuAlwaysPopup() {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setAlwaysPopup(true);
-        instance.setPopupMenu(null);
-        instance.setEnabled(true);
-        Graphics g = instance.getGraphics();
-        // no exceptions passes
-        // onSplit
-        setOnSplit(instance, true);
-        instance.paintComponent(g);
-        // !onSplit
-        setOnSplit(instance, false);
-        instance.paintComponent(g);
-    }
-
-    /**
-     * Test of paintComponent method, of class JSplitButton.
-     */
-    @Test
-    void testPaintComponentDisabledWithoutMenuAlwaysPopup() {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setAlwaysPopup(true);
-        instance.setPopupMenu(null);
-        instance.setEnabled(false);
-        Graphics g = instance.getGraphics();
-        // no exceptions passes
-        // onSplit
-        setOnSplit(instance, true);
-        instance.paintComponent(g);
-        // !onSplit
-        setOnSplit(instance, false);
-        instance.paintComponent(g);
-    }
-
-    /**
-     * Test of paintComponent method, of class JSplitButton.
-     */
-    @Test
-    void testPaintComponentEnabledWithoutMenuNotAlwaysPopup() {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setAlwaysPopup(false);
-        instance.setPopupMenu(null);
-        instance.setEnabled(true);
-        Graphics g = instance.getGraphics();
-        // no exceptions passes
-        // onSplit
-        setOnSplit(instance, true);
-        instance.paintComponent(g);
-        // !onSplit
-        setOnSplit(instance, false);
-        instance.paintComponent(g);
-    }
-
-    /**
-     * Test of paintComponent method, of class JSplitButton.
-     */
-    @Test
-    void testPaintComponentDisabledWithoutMenuNotAlwaysPopup() {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setAlwaysPopup(false);
-        instance.setPopupMenu(null);
-        instance.setEnabled(false);
-        Graphics g = instance.getGraphics();
-        // no exceptions passes
-        // onSplit
-        setOnSplit(instance, true);
-        instance.paintComponent(g);
-        // !onSplit
-        setOnSplit(instance, false);
-        instance.paintComponent(g);
     }
 
     /**
@@ -712,4 +555,28 @@ class JSplitButtonTest {
         }
     }
 
+    private static class PaintComponentArgumentsProvider implements ArgumentsProvider {
+
+        @Override
+        public Stream<? extends Arguments> provideArguments(ExtensionContext ec) {
+            return Stream.of(
+                    new Object[]{false, null, false, false},
+                    new Object[]{false, null, false, true},
+                    new Object[]{false, null, true, false},
+                    new Object[]{false, null, true, true},
+                    new Object[]{false, new JPopupMenu(), false, false},
+                    new Object[]{false, new JPopupMenu(), false, true},
+                    new Object[]{false, new JPopupMenu(), true, false},
+                    new Object[]{false, new JPopupMenu(), true, true},
+                    new Object[]{true, null, false, false},
+                    new Object[]{true, null, false, true},
+                    new Object[]{true, null, true, false},
+                    new Object[]{true, null, true, true},
+                    new Object[]{true, new JPopupMenu(), false, false},
+                    new Object[]{true, new JPopupMenu(), false, true},
+                    new Object[]{true, new JPopupMenu(), true, false},
+                    new Object[]{true, new JPopupMenu(), true, true}).map(Arguments::of);
+        }
+        
+    }
 }

@@ -278,7 +278,51 @@ class JSplitButtonTest {
      * Test of paintComponent method, of class JSplitButton.
      */
     @Test
-    void testPaintComponentEnabled() {
+    void testPaintComponentEnabledWithMenuAlwaysPopup() {
+        JFrame frame = new JFrame();
+        JSplitButton instance = new JSplitButton();
+        frame.add(instance);
+        frame.setVisible(true);
+        instance.setAlwaysPopup(true);
+        instance.setPopupMenu(new JPopupMenu());
+        instance.setEnabled(true);
+        Graphics g = instance.getGraphics();
+        // no exceptions passes
+        // onSplit
+        setOnSplit(instance, true);
+        instance.paintComponent(g);
+        // !onSplit
+        setOnSplit(instance, false);
+        instance.paintComponent(g);
+    }
+
+    /**
+     * Test of paintComponent method, of class JSplitButton.
+     */
+    @Test
+    void testPaintComponentDisabledWithMenuAlwaysPopup() {
+        JFrame frame = new JFrame();
+        JSplitButton instance = new JSplitButton();
+        frame.add(instance);
+        frame.setVisible(true);
+        instance.setAlwaysPopup(true);
+        instance.setPopupMenu(new JPopupMenu());
+        instance.setEnabled(false);
+        Graphics g = instance.getGraphics();
+        // no exceptions passes
+        // onSplit
+        setOnSplit(instance, true);
+        instance.paintComponent(g);
+        // !onSplit
+        setOnSplit(instance, false);
+        instance.paintComponent(g);
+    }
+
+    /**
+     * Test of paintComponent method, of class JSplitButton.
+     */
+    @Test
+    void testPaintComponentEnabledWithMenuNotAlwaysPopup() {
         JFrame frame = new JFrame();
         JSplitButton instance = new JSplitButton();
         frame.add(instance);
@@ -286,17 +330,21 @@ class JSplitButtonTest {
         instance.setAlwaysPopup(false);
         instance.setPopupMenu(new JPopupMenu());
         instance.setEnabled(true);
-        setOnSplit(instance, true);
         Graphics g = instance.getGraphics();
-        instance.paintComponent(g);
         // no exceptions passes
+        // onSplit
+        setOnSplit(instance, true);
+        instance.paintComponent(g);
+        // !onSplit
+        setOnSplit(instance, false);
+        instance.paintComponent(g);
     }
 
     /**
      * Test of paintComponent method, of class JSplitButton.
      */
     @Test
-    void testPaintComponentDisabled() {
+    void testPaintComponentDisabledWithMenuNotAlwaysPopup() {
         JFrame frame = new JFrame();
         JSplitButton instance = new JSplitButton();
         frame.add(instance);
@@ -304,10 +352,14 @@ class JSplitButtonTest {
         instance.setAlwaysPopup(false);
         instance.setPopupMenu(new JPopupMenu());
         instance.setEnabled(false);
-        setOnSplit(instance, true);
         Graphics g = instance.getGraphics();
-        instance.paintComponent(g);
         // no exceptions passes
+        // onSplit
+        setOnSplit(instance, true);
+        instance.paintComponent(g);
+        // !onSplit
+        setOnSplit(instance, false);
+        instance.paintComponent(g);
     }
 
     /**

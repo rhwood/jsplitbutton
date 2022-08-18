@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author rhwood
  */
-public class SplitButtonDemoTest {
+class SplitButtonDemoTest {
     
     /**
      * Test of main method, of class SplitButtonDemo.

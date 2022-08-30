@@ -17,13 +17,7 @@ package com.alexandriasoftware.jsplitbutton;
 
 import com.alexandriasoftware.jsplitbutton.action.ButtonClickedActionListener;
 import com.alexandriasoftware.jsplitbutton.action.SplitButtonClickedActionListener;
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -353,6 +347,15 @@ public class JSplitButton extends JButton {
      */
     public void setDisabledImage(final Image image) {
         this.disabledImage = image;
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        Dimension size = super.getPreferredSize();
+        if (popupMenu != null) {
+            size.width = size.width + getSplitWidth();
+        }
+        return size;
     }
 
     @Override

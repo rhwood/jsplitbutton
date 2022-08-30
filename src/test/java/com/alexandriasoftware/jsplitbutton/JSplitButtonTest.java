@@ -18,19 +18,14 @@ package com.alexandriasoftware.jsplitbutton;
 import com.alexandriasoftware.jsplitbutton.JSplitButton.Listener;
 import com.alexandriasoftware.jsplitbutton.action.ButtonClickedActionListener;
 import com.alexandriasoftware.jsplitbutton.action.SplitButtonClickedActionListener;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.stream.*;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPopupMenu;
+import javax.swing.*;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -75,6 +70,26 @@ class JSplitButtonTest {
         JSplitButton instance = new JSplitButton(text);
         assertEquals(text, instance.getText());
         assertNull(instance.getIcon());
+    }
+
+    @Test
+    void testGetPreferredWidthNoMenu() {
+        String text = "test1";
+        JSplitButton instance = new JSplitButton(text);
+        instance.setPopupMenu(null);
+        assertEquals(new JButton(text).getPreferredSize().width,
+                instance.getPreferredSize().width);
+    }
+
+    @Test
+    void testGetPreferredWidthWithMenu() {
+        String text = "test1";
+        JSplitButton instance = new JSplitButton(text);
+        JPopupMenu menu = new JPopupMenu();
+        menu.add(text);
+        instance.setPopupMenu(new JPopupMenu());
+        assertEquals(new JButton(text).getPreferredSize().width + instance.getSplitWidth(),
+                instance.getPreferredSize().width);
     }
 
     @Test

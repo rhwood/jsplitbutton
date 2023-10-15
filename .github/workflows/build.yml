@@ -41,6 +41,6 @@ jobs:
         run: xvfb-run mvn -B ${{ matrix.maven }}
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
-        if: matrix.java == '17'
+        if: matrix.java == '21'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

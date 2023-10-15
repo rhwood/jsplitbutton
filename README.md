@@ -9,7 +9,7 @@ A split button control for Java Swing.
 [![CodeQL](https://github.com/rhwood/jsplitbutton/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/rhwood/jsplitbutton/actions/workflows/codeql-analysis.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rhwood_jsplitbutton&metric=alert_status)](https://sonarcloud.io/dashboard?id=rhwood_jsplitbutton)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rhwood_jsplitbutton&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=rhwood_jsplitbutton)
-[![codecov](https://codecov.io/gh/rhwood/jsplitbutton/branch/master/graph/badge.svg?token=gbIMA3aimP)](https://codecov.io/gh/rhwood/jsplitbutton)
+[![codecov](https://codecov.io/gh/rhwood/jsplitbutton/graph/badge.svg?token=gbIMA3aimP)](https://codecov.io/gh/rhwood/jsplitbutton)
 A simple implementation of the split button control for Java Swing. This control raises two events:
 
 * ```buttonClicked(ActionEvent e)```

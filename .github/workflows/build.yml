@@ -15,13 +15,9 @@ jobs:
       matrix:
         include:
         - java: 8
-          maven: verify
         - java: 11
-          maven: verify
         - java: 17
-          maven: verify
         - java: 21
-          maven: verify site
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,7 +34,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
-        run: xvfb-run mvn -B ${{ matrix.maven }}
+        run: xvfb-run mvn -B verify
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         if: matrix.java == '21'

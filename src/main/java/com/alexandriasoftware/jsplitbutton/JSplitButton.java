@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016, 2018 Randall Wood
+ * Copyright (C) 2016, 2018, 2024 Randall Wood
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -353,7 +353,7 @@ public class JSplitButton extends JButton {
     public Dimension getPreferredSize() {
         Dimension size = super.getPreferredSize();
         if (popupMenu != null) {
-            size.width = size.width + getSplitWidth();
+            size.width = size.width + getArrowSize() + getSplitWidth();
         }
         return size;
     }

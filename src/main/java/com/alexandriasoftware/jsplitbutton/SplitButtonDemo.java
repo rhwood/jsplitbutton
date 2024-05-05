@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Randall Wood.
+ * Copyright 2020, 2024 Randall Wood.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,14 +15,10 @@
  */
 package com.alexandriasoftware.jsplitbutton;
 
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
+import javax.swing.*;
 
 /**
  *
@@ -30,7 +26,8 @@ import javax.swing.JPopupMenu;
  */
 public class SplitButtonDemo {
 
-    static int count = 0;
+    static int horizontalCount = 0;
+    static int verticalCount = 0;
     static JFrame frame = new JFrame();
 
     /**
@@ -40,7 +37,16 @@ public class SplitButtonDemo {
      * @throws IOException if unable to load popup button icon
      */
     public static void main(String[] args) throws IOException {
-        frame.setLayout(new FlowLayout());
+        frame.setLayout(new GridLayout(4, 1));
+        frame.add(new JLabel("Horizontal Demonstration"));
+        frame.add(horizontalDemonstration());
+        frame.add(new JLabel("Vertical Demonstration"));
+        frame.add(verticalDemonstration());
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public static JPanel horizontalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("Split Button Demo");
         button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/jsplitbutton/splitbutton_16.png"))));
         JPopupMenu menu = new JPopupMenu();
@@ -49,16 +55,36 @@ public class SplitButtonDemo {
         menu.add("Item 2");
         menu.add("Item 3");
         JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
         panel.add(button);
-        frame.add(panel);
-        JLabel label = new JLabel("Clicked " + count + " times");
-        frame.add(label);
-        frame.pack();
-        frame.setVisible(true);
+        JLabel label = new JLabel("Clicked " + horizontalCount + " times");
+        panel.add(label);
         button.addButtonClickedActionListener(evt -> {
-            count++;
-            label.setText("Clicked " + count + " times");
+            horizontalCount++;
+            label.setText("Clicked " + horizontalCount + " times");
         });
+        return panel;
     }
 
+    public static JPanel verticalDemonstration() throws IOException {
+        JSplitButton button = new JSplitButton("D");
+        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/jsplitbutton/splitbutton_32.png"))));
+        button.setVerticalTextPosition(SwingConstants.BOTTOM);
+        button.setHorizontalTextPosition(SwingConstants.CENTER);
+        JPopupMenu menu = new JPopupMenu();
+        button.setPopupMenu(menu);
+        menu.add("Item 1");
+        menu.add("Item 2");
+        menu.add("Item 3");
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+        panel.add(button);
+        JLabel label = new JLabel("Clicked " + verticalCount + " times");
+        panel.add(label);
+        button.addButtonClickedActionListener(evt -> {
+            verticalCount++;
+            label.setText("Clicked " + verticalCount + " times");
+        });
+        return panel;
+    }
 }

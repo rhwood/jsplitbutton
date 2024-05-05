@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 rhwood.
+ * Copyright 2022, 2024 rhwood.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ class SplitButtonDemoTest {
     @Test
     void testMain() throws Exception {
         SplitButtonDemo.main(null);
-        assertEquals(0, SplitButtonDemo.count);
+        assertEquals(0, SplitButtonDemo.horizontalCount);
         // no exceptions passes
     }
     

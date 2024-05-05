@@ -15,7 +15,10 @@
  */
 package com.alexandriasoftware.jsplitbutton;
 
-import org.junit.jupiter.api.Test;
+import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.fixture.FrameFixture;
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -23,15 +26,41 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author rhwood
  */
 class SplitButtonDemoTest {
-    
-    /**
-     * Test of main method, of class SplitButtonDemo.
-     */
-    @Test
-    void testMain() throws Exception {
-        SplitButtonDemo.main(null);
-        assertEquals(0, SplitButtonDemo.horizontalCount);
-        // no exceptions passes
+
+    private FrameFixture window;
+
+    @BeforeAll
+    public static void setUpOnce() {
+        FailOnThreadViolationRepaintManager.install();
     }
-    
+
+    @BeforeEach
+    public void setUp() {
+        SplitButtonDemo frame = GuiActionRunner.execute(() -> new SplitButtonDemo());
+        window = new FrameFixture(frame);
+        window.show();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        window.cleanUp();
+    }
+
+    @Test
+    void testHorizontalCount() {
+        window.label("horizontalLabel").requireText("Clicked 0 times");
+        window.label("verticalLabel").requireText("Clicked 0 times");
+        window.button("horizontalButton").click();
+        window.label("horizontalLabel").requireText("Clicked 1 times");
+        window.label("verticalLabel").requireText("Clicked 0 times");
+    }
+
+    @Test
+    void testVerticalCount() {
+        window.label("verticalLabel").requireText("Clicked 0 times");
+        window.label("horizontalLabel").requireText("Clicked 0 times");
+        window.button("verticalButton").click();
+        window.label("verticalLabel").requireText("Clicked 1 times");
+        window.label("horizontalLabel").requireText("Clicked 0 times");
+    }
 }

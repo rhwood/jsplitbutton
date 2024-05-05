@@ -24,11 +24,19 @@ import javax.swing.*;
  *
  * @author Randall Wood
  */
-public class SplitButtonDemo {
+public final class SplitButtonDemo extends JFrame {
 
-    static int horizontalCount = 0;
-    static int verticalCount = 0;
-    static JFrame frame = new JFrame();
+    int horizontalCount = 0;
+    int verticalCount = 0;
+
+    public SplitButtonDemo() throws IOException {
+        setLayout(new GridLayout(4, 1));
+        add(new JLabel("Horizontal Demonstration"));
+        add(horizontalDemonstration());
+        add(new JLabel("Vertical Demonstration"));
+        add(verticalDemonstration());
+        pack();
+    }
 
     /**
      * Run a small demonstration program.
@@ -37,20 +45,16 @@ public class SplitButtonDemo {
      * @throws IOException if unable to load popup button icon
      */
     public static void main(String[] args) throws IOException {
-        frame.setLayout(new GridLayout(4, 1));
-        frame.add(new JLabel("Horizontal Demonstration"));
-        frame.add(horizontalDemonstration());
-        frame.add(new JLabel("Vertical Demonstration"));
-        frame.add(verticalDemonstration());
-        frame.pack();
+        JFrame frame = new SplitButtonDemo();
         frame.setVisible(true);
     }
 
-    public static JPanel horizontalDemonstration() throws IOException {
+    public JPanel horizontalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("Split Button Demo");
         button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/jsplitbutton/splitbutton_16.png"))));
         JPopupMenu menu = new JPopupMenu();
         button.setPopupMenu(menu);
+        button.setName("horizontalButton");
         menu.add("Item 1");
         menu.add("Item 2");
         menu.add("Item 3");
@@ -58,6 +62,7 @@ public class SplitButtonDemo {
         panel.setLayout(new FlowLayout());
         panel.add(button);
         JLabel label = new JLabel("Clicked " + horizontalCount + " times");
+        label.setName("horizontalLabel");
         panel.add(label);
         button.addButtonClickedActionListener(evt -> {
             horizontalCount++;
@@ -66,13 +71,14 @@ public class SplitButtonDemo {
         return panel;
     }
 
-    public static JPanel verticalDemonstration() throws IOException {
+    public JPanel verticalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("D");
         button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/jsplitbutton/splitbutton_32.png"))));
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         JPopupMenu menu = new JPopupMenu();
         button.setPopupMenu(menu);
+        button.setName("verticalButton");
         menu.add("Item 1");
         menu.add("Item 2");
         menu.add("Item 3");
@@ -80,6 +86,7 @@ public class SplitButtonDemo {
         panel.setLayout(new FlowLayout());
         panel.add(button);
         JLabel label = new JLabel("Clicked " + verticalCount + " times");
+        label.setName("verticalLabel");
         panel.add(label);
         button.addButtonClickedActionListener(evt -> {
             verticalCount++;

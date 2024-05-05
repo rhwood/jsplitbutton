@@ -48,19 +48,19 @@ class SplitButtonDemoTest {
 
     @Test
     void testHorizontalCount() {
-        window.label("horizontalLabel").requireText("Clicked 0 times");
-        window.label("verticalLabel").requireText("Clicked 0 times");
-        window.button("horizontalButton").click();
-        window.label("horizontalLabel").requireText("Clicked 1 times");
-        window.label("verticalLabel").requireText("Clicked 0 times");
+        assertEquals("Clicked 0 times", window.label("horizontalLabel").text());
+        assertEquals("Clicked 0 times", window.label("verticalLabel").text());
+        GuiActionRunner.execute(() -> window.button("horizontalButton").target().doClick());
+        assertEquals("Clicked 1 times", window.label("horizontalLabel").text());
+        assertEquals("Clicked 0 times", window.label("verticalLabel").text());
     }
 
     @Test
     void testVerticalCount() {
-        window.label("verticalLabel").requireText("Clicked 0 times");
-        window.label("horizontalLabel").requireText("Clicked 0 times");
-        window.button("verticalButton").click();
-        window.label("verticalLabel").requireText("Clicked 1 times");
-        window.label("horizontalLabel").requireText("Clicked 0 times");
+        assertEquals("Clicked 0 times", window.label("verticalLabel").text());
+        assertEquals("Clicked 0 times", window.label("horizontalLabel").text());
+        GuiActionRunner.execute(() -> window.button("verticalButton").target().doClick());
+        assertEquals("Clicked 1 times", window.label("verticalLabel").text());
+        assertEquals("Clicked 0 times", window.label("horizontalLabel").text());
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016, 2018, 2022 Randall Wood
+ * Copyright (C) 2016, 2018, 2022, 2024 Randall Wood
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -615,7 +615,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
 
     /**
      * A bean may have a "default" property that is the property that will
-     * mostly commonly be initially chosen for update by human's who are
+     * mostly commonly be initially chosen for update by humans who are
      * customizing the bean.
      *
      * @return Index of default property in the PropertyDescriptor array
@@ -630,7 +630,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
 
     /**
      * A bean may have a "default" event that is the event that will mostly
-     * commonly be used by human's when using the bean.
+     * commonly be used by humans when using the bean.
      *
      * @return Index of default event in the EventSetDescriptor array returned
      *         by getEventSetDescriptors.

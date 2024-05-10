@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 rhwood.
+ * Copyright 2022, 2024 rhwood.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,10 @@
  */
 package com.alexandriasoftware.jsplitbutton;
 
-import org.junit.jupiter.api.Test;
+import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.fixture.FrameFixture;
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -23,15 +26,41 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author rhwood
  */
 class SplitButtonDemoTest {
-    
-    /**
-     * Test of main method, of class SplitButtonDemo.
-     */
-    @Test
-    void testMain() throws Exception {
-        SplitButtonDemo.main(null);
-        assertEquals(0, SplitButtonDemo.count);
-        // no exceptions passes
+
+    private FrameFixture window;
+
+    @BeforeAll
+    public static void setUpOnce() {
+        FailOnThreadViolationRepaintManager.install();
     }
-    
+
+    @BeforeEach
+    public void setUp() {
+        SplitButtonDemo frame = GuiActionRunner.execute(() -> new SplitButtonDemo());
+        window = new FrameFixture(frame);
+        window.show();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        window.cleanUp();
+    }
+
+    @Test
+    void testHorizontalCount() {
+        assertEquals("Clicked 0 times", window.label("horizontalLabel").text());
+        assertEquals("Clicked 0 times", window.label("verticalLabel").text());
+        GuiActionRunner.execute(() -> window.button("horizontalButton").target().doClick());
+        assertEquals("Clicked 1 times", window.label("horizontalLabel").text());
+        assertEquals("Clicked 0 times", window.label("verticalLabel").text());
+    }
+
+    @Test
+    void testVerticalCount() {
+        assertEquals("Clicked 0 times", window.label("verticalLabel").text());
+        assertEquals("Clicked 0 times", window.label("horizontalLabel").text());
+        GuiActionRunner.execute(() -> window.button("verticalButton").target().doClick());
+        assertEquals("Clicked 1 times", window.label("verticalLabel").text());
+        assertEquals("Clicked 0 times", window.label("horizontalLabel").text());
+    }
 }

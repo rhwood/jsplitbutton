@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016, 2018 Randall Wood
+ * Copyright (C) 2016, 2018, 2024 Randall Wood
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * Swing implementation of a split button and JavaBean information for using it
- * in an IDE.
+ * {@link java.util.EventListener}s for
+ * {@link com.github.rhwood.jsplitbutton.JSplitButton}.
  */
-package com.alexandriasoftware.jsplitbutton;
+package com.github.rhwood.jsplitbutton.action;

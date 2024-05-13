@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alexandriasoftware.jsplitbutton;
+package com.github.rhwood.jsplitbutton;
 
-import com.alexandriasoftware.jsplitbutton.action.ButtonClickedActionListener;
-import com.alexandriasoftware.jsplitbutton.action.SplitButtonClickedActionListener;
+import com.github.rhwood.jsplitbutton.action.ButtonClickedActionListener;
+import com.github.rhwood.jsplitbutton.action.SplitButtonClickedActionListener;
 import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.ComponentOrientation;

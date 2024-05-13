@@ -1,4 +1,4 @@
-package com.alexandriasoftware.jsplitbutton;
+package com.github.rhwood.jsplitbutton;
 
 import static java.beans.BeanInfo.ICON_COLOR_16x16;
 import static java.beans.BeanInfo.ICON_COLOR_32x32;

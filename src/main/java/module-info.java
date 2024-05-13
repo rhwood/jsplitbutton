@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 rhwood.
+ * Copyright 2022, 2024 Randall Wood.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,6 @@
  */
 module JSplitButton {
     requires transitive java.desktop;
-    exports com.alexandriasoftware.jsplitbutton;
-    exports com.alexandriasoftware.jsplitbutton.action;
+    exports com.github.rhwood.jsplitbutton;
+    exports com.github.rhwood.jsplitbutton.action;
 }

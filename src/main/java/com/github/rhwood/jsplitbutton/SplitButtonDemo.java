@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alexandriasoftware.jsplitbutton;
+package com.github.rhwood.jsplitbutton;
 
 import java.awt.*;
 import java.io.IOException;
@@ -51,7 +51,7 @@ public final class SplitButtonDemo extends JFrame {
 
     public JPanel horizontalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("Split Button Demo");
-        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/jsplitbutton/splitbutton_16.png"))));
+        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/github/rhwood/jsplitbutton/splitbutton_16.png"))));
         JPopupMenu menu = new JPopupMenu();
         button.setPopupMenu(menu);
         button.setName("horizontalButton");
@@ -73,7 +73,7 @@ public final class SplitButtonDemo extends JFrame {
 
     public JPanel verticalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("D");
-        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/alexandriasoftware/jsplitbutton/splitbutton_32.png"))));
+        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/github/rhwood/jsplitbutton/splitbutton_32.png"))));
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         JPopupMenu menu = new JPopupMenu();

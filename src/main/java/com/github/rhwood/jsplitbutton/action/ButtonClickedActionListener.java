@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alexandriasoftware.jsplitbutton.action;
+package com.github.rhwood.jsplitbutton.action;
 
-import com.alexandriasoftware.jsplitbutton.JSplitButton;
+import com.github.rhwood.jsplitbutton.JSplitButton;
 import java.awt.event.ActionListener;
 
 /**

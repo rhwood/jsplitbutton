@@ -77,6 +77,12 @@ splitButton.add(popupMenu);
 panel.add(splitButton);
 ```
 
+## Migrating from Version 1.x to 2.0 or Newer
+
+1. Update repositories (version 1.x was published at Maven Central, version 2.0 or newer are published at GitHub Packages and Jitpack.io)
+2. Change the Group ID in Maven from `com.alexandriasoftware.swing` to `com.github.rhwood.jsplitbutton`
+3. Change the package name in imports from `com.alexandriasoftware.swing` to `com.github.rhwood.jsplitbutton`
+
 ## Prior History
 
 * [Original development](http://code.google.com/p/jsplitbutton) by Naveed Quadri in 2012

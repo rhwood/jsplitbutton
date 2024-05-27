@@ -44,12 +44,10 @@ limitations under the License.
             <id>github</id>
             <url>scm:git:https://github.com/rhwood/jsplitbutton.git</url>
         </site>
-        <!--
         <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </snapshotRepository>
-        -->
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>

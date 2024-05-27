@@ -3,7 +3,7 @@
 A Split Button control for Java Swing.
 
 [![JitPack](https://jitpack.io/v/rhwood/jsplitbutton.svg)](https://jitpack.io/#rhwood/jsplitbutton)
-[![Javadocs](https://www.javadoc.io/badge/com.alexandriasoftware.swing/jsplitbutton.svg)](https://jitpack.io/com/github/rhwood/jsplitbutton/latest/javadoc/)
+[![Javadocs](https://img.shields.io/badge/Javadocs-green)](https://jitpack.io/com/github/rhwood/jsplitbutton/latest/javadoc/)
 [![Build](https://github.com/rhwood/jinputvalidator/actions/workflows/build.yml/badge.svg)](https://github.com/rhwood/jinputvalidator/actions/workflows/build.yml)
 [![CodeQL](https://github.com/rhwood/jinputvalidator/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/rhwood/jinputvalidator/actions/workflows/codeql-analysis.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rhwood_jinputvalidator&metric=alert_status)](https://sonarcloud.io/dashboard?id=rhwood_jinputvalidator)

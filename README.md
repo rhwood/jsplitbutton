@@ -3,8 +3,8 @@ JSplitButton
 
 A split button control for Java Swing.
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.alexandriasoftware.swing/jsplitbutton/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.alexandriasoftware.swing/jsplitbutton)
-[![Javadocs](https://www.javadoc.io/badge/com.alexandriasoftware.swing/jsplitbutton.svg)](https://www.javadoc.io/doc/com.alexandriasoftware.swing/jsplitbutton)
+[![JitPack](https://jitpack.io/v/rhwood/jsplitbutton.svg)](https://jitpack.io/#rhwood/jsplitbutton)
+[![Javadocs](https://www.javadoc.io/badge/com.alexandriasoftware.swing/jsplitbutton.svg)](https://jitpack.io/com/github/USER/REPO/latest/javadoc/)
 [![Build](https://github.com/rhwood/jsplitbutton/actions/workflows/build.yml/badge.svg)](https://github.com/rhwood/jsplitbutton/actions/workflows/build.yml)
 [![CodeQL](https://github.com/rhwood/jsplitbutton/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/rhwood/jsplitbutton/actions/workflows/codeql-analysis.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rhwood_jsplitbutton&metric=alert_status)](https://sonarcloud.io/dashboard?id=rhwood_jsplitbutton)
@@ -77,11 +77,59 @@ splitButton.add(popupMenu);
 panel.add(splitButton);
 ```
 
+## Including in your project
+
+### Gradle
+
+1. Add the Jitpack repository to `build.gradle`
+```
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+2. Add the dependency
+```
+dependencies {
+    implementation 'com.github.rhwood:jsplitbutton:Tag'
+}
+```
+
+### Maven
+
+1. Add the Jitpack repository to `pom.xml`
+```
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+2. Add the dependency
+```
+<dependency>
+    <groupId>com.github.rhwood</groupId>
+    <artifactId>jsplitbutton</artifactId>
+    <version>Tag</version>
+</dependency>
+```
+
 ## Migrating from Version 1.x to 2.0 or Newer
 
-1. Update repositories (version 1.x was published at Maven Central, version 2.0 or newer are published at GitHub Packages and Jitpack.io)
-2. Change the Group ID in Maven from `com.alexandriasoftware.swing` to `com.github.rhwood.jsplitbutton`
+1. Add the Jitpack.io repositoras shown above
+2. Change the Group ID in `pom.xml` or `build.gradle` from `com.alexandriasoftware.swing` to `com.github.rhwood.jsplitbutton`
 3. Change the package name in imports from `com.alexandriasoftware.swing` to `com.github.rhwood.jsplitbutton`
+
+## License
+
+- Versions 1.3.1 and newer are released under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
+- Version 1.3.0 is released under the [GNU Public License 2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Prior History
 

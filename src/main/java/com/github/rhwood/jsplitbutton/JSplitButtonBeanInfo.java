@@ -64,6 +64,9 @@ import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeListener;
 
 /**
+ * Provide information about about JSplitButton that can be used by IDEs to
+ * provide a editing UI for JSplitButton properties.
+ *
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016
  */
@@ -559,6 +562,13 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
 
     private static final int DEFAULT_PROPERTY_INDEX = -1;
     private static final int DEFAULT_EVENT_INDEX = -1;
+
+    /**
+     * Constructs a {@code JSplitButtonBeanInfo}.
+     */
+    public JSplitButtonBeanInfo() {
+        super();
+    }
 
     /**
      * Gets the bean's <code>BeanDescriptor</code>s.

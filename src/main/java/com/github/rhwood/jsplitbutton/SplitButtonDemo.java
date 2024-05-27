@@ -21,14 +21,26 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
+ * Simple demonstration of JSplitButton.
  *
  * @author Randall Wood
  */
 public final class SplitButtonDemo extends JFrame {
 
+    /**
+     * Counter for number of times horizontal button is clicked.
+     */
     int horizontalCount = 0;
+    /**
+     * Counter for number of times vertical button is clicked.
+     */
     int verticalCount = 0;
 
+    /**
+     * Create the demonstration.
+     *
+     * @throws IOException if unable to load popup button icon
+     */
     public SplitButtonDemo() throws IOException {
         setLayout(new GridLayout(4, 1));
         add(new JLabel("Horizontal Demonstration"));
@@ -49,6 +61,12 @@ public final class SplitButtonDemo extends JFrame {
         frame.setVisible(true);
     }
 
+    /**
+     * Demonstrate a horizontal layout.
+     *
+     * @return the panel containing the demonstration button
+     * @throws IOException if unable to load popup button icon
+     */
     public JPanel horizontalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("Split Button Demo");
         button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/github/rhwood/jsplitbutton/splitbutton_16.png"))));
@@ -71,6 +89,12 @@ public final class SplitButtonDemo extends JFrame {
         return panel;
     }
 
+    /**
+     * Demonstrate a vertical layout.
+     *
+     * @return the panel containing the demonstration button
+     * @throws IOException if unable to load popup button icon
+     */
     public JPanel verticalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("D");
         button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/github/rhwood/jsplitbutton/splitbutton_32.png"))));

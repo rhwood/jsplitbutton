@@ -21,7 +21,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    # change to macos-latest once macos-13 becomes the latest
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner

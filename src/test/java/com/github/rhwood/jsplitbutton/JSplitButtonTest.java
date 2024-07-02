@@ -24,19 +24,20 @@ import java.awt.event.MouseEvent;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Objects;
 import java.util.stream.*;
 import javax.swing.*;
+import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.assertj.swing.edt.GuiActionRunner;
 import org.junit.jupiter.api.AfterEach;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
@@ -46,6 +47,11 @@ class JSplitButtonTest {
 
     int buttonClickFired = 0;
     int splitButtonClickFired = 0;
+
+    @BeforeAll
+    public static void setUpOnce() {
+        FailOnThreadViolationRepaintManager.install();
+    }
 
     @BeforeEach
     void setUp() {
@@ -59,7 +65,7 @@ class JSplitButtonTest {
 
     @Test
     void testCtorNull() {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         assertTrue(instance.getText().isEmpty());
         assertNull(instance.getIcon());
     }
@@ -67,7 +73,7 @@ class JSplitButtonTest {
     @Test
     void testCtorText() {
         String text = "test1";
-        JSplitButton instance = new JSplitButton(text);
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton(text));
         assertEquals(text, instance.getText());
         assertNull(instance.getIcon());
     }
@@ -75,27 +81,27 @@ class JSplitButtonTest {
     @Test
     void testGetPreferredWidthNoMenu() {
         String text = "test1";
-        JSplitButton instance = new JSplitButton(text);
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton(text));
         instance.setPopupMenu(null);
-        assertEquals(new JButton(text).getPreferredSize().width,
-                instance.getPreferredSize().width);
+        int width = GuiActionRunner.execute(() -> new JButton(text).getPreferredSize().width);
+        assertEquals(width, instance.getPreferredSize().width);
     }
 
     @Test
     void testGetPreferredWidthWithMenu() {
         String text = "test1";
-        JSplitButton instance = new JSplitButton(text);
-        JPopupMenu menu = new JPopupMenu();
-        menu.add(text);
-        instance.setPopupMenu(new JPopupMenu());
-        assertEquals(new JButton(text).getPreferredSize().width + instance.getSplitWidth() + instance.getArrowSize(),
-                instance.getPreferredSize().width);
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton(text));
+        JPopupMenu menu = GuiActionRunner.execute(() -> new JPopupMenu());
+        GuiActionRunner.execute(() -> menu.add(text));
+        instance.setPopupMenu(menu);
+        int width = GuiActionRunner.execute(() -> new JButton(text).getPreferredSize().width + instance.getSplitWidth() + instance.getArrowSize());
+        assertEquals(width, instance.getPreferredSize().width);
     }
 
     @Test
     void testCtorIcon() {
         Icon icon = new ImageIcon();
-        JSplitButton instance = new JSplitButton(icon);
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton(icon));
         assertTrue(instance.getText().isEmpty());
         assertEquals(icon, instance.getIcon());
     }
@@ -105,8 +111,8 @@ class JSplitButtonTest {
      */
     @Test
     void testGetPopupMenu() {
-        JSplitButton instance = new JSplitButton();
-        assertEquals(null, instance.getPopupMenu());
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
+        assertNull(instance.getPopupMenu());
     }
 
     /**
@@ -115,10 +121,10 @@ class JSplitButtonTest {
     @Test
     void testSetPopupMenu() {
         JPopupMenu popupMenu = null;
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.setPopupMenu(popupMenu);
         assertNull(instance.getPopupMenu());
-        popupMenu = new JPopupMenu();
+        popupMenu = GuiActionRunner.execute(() -> new JPopupMenu());
         instance.setPopupMenu(popupMenu);
         assertEquals(popupMenu, instance.getPopupMenu());
     }
@@ -128,7 +134,7 @@ class JSplitButtonTest {
      */
     @Test
     void testGetSeparatorSpacing() {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         assertEquals(4, instance.getSeparatorSpacing());
     }
 
@@ -138,7 +144,7 @@ class JSplitButtonTest {
     @Test
     void testSetSeparatorSpacing() {
         int separatorSpacing = 0;
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.setSeparatorSpacing(separatorSpacing);
         assertEquals(separatorSpacing, instance.getSeparatorSpacing());
     }
@@ -148,8 +154,8 @@ class JSplitButtonTest {
      */
     @Test
     void testIsAlwaysPopup() {
-        JSplitButton instance = new JSplitButton();
-        assertEquals(false, instance.isAlwaysPopup());
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
+        assertFalse(instance.isAlwaysPopup());
     }
 
     /**
@@ -157,12 +163,12 @@ class JSplitButtonTest {
      */
     @Test
     void testSetAlwaysPopup() {
-        JSplitButton instance = new JSplitButton();
-        assertEquals(false, instance.isAlwaysPopup());
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
+        assertFalse(instance.isAlwaysPopup());
         instance.setAlwaysPopup(true);
-        assertEquals(true, instance.isAlwaysPopup());
+        assertTrue(instance.isAlwaysPopup());
         instance.setAlwaysPopup(false);
-        assertEquals(false, instance.isAlwaysPopup());
+        assertFalse(instance.isAlwaysPopup());
     }
 
     /**
@@ -170,7 +176,7 @@ class JSplitButtonTest {
      */
     @Test
     void testGetArrowColor() {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         assertEquals(Color.BLACK, instance.getArrowColor());
     }
 
@@ -180,7 +186,7 @@ class JSplitButtonTest {
     @Test
     void testSetArrowColor() {
         Color arrowColor = Color.RED;
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.setArrowColor(arrowColor);
         assertEquals(arrowColor, instance.getArrowColor());
     }
@@ -190,7 +196,7 @@ class JSplitButtonTest {
      */
     @Test
     void testGetDisabledArrowColor() {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         assertEquals(Color.GRAY, instance.getDisabledArrowColor());
     }
 
@@ -200,7 +206,7 @@ class JSplitButtonTest {
     @Test
     void testSetDisabledArrowColor() {
         Color disabledArrowColor = Color.RED;
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.setDisabledArrowColor(disabledArrowColor);
         assertEquals(disabledArrowColor, instance.getDisabledArrowColor());
     }
@@ -210,7 +216,7 @@ class JSplitButtonTest {
      */
     @Test
     void testGetSplitWidth() {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         assertEquals(22, instance.getSplitWidth());
     }
 
@@ -220,7 +226,7 @@ class JSplitButtonTest {
     @Test
     void testSetSplitWidth() {
         int splitWidth = 0;
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.setSplitWidth(splitWidth);
         assertEquals(splitWidth, instance.getSplitWidth());
     }
@@ -230,7 +236,7 @@ class JSplitButtonTest {
      */
     @Test
     void testGetArrowSize() {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         assertEquals(8, instance.getArrowSize());
     }
 
@@ -240,7 +246,7 @@ class JSplitButtonTest {
     @Test
     void testSetArrowSize() {
         int arrowSize = 0;
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.setArrowSize(arrowSize);
         assertEquals(arrowSize, instance.getArrowSize());
     }
@@ -250,10 +256,10 @@ class JSplitButtonTest {
      */
     @Test
     void testGetImage() {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         assertNotNull(instance.getImage());
         instance.setImage(null);
-        instance.setPopupMenu(new JPopupMenu());
+        GuiActionRunner.execute(() -> instance.setPopupMenu(new JPopupMenu()));
         assertNotNull(instance.getImage());
     }
 
@@ -262,8 +268,8 @@ class JSplitButtonTest {
      */
     @Test
     void testSetImage() {
-        Image image = (new ImageIcon(getClass().getResource("/com/github/rhwood/jsplitbutton/splitbutton_16.png").getFile())).getImage();
-        JSplitButton instance = new JSplitButton();
+        Image image = (new ImageIcon(Objects.requireNonNull(getClass().getResource("/com/github/rhwood/jsplitbutton/splitbutton_16.png")).getFile())).getImage();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.setImage(null);
         assertNotNull(instance.getImage());
         instance.setImage(image);
@@ -275,7 +281,7 @@ class JSplitButtonTest {
      */
     @Test
     void testGetDisabledImage() {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         assertNotNull(instance.getDisabledImage());
     }
 
@@ -284,8 +290,8 @@ class JSplitButtonTest {
      */
     @Test
     void testSetDisabledImage() {
-        Image image = (new ImageIcon(getClass().getResource("/com/github/rhwood/jsplitbutton/splitbutton_16.png").getFile())).getImage();
-        JSplitButton instance = new JSplitButton();
+        Image image = (new ImageIcon(Objects.requireNonNull(getClass().getResource("/com/github/rhwood/jsplitbutton/splitbutton_16.png")).getFile())).getImage();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.setDisabledImage(null);
         assertNotNull(instance.getDisabledImage());
         instance.setDisabledImage(image);
@@ -295,17 +301,19 @@ class JSplitButtonTest {
     @ParameterizedTest
     @ArgumentsSource(PaintComponentArgumentsProvider.class)
     void testPaintComponent(boolean alwaysPopup, JPopupMenu menu, boolean enabled, boolean onSplit) {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setAlwaysPopup(alwaysPopup);
-        instance.setPopupMenu(menu);
-        instance.setEnabled(enabled);
-        Graphics g = instance.getGraphics();
-        setOnSplit(instance, onSplit);
-        instance.paintComponent(g);
-        // no exceptions passes
+        GuiActionRunner.execute(() -> {
+            JFrame frame = new JFrame();
+            JSplitButton instance = new JSplitButton();
+            frame.add(instance);
+            frame.setVisible(true);
+            instance.setAlwaysPopup(alwaysPopup);
+            instance.setPopupMenu(menu);
+            instance.setEnabled(enabled);
+            Graphics g = instance.getGraphics();
+            setOnSplit(instance, onSplit);
+            instance.paintComponent(g);
+            // no exceptions passes
+        });
     }
 
     /**
@@ -314,7 +322,7 @@ class JSplitButtonTest {
     @Test
     void testAddButtonClickedActionListener() {
         ButtonClickedActionListener l = new AbstractButtonClickedActionListener();
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.addButtonClickedActionListener(l);
         // right side, set action command
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddButtonClickedActionListener"));
@@ -336,7 +344,7 @@ class JSplitButtonTest {
     @Test
     void testRemoveButtonClickedActionListener() {
         AbstractButtonClickedActionListener l = new AbstractButtonClickedActionListener();
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         instance.addButtonClickedActionListener(l);
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testRemoveButtonClickedActionListener"));
         assertEquals(1, this.buttonClickFired);
@@ -351,8 +359,8 @@ class JSplitButtonTest {
     @Test
     void testAddSplitButtonClickedActionListener() {
         SplitButtonClickedActionListener l = new AbstractSplitButtonClickedActionListener();
-        JSplitButton instance = new JSplitButton();
-        instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
+        GuiActionRunner.execute(() -> instance.setPopupMenu(new JPopupMenu())); // a null or unset popup menu prevents the split action from firing
         instance.addSplitButtonClickedActionListener(l);
         // set action command
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testAddSplitButtonClickedActionListener"));
@@ -374,8 +382,8 @@ class JSplitButtonTest {
     @Test
     void testRemoveSplitButtonClickedActionListener() {
         SplitButtonClickedActionListener l = new AbstractSplitButtonClickedActionListener();
-        JSplitButton instance = new JSplitButton();
-        instance.setPopupMenu(new JPopupMenu()); // a null or unset popup menu prevents the split action from firing
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
+        GuiActionRunner.execute(() -> instance.setPopupMenu(new JPopupMenu())); // a null or unset popup menu prevents the split action from firing
         instance.addSplitButtonClickedActionListener(l);
         fireSplitButtonClicked(instance, new ActionEvent(instance, 0, "testRemoveSplitButtonActionListener"));
         assertEquals(1, this.splitButtonClickFired);
@@ -389,11 +397,13 @@ class JSplitButtonTest {
      */
     @Test
     void testActionPerformed() {
-        JFrame frame = new JFrame();
-        JSplitButton instance = new JSplitButton();
-        frame.add(instance);
-        frame.setVisible(true);
-        instance.setPopupMenu(null);
+        JFrame frame = GuiActionRunner.execute(() -> new JFrame());
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
+        GuiActionRunner.execute(() -> {
+            frame.add(instance);
+            frame.setVisible(true);
+            instance.setPopupMenu(null);
+        });
         instance.addButtonClickedActionListener(new AbstractButtonClickedActionListener());
         instance.addSplitButtonClickedActionListener(new AbstractSplitButtonClickedActionListener());
         // no menu, always popup false, action command not null
@@ -413,13 +423,13 @@ class JSplitButtonTest {
         instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
         assertEquals(4, this.buttonClickFired);
         assertEquals(0, this.splitButtonClickFired);
-        instance.setPopupMenu(new JPopupMenu());
+        GuiActionRunner.execute(() -> instance.setPopupMenu(new JPopupMenu()));
         // menu, always popup true, action command not null
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed"));
+        GuiActionRunner.execute(() -> instance.getListener().actionPerformed(new ActionEvent(instance, 0, "testActionPerformed")));
         assertEquals(5, this.buttonClickFired);
         assertEquals(0, this.splitButtonClickFired);
         // menu, always popup true, action command null
-        instance.getListener().actionPerformed(new ActionEvent(instance, 0, null));
+        GuiActionRunner.execute(() -> instance.getListener().actionPerformed(new ActionEvent(instance, 0, null)));
         assertEquals(6, this.buttonClickFired);
         assertEquals(0, this.splitButtonClickFired);
         instance.setAlwaysPopup(false);
@@ -480,7 +490,7 @@ class JSplitButtonTest {
     }
 
     private void testMouseEvent(int event, boolean onSplit) {
-        JSplitButton instance = new JSplitButton();
+        JSplitButton instance = GuiActionRunner.execute(() -> new JSplitButton());
         setOnSplit(instance, true);
         MouseEvent e = new MouseEvent(instance, 0, 0, event, 0, 0, 0, false);
         switch (event) {
@@ -574,7 +584,8 @@ class JSplitButtonTest {
 
         @Override
         public Stream<? extends Arguments> provideArguments(ExtensionContext ec) {
-            return Stream.of(
+            return GuiActionRunner.execute(() ->
+                Stream.of(
                     new Object[]{false, null, false, false},
                     new Object[]{false, null, false, true},
                     new Object[]{false, null, true, false},
@@ -590,7 +601,8 @@ class JSplitButtonTest {
                     new Object[]{true, new JPopupMenu(), false, false},
                     new Object[]{true, new JPopupMenu(), false, true},
                     new Object[]{true, new JPopupMenu(), true, false},
-                    new Object[]{true, new JPopupMenu(), true, true}).map(Arguments::of);
+                    new Object[]{true, new JPopupMenu(), true, true}).map(Arguments::of)
+            );
         }
         
     }

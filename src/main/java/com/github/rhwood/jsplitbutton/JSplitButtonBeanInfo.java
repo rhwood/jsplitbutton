@@ -56,6 +56,7 @@ import java.beans.PropertyDescriptor;
 import java.beans.SimpleBeanInfo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -64,8 +65,8 @@ import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeListener;
 
 /**
- * Provide information about about JSplitButton that can be used by IDEs to
- * provide a editing UI for JSplitButton properties.
+ * Provide information about JSplitButton that can be used by IDEs to
+ * provide an editing UI for JSplitButton properties.
  *
  * @author Naveed Quadri 2012
  * @author Randall Wood 2016
@@ -231,7 +232,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             properties.add(new PropertyDescriptor("x", JSplitButton.class, "getX", null)); // NOI18N
             properties.add(new PropertyDescriptor("y", JSplitButton.class, "getY", null)); // NOI18N
         } catch (IntrospectionException e) {
-            // silently ignore
+            Logger.getLogger(JSplitButtonBeanInfo.class.getCanonicalName()).fine(e.getMessage());
         }
 
         // Here you can add code for customizing the properties array.
@@ -265,7 +266,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             eventSets.add(new EventSetDescriptor(JSplitButton.class, "splitButtonClickedActionListener", SplitButtonClickedActionListener.class, new String[]{}, "addSplitButtonClickedActionListener", "removeSplitButtonClickedActionListener")); // NOI18N
             eventSets.add(new EventSetDescriptor(JSplitButton.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[]{"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener")); // NOI18N
         } catch (IntrospectionException e) {
-            // silently ignore
+            Logger.getLogger(JSplitButtonBeanInfo.class.getCanonicalName()).fine(e.getMessage());
         }
 
         // Here you can add code for customizing the event sets array.
@@ -286,17 +287,17 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(Container.class.getMethod("add", Component.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Container.class.getMethod("add", java.lang.String.class, Component.class))); // NOI18N
+            methods.add(new MethodDescriptor(Container.class.getMethod("add", String.class, Component.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(Container.class.getMethod("add", Component.class, int.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Container.class.getMethod("add", Component.class, java.lang.Object.class))); // NOI18N
+            methods.add(new MethodDescriptor(Container.class.getMethod("add", Component.class, Object.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Container.class.getMethod("add", Component.class, java.lang.Object.class, int.class))); // NOI18N
+            methods.add(new MethodDescriptor(Container.class.getMethod("add", Component.class, Object.class, int.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JComponent.class.getMethod("addNotify"))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Container.class.getMethod("addPropertyChangeListener", java.lang.String.class, java.beans.PropertyChangeListener.class))); // NOI18N
+            methods.add(new MethodDescriptor(Container.class.getMethod("addPropertyChangeListener", String.class, java.beans.PropertyChangeListener.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(Container.class.getMethod("applyComponentOrientation", ComponentOrientation.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
@@ -346,21 +347,21 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(Container.class.getMethod("findComponentAt", Point.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, java.lang.String.class, byte.class, byte.class))); // NOI18N
+            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, String.class, byte.class, byte.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, java.lang.String.class, short.class, short.class))); // NOI18N
+            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, String.class, short.class, short.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, java.lang.String.class, long.class, long.class))); // NOI18N
+            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, String.class, long.class, long.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, java.lang.String.class, float.class, float.class))); // NOI18N
+            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, String.class, float.class, float.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, java.lang.String.class, double.class, double.class))); // NOI18N
+            methods.add(new MethodDescriptor(Component.class.getMethod(firePropertyChange, String.class, double.class, double.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, java.lang.String.class, boolean.class, boolean.class))); // NOI18N
+            methods.add(new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, String.class, boolean.class, boolean.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, java.lang.String.class, int.class, int.class))); // NOI18N
+            methods.add(new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, String.class, int.class, int.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, java.lang.String.class, char.class, char.class))); // NOI18N
+            methods.add(new MethodDescriptor(JComponent.class.getMethod(firePropertyChange, String.class, char.class, char.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JComponent.class.getMethod("getActionForKeyStroke", KeyStroke.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
@@ -368,7 +369,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JComponent.class.getMethod("getBounds", Rectangle.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(JComponent.class.getMethod("getClientProperty", java.lang.Object.class))); // NOI18N
+            methods.add(new MethodDescriptor(JComponent.class.getMethod("getClientProperty", Object.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(Container.class.getMethod("getComponentAt", int.class, int.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
@@ -386,7 +387,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JComponent.class.getMethod("getInsets", Insets.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(JComponent.class.getMethod("getListeners", java.lang.Class.class))); // NOI18N
+            methods.add(new MethodDescriptor(JComponent.class.getMethod("getListeners", Class.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JComponent.class.getMethod("getLocation", Point.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
@@ -396,7 +397,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JComponent.class.getMethod("getPopupLocation", MouseEvent.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Component.class.getMethod("getPropertyChangeListeners", java.lang.String.class))); // NOI18N
+            methods.add(new MethodDescriptor(Component.class.getMethod("getPropertyChangeListeners", String.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JComponent.class.getMethod("getSize", Dimension.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
@@ -468,9 +469,9 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(Container.class.getMethod("printComponents", Graphics.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(JComponent.class.getMethod("putClientProperty", java.lang.Object.class, java.lang.Object.class))); // NOI18N
+            methods.add(new MethodDescriptor(JComponent.class.getMethod("putClientProperty", Object.class, Object.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(JComponent.class.getMethod("registerKeyboardAction", ActionListener.class, java.lang.String.class, KeyStroke.class, int.class))); // NOI18N
+            methods.add(new MethodDescriptor(JComponent.class.getMethod("registerKeyboardAction", ActionListener.class, String.class, KeyStroke.class, int.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JComponent.class.getMethod("registerKeyboardAction", ActionListener.class, KeyStroke.class, int.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
@@ -484,7 +485,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(JButton.class.getMethod("removeNotify"))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
-            methods.add(new MethodDescriptor(Component.class.getMethod("removePropertyChangeListener", java.lang.String.class, java.beans.PropertyChangeListener.class))); // NOI18N
+            methods.add(new MethodDescriptor(Component.class.getMethod("removePropertyChangeListener", String.class, java.beans.PropertyChangeListener.class))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
             methods.add(new MethodDescriptor(Component.class.getMethod(repaint))); // NOI18N
             methods.get(methods.size() - 1).setDisplayName("");
@@ -550,7 +551,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
         }
         catch (NoSuchMethodException | SecurityException e) {
-            // silently ignore
+            Logger.getLogger(JSplitButtonBeanInfo.class.getCanonicalName()).fine(e.getMessage());
         }
 
         // Here you can add code for customizing the methods array.

@@ -19,6 +19,7 @@
  */
 module JSplitButton {
     requires transitive java.desktop;
+    requires java.logging;
     exports com.github.rhwood.jsplitbutton;
     exports com.github.rhwood.jsplitbutton.action;
 }

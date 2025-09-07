@@ -56,6 +56,7 @@ import java.beans.PropertyDescriptor;
 import java.beans.SimpleBeanInfo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -231,7 +232,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             properties.add(new PropertyDescriptor("x", JSplitButton.class, "getX", null)); // NOI18N
             properties.add(new PropertyDescriptor("y", JSplitButton.class, "getY", null)); // NOI18N
         } catch (IntrospectionException e) {
-            // silently ignore
+            Logger.getLogger(JSplitButtonBeanInfo.class.getCanonicalName()).fine(e.getMessage());
         }
 
         // Here you can add code for customizing the properties array.
@@ -265,7 +266,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             eventSets.add(new EventSetDescriptor(JSplitButton.class, "splitButtonClickedActionListener", SplitButtonClickedActionListener.class, new String[]{}, "addSplitButtonClickedActionListener", "removeSplitButtonClickedActionListener")); // NOI18N
             eventSets.add(new EventSetDescriptor(JSplitButton.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[]{"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener")); // NOI18N
         } catch (IntrospectionException e) {
-            // silently ignore
+            Logger.getLogger(JSplitButtonBeanInfo.class.getCanonicalName()).fine(e.getMessage());
         }
 
         // Here you can add code for customizing the event sets array.
@@ -550,7 +551,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
             methods.get(methods.size() - 1).setDisplayName("");
         }
         catch (NoSuchMethodException | SecurityException e) {
-            // silently ignore
+            Logger.getLogger(JSplitButtonBeanInfo.class.getCanonicalName()).fine(e.getMessage());
         }
 
         // Here you can add code for customizing the methods array.

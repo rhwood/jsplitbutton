@@ -17,7 +17,14 @@ package com.github.rhwood.jsplitbutton;
 
 import com.github.rhwood.jsplitbutton.action.ButtonClickedActionListener;
 import com.github.rhwood.jsplitbutton.action.SplitButtonClickedActionListener;
-import java.awt.*;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -28,6 +35,7 @@ import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
+import javax.swing.event.EventListenerList;
 
 /**
  * An implementation of a "split" button. The left side acts like a normal
@@ -366,7 +374,7 @@ public class JSplitButton extends JButton {
         g.translate(splitRectangle.x, splitRectangle.y);
         int mh = getHeight() / 2;
         int mw = splitWidth / 2;
-        g.drawImage((isEnabled() ? getImage() : getDisabledImage()), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
+        g.drawImage(isEnabled() ? getImage() : getDisabledImage(), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
         if (onSplit && !alwaysPopup && popupMenu != null) {
             g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.background"));
             g.drawLine(1, separatorSpacing + 2, 1, getHeight() - separatorSpacing - 2);

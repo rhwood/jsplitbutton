@@ -15,10 +15,16 @@
  */
 package com.github.rhwood.jsplitbutton;
 
-import java.awt.*;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.SwingConstants;
 
 /**
  * Simple demonstration of JSplitButton.

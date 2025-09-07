@@ -4,11 +4,10 @@ A Split Button control for Java Swing.
 
 [![JitPack](https://jitpack.io/v/rhwood/jsplitbutton.svg)](https://jitpack.io/#rhwood/jsplitbutton)
 [![Javadocs](https://jitpack.io/v/rhwood/jsplitbutton.svg?label=Javadocs)](https://jitpack.io/com/github/rhwood/jsplitbutton/latest/javadoc/)
-[![Build](https://github.com/rhwood/jinputvalidator/actions/workflows/build.yml/badge.svg)](https://github.com/rhwood/jinputvalidator/actions/workflows/build.yml)
-[![CodeQL](https://github.com/rhwood/jinputvalidator/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/rhwood/jinputvalidator/actions/workflows/codeql-analysis.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rhwood_jinputvalidator&metric=alert_status)](https://sonarcloud.io/dashboard?id=rhwood_jinputvalidator)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rhwood_jinputvalidator&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=rhwood_jinputvalidator)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rhwood_jinputvalidator&metric=coverage)](https://sonarcloud.io/dashboard?id=rhwood_jinputvalidator)
+[![Build](https://github.com/rhwood/jsplitbutton/actions/workflows/build.yml/badge.svg)](https://github.com/rhwood/jsplitbutton/actions/workflows/build.yml)
+[![CodeQL](https://github.com/rhwood/jsplitbutton/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/rhwood/jsplitbutton/actions/workflows/codeql-analysis.yml)
+[![codecov](https://codecov.io/gh/rhwood/jsplitbutton/graph/badge.svg?token=gbIMA3aimP)](https://codecov.io/gh/rhwood/jsplitbutton)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/rhwood/jsplitbutton/badge)](https://securityscorecards.dev/viewer/?uri=github.com/rhwood/jsplitbutton)
 
 A simple implementation of the split button control for Java Swing. This control raises two events:
 
@@ -97,7 +96,7 @@ dependencies {
 
 ## Migrating from Version 1.x to 2.0 or Newer
 
-1. Add the Jitpack.io repositoras shown above
+1. Add the Jitpack.io repositories shown above
 2. Change the Group ID in `pom.xml` or `build.gradle` from `com.alexandriasoftware.swing` to `com.github.rhwood.jsplitbutton`
 3. Change the package name in imports from `com.alexandriasoftware.swing` to `com.github.rhwood.jsplitbutton`
 

@@ -117,15 +117,36 @@ limitations under the License.
             <activation>
                 <jdk>[9,)</jdk>
             </activation>
-            <reporting>
+        </profile>
+        <profile>
+            <id>Java 17+</id>
+            <activation>
+                <jdk>[17,)</jdk>
+            </activation>
+            <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-checkstyle-plugin</artifactId>
                         <configuration>
-                            <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
-                            <suppressionsFileExpression>checkstyle.suppressions.file</suppressionsFileExpression>                
+                            <violationSeverity>warning</violationSeverity>
+                            <failOnViolation>false</failOnViolation>
                         </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
                     </plugin>
                 </plugins>
             </reporting>
@@ -164,6 +185,10 @@ limitations under the License.
                             <version>11.0.1</version>
                         </dependency>
                     </dependencies>
+                    <configuration>
+                        <suppressionsLocation>config/checkstyle/suppressions.xml</suppressionsLocation>
+                        <suppressionsFileExpression>checkstyle.suppressions.file</suppressionsFileExpression>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -331,14 +356,6 @@ limitations under the License.
     </dependencies>
     <reporting>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <configuration>
-                    <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
-                    <suppressionsFileExpression>checkstyle.suppressions.file</suppressionsFileExpression>                
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>

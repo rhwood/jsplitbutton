@@ -20,4 +20,8 @@ limitations under the License.
 
 <suppressions>
     <suppress checks=".*" files="JSplitButtonBeanInfo.java"/>
+    <suppress checks="MagicNumber" files="JSplitButton.java"/>
+    <suppress checks="MagicNumber" files="SplitButtonDemo.java"/>
+    <suppress checks="LineLength" files="ButtonClickedActionListener.java"/>
+    <suppress checks="LineLength" files="SplitButtonClickedActionListener.java"/>
 </suppressions>

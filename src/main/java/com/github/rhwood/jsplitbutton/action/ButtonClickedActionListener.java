@@ -15,7 +15,6 @@
  */
 package com.github.rhwood.jsplitbutton.action;
 
-import com.github.rhwood.jsplitbutton.JSplitButton;
 import java.awt.event.ActionListener;
 
 /**
@@ -23,7 +22,7 @@ import java.awt.event.ActionListener;
  * {@link java.awt.event.ActionEvent}. The class that is interested in
  * processing an action event implements this interface, and the object created
  * with that class is registered with a component, using the component's
- * {@link JSplitButton#addButtonClickedActionListener(ButtonClickedActionListener)}
+ * {@link com.github.rhwood.jsplitbutton.JSplitButton#addButtonClickedActionListener(ButtonClickedActionListener)}
  * method. When the action event occurs, that object's
  * {@link ActionListener#actionPerformed(java.awt.event.ActionEvent)} method is
  * invoked.

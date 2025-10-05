@@ -42,7 +42,7 @@ import javax.swing.event.EventListenerList;
  * button, right side has a jPopupMenu attached. If there is no attached menu,
  * the right side of the split button appears disabled, and clicking anywhere in
  * the button triggers the normal button action.
- *
+ * <p>
  * Implement {@link ButtonClickedActionListener} to handle the event raised when
  * the main button is clicked and {@link SplitButtonClickedActionListener} to
  * handle the event raised when the popup menu is triggered.
@@ -237,7 +237,7 @@ public class JSplitButton extends JButton {
     }
 
     /**
-     * Splitwidth is the width of the split part of the button.
+     * Get the width of the split part of the button.
      *
      * @return the width of the split
      */
@@ -246,7 +246,7 @@ public class JSplitButton extends JButton {
     }
 
     /**
-     * Splitwidth is the width of the split part of the button.
+     * Set the width of the split part of the button.
      *
      * @param splitWidth the width of the split
      */
@@ -274,7 +274,7 @@ public class JSplitButton extends JButton {
     }
 
     /**
-     * Gets the image to be drawn in the split part. If no is set, a new image
+     * Gets the image to be drawn in the split part. If no image is set, a new image
      * is created with the triangle.
      *
      * @return image
@@ -300,7 +300,7 @@ public class JSplitButton extends JButton {
     }
 
     /**
-     * Gets the disabled image to be drawn in the split part. If no is set, a
+     * Gets the disabled image to be drawn in the split part. If no image is set, a
      * new image is created with the triangle.
      *
      * @return image
@@ -317,7 +317,8 @@ public class JSplitButton extends JButton {
     /**
      * Draws the default arrow image in the specified color.
      *
-     * @param color
+     * @param size the width and height of the square the arrow is drawn to fill
+     * @param color the color of the arrow
      * @return image
      */
     private Image getImage(final int size, final Color color) {
@@ -388,7 +389,7 @@ public class JSplitButton extends JButton {
     /**
      * Rotates the given image with the specified angle.
      *
-     * @param img   image to rotate
+     * @param image   image to rotate
      * @param angle angle of rotation
      * @return rotated image
      */
@@ -449,8 +450,8 @@ public class JSplitButton extends JButton {
 
     /**
      * Listener for internal changes within the JSplitButton itself.
-     *
-     * Package private so its available to tests.
+     * <p>
+     * Package private so it is available to tests.
      */
     class Listener implements MouseMotionListener, MouseListener, ActionListener {
 
@@ -541,7 +542,7 @@ public class JSplitButton extends JButton {
         @Override
         public void mouseDragged(final MouseEvent e) {
             // required by MouseMotionListener API, but ignored as drag/drop
-            // not intrisicly supported within this widget
+            // not intrinsically supported within this widget
         }
 
         @Override

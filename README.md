@@ -118,6 +118,12 @@ dependencies {
 </dependency>
 ```
 
+## Supported Java versions
+
+JSplitButton is supported on Java LTS versions 17, 21, and 25. Non-LTS versions of Java are not supported and will receive best-effort support.
+
+Support for Java versions 8 and 11 is depricated, and CI testing will not be performed on these versions, but source code compatibility will be retained through a minimum of November 2026 for Java 8 and November 2027 for Java 11.
+
 ## Migrating from Version 1.x to 2.0 or Newer
 
 1. Add the Jitpack.io repositories shown above

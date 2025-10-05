@@ -662,7 +662,7 @@ public class JSplitButtonBeanInfo extends SimpleBeanInfo {
      * method.
      * <p>
      * There are four possible flavors of icons (16x16 color, 32x32 color, 16x16
-     * mono, 32x32 mono). If a bean choses to only support a single icon we
+     * mono, 32x32 mono). If a bean chooses to only support a single icon we
      * recommend supporting 16x16 color.
      * <p>
      * We recommend that icons have a "transparent" background so they can be

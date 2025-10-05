@@ -35,7 +35,6 @@ import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
-import javax.swing.event.EventListenerList;
 
 /**
  * An implementation of a "split" button. The left side acts like a normal
@@ -93,8 +92,19 @@ public class JSplitButton extends JButton {
      * Color or menu arrow when disabled.
      */
     private Color disabledArrowColor = Color.GRAY;
+    /**
+     * Image to display in split part of button. If null, a default image is
+     * drawn on demand.
+     */
     private transient Image image;
+    /**
+     * Disabled image to display in split part of button. If null, a default
+     * image is drawn on demand.
+     */
     private transient Image disabledImage;
+    /**
+     * Listener for internal changes within the JSplitButton itself.
+     */
     private final transient Listener listener;
 
     /**
@@ -149,10 +159,10 @@ public class JSplitButton extends JButton {
      * Sets the JPopupMenu to be displayed, when the split part of the button is
      * clicked.
      *
-     * @param popupMenu the menu to display
+     * @param menu the menu to display
      */
-    public void setPopupMenu(final JPopupMenu popupMenu) {
-        this.popupMenu = popupMenu;
+    public void setPopupMenu(final JPopupMenu menu) {
+        this.popupMenu = menu;
         image = null; //to repaint the arrow image
     }
 
@@ -172,10 +182,10 @@ public class JSplitButton extends JButton {
      * the separator (the line drawn when you hover your mouse over the split
      * part of the button).
      *
-     * @param separatorSpacing the spacing
+     * @param spacing the spacing
      */
-    public void setSeparatorSpacing(final int separatorSpacing) {
-        this.separatorSpacing = separatorSpacing;
+    public void setSeparatorSpacing(final int spacing) {
+        this.separatorSpacing = spacing;
     }
 
     /**
@@ -190,11 +200,11 @@ public class JSplitButton extends JButton {
     /**
      * Show the popup menu, if attached, even if the button part is clicked.
      *
-     * @param alwaysPopup true to show the attached JPopupMenu even if the
-     *                    button part is clicked, false otherwise
+     * @param isAlwaysPopup true to show the attached JPopupMenu even if the
+     *                      button part is clicked, false otherwise
      */
-    public void setAlwaysPopup(final boolean alwaysPopup) {
-        this.alwaysPopup = alwaysPopup;
+    public void setAlwaysPopup(final boolean isAlwaysPopup) {
+        this.alwaysPopup = isAlwaysPopup;
     }
 
     /**
@@ -209,10 +219,10 @@ public class JSplitButton extends JButton {
     /**
      * Set the arrow color.
      *
-     * @param arrowColor the color of the arrow
+     * @param color the color of the arrow
      */
-    public void setArrowColor(final Color arrowColor) {
-        this.arrowColor = arrowColor;
+    public void setArrowColor(final Color color) {
+        this.arrowColor = color;
         image = null; // to repaint the image with the new color
     }
 
@@ -228,12 +238,11 @@ public class JSplitButton extends JButton {
     /**
      * Sets the disabled arrow color.
      *
-     * @param disabledArrowColor color of the arrow if no popup menu is
-     *                           attached.
+     * @param color color of the arrow if no popup menu is attached.
      */
-    public void setDisabledArrowColor(final Color disabledArrowColor) {
-        this.disabledArrowColor = disabledArrowColor;
-        image = null; //to repaint the image with the new color
+    public void setDisabledArrowColor(final Color color) {
+        this.disabledArrowColor = color;
+        image = null; // to repaint the image with the new color
     }
 
     /**
@@ -248,10 +257,10 @@ public class JSplitButton extends JButton {
     /**
      * Set the width of the split part of the button.
      *
-     * @param splitWidth the width of the split
+     * @param width the width of the split
      */
-    public void setSplitWidth(final int splitWidth) {
-        this.splitWidth = splitWidth;
+    public void setSplitWidth(final int width) {
+        this.splitWidth = width;
     }
 
     /**
@@ -266,16 +275,16 @@ public class JSplitButton extends JButton {
     /**
      * Sets the size of the arrow.
      *
-     * @param arrowSize the size of the arrow
+     * @param size the size of the arrow
      */
-    public void setArrowSize(final int arrowSize) {
-        this.arrowSize = arrowSize;
-        image = null; //to repaint the image with the new size
+    public void setArrowSize(final int size) {
+        this.arrowSize = size;
+        image = null; // to repaint the image with the new size
     }
 
     /**
-     * Gets the image to be drawn in the split part. If no image is set, a new image
-     * is created with the triangle.
+     * Gets the image to be drawn in the split part. If no image is set, a new
+     * image is created with the triangle.
      *
      * @return image
      */
@@ -293,25 +302,25 @@ public class JSplitButton extends JButton {
     /**
      * Sets the image to draw instead of the triangle.
      *
-     * @param image the image
+     * @param img the image
      */
-    public void setImage(final Image image) {
-        this.image = image;
+    public void setImage(final Image img) {
+        this.image = img;
     }
 
     /**
-     * Gets the disabled image to be drawn in the split part. If no image is set, a
-     * new image is created with the triangle.
+     * Gets the disabled image to be drawn in the split part. If no image is
+     * set, a new image is created with the triangle.
      *
      * @return image
      */
     public Image getDisabledImage() {
-        if (disabledImage != null) {
-            return disabledImage;
-        } else {
-            disabledImage = this.getImage(this.arrowSize, this.disabledArrowColor);
-            return disabledImage;
+        if (disabledImage == null) {
+            disabledImage = this.getImage(
+                this.arrowSize,
+                this.disabledArrowColor);
         }
+        return disabledImage;
     }
 
     /**
@@ -323,17 +332,28 @@ public class JSplitButton extends JButton {
      */
     private Image getImage(final int size, final Color color) {
         Graphics2D g;
-        BufferedImage img = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
+        Color darkRed = new Color(0x8F1C1C);
+        int rightAngle = 90;
+        BufferedImage img = new BufferedImage(
+            size,
+            size,
+            BufferedImage.TYPE_INT_RGB);
         g = img.createGraphics();
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, img.getWidth(), img.getHeight());
         g.setColor(color);
         // this creates a triangle facing right >
-        g.fillPolygon(new int[]{0, 0, size / 2}, new int[]{0, size, size / 2}, 3);
+        g.fillPolygon(
+            new int[]{0, 0, size / 2},
+            new int[]{0, size, size / 2},
+            3);
         g.dispose();
         // rotate it to face downwards
-        img = rotate(img, 90);
-        BufferedImage dimg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        img = rotate(img, rightAngle);
+        BufferedImage dimg = new BufferedImage(
+            img.getWidth(),
+            img.getHeight(),
+            BufferedImage.TYPE_INT_ARGB);
         g = dimg.createGraphics();
         g.setComposite(AlphaComposite.Src);
         g.drawImage(img, null, 0, 0);
@@ -341,7 +361,7 @@ public class JSplitButton extends JButton {
         for (int i = 0; i < dimg.getHeight(); i++) {
             for (int j = 0; j < dimg.getWidth(); j++) {
                 if (dimg.getRGB(j, i) == Color.WHITE.getRGB()) {
-                    dimg.setRGB(j, i, 0x8F1C1C);
+                    dimg.setRGB(j, i, darkRed.getRGB());
                 }
             }
         }
@@ -352,12 +372,17 @@ public class JSplitButton extends JButton {
     /**
      * Sets the disabled image to draw instead of the triangle.
      *
-     * @param image the new image to use
+     * @param img the new image to use
      */
-    public void setDisabledImage(final Image image) {
-        this.disabledImage = image;
+    public void setDisabledImage(final Image img) {
+        this.disabledImage = img;
     }
 
+    /**
+     * Returns the preferred size of the component.
+     *
+     * @return the preferred size
+     */
     @Override
     public Dimension getPreferredSize() {
         Dimension size = super.getPreferredSize();
@@ -367,20 +392,45 @@ public class JSplitButton extends JButton {
         return size;
     }
 
+    /**
+     * Paints the component, including the split and arrow.
+     *
+     * @param g the Graphics context in which to paint
+     */
     @Override
     protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
         Color oldColor = g.getColor();
-        splitRectangle = new Rectangle(getWidth() - splitWidth, 0, splitWidth, getHeight());
+        splitRectangle = new Rectangle(
+            getWidth() - splitWidth,
+            0,
+            splitWidth,
+            getHeight());
         g.translate(splitRectangle.x, splitRectangle.y);
         int mh = getHeight() / 2;
         int mw = splitWidth / 2;
-        g.drawImage(isEnabled() ? getImage() : getDisabledImage(), mw - arrowSize / 2, mh + 2 - arrowSize / 2, null);
+        g.drawImage(
+            isEnabled() ? getImage() : getDisabledImage(),
+            mw - arrowSize / 2,
+            mh + 2 - arrowSize / 2,
+            null);
         if (onSplit && !alwaysPopup && popupMenu != null) {
-            g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.background"));
-            g.drawLine(1, separatorSpacing + 2, 1, getHeight() - separatorSpacing - 2);
-            g.setColor(UIManager.getLookAndFeelDefaults().getColor("Button.shadow"));
-            g.drawLine(2, separatorSpacing + 2, 2, getHeight() - separatorSpacing - 2);
+            g.setColor(
+                UIManager
+                    .getLookAndFeelDefaults()
+                    .getColor("Button.background"));
+            g.drawLine(
+                1,
+                separatorSpacing + 2,
+                1,
+                getHeight() - separatorSpacing - 2);
+            g.setColor(
+                UIManager.getLookAndFeelDefaults().getColor("Button.shadow"));
+            g.drawLine(
+                2,
+                separatorSpacing + 2,
+                2,
+                getHeight() - separatorSpacing - 2);
         }
         g.setColor(oldColor);
         g.translate(-splitRectangle.x, -splitRectangle.y);
@@ -389,7 +439,7 @@ public class JSplitButton extends JButton {
     /**
      * Rotates the given image with the specified angle.
      *
-     * @param image   image to rotate
+     * @param img   image to rotate
      * @param angle angle of rotation
      * @return rotated image
      */
@@ -409,7 +459,8 @@ public class JSplitButton extends JButton {
      *
      * @param l the listener to add.
      */
-    public void addButtonClickedActionListener(final ButtonClickedActionListener l) {
+    public void addButtonClickedActionListener(
+        final ButtonClickedActionListener l) {
         listenerList.add(ButtonClickedActionListener.class, l);
     }
 
@@ -418,7 +469,8 @@ public class JSplitButton extends JButton {
      *
      * @param l the listener to remove.
      */
-    public void removeButtonClickedActionListener(final ButtonClickedActionListener l) {
+    public void removeButtonClickedActionListener(
+        final ButtonClickedActionListener l) {
         listenerList.remove(ButtonClickedActionListener.class, l);
     }
 
@@ -428,7 +480,8 @@ public class JSplitButton extends JButton {
      *
      * @param l the listener to add.
      */
-    public void addSplitButtonClickedActionListener(final SplitButtonClickedActionListener l) {
+    public void addSplitButtonClickedActionListener(
+        final SplitButtonClickedActionListener l) {
         listenerList.add(SplitButtonClickedActionListener.class, l);
     }
 
@@ -437,7 +490,8 @@ public class JSplitButton extends JButton {
      *
      * @param l the listener to remove.
      */
-    public void removeSplitButtonClickedActionListener(final SplitButtonClickedActionListener l) {
+    public void removeSplitButtonClickedActionListener(
+        final SplitButtonClickedActionListener l) {
         listenerList.remove(SplitButtonClickedActionListener.class, l);
     }
 
@@ -453,17 +507,26 @@ public class JSplitButton extends JButton {
      * <p>
      * Package private so it is available to tests.
      */
-    class Listener implements MouseMotionListener, MouseListener, ActionListener {
+    class Listener implements
+        MouseMotionListener,
+        MouseListener,
+        ActionListener {
 
         @Override
         public void actionPerformed(final ActionEvent e) {
             if (popupMenu == null) {
                 fireButtonClicked(e);
             } else if (alwaysPopup) {
-                popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());
+                popupMenu.show(
+                    JSplitButton.this,
+                    getWidth() - (int) popupMenu.getPreferredSize().getWidth(),
+                    getHeight());
                 fireButtonClicked(e);
             } else if (onSplit) {
-                popupMenu.show(JSplitButton.this, getWidth() - (int) popupMenu.getPreferredSize().getWidth(), getHeight());
+                popupMenu.show(
+                    JSplitButton.this,
+                    getWidth() - (int) popupMenu.getPreferredSize().getWidth(),
+                    getHeight());
                 fireSplitButtonClicked(e);
             } else {
                 fireButtonClicked(e);
@@ -476,11 +539,13 @@ public class JSplitButton extends JButton {
          * {@code event} parameter.
          *
          * @param event the {@code ActionEvent} object
-         * @see EventListenerList
+         * @see javax.swing.event.EventListenerList
          */
         private void fireButtonClicked(final ActionEvent event) {
             // Guaranteed to return a non-null array
-            this.fireActionEvent(event, listenerList.getListeners(ButtonClickedActionListener.class));
+            this.fireActionEvent(
+                event,
+                listenerList.getListeners(ButtonClickedActionListener.class));
         }
 
         /**
@@ -493,7 +558,10 @@ public class JSplitButton extends JButton {
          */
         private void fireSplitButtonClicked(final ActionEvent event) {
             // Guaranteed to return a non-null array
-            this.fireActionEvent(event, listenerList.getListeners(SplitButtonClickedActionListener.class));
+            this.fireActionEvent(
+                event,
+                listenerList.getListeners(
+                    SplitButtonClickedActionListener.class));
         }
 
         /**
@@ -508,7 +576,9 @@ public class JSplitButton extends JButton {
          *                             {@link SplitButtonClickedActionListener}s
          * @see EventListenerList
          */
-        private void fireActionEvent(final ActionEvent event, ActionListener[] singleEventListeners) {
+        private void fireActionEvent(
+            final ActionEvent event,
+            final ActionListener[] singleEventListeners) {
             if (singleEventListeners.length != 0) {
                 String actionCommand = event.getActionCommand();
                 if (actionCommand == null) {

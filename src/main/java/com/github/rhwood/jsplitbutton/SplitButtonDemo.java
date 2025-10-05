@@ -36,11 +36,11 @@ public final class SplitButtonDemo extends JFrame {
     /**
      * Counter for number of times horizontal button is clicked.
      */
-    int horizontalCount = 0;
+    private int horizontalCount = 0;
     /**
      * Counter for number of times vertical button is clicked.
      */
-    int verticalCount = 0;
+    private int verticalCount = 0;
 
     /**
      * Create the demonstration.
@@ -58,11 +58,11 @@ public final class SplitButtonDemo extends JFrame {
 
     /**
      * Run a small demonstration program.
-     * 
+     *
      * @param args command line arguments; ignored
      * @throws IOException if unable to load popup button icon
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
         JFrame frame = new SplitButtonDemo();
         frame.setVisible(true);
     }
@@ -75,7 +75,9 @@ public final class SplitButtonDemo extends JFrame {
      */
     public JPanel horizontalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("Split Button Demo");
-        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/github/rhwood/jsplitbutton/splitbutton_16.png"))));
+        button.setIcon(new ImageIcon(ImageIO.read(
+            SplitButtonDemo.class.getResourceAsStream(
+                "/com/github/rhwood/jsplitbutton/splitbutton_16.png"))));
         JPopupMenu menu = new JPopupMenu();
         button.setPopupMenu(menu);
         button.setName("horizontalButton");
@@ -103,7 +105,9 @@ public final class SplitButtonDemo extends JFrame {
      */
     public JPanel verticalDemonstration() throws IOException {
         JSplitButton button = new JSplitButton("D");
-        button.setIcon(new ImageIcon(ImageIO.read(SplitButtonDemo.class.getResourceAsStream("/com/github/rhwood/jsplitbutton/splitbutton_32.png"))));
+        button.setIcon(new ImageIcon(ImageIO.read(
+            SplitButtonDemo.class.getResourceAsStream(
+                "/com/github/rhwood/jsplitbutton/splitbutton_32.png"))));
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         JPopupMenu menu = new JPopupMenu();

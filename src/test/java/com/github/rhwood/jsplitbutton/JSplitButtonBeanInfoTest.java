@@ -42,6 +42,7 @@ class JSplitButtonBeanInfoTest {
         assertEquals(trgt, info.getBeanDescriptor().getBeanClass());
     }
 
+    @SuppressWarnings("removal")
     @EnabledOnJre(JRE.JAVA_8)
     @Test
     void TestGetPropertyDescriptorsOnJava8() {
@@ -49,6 +50,7 @@ class JSplitButtonBeanInfoTest {
         assertEquals(143, info.getPropertyDescriptors().length);
     }
 
+    @SuppressWarnings("removal")
     @DisabledOnJre(JRE.JAVA_8)
     @Test
     void TestGetPropertyDescriptors() {

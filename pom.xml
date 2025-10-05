@@ -130,7 +130,7 @@ limitations under the License.
                         <artifactId>maven-checkstyle-plugin</artifactId>
                         <configuration>
                             <violationSeverity>warning</violationSeverity>
-                            <failOnViolation>false</failOnViolation>
+                            <failOnViolation>true</failOnViolation>
                         </configuration>
                         <executions>
                             <execution>
